@@ -1,0 +1,12 @@
+{
+    "variants": {
+        "age=0": { "model": "notwhatitseems:block/potatoes/potatoes_stage0" },
+        "age=1": { "model": "notwhatitseems:block/potatoes/potatoes_stage0" },
+        "age=2": { "model": "notwhatitseems:block/potatoes/potatoes_stage1" },
+        "age=3": { "model": "notwhatitseems:block/potatoes/potatoes_stage1" },
+        "age=4": { "model": "notwhatitseems:block/potatoes/potatoes_stage2" },
+        "age=5": { "model": "notwhatitseems:block/potatoes/potatoes_stage2" },
+        "age=6": { "model": "notwhatitseems:block/potatoes/potatoes_stage2" },
+        "age=7": { "model": "notwhatitseems:block/potatoes/potatoes_stage3" }
+    }
+}

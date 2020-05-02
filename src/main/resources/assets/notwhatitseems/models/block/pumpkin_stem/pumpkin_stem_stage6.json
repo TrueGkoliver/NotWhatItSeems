@@ -1,0 +1,6 @@
+{
+    "parent": "notwhatitseems:block/stems/stem_growth6",
+    "textures": {
+        "stem": "block/pumpkin_stem"
+    }
+}
