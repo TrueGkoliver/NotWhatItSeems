@@ -16,7 +16,7 @@ import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorldReader;
 
 public class FakeVineBlock extends VineBlock {
-
+	
 	public FakeVineBlock(Properties properties) {
 		super(properties);
 	}

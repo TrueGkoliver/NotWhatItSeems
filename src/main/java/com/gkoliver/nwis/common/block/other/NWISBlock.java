@@ -25,9 +25,23 @@ public class NWISBlock extends Block {
 				state.getBlock() == BlockRegistry.FAKE_SPRUCE_SAPLING.get() ||
 				state.getBlock() == BlockRegistry.FAKE_JUNGLE_SAPLING.get() ||
 				state.getBlock() == BlockRegistry.FAKE_ACACIA_SAPLING.get() ||
-				state.getBlock() == BlockRegistry.FAKE_DARK_OAK_SAPLING.get());
+				state.getBlock() == BlockRegistry.FAKE_DARK_OAK_SAPLING.get() ||
+				state.getBlock() == BlockRegistry.FROSTY_SAPLING.get() ||
+				state.getBlock() == BlockRegistry.MAPLE_SAPLING.get() ||
+				state.getBlock() == BlockRegistry.MAPLE_SAPLING_ORANGE.get() ||
+				state.getBlock() == BlockRegistry.MAPLE_SAPLING_RED.get() ||
+				state.getBlock() == BlockRegistry.ROSEWOOD_SAPLING.get() ||
+				state.getBlock() == BlockRegistry.SERENE_SAPLING.get() || 
+				state.getBlock() == BlockRegistry.SUNNY_SAPLING.get() ||
+				state.getBlock() == BlockRegistry.SWEET_SAPLING.get() ||
+				state.getBlock() == BlockRegistry.WARM_SAPLING.get() ||
+				state.getBlock() == BlockRegistry.WISTERIA_BLUE.get() ||
+				state.getBlock() == BlockRegistry.WISTERIA_PINK.get() ||
+				state.getBlock() == BlockRegistry.WISTERIA_PURPLE.get() ||
+				state.getBlock() == BlockRegistry.WISTERIA_WHITE.get());
 		boolean isMushroom = (state.getBlock() == BlockRegistry.FAKE_MUSHOOM_1.get() ||
-				state.getBlock() == BlockRegistry.FAKE_MUSHOOM_2.get());
+				state.getBlock() == BlockRegistry.FAKE_MUSHOOM_2.get() ||
+				state.getBlock() == BlockRegistry.FAKE_GLOWSHROOM.get());
 		if (isSapling) {
 			return SAPLING_SHAPE;
 		} else if (isMushroom) {

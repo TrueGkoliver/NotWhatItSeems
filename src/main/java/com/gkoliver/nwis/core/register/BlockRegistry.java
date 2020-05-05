@@ -179,6 +179,8 @@ public class BlockRegistry {
 			new NWISNorthableBlock(PROP_MUSH));
 	public static final RegistryObject<Block> SPECIAL_MUSHROOM_R = genBlock("fake_red_mushroom_block",
 			new NWISNorthableBlock(PROP_MUSH));
+	public static final RegistryObject<Block> FAKE_MUSHROOM_STEM = genBlock("fake_mushroom_stem",
+			new NWISNorthableBlock(PROP_MUSH));
 	public static final RegistryObject<Block> FAKE_CHORUS = genBlock("fake_chorus_fruit_block",
 			new NWISNorthableBlock(PROP_MUSH));
 
@@ -190,37 +192,36 @@ public class BlockRegistry {
 
 	// Quark: Glowing Caves
 	public static final RegistryObject<Block> FAKE_GLOWCELIUM = genBlock("fake_glowcelium", new NWISBlock(PROP_MUSH));
-	public static final RegistryObject<Block> FAKE_GLOWCELIUM_A = genBlock("fake_glowceilium_a",
+	public static final RegistryObject<Block> FAKE_GLOWCELIUM_A = genBlock("fake_glowcelium_a",
 			new NWISBlock(PROP_MUSH));
 	public static final RegistryObject<Block> FAKE_BIG_GLOWSHROOM = genBlock("fake_big_glowshroom",
 			new NWISNorthableBlock(PROP_MUSH));
-	public static final RegistryObject<Block> FAKE_GLOWSHROOM = genBlock2("fake_glowshroom", new NWISBlock(PROP_MUSH));
-	public static final RegistryObject<Block> FAKE_CAVE_ROOTS = genBlock("fake_cave_roots", new NWISBlock(PROP_MUSH));
+	public static final RegistryObject<Block> FAKE_BIG_GLOWSHROOM_STEM = genBlock("fake_big_glowshroom_stem",
+			new NWISNorthableBlock(PROP_MUSH));
+	public static final RegistryObject<Block> FAKE_GLOWSHROOM = genBlock2("fake_glowshroom", new NWISBlock(PROP_SAPLING));
+	public static final RegistryObject<Block> FAKE_CAVE_ROOTS = genBlock("fake_cave_roots", new FakeVineBlock(PROP_MUSH));
 	// Sapling
-	public static final RegistryObject<Block> FROSTY_SAPLING = genBlock2("fake_qsap_frosty", new NWISBlock(PROP_MUSH));
-	public static final RegistryObject<Block> SERENE_SAPLING = genBlock2("fake_qsap_serene", new NWISBlock(PROP_MUSH));
-	public static final RegistryObject<Block> WARM_SAPLING = genBlock2("fake_qsap_warm", new NWISBlock(PROP_MUSH));
-	public static final RegistryObject<Block> SUNNY_SAPLING = genBlock2("fake_qsap_sunny", new NWISBlock(PROP_MUSH));
-	public static final RegistryObject<Block> SWEET_SAPLING = genBlock2("fake_qsap_sweet", new NWISBlock(PROP_MUSH));
+	public static final RegistryObject<Block> FROSTY_SAPLING = genBlock2("fake_qsap_frosty", new NWISBlock(PROP_SAPLING));
+	public static final RegistryObject<Block> SERENE_SAPLING = genBlock2("fake_qsap_serene", new NWISBlock(PROP_SAPLING));
+	public static final RegistryObject<Block> WARM_SAPLING = genBlock2("fake_qsap_warm", new NWISBlock(PROP_SAPLING));
+	public static final RegistryObject<Block> SUNNY_SAPLING = genBlock2("fake_qsap_sunny", new NWISBlock(PROP_SAPLING));
+	public static final RegistryObject<Block> SWEET_SAPLING = genBlock2("fake_qsap_sweet", new NWISBlock(PROP_SAPLING));
 	// Autuminity
-	public static final RegistryObject<Block> MAPLE_SAPLING = genBlock2("fake_maple_sapling", new NWISBlock(PROP_MUSH));
+	public static final RegistryObject<Block> MAPLE_SAPLING = genBlock2("fake_maple_sapling", new NWISBlock(PROP_SAPLING));
 	public static final RegistryObject<Block> MAPLE_SAPLING_RED = genBlock2("fake_maple_sapling_red",
-			new NWISBlock(PROP_MUSH));
+			new NWISBlock(PROP_SAPLING));
 	public static final RegistryObject<Block> MAPLE_SAPLING_YELLOW = genBlock2("fake_maple_sapling_yellow",
-			new NWISBlock(PROP_MUSH));
-	public static final RegistryObject<Block> MAPLE_SAPLING_ORANGE = genBlock2("fake_maple_sapling_blue",
-			new NWISBlock(PROP_MUSH));
+			new NWISBlock(PROP_SAPLING));
+	public static final RegistryObject<Block> MAPLE_SAPLING_ORANGE = genBlock2("fake_maple_sapling_orange",
+			new NWISBlock(PROP_SAPLING));
 	// Atmospheric
 	public static final RegistryObject<Block> PASSION_VINE = genBlock2("fake_passion_vine", new NWISBlock(PROP_MUSH));
-	public static final RegistryObject<Block> ROSEWOOD_SAPLING = genBlock2("fake_rosewood_sapling",
-			new NWISBlock(PROP_MUSH));
+	public static final RegistryObject<Block> ROSEWOOD_SAPLING = genBlock2("fake_rosewood_sapling", new NWISBlock(PROP_MUSH));
 	// Bloomful
 	public static final RegistryObject<Block> WISTERIA_PINK = genBlock2("fake_wisteria_pink", new NWISBlock(PROP_MUSH));
 	public static final RegistryObject<Block> WISTERIA_BLUE = genBlock2("fake_wisteria_blue", new NWISBlock(PROP_MUSH));
-	public static final RegistryObject<Block> WISTERIA_PURPLE = genBlock2("fake_wisteria_purple",
-			new NWISBlock(PROP_MUSH));
-	public static final RegistryObject<Block> WISTERIA_WHITE = genBlock2("fake_wisteria_white",
-			new NWISBlock(PROP_MUSH));
+	public static final RegistryObject<Block> WISTERIA_PURPLE = genBlock2("fake_wisteria_purple", new NWISBlock(PROP_MUSH));
+	public static final RegistryObject<Block> WISTERIA_WHITE = genBlock2("fake_wisteria_white", new NWISBlock(PROP_MUSH));
 	// Corals
 	public static final ArrayList<RegistryObject<Block>> TUBE = genCoral("tube");
 	public static final ArrayList<RegistryObject<Block>> BRAIN = genCoral("brain");
