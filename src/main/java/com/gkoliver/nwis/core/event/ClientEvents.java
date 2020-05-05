@@ -40,6 +40,8 @@ public class ClientEvents {
 		RenderTypeLookup.setRenderLayer(BlockRegistry.STATIC_GRASS.get(), RenderType.getCutout());
 		RenderTypeLookup.setRenderLayer(BlockRegistry.RESTRAINED_DILLUTED_VOID_BLOCK.get(), RenderType.getTranslucent());
 		RenderTypeLookup.setRenderLayer(BlockRegistry.DILLUTED_VOID_BLOCK.get(), RenderType.getTranslucent());
+		RenderTypeLookup.setRenderLayer(BlockRegistry.FAKE_BIG_GLOWSHROOM, RenderType.getTranslucent());
+		
 		ClientRegistry.bindTileEntityRenderer(TileEntityRegistry.VOID_BLOCK.get(), VoidBlockTileEntityRenderer::new);
 		ScreenManager.registerFactory(TileEntityRegistry.COPIER.get(), ImposterScreen::new);
 		
