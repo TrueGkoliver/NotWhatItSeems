@@ -1,4 +1,4 @@
-package com.gkoliver.nwis.common.block;
+package com.gkoliver.nwis.common.block.other;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;

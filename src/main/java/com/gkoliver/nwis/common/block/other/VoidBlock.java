@@ -1,4 +1,4 @@
-package com.gkoliver.nwis.common.block;
+package com.gkoliver.nwis.common.block.other;
 
 import com.gkoliver.nwis.common.tile.VoidTileEntity;
 

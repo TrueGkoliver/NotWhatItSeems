@@ -30,6 +30,7 @@ public class NotWhatItSeems
         BlockRegistry.BLOCKS.register(eventBus);
         ItemRegistry.ITEMS.register(eventBus);
         TileEntityRegistry.TILE_ENTITIES.register(eventBus);
+        TileEntityRegistry.CONTAINERS.register(eventBus);
     }
 
     private void setup(final FMLCommonSetupEvent event)

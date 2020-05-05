@@ -1,9 +1,11 @@
 {
-	"block.notwhatitseems.fake_potatoes" : "Artificial Potato Pattern",
-	"block.notwhatitseems.fake_carrots" : "Artificial Carrot Pattern",
-	"block.notwhatitseems.fake_wheat" : "Artificial Wheat Pattern",
-	"block.notwhatitseems.fake_melon_stem" : "Artificial Melon Stem Pattern",
-	"block.notwhatitseems.fake_pumpkin_stem" : "Artificial Pumpkin Stem Pattern",
+	"block.notwhatitseems.fake_potato" : "Cardboard Potato Pattern",
+	"block.notwhatitseems.fake_carrot" : "Cardboard Carrot Pattern",
+	"block.notwhatitseems.fake_wheat" : "Cardboard Wheat Pattern",
+	"block.notwhatitseems.fake_melon_stem" : "Cardboard Melon Stem Pattern",
+	"block.notwhatitseems.fake_pumpkin_stem" : "Cardboard Pumpkin Stem Pattern",
 	"block.notwhatitseems.fake_pumpkin_stem_attached" : "You shouldn't have access to this.",
-	"block.notwhatitseems.fake_melon_stem_attached" : "You shouldn't have access to this."
+	"block.notwhatitseems.fake_melon_stem_attached" : "You shouldn't have access to this.",
+	"block.notwhatitseems.imposter_station" : "Copier",
+	"container.copier" : "Copier"
 }

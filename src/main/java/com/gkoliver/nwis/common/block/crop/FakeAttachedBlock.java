@@ -1,4 +1,4 @@
-package com.gkoliver.nwis.common.block;
+package com.gkoliver.nwis.common.block.crop;
 
 import java.util.Map;
 

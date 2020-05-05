@@ -3,6 +3,7 @@ import java.util.Iterator;
 
 import com.gkoliver.nwis.NotWhatItSeems;
 import com.gkoliver.nwis.client.render.VoidBlockTileEntityRenderer;
+import com.gkoliver.nwis.common.gui.ImposterScreen;
 import com.gkoliver.nwis.core.register.BlockRegistry;
 import com.gkoliver.nwis.core.register.TileEntityRegistry;
 
@@ -14,6 +15,7 @@ import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.RenderTypeLookup;
 import net.minecraft.client.renderer.tileentity.TileEntityRendererDispatcher;
 import net.minecraft.world.FoliageColors;
+import net.minecraft.world.GrassColors;
 import net.minecraft.world.biome.BiomeColors;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.ColorHandlerEvent;
@@ -35,7 +37,11 @@ public class ClientEvents {
 			Block i = iter.next();
 			RenderTypeLookup.setRenderLayer(i, RenderType.getCutoutMipped());
 		}
+		RenderTypeLookup.setRenderLayer(BlockRegistry.STATIC_GRASS.get(), RenderType.getCutout());
+		RenderTypeLookup.setRenderLayer(BlockRegistry.RESTRAINED_DILLUTED_VOID_BLOCK.get(), RenderType.getTranslucent());
+		RenderTypeLookup.setRenderLayer(BlockRegistry.DILLUTED_VOID_BLOCK.get(), RenderType.getTranslucent());
 		ClientRegistry.bindTileEntityRenderer(TileEntityRegistry.VOID_BLOCK.get(), VoidBlockTileEntityRenderer::new);
+		ScreenManager.registerFactory(TileEntityRegistry.COPIER.get(), ImposterScreen::new);
 		
 	}
 	@SubscribeEvent
@@ -50,9 +56,19 @@ public class ClientEvents {
 	         int l = i * 4;
 	         return j << 16 | k << 8 | l;
 	      }, BlockRegistry.FAKE_MELON_STEM.get(), BlockRegistry.FAKE_PUMPKIN_STEM.get());
+		
+		event.getBlockColors().register((p_228061_0_, p_228061_1_, p_228061_2_, p_228061_3_) -> {
+	         return p_228061_1_ != null && p_228061_2_ != null ? BiomeColors.getFoliageColor(p_228061_1_, p_228061_2_) : FoliageColors.getDefault();
+	      }, BlockRegistry.FAKE_VINE.get());
+		
+		event.getBlockColors().register((p_228064_0_, p_228064_1_, p_228064_2_, p_228064_3_) -> {
+	         return p_228064_1_ != null && p_228064_2_ != null ? BiomeColors.getGrassColor(p_228064_1_, p_228064_2_) : GrassColors.get(0.5D, 1.0D);
+	    }, BlockRegistry.STATIC_GRASS.get(), BlockRegistry.STATIC_GRASS_A.get());
 	}
 	@SubscribeEvent
 	public static void onModelRegister(ModelRegistryEvent event) {
 		ClientRegistry.bindTileEntityRenderer(TileEntityRegistry.VOID_BLOCK.get(), VoidBlockTileEntityRenderer::new);
 	}
+	
+	
 }
