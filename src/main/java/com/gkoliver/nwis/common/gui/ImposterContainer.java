@@ -7,9 +7,15 @@ import java.util.Iterator;
 import com.gkoliver.nwis.NotWhatItSeems;
 import com.gkoliver.nwis.core.register.BlockRegistry;
 import com.gkoliver.nwis.core.register.TileEntityRegistry;
+import com.gkoliver.nwis.core.util.SharedFunctions;
+
+import net.minecraft.advancements.AdvancementList;
+import net.minecraft.advancements.AdvancementManager;
 import net.minecraft.client.Minecraft;
+import net.minecraft.data.AdvancementProvider;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
+import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.inventory.CraftResultInventory;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Inventory;
@@ -125,6 +131,19 @@ public class ImposterContainer extends Container {
 	      for(int i1 = 0; i1 < 9; ++i1) {
 	         this.addSlot(new Slot(playerInv, i1, 8 + i1 * 18, 109));
 	      }
+	    if (!playerInv.player.world.isRemote()) {
+	    	ServerPlayerEntity server = (ServerPlayerEntity) playerInv.player;
+	    	if (SharedFunctions.checkHasNether(server)) {
+	    		Slot slot = new Slot(inputInventory, 2, 44, 20) {
+		   	         public boolean isItemValid(ItemStack stack) {
+		   	            return stack.getItem() == Items.ELYTRA ||
+		   	            		stack.getItem() == Items.ENDER_EYE;
+		   	         }
+	    		};
+	    		this.addSlot(slot);
+	    	}
+	    }
+	    
 	}
 	@Override
 	public void onCraftMatrixChanged(IInventory inventoryIn) {
