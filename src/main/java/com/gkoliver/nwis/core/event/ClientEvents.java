@@ -1,4 +1,5 @@
 package com.gkoliver.nwis.core.event;
+import java.util.HashMap;
 import java.util.Iterator;
 
 import com.gkoliver.nwis.NotWhatItSeems;
@@ -74,12 +75,19 @@ public class ClientEvents {
 	         return p_228064_1_ != null && p_228064_2_ != null ? BiomeColors.getGrassColor(p_228064_1_, p_228064_2_) : GrassColors.get(0.5D, 1.0D);
 	    }, BlockRegistry.STATIC_GRASS.get(), BlockRegistry.STATIC_GRASS_A.get());
 	}
+	public static HashMap<BlockItem, Integer> COLOR_MAPS = new HashMap<BlockItem, Integer>();
 	@SubscribeEvent
 	public static void onColorItemRegister(ColorHandlerEvent.Item event) {
 		event.getItemColors().register((p_210235_1_, p_210235_2_) -> {
 	         BlockState blockstate = ((BlockItem)p_210235_1_.getItem()).getBlock().getDefaultState();
 	         return event.getBlockColors().getColor(blockstate, (ILightReader)null, (BlockPos)null, p_210235_2_);
-	      }, Item.getItemFromBlock(BlockRegistry.STATIC_GRASS.get()), Item.getItemFromBlock(BlockRegistry.STATIC_GRASS_A.get()), Item.getItemFromBlock(BlockRegistry.FAKE_VINE.get()));
+	      }, Item.getItemFromBlock(BlockRegistry.STATIC_GRASS.get()), Item.getItemFromBlock(BlockRegistry.STATIC_GRASS_A.get()));
+		for (BlockItem item : COLOR_MAPS.keySet()) {
+			int blocker = COLOR_MAPS.get(item);
+			event.getItemColors().register((p_210235_1_, p_210235_2_) -> {
+		         return blocker;
+		      }, item);
+		}
 	}
 	@SubscribeEvent
 	public static void onModelRegister(ModelRegistryEvent event) {

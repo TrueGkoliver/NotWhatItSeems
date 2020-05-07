@@ -21,6 +21,7 @@ import com.gkoliver.nwis.common.block.vegitation.SemiInvisibleBlock;
 import com.gkoliver.nwis.common.block.vegitation.SemiInvisibleNorthableBlock;
 import com.gkoliver.nwis.common.block.vegitation.SmallCoralBlock;
 import com.gkoliver.nwis.common.gui.ImposterContainer;
+import com.gkoliver.nwis.core.event.ClientEvents;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
@@ -41,17 +42,34 @@ public class BlockRegistry {
 	 * @return
 	 */
 	public static ArrayList<Block> CUTOUTS = new ArrayList<Block>();
-
-	public static RegistryObject<Block> genBlock(String id, Block block) {
+public static RegistryObject<Block> genBlock(String id, Block block) {
+		
 		BlockItem item = new BlockItem(block, new Item.Properties().group(ItemGroup.SEARCH));
 		ItemRegistry.ITEMS.register(id, () -> item);
 		return BlockRegistry.BLOCKS.register(id, () -> block);
 	}
-
+	public static RegistryObject<Block> genBlock(String id, Block block, int color) {
+		
+		BlockItem item = new BlockItem(block, new Item.Properties().group(ItemGroup.SEARCH));
+		ItemRegistry.ITEMS.register(id, () -> item);
+		if (color!=0) {
+			ClientEvents.COLOR_MAPS.put(item, color);
+		}
+		return BlockRegistry.BLOCKS.register(id, () -> block);
+	}
 	public static RegistryObject<Block> genBlock2(String id, Block block) {
 		BlockItem item = new BlockItem(block, new Item.Properties().group(ItemGroup.SEARCH));
 		ItemRegistry.ITEMS.register(id, () -> item);
 		CUTOUTS.add(block);
+		return BlockRegistry.BLOCKS.register(id, () -> block);
+	}
+	public static RegistryObject<Block> genBlock2(String id, Block block, int color) {
+		BlockItem item = new BlockItem(block, new Item.Properties().group(ItemGroup.SEARCH));
+		ItemRegistry.ITEMS.register(id, () -> item);
+		CUTOUTS.add(block);
+		if (color!=0) {
+			ClientEvents.COLOR_MAPS.put(item, color);
+		}
 		return BlockRegistry.BLOCKS.register(id, () -> block);
 	}
 
@@ -63,7 +81,7 @@ public class BlockRegistry {
 	// 5: Dead Coral Fan
 	// 6: Alive Coral Fan (Wall)
 	// 7: Dead Coral Fan (Wall)
-	public static ArrayList<RegistryObject<Block>> genCoral(String name, boolean ua) {
+	public static ArrayList<RegistryObject<Block>> genCoral(String name, boolean ua, int color) {
 		ArrayList<RegistryObject<Block>> tbr = new ArrayList<RegistryObject<Block>>();
 		NWISBlock alive_block = new NWISBlock(PROP_CORAL);
 		NWISBlock dead_block = new NWISBlock(PROP_CORAL);
@@ -121,6 +139,16 @@ public class BlockRegistry {
 			} else {
 				bi = new BlockItem(block, new Item.Properties().group(ItemGroup.SEARCH));
 			}
+			if (stringy.get(i).contains("dead")) {
+				if (stringy.get(i).contains("prismarine")) {
+					ClientEvents.COLOR_MAPS.put(bi, 0xA29281);
+				} else {
+					ClientEvents.COLOR_MAPS.put(bi, 0xA5A19D);
+				}
+			} else {
+				ClientEvents.COLOR_MAPS.put(bi, color);
+			}
+			
 			
 			ItemRegistry.ITEMS.register(stringy.get(i), () -> bi);
 		}
@@ -149,76 +177,76 @@ public class BlockRegistry {
 	
 	
 	public static final RegistryObject<Block> FAKE_CARROTS = genBlock2("fake_carrot",
-			new FakeGrowableBlock(PROP_CROPS, 0, ECropTypes.CARROT));
+			new FakeGrowableBlock(PROP_CROPS, 0, ECropTypes.CARROT), 0xFF8E09);
 	public static final RegistryObject<Block> FAKE_POTATO = genBlock2("fake_potato",
-			new FakeGrowableBlock(PROP_CROPS, 0, ECropTypes.POTATO));
+			new FakeGrowableBlock(PROP_CROPS, 0, ECropTypes.POTATO), 0xD9AA51);
 	public static final RegistryObject<Block> FAKE_WHEAT = genBlock2("fake_wheat",
-			new FakeGrowableBlock(PROP_CROPS, 0, ECropTypes.WHEAT));
+			new FakeGrowableBlock(PROP_CROPS, 0, ECropTypes.WHEAT), 0xDCBB65);
 	public static final RegistryObject<Block> FAKE_BEETROOT = genBlock2("fake_beetroot",
-			new FakeBeetrootBlock(PROP_CROPS));
+			new FakeBeetrootBlock(PROP_CROPS), 0xA4272C);
 	public static final RegistryObject<Block> FAKE_MELON_STEM = genBlock2("fake_melon_stem",
-			new FakeGrowableBlock(PROP_CROPS, 0, ECropTypes.MELON_STEM));
+			new FakeGrowableBlock(PROP_CROPS, 0, ECropTypes.MELON_STEM), 0x2A220B);
 	public static final RegistryObject<Block> FAKE_PUMPKIN_STEM = genBlock2("fake_pumpkin_stem",
-			new FakeGrowableBlock(PROP_CROPS, 0, ECropTypes.PUMPKIN_STEM));
+			new FakeGrowableBlock(PROP_CROPS, 0, ECropTypes.PUMPKIN_STEM), 0xCBC68D);
 
 	public static final RegistryObject<Block> FAKE_PUMPKIN_STEM_ATTACHED = genBlock2("fake_pumpkin_stem_attached",
-			new FakeAttachedBlock(PROP_CROPS, ECropTypes.PUMPKIN_STEM));
+			new FakeAttachedBlock(PROP_CROPS, ECropTypes.PUMPKIN_STEM), 0);
 	public static final RegistryObject<Block> FAKE_MELON_STEM_ATTACHED = genBlock2("fake_melon_stem_attached",
-			new FakeAttachedBlock(PROP_CROPS, ECropTypes.MELON_STEM));
-	public static final RegistryObject<Block> VOID_BLOCK = genBlock("void_block", new VoidBlock(PROP_VOID));
+			new FakeAttachedBlock(PROP_CROPS, ECropTypes.MELON_STEM), 0);
+	public static final RegistryObject<Block> VOID_BLOCK = genBlock("void_block", new VoidBlock(PROP_VOID), 0);
 	public static final RegistryObject<Block> DILLUTED_VOID_BLOCK = genBlock("dilluted_void_block",
-			new SemiInvisibleBlock(PROP_VOID));
+			new SemiInvisibleBlock(PROP_VOID), 0);
 	public static final RegistryObject<Block> RESTRAINED_DILLUTED_VOID_BLOCK = genBlock(
-			"restrained_dilluted_void_block", new RestrainedDillutedPortalBlock(PROP_VOID));
+			"restrained_dilluted_void_block", new RestrainedDillutedPortalBlock(PROP_VOID), 0);
 
 	public static final RegistryObject<Block> FAKE_OAK_SAPLING = genBlock2("fake_oak_sapling",
-			new NWISBlock(PROP_SAPLING));
+			new NWISBlock(PROP_SAPLING), 0x408F2F);
 	public static final RegistryObject<Block> FAKE_BIRCH_SAPLING = genBlock2("fake_birch_sapling",
-			new NWISBlock(PROP_SAPLING));
+			new NWISBlock(PROP_SAPLING), 0x6C9E38);
 	public static final RegistryObject<Block> FAKE_SPRUCE_SAPLING = genBlock2("fake_spruce_sapling",
-			new NWISBlock(PROP_SAPLING));
+			new NWISBlock(PROP_SAPLING), 0x2E492E);
 	public static final RegistryObject<Block> FAKE_JUNGLE_SAPLING = genBlock2("fake_jungle_sapling",
-			new NWISBlock(PROP_SAPLING));
+			new NWISBlock(PROP_SAPLING), 0x2B4A0C);
 	public static final RegistryObject<Block> FAKE_ACACIA_SAPLING = genBlock2("fake_acacia_sapling",
-			new NWISBlock(PROP_SAPLING));
+			new NWISBlock(PROP_SAPLING), 0x7E9821);
 	public static final RegistryObject<Block> FAKE_DARK_OAK_SAPLING = genBlock2("fake_dark_oak_sapling",
-			new NWISBlock(PROP_SAPLING));
+			new NWISBlock(PROP_SAPLING), 0x105210);
 
-	public static final RegistryObject<Block> FAKE_VINE = genBlock2("fake_vine", new FakeVineBlock(PROP_CROPS));
+	public static final RegistryObject<Block> FAKE_VINE = genBlock2("fake_vine", new FakeVineBlock(PROP_CROPS), 0x255E0D);
 
 	public static final RegistryObject<Block> FAKE_MUSHOOM_1 = genBlock2("fake_mushroom_red",
-			new NWISBlock(PROP_SAPLING));
+			new NWISBlock(PROP_SAPLING), 0xFE2A2A);
 	public static final RegistryObject<Block> FAKE_MUSHOOM_2 = genBlock2("fake_mushroom_brown",
-			new NWISBlock(PROP_SAPLING));
+			new NWISBlock(PROP_SAPLING), 0x916D55);
 
 	// Grass Blocks
-	public static final RegistryObject<Block> STATIC_GRASS = genBlock("fake_grass", new NWISBlock(PROP_SOIL));
-	public static final RegistryObject<Block> STATIC_MYCELIUM = genBlock("fake_mycelium", new NWISBlock(PROP_SOIL));
-	public static final RegistryObject<Block> STATIC_PODZOL = genBlock("fake_podzol", new NWISBlock(PROP_SOIL));
+	public static final RegistryObject<Block> STATIC_GRASS = genBlock("fake_grass", new NWISBlock(PROP_SOIL), 0);
+	public static final RegistryObject<Block> STATIC_MYCELIUM = genBlock("fake_mycelium", new NWISBlock(PROP_SOIL), 0);
+	public static final RegistryObject<Block> STATIC_PODZOL = genBlock("fake_podzol", new NWISBlock(PROP_SOIL), 0);
 
-	public static final RegistryObject<Block> STATIC_GRASS_A = genBlock("fake_grass_a", new NWISBlock(PROP_SOIL));
-	public static final RegistryObject<Block> STATIC_MYCELIUM_A = genBlock("fake_mycelium_a", new NWISBlock(PROP_SOIL));
-	public static final RegistryObject<Block> STATIC_PODZOL_A = genBlock("fake_podzol_a", new NWISBlock(PROP_SOIL));
+	public static final RegistryObject<Block> STATIC_GRASS_A = genBlock("fake_grass_a", new NWISBlock(PROP_SOIL), 0);
+	public static final RegistryObject<Block> STATIC_MYCELIUM_A = genBlock("fake_mycelium_a", new NWISBlock(PROP_SOIL), 0);
+	public static final RegistryObject<Block> STATIC_PODZOL_A = genBlock("fake_podzol_a", new NWISBlock(PROP_SOIL), 0);
 	public static final RegistryObject<Block> IMPOSTER_STATION = genBlock("imposter_station",
-			new ImposterStationBlock(PROP_SOIL));
+			new ImposterStationBlock(PROP_SOIL), 0);
 	public static final RegistryObject<Block> SPECIAL_MUSHROOM = genBlock("fake_brown_mushroom_block",
-			new NWISNorthableBlock(PROP_MUSH));
+			new NWISNorthableBlock(PROP_MUSH), 0);
 	public static final RegistryObject<Block> SPECIAL_MUSHROOM_R = genBlock("fake_red_mushroom_block",
-			new NWISNorthableBlock(PROP_MUSH));
+			new NWISNorthableBlock(PROP_MUSH), 0);
 	public static final RegistryObject<Block> FAKE_MUSHROOM_STEM = genBlock("fake_mushroom_stem",
-			new NWISNorthableBlock(PROP_MUSH));
+			new NWISNorthableBlock(PROP_MUSH), 0);
 	public static final RegistryObject<Block> FAKE_CHORUS = genBlock("fake_chorus_fruit",
-			new NewChorusPlantBlock(PROP_CHORUS_FRUIT));
+			new NewChorusPlantBlock(PROP_CHORUS_FRUIT), 0);
 	public static final RegistryObject<Block> FAKE_CHORUS_FLOWER = genBlock("fake_chorus_flower",
-			new ChorusFruitBlock(PROP_CHORUS_FRUIT));
+			new ChorusFruitBlock(PROP_CHORUS_FRUIT), 0);
 
 	// Endergetic
-	public static final RegistryObject<Block> STATIC_POSIMOSS = genBlock("fake_posimoss", new NWISBlock(PROP_SOIL));
-	public static final RegistryObject<Block> STATIC_POSIMOSS_A = genBlock("fake_posimoss_a", new NWISBlock(PROP_SOIL));
+	public static final RegistryObject<Block> STATIC_POSIMOSS = genBlock("fake_posimoss", new NWISBlock(PROP_SOIL), 0);
+	public static final RegistryObject<Block> STATIC_POSIMOSS_A = genBlock("fake_posimoss_a", new NWISBlock(PROP_SOIL), 0);
 	public static final RegistryObject<Block> STATIC_POSIMOSS_EUMUS = genBlock("fake_posimoss_eumus",
-			new NWISBlock(PROP_SOIL));
+			new NWISBlock(PROP_SOIL), 0);
 	public static final RegistryObject<Block> STATIC_POISE_CLUSTER = genBlock("fake_poise_cluster",
-			new SemiInvisibleBlock(PROP_SOIL));
+			new SemiInvisibleBlock(PROP_SOIL), 0);
 
 	// Quark: Glowing Caves
 	public static final RegistryObject<Block> FAKE_GLOWCELIUM = genBlock("fake_glowcelium", new NWISBlock(PROP_MUSH));
@@ -253,22 +281,23 @@ public class BlockRegistry {
 	public static final RegistryObject<Block> WISTERIA_PURPLE = genBlock2("fake_wisteria_purple", new NWISBlock(PROP_MUSH));
 	public static final RegistryObject<Block> WISTERIA_WHITE = genBlock2("fake_wisteria_white", new NWISBlock(PROP_MUSH));
 	// Corals
-	public static final ArrayList<RegistryObject<Block>> TUBE = genCoral("tube", false);
-	public static final ArrayList<RegistryObject<Block>> BRAIN = genCoral("brain", false);
-	public static final ArrayList<RegistryObject<Block>> BUBBLE = genCoral("bubble", false);
-	public static final ArrayList<RegistryObject<Block>> FIRE = genCoral("fire", false);
-	public static final ArrayList<RegistryObject<Block>> HORN = genCoral("horn", false);
+	public static final ArrayList<RegistryObject<Block>> TUBE = genCoral("tube", false, 0x304DD9);
+	public static final ArrayList<RegistryObject<Block>> BRAIN = genCoral("brain", false, 0xDF7CB5);
+	public static final ArrayList<RegistryObject<Block>> BUBBLE = genCoral("bubble", false, 0x8E168E);
+	public static final ArrayList<RegistryObject<Block>> FIRE = genCoral("fire", false, 0xC22936);
+	public static final ArrayList<RegistryObject<Block>> HORN = genCoral("horn", false, 0xE8E74A);
 	// Upgrade Aquatic Corals
-	public static final ArrayList<RegistryObject<Block>> ACAN = genCoral("acan", true);
-	public static final ArrayList<RegistryObject<Block>> FINGER = genCoral("finger", true);
-	public static final ArrayList<RegistryObject<Block>> STAR = genCoral("star",true);
-	public static final ArrayList<RegistryObject<Block>> MOSS = genCoral("moss",true);
-	public static final ArrayList<RegistryObject<Block>> PETAL = genCoral("petal",true);
-	public static final ArrayList<RegistryObject<Block>> BRANCH = genCoral("branch",true);
-	public static final ArrayList<RegistryObject<Block>> ROCK = genCoral("rock",true);
-	public static final ArrayList<RegistryObject<Block>> PILLOW = genCoral("pillow",true);
-	public static final ArrayList<RegistryObject<Block>> SILK = genCoral("silk",true);
-	public static final ArrayList<RegistryObject<Block>> PRISMARINE = genCoral("prismarine",true);
+	public static final ArrayList<RegistryObject<Block>> ACAN = genCoral("acan", true, 0x1A9BA0);
+	public static final ArrayList<RegistryObject<Block>> CHROME = genCoral("chrome", true, 0x848787);
+	public static final ArrayList<RegistryObject<Block>> FINGER = genCoral("finger", true, 0xE76800);
+	public static final ArrayList<RegistryObject<Block>> STAR = genCoral("star",true, 0x8AD941);
+	public static final ArrayList<RegistryObject<Block>> MOSS = genCoral("moss",true, 0x5E7C18);
+	public static final ArrayList<RegistryObject<Block>> PETAL = genCoral("petal",true, 0x2EAFE0);
+	public static final ArrayList<RegistryObject<Block>> BRANCH = genCoral("branch",true, 0x3E3E4D);
+	public static final ArrayList<RegistryObject<Block>> ROCK = genCoral("rock",true, 0xA57855);
+	public static final ArrayList<RegistryObject<Block>> PILLOW = genCoral("pillow",true, 0xEDEAE8);
+	public static final ArrayList<RegistryObject<Block>> SILK = genCoral("silk",true, 0x7F2EAA);
+	public static final ArrayList<RegistryObject<Block>> PRISMARINE = genCoral("prismarine",true, 0x46A9B0);
 	
 	public static final RegistryObject<Block> PRISMARINE_SHOWER = genBlock2("fake_prismarine_shower", new SmallCoralBlock(PROP_CORAL_T, ECoralType.SHOWER, null));
 	public static final RegistryObject<Block> ELDER_PRISMARINE_SHOWER = genBlock2("fake_elder_prismarine_shower", new SmallCoralBlock(PROP_CORAL_T, ECoralType.SHOWER, null));
