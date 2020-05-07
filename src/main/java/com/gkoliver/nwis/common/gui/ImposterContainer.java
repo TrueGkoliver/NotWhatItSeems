@@ -101,12 +101,15 @@ public class ImposterContainer extends Container {
 		this.callable = worldPosCallableIn;
 		this.addSlot(new Slot(this.inputInventory, 0, 44, 20) {
 	         public boolean isItemValid(ItemStack stack) {
-	            return stack.getItem() == Items.PAPER;
+	        	boolean stacker = stack.getItem() == Items.PAPER ||
+	        			stack.getItem() == Items.ENDER_EYE ||
+	        			stack.getItem() == Items.ELYTRA;
+	            return stacker;
 	         }
 	      });
 		this.addSlot(new Slot(this.inputInventory, 1, 62, 20) {
 	         public boolean isItemValid(ItemStack stack) {
-	            return ITEMS.keySet().contains(stack.getItem());
+	            return ITEMS.keySet().contains(stack.getItem()) || stack.getItem()==Items.OBSIDIAN;
 	         }
 	      });
 		this.addSlot(new Slot(this.outputInventory, 0, 116, 20) {
@@ -123,25 +126,13 @@ public class ImposterContainer extends Container {
 	        }
 	      });
 		for(int l = 0; l < 3; ++l) {
-	         for(int k = 0; k < 9; ++k) {
-	            this.addSlot(new Slot(playerInv, k + l * 9 + 9, 8 + k * 18, l * 18 + 51));
-	         }
-	      }
+			for(int k = 0; k < 9; ++k) {
+	    		this.addSlot(new Slot(playerInv, k + l * 9 + 9, 8 + k * 18, l * 18 + 51));
+			}
+	    }
 
-	      for(int i1 = 0; i1 < 9; ++i1) {
-	         this.addSlot(new Slot(playerInv, i1, 8 + i1 * 18, 109));
-	      }
-	    if (!playerInv.player.world.isRemote()) {
-	    	ServerPlayerEntity server = (ServerPlayerEntity) playerInv.player;
-	    	if (SharedFunctions.checkHasNether(server)) {
-	    		Slot slot = new Slot(inputInventory, 2, 44, 20) {
-		   	         public boolean isItemValid(ItemStack stack) {
-		   	            return stack.getItem() == Items.ELYTRA ||
-		   	            		stack.getItem() == Items.ENDER_EYE;
-		   	         }
-	    		};
-	    		this.addSlot(slot);
-	    	}
+	    for(int i1 = 0; i1 < 9; ++i1) {
+	    	this.addSlot(new Slot(playerInv, i1, 8 + i1 * 18, 109));
 	    }
 	    
 	}
@@ -152,9 +143,13 @@ public class ImposterContainer extends Container {
 	private void updateRecipeOutput() {
 		ItemStack paperStack = inputInventory.getStackInSlot(0);
 		ItemStack copyStack = inputInventory.getStackInSlot(1);
-		if (paperStack != ItemStack.EMPTY && copyStack != ItemStack.EMPTY) {
+		if (paperStack != ItemStack.EMPTY && paperStack.getItem() == Items.PAPER && copyStack != ItemStack.EMPTY) {
 			this.outputInventory.setInventorySlotContents(0, new ItemStack(ITEMS.get(copyStack.getItem())));
-		} else {
+		} 
+		else if (paperStack.getItem() == Items.ELYTRA) {
+			
+		}
+		else {
 			this.outputInventory.setInventorySlotContents(0, ItemStack.EMPTY);
 		}
 	}

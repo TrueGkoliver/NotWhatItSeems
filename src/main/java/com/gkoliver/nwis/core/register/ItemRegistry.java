@@ -9,5 +9,4 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 public class ItemRegistry {
 	public static final DeferredRegister<Item> ITEMS = new DeferredRegister<Item>(ForgeRegistries.ITEMS, NotWhatItSeems.MODID);
-
 }

@@ -9,14 +9,19 @@ import com.gkoliver.nwis.core.register.BlockRegistry;
 import com.gkoliver.nwis.core.register.TileEntityRegistry;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.StemBlock;
 import net.minecraft.client.gui.ScreenManager;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.RenderTypeLookup;
 import net.minecraft.client.renderer.tileentity.TileEntityRendererDispatcher;
+import net.minecraft.item.BlockItem;
+import net.minecraft.item.Item;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.FoliageColors;
 import net.minecraft.world.GrassColors;
+import net.minecraft.world.ILightReader;
 import net.minecraft.world.biome.BiomeColors;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.ColorHandlerEvent;
@@ -68,6 +73,13 @@ public class ClientEvents {
 		event.getBlockColors().register((p_228064_0_, p_228064_1_, p_228064_2_, p_228064_3_) -> {
 	         return p_228064_1_ != null && p_228064_2_ != null ? BiomeColors.getGrassColor(p_228064_1_, p_228064_2_) : GrassColors.get(0.5D, 1.0D);
 	    }, BlockRegistry.STATIC_GRASS.get(), BlockRegistry.STATIC_GRASS_A.get());
+	}
+	@SubscribeEvent
+	public static void onColorItemRegister(ColorHandlerEvent.Item event) {
+		event.getItemColors().register((p_210235_1_, p_210235_2_) -> {
+	         BlockState blockstate = ((BlockItem)p_210235_1_.getItem()).getBlock().getDefaultState();
+	         return event.getBlockColors().getColor(blockstate, (ILightReader)null, (BlockPos)null, p_210235_2_);
+	      }, Item.getItemFromBlock(BlockRegistry.STATIC_GRASS.get()), Item.getItemFromBlock(BlockRegistry.STATIC_GRASS_A.get()), Item.getItemFromBlock(BlockRegistry.FAKE_VINE.get()));
 	}
 	@SubscribeEvent
 	public static void onModelRegister(ModelRegistryEvent event) {

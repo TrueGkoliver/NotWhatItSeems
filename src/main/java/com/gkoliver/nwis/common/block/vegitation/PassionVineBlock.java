@@ -9,10 +9,13 @@ import net.minecraft.state.DirectionProperty;
 import net.minecraft.state.IntegerProperty;
 import net.minecraft.state.StateContainer.Builder;
 import net.minecraft.util.ActionResultType;
+import net.minecraft.util.Direction;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockRayTraceResult;
+import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
+import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
 
 public class PassionVineBlock extends Block {
@@ -35,7 +38,22 @@ public class PassionVineBlock extends Block {
 	public BlockState getStateForPlacement(BlockItemUseContext context) {
 		return this.getDefaultState().with(FACING, context.getPlacementHorizontalFacing());
 	}
-	
+	@Override
+	public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
+		Direction a = state.get(FACING);
+		if (a == Direction.NORTH) {
+			return NORTH_AABB;
+		}
+		else if (a == Direction.SOUTH) {
+			return SOUTH_AABB;
+		}
+		else if (a == Direction.EAST) {
+			return EAST_AABB;
+		}
+		else {
+			return WEST_AABB;
+		}
+	}
 	@Override
 	public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player,
 			Hand handIn, BlockRayTraceResult p_225533_6_) {
