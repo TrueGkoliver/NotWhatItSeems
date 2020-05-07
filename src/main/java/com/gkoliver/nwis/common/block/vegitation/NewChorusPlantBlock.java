@@ -1,4 +1,4 @@
-package com.gkoliver.nwis.common.block.other;
+package com.gkoliver.nwis.common.block.vegitation;
 
 import java.util.Map;
 
@@ -7,11 +7,10 @@ import com.google.common.collect.Maps;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.SixWayBlock;
+import net.minecraft.block.Block.Properties;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.state.BooleanProperty;
 import net.minecraft.state.StateContainer;
-import net.minecraft.state.StateContainer.Builder;
 import net.minecraft.state.properties.BlockStateProperties;
 import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Direction;
@@ -21,18 +20,20 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
+import net.minecraft.util.math.shapes.VoxelShapes;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
 
-public class NWISNorthableBlock extends Block {
-
+public class NewChorusPlantBlock extends Block {
+	
 	protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
 	      builder.add(NORTH, EAST, SOUTH, WEST, UP, DOWN);
 	}
+	protected final VoxelShape[] shapes;
 	
-	
-	public NWISNorthableBlock(Properties properties) {
+	public NewChorusPlantBlock(Properties properties) {
 		super(properties);
+		this.shapes = this.makeShapes();
 		this.setDefaultState(this.stateContainer.getBaseState().with(NORTH, false).with(EAST, false).with(WEST, false).with(SOUTH, false).with(UP, false).with(DOWN, false));
 	}
 	private static final Direction[] FACING_VALUES = Direction.values();
@@ -57,7 +58,8 @@ public class NWISNorthableBlock extends Block {
 			BooleanProperty ste1 = FACING_TO_PROPERTY_MAP.get(result.getFace());
 			BooleanProperty ste2 = FACING_TO_PROPERTY_MAP.get(result.getFace().getOpposite());
 			worldIn.setBlockState(pos, state.with(ste1, !state.get(ste1)));
-			worldIn.setBlockState(pos, state.with(ste2, !state.get(ste2)));
+			BlockState newState = worldIn.getBlockState(pos);
+			worldIn.setBlockState(pos, newState.with(ste2, !state.get(ste2)));
 			return ActionResultType.SUCCESS;
 		}
 		if (InverseKeybind.KEYBIND_INVERSE.isKeyDown()) {
@@ -74,5 +76,49 @@ public class NWISNorthableBlock extends Block {
 		}
 		
 	}
+	private VoxelShape[] makeShapes() {
+		float apothem = (float) 0.315;
+		float f = 0.5F - apothem;
+		float f1 = 0.5F + apothem;
+		VoxelShape voxelshape = Block.makeCuboidShape((double)(f * 16.0F), (double)(f * 16.0F), (double)(f * 16.0F), (double)(f1 * 16.0F), (double)(f1 * 16.0F), (double)(f1 * 16.0F));
+		VoxelShape[] avoxelshape = new VoxelShape[FACING_VALUES.length];
+		
+		for(int i = 0; i < FACING_VALUES.length; ++i) {
+		   Direction direction = FACING_VALUES[i];
+		   avoxelshape[i] = VoxelShapes.create(0.5D + Math.min((double)(-apothem), (double)direction.getXOffset() * 0.5D), 0.5D + Math.min((double)(-apothem), (double)direction.getYOffset() * 0.5D), 0.5D + Math.min((double)(-apothem), (double)direction.getZOffset() * 0.5D), 0.5D + Math.max((double)apothem, (double)direction.getXOffset() * 0.5D), 0.5D + Math.max((double)apothem, (double)direction.getYOffset() * 0.5D), 0.5D + Math.max((double)apothem, (double)direction.getZOffset() * 0.5D));
+		}
+		
+		VoxelShape[] avoxelshape1 = new VoxelShape[64];
+		
+		for(int k = 0; k < 64; ++k) {
+		   VoxelShape voxelshape1 = voxelshape;
+		
+		   for(int j = 0; j < FACING_VALUES.length; ++j) {
+		      if ((k & 1 << j) != 0) {
+		         voxelshape1 = VoxelShapes.or(voxelshape1, avoxelshape[j]);
+		      }
+		   }
+		
+		   avoxelshape1[k] = voxelshape1;
+		}
+
+		return avoxelshape1;
+	 }
+	@Override
+	public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
+		return this.shapes[this.getShapeIndex(state)];
+	}
+	
+	protected int getShapeIndex(BlockState state) {
+	      int i = 0;
+
+	      for(int j = 0; j < FACING_VALUES.length; ++j) {
+	         if (state.get(FACING_TO_PROPERTY_MAP.get(FACING_VALUES[j]))) {
+	            i |= 1 << j;
+	         }
+	      }
+
+	      return i;
+	   }
 
 }

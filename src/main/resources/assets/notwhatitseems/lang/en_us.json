@@ -7,5 +7,7 @@
 	"block.notwhatitseems.fake_pumpkin_stem_attached" : "You shouldn't have access to this.",
 	"block.notwhatitseems.fake_melon_stem_attached" : "You shouldn't have access to this.",
 	"block.notwhatitseems.imposter_station" : "Copier",
-	"container.copier" : "Copier"
+	"container.copier" : "Copier",
+	"key.notwhatitseems.inverse" : "Inverse Face",
+	"key.notwhatitseems.bothsides" : "Select Both Sides"
 }

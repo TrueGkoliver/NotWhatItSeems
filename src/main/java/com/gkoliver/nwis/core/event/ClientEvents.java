@@ -4,6 +4,7 @@ import java.util.Iterator;
 import com.gkoliver.nwis.NotWhatItSeems;
 import com.gkoliver.nwis.client.render.VoidBlockTileEntityRenderer;
 import com.gkoliver.nwis.common.gui.ImposterScreen;
+import com.gkoliver.nwis.core.keybind.InverseKeybind;
 import com.gkoliver.nwis.core.register.BlockRegistry;
 import com.gkoliver.nwis.core.register.TileEntityRegistry;
 
@@ -42,9 +43,10 @@ public class ClientEvents {
 		RenderTypeLookup.setRenderLayer(BlockRegistry.DILLUTED_VOID_BLOCK.get(), RenderType.getTranslucent());
 		RenderTypeLookup.setRenderLayer(BlockRegistry.FAKE_BIG_GLOWSHROOM.get(), RenderType.getTranslucent());
 		RenderTypeLookup.setRenderLayer(BlockRegistry.FAKE_BIG_GLOWSHROOM_STEM.get(), RenderType.getTranslucent());
+		RenderTypeLookup.setRenderLayer(BlockRegistry.FAKE_BIG_GLOWSHROOM_STEM.get(), RenderType.getTranslucent());
 		ClientRegistry.bindTileEntityRenderer(TileEntityRegistry.VOID_BLOCK.get(), VoidBlockTileEntityRenderer::new);
 		ScreenManager.registerFactory(TileEntityRegistry.COPIER.get(), ImposterScreen::new);
-		
+		InverseKeybind.addKey();
 	}
 	@SubscribeEvent
 	public static void onColorBlockRegister(ColorHandlerEvent.Block event) {

@@ -20,10 +20,4 @@ public class FakeVineBlock extends VineBlock {
 	public FakeVineBlock(Properties properties) {
 		super(properties);
 	}
-   
-
-
-	
-	
-
 }

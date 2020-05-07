@@ -1,7 +1,10 @@
 package com.gkoliver.nwis.common.gui;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 
+import com.gkoliver.nwis.NotWhatItSeems;
 import com.gkoliver.nwis.core.register.BlockRegistry;
 import com.gkoliver.nwis.core.register.TileEntityRegistry;
 import net.minecraft.client.Minecraft;
@@ -18,21 +21,62 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.util.IWorldPosCallable;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraftforge.common.extensions.IForgeContainerType;
+import net.minecraftforge.registries.ForgeRegistries;
 
 public class ImposterContainer extends Container {
+	public static ArrayList<ArrayList<String>> vanilla_corals = new ArrayList<ArrayList<String>>();
+	public static ArrayList<ArrayList<String>> ua_corals = new ArrayList<ArrayList<String>>();
 	public static final HashMap<Item, Item> ITEMS = new HashMap<Item, Item>() {
 		private static final long serialVersionUID = 1L;
-		{
-			put(Items.CARROT, Item.getItemFromBlock(BlockRegistry.FAKE_CARROTS.get()));
-			put(Items.POTATO, Item.getItemFromBlock(BlockRegistry.FAKE_POTATO.get()));
-			put(Items.WHEAT_SEEDS, Item.getItemFromBlock(BlockRegistry.FAKE_WHEAT.get()));
-			put(Items.CARROT, Item.getItemFromBlock(BlockRegistry.FAKE_CARROTS.get()));
-			put(Items.BEETROOT, Item.getItemFromBlock(BlockRegistry.DILLUTED_VOID_BLOCK.get()));
+	};
+	@SuppressWarnings("deprecation")
+	public void addBlocks() {
+		ITEMS.put(Items.CARROT, Item.getItemFromBlock(BlockRegistry.FAKE_CARROTS.get()));
+		ITEMS.put(Items.POTATO, Item.getItemFromBlock(BlockRegistry.FAKE_POTATO.get()));
+		ITEMS.put(Items.WHEAT_SEEDS, Item.getItemFromBlock(BlockRegistry.FAKE_WHEAT.get()));
+		ITEMS.put(Items.BEETROOT_SEEDS, Item.getItemFromBlock(BlockRegistry.FAKE_BEETROOT.get()));
+		ITEMS.put(Items.CARROT, Item.getItemFromBlock(BlockRegistry.FAKE_CARROTS.get()));
+		ITEMS.put(Items.BEETROOT, Item.getItemFromBlock(BlockRegistry.DILLUTED_VOID_BLOCK.get()));
+		
+		//Saplings
+		ITEMS.put(Items.OAK_SAPLING, Item.getItemFromBlock(BlockRegistry.FAKE_OAK_SAPLING.get()));
+		ITEMS.put(Items.BIRCH_SAPLING, Item.getItemFromBlock(BlockRegistry.FAKE_BIRCH_SAPLING.get()));
+		ITEMS.put(Items.SPRUCE_SAPLING, Item.getItemFromBlock(BlockRegistry.FAKE_SPRUCE_SAPLING.get()));
+		ITEMS.put(Items.JUNGLE_SAPLING, Item.getItemFromBlock(BlockRegistry.FAKE_JUNGLE_SAPLING.get()));
+		ITEMS.put(Items.DARK_OAK_SAPLING, Item.getItemFromBlock(BlockRegistry.FAKE_DARK_OAK_SAPLING.get()));
+		ITEMS.put(Items.ACACIA_SAPLING, Item.getItemFromBlock(BlockRegistry.FAKE_ACACIA_SAPLING.get()));
+		
+		//
+
+		if (NotWhatItSeems.ua) {
+			Iterator<ArrayList<String>> iter_1 = ua_corals.iterator();
+			while (iter_1.hasNext()) {
+				ArrayList<String> e = iter_1.next();
+				Iterator<String> iter_2 = e.iterator();
+				while (iter_2.hasNext()) {
+					String id = iter_2.next();
+					if (id.contains("prismarine")) {
+						id.replace("dead", "elder");
+					}
+					ITEMS.put(ForgeRegistries.ITEMS.getValue(new ResourceLocation("upgrade_aquatic", id)), ForgeRegistries.ITEMS.getValue(new ResourceLocation("notwhatitseems", id)));
+				}
+			}
+		}
+		Iterator<ArrayList<String>> iter_1 = vanilla_corals.iterator();
+		while (iter_1.hasNext()) {
+			ArrayList<String> e = iter_1.next();
+			Iterator<String> iter_2 = e.iterator();
+			while (iter_2.hasNext()) {
+				String id = iter_2.next();
+				ITEMS.put(ForgeRegistries.ITEMS.getValue(new ResourceLocation("minecraft", id)), ForgeRegistries.ITEMS.getValue(new ResourceLocation("notwhatitseems", id)));
+			}
 		}
 		
-	};
+		
+	}
 	private final IInventory outputInventory = new CraftResultInventory();
 	private final IInventory inputInventory = new Inventory(2) {
 		public void markDirty() {
@@ -47,6 +91,7 @@ public class ImposterContainer extends Container {
 	
 	public ImposterContainer(int windowIdIn, PlayerInventory playerInv, final IWorldPosCallable worldPosCallableIn) {
 		super(TileEntityRegistry.COPIER.get(), windowIdIn);
+		addBlocks();
 		this.callable = worldPosCallableIn;
 		this.addSlot(new Slot(this.inputInventory, 0, 44, 20) {
 	         public boolean isItemValid(ItemStack stack) {

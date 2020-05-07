@@ -5,22 +5,29 @@ import java.util.ArrayList;
 import com.gkoliver.nwis.NotWhatItSeems;
 import com.gkoliver.nwis.common.block.crop.ECropTypes;
 import com.gkoliver.nwis.common.block.crop.FakeAttachedBlock;
+import com.gkoliver.nwis.common.block.crop.FakeBeetrootBlock;
 import com.gkoliver.nwis.common.block.crop.FakeGrowableBlock;
 import com.gkoliver.nwis.common.block.other.ImposterStationBlock;
 import com.gkoliver.nwis.common.block.other.NWISBlock;
 import com.gkoliver.nwis.common.block.other.NWISNorthableBlock;
 import com.gkoliver.nwis.common.block.other.RestrainedDillutedPortalBlock;
 import com.gkoliver.nwis.common.block.other.VoidBlock;
+import com.gkoliver.nwis.common.block.vegitation.ChorusFruitBlock;
 import com.gkoliver.nwis.common.block.vegitation.CoralWallFanBlock;
 import com.gkoliver.nwis.common.block.vegitation.ECoralType;
 import com.gkoliver.nwis.common.block.vegitation.FakeVineBlock;
+import com.gkoliver.nwis.common.block.vegitation.NewChorusPlantBlock;
+import com.gkoliver.nwis.common.block.vegitation.SemiInvisibleBlock;
+import com.gkoliver.nwis.common.block.vegitation.SemiInvisibleNorthableBlock;
 import com.gkoliver.nwis.common.block.vegitation.SmallCoralBlock;
+import com.gkoliver.nwis.common.gui.ImposterContainer;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemGroup;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -36,13 +43,13 @@ public class BlockRegistry {
 	public static ArrayList<Block> CUTOUTS = new ArrayList<Block>();
 
 	public static RegistryObject<Block> genBlock(String id, Block block) {
-		BlockItem item = new BlockItem(block, new Item.Properties());
+		BlockItem item = new BlockItem(block, new Item.Properties().group(ItemGroup.SEARCH));
 		ItemRegistry.ITEMS.register(id, () -> item);
 		return BlockRegistry.BLOCKS.register(id, () -> block);
 	}
 
 	public static RegistryObject<Block> genBlock2(String id, Block block) {
-		BlockItem item = new BlockItem(block, new Item.Properties());
+		BlockItem item = new BlockItem(block, new Item.Properties().group(ItemGroup.SEARCH));
 		ItemRegistry.ITEMS.register(id, () -> item);
 		CUTOUTS.add(block);
 		return BlockRegistry.BLOCKS.register(id, () -> block);
@@ -56,16 +63,16 @@ public class BlockRegistry {
 	// 5: Dead Coral Fan
 	// 6: Alive Coral Fan (Wall)
 	// 7: Dead Coral Fan (Wall)
-	public static ArrayList<RegistryObject<Block>> genCoral(String name) {
+	public static ArrayList<RegistryObject<Block>> genCoral(String name, boolean ua) {
 		ArrayList<RegistryObject<Block>> tbr = new ArrayList<RegistryObject<Block>>();
 		NWISBlock alive_block = new NWISBlock(PROP_CORAL);
 		NWISBlock dead_block = new NWISBlock(PROP_CORAL);
-		SmallCoralBlock alive = new SmallCoralBlock(PROP_CORAL_T, ECoralType.SMALL);
-		SmallCoralBlock dead = new SmallCoralBlock(PROP_CORAL_T, ECoralType.SMALL);
-		SmallCoralBlock alive_fan = new SmallCoralBlock(PROP_CORAL_T, ECoralType.FAN);
-		SmallCoralBlock dead_fan = new SmallCoralBlock(PROP_CORAL_T, ECoralType.FAN);
+		SmallCoralBlock alive = new SmallCoralBlock(PROP_CORAL_T, ECoralType.SMALL, null);
+		SmallCoralBlock dead = new SmallCoralBlock(PROP_CORAL_T, ECoralType.SMALL, null);
 		CoralWallFanBlock alive_wall_fan = new CoralWallFanBlock(PROP_CORAL_T);
 		CoralWallFanBlock dead_wall_fan = new CoralWallFanBlock(PROP_CORAL_T);
+		SmallCoralBlock alive_fan = new SmallCoralBlock(PROP_CORAL_T, ECoralType.FAN, alive_wall_fan);
+		SmallCoralBlock dead_fan = new SmallCoralBlock(PROP_CORAL_T, ECoralType.FAN, dead_wall_fan);
 		ArrayList<Block> blocky = new ArrayList<Block>() {
 			private static final long serialVersionUID = 1L;
 			{
@@ -76,8 +83,8 @@ public class BlockRegistry {
 				add(alive_fan);
 				add(dead_fan);
 			}
-
 		};
+		
 		ArrayList<String> stringy = new ArrayList<String>() {
 			private static final long serialVersionUID = 1L;
 			{
@@ -88,8 +95,12 @@ public class BlockRegistry {
 				add(name + "_coral_fan");
 				add("dead_" + name + "_coral_fan");
 			}
-
 		};
+		if (ua) {
+			ImposterContainer.ua_corals.add(stringy);
+		} else {
+			ImposterContainer.vanilla_corals.add(stringy);
+		}
 		tbr.add(0, BLOCKS.register(name + "_coral_block", () -> alive_block));
 		tbr.add(1, BLOCKS.register("dead_" + name + "_coral_block", () -> dead_block));
 		tbr.add(2, BLOCKS.register(name + "_coral", () -> alive));
@@ -100,28 +111,43 @@ public class BlockRegistry {
 		tbr.add(7, BLOCKS.register("dead_" + name + "_coral_wall_fan", () -> dead_wall_fan));
 		for (int i = 0; i < blocky.size(); i++) {
 			Block block = blocky.get(i);
-			BlockItem bi = new BlockItem(block, new Item.Properties());
+			BlockItem bi;
+			if (ua) {
+				if (NotWhatItSeems.ua) {
+					bi = new BlockItem(block, new Item.Properties().group(ItemGroup.SEARCH));
+				} else {
+					bi = new BlockItem(block, new Item.Properties());
+				}
+			} else {
+				bi = new BlockItem(block, new Item.Properties().group(ItemGroup.SEARCH));
+			}
+			
 			ItemRegistry.ITEMS.register(stringy.get(i), () -> bi);
 		}
 		CUTOUTS.add(alive);
 		CUTOUTS.add(dead);
 		CUTOUTS.add(alive_fan);
 		CUTOUTS.add(dead_fan);
+		CUTOUTS.add(alive_wall_fan);
+		CUTOUTS.add(dead_wall_fan);
 		return tbr;
 
 	}
 
-	public static final Block.Properties PROP_CROPS = Block.Properties.create(Material.PLANTS).doesNotBlockMovement()
-			.notSolid().sound(SoundType.PLANT);
-	public static final Block.Properties PROP_VOID = Block.Properties.create(Material.PORTAL);
+	public static final Block.Properties PROP_CROPS = Block.Properties.create(Material.PLANTS).doesNotBlockMovement().notSolid().sound(SoundType.PLANT);
+	public static final Block.Properties PROP_VOID = Block.Properties.create(Material.PORTAL).notSolid();
 	public static final Block.Properties PROP_SAPLING = Block.Properties.create(Material.PLANTS).doesNotBlockMovement()
 			.notSolid().sound(SoundType.PLANT);
 	public static final Block.Properties PROP_SOIL = Block.Properties.create(Material.ORGANIC).sound(SoundType.PLANT);
 	public static final Block.Properties PROP_MUSH = Block.Properties.create(Material.ORGANIC).sound(SoundType.WOOD);
+	public static final Block.Properties PROP_GLOWMUSH = Block.Properties.create(Material.ORGANIC).sound(SoundType.WOOD).notSolid();
 	public static final Block.Properties PROP_STATION = Block.Properties.create(Material.ROCK).sound(SoundType.METAL);
 	public static final Block.Properties PROP_CORAL = Block.Properties.create(Material.CORAL).sound(SoundType.CORAL);
 	public static final Block.Properties PROP_CORAL_T = Block.Properties.create(Material.CORAL).sound(SoundType.CORAL)
 			.doesNotBlockMovement().notSolid();
+	public static final Block.Properties PROP_CHORUS_FRUIT = Block.Properties.create(Material.WOOD).sound(SoundType.WOOD).notSolid();
+	
+	
 	public static final RegistryObject<Block> FAKE_CARROTS = genBlock2("fake_carrot",
 			new FakeGrowableBlock(PROP_CROPS, 0, ECropTypes.CARROT));
 	public static final RegistryObject<Block> FAKE_POTATO = genBlock2("fake_potato",
@@ -129,7 +155,7 @@ public class BlockRegistry {
 	public static final RegistryObject<Block> FAKE_WHEAT = genBlock2("fake_wheat",
 			new FakeGrowableBlock(PROP_CROPS, 0, ECropTypes.WHEAT));
 	public static final RegistryObject<Block> FAKE_BEETROOT = genBlock2("fake_beetroot",
-			new FakeGrowableBlock(PROP_CROPS, 0, ECropTypes.BEETROOT));
+			new FakeBeetrootBlock(PROP_CROPS));
 	public static final RegistryObject<Block> FAKE_MELON_STEM = genBlock2("fake_melon_stem",
 			new FakeGrowableBlock(PROP_CROPS, 0, ECropTypes.MELON_STEM));
 	public static final RegistryObject<Block> FAKE_PUMPKIN_STEM = genBlock2("fake_pumpkin_stem",
@@ -141,7 +167,7 @@ public class BlockRegistry {
 			new FakeAttachedBlock(PROP_CROPS, ECropTypes.MELON_STEM));
 	public static final RegistryObject<Block> VOID_BLOCK = genBlock("void_block", new VoidBlock(PROP_VOID));
 	public static final RegistryObject<Block> DILLUTED_VOID_BLOCK = genBlock("dilluted_void_block",
-			new NWISBlock(PROP_VOID));
+			new SemiInvisibleBlock(PROP_VOID));
 	public static final RegistryObject<Block> RESTRAINED_DILLUTED_VOID_BLOCK = genBlock(
 			"restrained_dilluted_void_block", new RestrainedDillutedPortalBlock(PROP_VOID));
 
@@ -181,23 +207,27 @@ public class BlockRegistry {
 			new NWISNorthableBlock(PROP_MUSH));
 	public static final RegistryObject<Block> FAKE_MUSHROOM_STEM = genBlock("fake_mushroom_stem",
 			new NWISNorthableBlock(PROP_MUSH));
-	public static final RegistryObject<Block> FAKE_CHORUS = genBlock("fake_chorus_fruit_block",
-			new NWISNorthableBlock(PROP_MUSH));
+	public static final RegistryObject<Block> FAKE_CHORUS = genBlock("fake_chorus_fruit",
+			new NewChorusPlantBlock(PROP_CHORUS_FRUIT));
+	public static final RegistryObject<Block> FAKE_CHORUS_FLOWER = genBlock("fake_chorus_flower",
+			new ChorusFruitBlock(PROP_CHORUS_FRUIT));
 
 	// Endergetic
 	public static final RegistryObject<Block> STATIC_POSIMOSS = genBlock("fake_posimoss", new NWISBlock(PROP_SOIL));
 	public static final RegistryObject<Block> STATIC_POSIMOSS_A = genBlock("fake_posimoss_a", new NWISBlock(PROP_SOIL));
 	public static final RegistryObject<Block> STATIC_POSIMOSS_EUMUS = genBlock("fake_posimoss_eumus",
 			new NWISBlock(PROP_SOIL));
+	public static final RegistryObject<Block> STATIC_POISE_CLUSTER = genBlock("fake_poise_cluster",
+			new SemiInvisibleBlock(PROP_SOIL));
 
 	// Quark: Glowing Caves
 	public static final RegistryObject<Block> FAKE_GLOWCELIUM = genBlock("fake_glowcelium", new NWISBlock(PROP_MUSH));
 	public static final RegistryObject<Block> FAKE_GLOWCELIUM_A = genBlock("fake_glowcelium_a",
 			new NWISBlock(PROP_MUSH));
 	public static final RegistryObject<Block> FAKE_BIG_GLOWSHROOM = genBlock("fake_big_glowshroom",
-			new NWISNorthableBlock(PROP_MUSH));
+			new SemiInvisibleNorthableBlock(PROP_GLOWMUSH));
 	public static final RegistryObject<Block> FAKE_BIG_GLOWSHROOM_STEM = genBlock("fake_big_glowshroom_stem",
-			new NWISNorthableBlock(PROP_MUSH));
+			new SemiInvisibleNorthableBlock(PROP_GLOWMUSH));
 	public static final RegistryObject<Block> FAKE_GLOWSHROOM = genBlock2("fake_glowshroom", new NWISBlock(PROP_SAPLING));
 	public static final RegistryObject<Block> FAKE_CAVE_ROOTS = genBlock("fake_cave_roots", new FakeVineBlock(PROP_MUSH));
 	// Sapling
@@ -223,21 +253,27 @@ public class BlockRegistry {
 	public static final RegistryObject<Block> WISTERIA_PURPLE = genBlock2("fake_wisteria_purple", new NWISBlock(PROP_MUSH));
 	public static final RegistryObject<Block> WISTERIA_WHITE = genBlock2("fake_wisteria_white", new NWISBlock(PROP_MUSH));
 	// Corals
-	public static final ArrayList<RegistryObject<Block>> TUBE = genCoral("tube");
-	public static final ArrayList<RegistryObject<Block>> BRAIN = genCoral("brain");
-	public static final ArrayList<RegistryObject<Block>> BUBBLE = genCoral("bubble");
-	public static final ArrayList<RegistryObject<Block>> FIRE = genCoral("fire");
-	public static final ArrayList<RegistryObject<Block>> HORN = genCoral("horn");
+	public static final ArrayList<RegistryObject<Block>> TUBE = genCoral("tube", false);
+	public static final ArrayList<RegistryObject<Block>> BRAIN = genCoral("brain", false);
+	public static final ArrayList<RegistryObject<Block>> BUBBLE = genCoral("bubble", false);
+	public static final ArrayList<RegistryObject<Block>> FIRE = genCoral("fire", false);
+	public static final ArrayList<RegistryObject<Block>> HORN = genCoral("horn", false);
 	// Upgrade Aquatic Corals
-	public static final ArrayList<RegistryObject<Block>> ACAN = genCoral("acan");
-	public static final ArrayList<RegistryObject<Block>> FINGER = genCoral("finger");
-	public static final ArrayList<RegistryObject<Block>> STAR = genCoral("star");
-	public static final ArrayList<RegistryObject<Block>> MOSS = genCoral("moss");
-	public static final ArrayList<RegistryObject<Block>> PETAL = genCoral("petal");
-	public static final ArrayList<RegistryObject<Block>> BRANCH = genCoral("branch");
-	public static final ArrayList<RegistryObject<Block>> ROCK = genCoral("rock");
-	public static final ArrayList<RegistryObject<Block>> PILLOW = genCoral("pillow");
-	public static final ArrayList<RegistryObject<Block>> SILK = genCoral("silk");
-	public static final ArrayList<RegistryObject<Block>> PRISMARINE = genCoral("prismarine");
+	public static final ArrayList<RegistryObject<Block>> ACAN = genCoral("acan", true);
+	public static final ArrayList<RegistryObject<Block>> FINGER = genCoral("finger", true);
+	public static final ArrayList<RegistryObject<Block>> STAR = genCoral("star",true);
+	public static final ArrayList<RegistryObject<Block>> MOSS = genCoral("moss",true);
+	public static final ArrayList<RegistryObject<Block>> PETAL = genCoral("petal",true);
+	public static final ArrayList<RegistryObject<Block>> BRANCH = genCoral("branch",true);
+	public static final ArrayList<RegistryObject<Block>> ROCK = genCoral("rock",true);
+	public static final ArrayList<RegistryObject<Block>> PILLOW = genCoral("pillow",true);
+	public static final ArrayList<RegistryObject<Block>> SILK = genCoral("silk",true);
+	public static final ArrayList<RegistryObject<Block>> PRISMARINE = genCoral("prismarine",true);
+	
+	public static final RegistryObject<Block> PRISMARINE_SHOWER = genBlock2("fake_prismarine_shower", new SmallCoralBlock(PROP_CORAL_T, ECoralType.SHOWER, null));
+	public static final RegistryObject<Block> ELDER_PRISMARINE_SHOWER = genBlock2("fake_elder_prismarine_shower", new SmallCoralBlock(PROP_CORAL_T, ECoralType.SHOWER, null));
+	
+	//I'm keeping this in code as a relic for the history books.
+	//public static final ArrayList<ArrayList<RegistryObject<Block>>> CORALS = new ArrayList<ArrayList<RegistryObject<Block>>>();
 
 }

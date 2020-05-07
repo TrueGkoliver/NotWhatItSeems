@@ -13,6 +13,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import com.gkoliver.nwis.client.render.VoidBlockTileEntityRenderer;
+import com.gkoliver.nwis.common.gui.ImposterContainer;
 import com.gkoliver.nwis.core.register.BlockRegistry;
 import com.gkoliver.nwis.core.register.ItemRegistry;
 import com.gkoliver.nwis.core.register.TileEntityRegistry;

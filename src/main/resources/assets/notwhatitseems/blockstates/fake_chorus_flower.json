@@ -1,0 +1,6 @@
+{
+	"variants" : {
+		"grown=false" : {"model" : "block/chorus_flower"},
+		"grown=true" : { "model" : "block/chorus_flower_dead"}
+	}	
+}

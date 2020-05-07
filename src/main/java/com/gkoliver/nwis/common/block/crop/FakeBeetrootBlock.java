@@ -6,6 +6,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.state.IntegerProperty;
+import net.minecraft.state.StateContainer.Builder;
 import net.minecraft.state.properties.BlockStateProperties;
 import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Hand;
@@ -16,10 +17,11 @@ import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
 
-public class FakeBeetrootBlock extends FakeGrowableBlock {
+public class FakeBeetrootBlock extends Block {
 	public static final IntegerProperty AGE = BlockStateProperties.AGE_0_3;
-	public FakeBeetrootBlock(Properties properties, int maxStages) {
-		super(properties, maxStages, ECropTypes.BEETROOT);
+	public FakeBeetrootBlock(Properties properties) {
+		super(properties);
+		this.setDefaultState(this.stateContainer.getBaseState().with(AGE, Integer.valueOf(0)));
 	}
 
 	private static final VoxelShape[] BEETROOT_SHAPES = new VoxelShape[]{
@@ -33,6 +35,10 @@ public class FakeBeetrootBlock extends FakeGrowableBlock {
 		return BEETROOT_SHAPES[state.get(AGE)];
 	}
 	
+	@Override
+	protected void fillStateContainer(Builder<Block, BlockState> builder) {
+		builder.add(AGE);
+	}
 	@Override
 	public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player,
 			Hand handIn, BlockRayTraceResult p_225533_6_) {
