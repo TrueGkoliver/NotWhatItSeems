@@ -20,6 +20,8 @@ import com.gkoliver.nwis.common.block.vegitation.NewChorusPlantBlock;
 import com.gkoliver.nwis.common.block.vegitation.SemiInvisibleBlock;
 import com.gkoliver.nwis.common.block.vegitation.SemiInvisibleNorthableBlock;
 import com.gkoliver.nwis.common.block.vegitation.SmallCoralBlock;
+import com.gkoliver.nwis.common.block.vegitation.swex.DoubleDoubleCropBlock;
+import com.gkoliver.nwis.common.block.vegitation.swex.EDoubleCropType;
 import com.gkoliver.nwis.common.gui.ImposterContainer;
 import com.gkoliver.nwis.core.event.ClientEvents;
 
@@ -265,13 +267,13 @@ public static RegistryObject<Block> genBlock(String id, Block block) {
 	public static final RegistryObject<Block> SUNNY_SAPLING = genBlock2("fake_qsap_sunny", new NWISBlock(PROP_SAPLING), 0xC5BC53);
 	public static final RegistryObject<Block> SWEET_SAPLING = genBlock2("fake_qsap_sweet", new NWISBlock(PROP_SAPLING), 0xE5B7D3);
 	// Autuminity
-	public static final RegistryObject<Block> MAPLE_SAPLING = genBlock2("fake_maple_sapling", new NWISBlock(PROP_SAPLING));
+	public static final RegistryObject<Block> MAPLE_SAPLING = genBlock2("fake_maple_sapling", new NWISBlock(PROP_SAPLING), 0x31621B);
 	public static final RegistryObject<Block> MAPLE_SAPLING_RED = genBlock2("fake_maple_sapling_red",
-			new NWISBlock(PROP_SAPLING));
+			new NWISBlock(PROP_SAPLING), 0xBA420E);
 	public static final RegistryObject<Block> MAPLE_SAPLING_YELLOW = genBlock2("fake_maple_sapling_yellow",
-			new NWISBlock(PROP_SAPLING));
+			new NWISBlock(PROP_SAPLING), 0x977200);
 	public static final RegistryObject<Block> MAPLE_SAPLING_ORANGE = genBlock2("fake_maple_sapling_orange",
-			new NWISBlock(PROP_SAPLING));
+			new NWISBlock(PROP_SAPLING), 0x924D17);
 	// Atmospheric
 	public static final RegistryObject<Block> PASSION_VINE = genBlock2("fake_passion_vine", new NWISBlock(PROP_MUSH), 0x7A0145);
 	public static final RegistryObject<Block> ROSEWOOD_SAPLING = genBlock2("fake_rosewood_sapling", new NWISBlock(PROP_MUSH), 0x437224);
@@ -301,6 +303,13 @@ public static RegistryObject<Block> genBlock(String id, Block block) {
 	
 	public static final RegistryObject<Block> PRISMARINE_SHOWER = genBlock2("fake_prismarine_shower", new SmallCoralBlock(PROP_CORAL_T, ECoralType.SHOWER, null), 0x46A9B0);
 	public static final RegistryObject<Block> ELDER_PRISMARINE_SHOWER = genBlock2("fake_elder_prismarine_shower", new SmallCoralBlock(PROP_CORAL_T, ECoralType.SHOWER, null), 0xA29281);
+	
+	//Swamp Expansion Compat
+	public static final RegistryObject<Block> CATTAIL_BIG = genBlock2("fake_cattail_big", new DoubleDoubleCropBlock(PROP_CROPS, EDoubleCropType.CATTAIL));
+	public static final RegistryObject<Block> RICE_BIG = genBlock2("fake_rice_big", new DoubleDoubleCropBlock(PROP_CROPS, EDoubleCropType.CATTAIL));
+	
+	
+	
 	
 	//I'm keeping this in code as a relic for the history books.
 	//public static final ArrayList<ArrayList<RegistryObject<Block>>> CORALS = new ArrayList<ArrayList<RegistryObject<Block>>>();

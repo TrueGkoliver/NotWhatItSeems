@@ -50,6 +50,7 @@ public class ClientEvents {
 		RenderTypeLookup.setRenderLayer(BlockRegistry.FAKE_BIG_GLOWSHROOM.get(), RenderType.getTranslucent());
 		RenderTypeLookup.setRenderLayer(BlockRegistry.FAKE_BIG_GLOWSHROOM_STEM.get(), RenderType.getTranslucent());
 		RenderTypeLookup.setRenderLayer(BlockRegistry.FAKE_BIG_GLOWSHROOM_STEM.get(), RenderType.getTranslucent());
+		RenderTypeLookup.setRenderLayer(BlockRegistry.STATIC_POISE_CLUSTER.get(), RenderType.getTranslucent());
 		ClientRegistry.bindTileEntityRenderer(TileEntityRegistry.VOID_BLOCK.get(), VoidBlockTileEntityRenderer::new);
 		ScreenManager.registerFactory(TileEntityRegistry.COPIER.get(), ImposterScreen::new);
 		InverseKeybind.addKey();

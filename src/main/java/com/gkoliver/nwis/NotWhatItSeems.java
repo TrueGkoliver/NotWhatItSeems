@@ -30,7 +30,7 @@ public class NotWhatItSeems
 	public static boolean bloomful = false;
 	public static boolean atmospheric = false;
 	public static boolean atumwhatever = false;
-	
+	public static boolean swampexpansion = false;
 	public static final String MODID = "notwhatitseems";
     private static final Logger LOGGER = LogManager.getLogger();
 
@@ -58,6 +58,9 @@ public class NotWhatItSeems
         }
         if (ModList.get().isLoaded("autumnity")) {
         	atumwhatever = true;
+        }
+        if (ModList.get().isLoaded("swampexpansion")) {
+        	swampexpansion = true;
         }
     }
 
