@@ -319,9 +319,9 @@ public static RegistryObject<Block> genBlock(String id, Block block) {
 	public static final RegistryObject<Block> CATTAIL_SPROUT = genBlock2("fake_cattail_sprout", new CropSproutBlock(PROP_CROPS));
 	
 	
-	
-	//public static final RegistryObject<Block> RICE_BIG = genBlock2("fake_rice_big", new DoubleDoubleCropBlock(PROP_CROPS, EDoubleCropType.RICE));
-	
+	//Placeholders for now; be sure to not do it!
+	public static final RegistryObject<Block> RICE_BIG = genBlock2("fake_rice_big", new DoubleDoubleCropBlock(PROP_CROPS, EDoubleCropType.RICE));
+	public static final RegistryObject<Block> RICE = genBlock2("fake_rice", new DoubleDoubleCropBlock(PROP_CROPS, EDoubleCropType.RICE));
 	
 	
 	
