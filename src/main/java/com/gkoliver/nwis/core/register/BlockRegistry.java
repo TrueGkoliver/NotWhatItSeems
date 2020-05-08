@@ -20,17 +20,26 @@ import com.gkoliver.nwis.common.block.vegitation.NewChorusPlantBlock;
 import com.gkoliver.nwis.common.block.vegitation.SemiInvisibleBlock;
 import com.gkoliver.nwis.common.block.vegitation.SemiInvisibleNorthableBlock;
 import com.gkoliver.nwis.common.block.vegitation.SmallCoralBlock;
+import com.gkoliver.nwis.common.block.vegitation.swex.CropSproutBlock;
 import com.gkoliver.nwis.common.block.vegitation.swex.DoubleDoubleCropBlock;
 import com.gkoliver.nwis.common.block.vegitation.swex.EDoubleCropType;
+import com.gkoliver.nwis.common.block.vegitation.swex.SingleDoubleCropBlock;
 import com.gkoliver.nwis.common.gui.ImposterContainer;
 import com.gkoliver.nwis.core.event.ClientEvents;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
+import net.minecraft.state.properties.DoubleBlockHalf;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -306,7 +315,12 @@ public static RegistryObject<Block> genBlock(String id, Block block) {
 	
 	//Swamp Expansion Compat
 	public static final RegistryObject<Block> CATTAIL_BIG = genBlock2("fake_cattail_big", new DoubleDoubleCropBlock(PROP_CROPS, EDoubleCropType.CATTAIL));
-	public static final RegistryObject<Block> RICE_BIG = genBlock2("fake_rice_big", new DoubleDoubleCropBlock(PROP_CROPS, EDoubleCropType.CATTAIL));
+	public static final RegistryObject<Block> CATTAIL = genBlock2("fake_cattail", new SingleDoubleCropBlock(PROP_CROPS, EDoubleCropType.CATTAIL));
+	public static final RegistryObject<Block> CATTAIL_SPROUT = genBlock2("fake_cattail_sprout", new CropSproutBlock(PROP_CROPS));
+	
+	
+	
+	//public static final RegistryObject<Block> RICE_BIG = genBlock2("fake_rice_big", new DoubleDoubleCropBlock(PROP_CROPS, EDoubleCropType.RICE));
 	
 	
 	
