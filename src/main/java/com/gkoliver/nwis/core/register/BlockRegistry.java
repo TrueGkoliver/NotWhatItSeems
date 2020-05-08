@@ -24,6 +24,8 @@ import com.gkoliver.nwis.common.block.vegitation.swex.CropSproutBlock;
 import com.gkoliver.nwis.common.block.vegitation.swex.DoubleDoubleCropBlock;
 import com.gkoliver.nwis.common.block.vegitation.swex.EDoubleCropType;
 import com.gkoliver.nwis.common.block.vegitation.swex.SingleDoubleCropBlock;
+import com.gkoliver.nwis.common.block.vegitation.swex.rice.RiceDoubleSingleBlock;
+import com.gkoliver.nwis.common.block.vegitation.swex.rice.RiceSingleSingleBlock;
 import com.gkoliver.nwis.common.gui.ImposterContainer;
 import com.gkoliver.nwis.core.event.ClientEvents;
 
@@ -286,6 +288,9 @@ public static RegistryObject<Block> genBlock(String id, Block block) {
 	// Atmospheric
 	public static final RegistryObject<Block> PASSION_VINE = genBlock2("fake_passion_vine", new NWISBlock(PROP_MUSH), 0x7A0145);
 	public static final RegistryObject<Block> ROSEWOOD_SAPLING = genBlock2("fake_rosewood_sapling", new NWISBlock(PROP_MUSH), 0x437224);
+	public static final RegistryObject<Block> YUCCA_SAPLING = genBlock2("fake_yucca_sapling", new NWISBlock(PROP_MUSH), 0x85A143);
+	public static final RegistryObject<Block> ASPEN_SAPLING = genBlock2("fake_aspen_sapling", new NWISBlock(PROP_MUSH), 0xFFD556);
+	public static final RegistryObject<Block> KOUSA_SAPLING = genBlock2("fake_kousa_sapling", new NWISBlock(PROP_MUSH), 0xBBDDD1);
 	// Bloomful
 	public static final RegistryObject<Block> WISTERIA_PINK = genBlock2("fake_wisteria_pink", new NWISBlock(PROP_MUSH), 0xf29bbb);
 	public static final RegistryObject<Block> WISTERIA_BLUE = genBlock2("fake_wisteria_blue", new NWISBlock(PROP_MUSH), 0x6c95c9);
@@ -317,12 +322,9 @@ public static RegistryObject<Block> genBlock(String id, Block block) {
 	public static final RegistryObject<Block> CATTAIL_BIG = genBlock2("fake_cattail_big", new DoubleDoubleCropBlock(PROP_CROPS, EDoubleCropType.CATTAIL));
 	public static final RegistryObject<Block> CATTAIL = genBlock2("fake_cattail", new SingleDoubleCropBlock(PROP_CROPS, EDoubleCropType.CATTAIL));
 	public static final RegistryObject<Block> CATTAIL_SPROUT = genBlock2("fake_cattail_sprout", new CropSproutBlock(PROP_CROPS));
-	
-	
-	//Placeholders for now; be sure to not do it!
-	public static final RegistryObject<Block> RICE_BIG = genBlock2("fake_rice_big", new DoubleDoubleCropBlock(PROP_CROPS, EDoubleCropType.RICE));
-	public static final RegistryObject<Block> RICE = genBlock2("fake_rice", new DoubleDoubleCropBlock(PROP_CROPS, EDoubleCropType.RICE));
-	
+	public static final RegistryObject<Block> RICE_BIG = genBlock2("fake_rice_big", new RiceDoubleSingleBlock(PROP_CROPS));
+	public static final RegistryObject<Block> RICE = genBlock2("fake_rice", new RiceSingleSingleBlock(PROP_CROPS));
+	public static final RegistryObject<Block> WILLOW_SAPLING = genBlock2("fake_willow_sap", new NWISBlock(PROP_CROPS));
 	
 	
 	//I'm keeping this in code as a relic for the history books.

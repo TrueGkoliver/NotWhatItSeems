@@ -1,4 +1,4 @@
-package com.gkoliver.nwis.common.block.vegitation.swex;
+package com.gkoliver.nwis.common.block.vegitation.swex.rice;
 
 import com.gkoliver.nwis.core.register.BlockRegistry;
 
@@ -27,6 +27,20 @@ public class RiceDoubleSingleBlock extends Block {
 	protected void fillStateContainer(Builder<Block, BlockState> builder) {
 		builder.add(blockHalf);
 		builder.add(age);
+	}
+	public static void generateDoubleBlock(int type, BlockPos lower_pos, BlockState i, World worldIn) {
+		if (worldIn.getBlockState(lower_pos.up()).getBlock() == Blocks.AIR) {
+			if (type==0) {
+				 BlockState newstate = BlockRegistry.RICE_BIG.get().getDefaultState().with(blockHalf, DoubleBlockHalf.LOWER).with(age, 6);
+				 BlockState newstate_up = BlockRegistry.RICE_BIG.get().getDefaultState().with(blockHalf, DoubleBlockHalf.UPPER).with(age, 6);
+				 worldIn.setBlockState(lower_pos, newstate);
+				 worldIn.setBlockState(lower_pos.up(), newstate_up);
+			}
+			else {
+				
+			}
+		}
+		
 	}
 	@Override
 	public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player,

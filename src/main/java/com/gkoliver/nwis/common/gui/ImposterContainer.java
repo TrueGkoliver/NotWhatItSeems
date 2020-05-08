@@ -11,6 +11,7 @@ import com.gkoliver.nwis.core.util.SharedFunctions;
 
 import net.minecraft.advancements.AdvancementList;
 import net.minecraft.advancements.AdvancementManager;
+import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
 import net.minecraft.data.AdvancementProvider;
 import net.minecraft.entity.player.PlayerEntity;
@@ -30,6 +31,7 @@ import net.minecraft.util.IWorldPosCallable;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraftforge.common.extensions.IForgeContainerType;
+import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.ForgeRegistries;
 
 public class ImposterContainer extends Container {
@@ -38,6 +40,9 @@ public class ImposterContainer extends Container {
 	public static final HashMap<Item, Item> ITEMS = new HashMap<Item, Item>() {
 		private static final long serialVersionUID = 1L;
 	};
+	public static void addModdedRecipe(String modid, String id, RegistryObject<Block> object) {
+		ITEMS.put(ForgeRegistries.ITEMS.getValue(new ResourceLocation(modid, id)), Item.getItemFromBlock(object.get()));
+	}
 	@SuppressWarnings("deprecation")
 	public void addBlocks() {
 		ITEMS.put(Items.CARROT, Item.getItemFromBlock(BlockRegistry.FAKE_CARROTS.get()));
@@ -56,7 +61,20 @@ public class ImposterContainer extends Container {
 		ITEMS.put(Items.ACACIA_SAPLING, Item.getItemFromBlock(BlockRegistry.FAKE_ACACIA_SAPLING.get()));
 		
 		//
-
+		if (NotWhatItSeems.atmospheric) {
+			addModdedRecipe("atmospheric", "rosewood_sapling", BlockRegistry.ROSEWOOD_SAPLING);
+			addModdedRecipe("atmospheric", "yucca_sapling", BlockRegistry.YUCCA_SAPLING);
+			addModdedRecipe("atmospheric", "aspen_sapling", BlockRegistry.ASPEN_SAPLING);
+			addModdedRecipe("atmospheric", "kousa_sapling", BlockRegistry.KOUSA_SAPLING);
+			addModdedRecipe("atmospheric", "passionfruit", BlockRegistry.PASSION_VINE);
+		}
+		if (NotWhatItSeems.atumwhatever) {
+			addModdedRecipe("autumnity", "maple_sapling", BlockRegistry.MAPLE_SAPLING);
+			addModdedRecipe("autumnity", "red_maple_sapling", BlockRegistry.MAPLE_SAPLING_RED);
+			addModdedRecipe("autumnity", "orange_maple_sapling", BlockRegistry.MAPLE_SAPLING_ORANGE);
+			addModdedRecipe("autumnity", "yellow_maple_sapling", BlockRegistry.MAPLE_SAPLING_YELLOW);
+		}
+		
 		if (NotWhatItSeems.ua) {
 			Iterator<ArrayList<String>> iter_1 = ua_corals.iterator();
 			while (iter_1.hasNext()) {

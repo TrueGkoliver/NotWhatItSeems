@@ -1,0 +1,6 @@
+{
+    "parent": "notwhatitseems:block/changed_crop",
+    "textures": {
+        "crop": "swampexpansion:block/rice_stage0"
+    }
+}

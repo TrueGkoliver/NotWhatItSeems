@@ -1,0 +1,8 @@
+{
+    "variants": {
+        "half=upper,done=false":  { "model": "swampexpansion:block/cattail_tall_top" },
+        "half=lower,done=false":  { "model": "swampexpansion:block/cattail_tall_bottom" },
+        "half=upper,done=true":  { "model": "swampexpansion:block/cattail_tall_grown_top" },
+        "half=lower,done=true":  { "model": "swampexpansion:block/cattail_tall_grown_bottom" }
+    }
+}
