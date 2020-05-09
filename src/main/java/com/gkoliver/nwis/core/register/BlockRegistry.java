@@ -10,6 +10,7 @@ import com.gkoliver.nwis.common.block.crop.FakeGrowableBlock;
 import com.gkoliver.nwis.common.block.other.ImposterStationBlock;
 import com.gkoliver.nwis.common.block.other.NWISBlock;
 import com.gkoliver.nwis.common.block.other.NWISNorthableBlock;
+import com.gkoliver.nwis.common.block.other.NWISWaterLogBlock;
 import com.gkoliver.nwis.common.block.other.RestrainedDillutedPortalBlock;
 import com.gkoliver.nwis.common.block.other.VoidBlock;
 import com.gkoliver.nwis.common.block.vegitation.ChorusFruitBlock;
@@ -219,24 +220,24 @@ public static RegistryObject<Block> genBlock(String id, Block block) {
 			"restrained_dilluted_void_block", new RestrainedDillutedPortalBlock(PROP_VOID), 0);
 
 	public static final RegistryObject<Block> FAKE_OAK_SAPLING = genBlock2("fake_oak_sapling",
-			new NWISBlock(PROP_SAPLING), 0x408F2F);
+			new NWISWaterLogBlock(PROP_SAPLING), 0x408F2F);
 	public static final RegistryObject<Block> FAKE_BIRCH_SAPLING = genBlock2("fake_birch_sapling",
-			new NWISBlock(PROP_SAPLING), 0x6C9E38);
+			new NWISWaterLogBlock(PROP_SAPLING), 0x6C9E38);
 	public static final RegistryObject<Block> FAKE_SPRUCE_SAPLING = genBlock2("fake_spruce_sapling",
-			new NWISBlock(PROP_SAPLING), 0x2E492E);
+			new NWISWaterLogBlock(PROP_SAPLING), 0x2E492E);
 	public static final RegistryObject<Block> FAKE_JUNGLE_SAPLING = genBlock2("fake_jungle_sapling",
-			new NWISBlock(PROP_SAPLING), 0x2B4A0C);
+			new NWISWaterLogBlock(PROP_SAPLING), 0x2B4A0C);
 	public static final RegistryObject<Block> FAKE_ACACIA_SAPLING = genBlock2("fake_acacia_sapling",
-			new NWISBlock(PROP_SAPLING), 0x7E9821);
+			new NWISWaterLogBlock(PROP_SAPLING), 0x7E9821);
 	public static final RegistryObject<Block> FAKE_DARK_OAK_SAPLING = genBlock2("fake_dark_oak_sapling",
-			new NWISBlock(PROP_SAPLING), 0x105210);
+			new NWISWaterLogBlock(PROP_SAPLING), 0x105210);
 
 	public static final RegistryObject<Block> FAKE_VINE = genBlock2("fake_vine", new FakeVineBlock(PROP_CROPS), 0x255E0D);
 
 	public static final RegistryObject<Block> FAKE_MUSHOOM_1 = genBlock2("fake_mushroom_red",
-			new NWISBlock(PROP_SAPLING), 0xFE2A2A);
+			new NWISWaterLogBlock(PROP_SAPLING), 0xFE2A2A);
 	public static final RegistryObject<Block> FAKE_MUSHOOM_2 = genBlock2("fake_mushroom_brown",
-			new NWISBlock(PROP_SAPLING), 0x916D55);
+			new NWISWaterLogBlock(PROP_SAPLING), 0x916D55);
 
 	// Grass Blocks
 	public static final RegistryObject<Block> STATIC_GRASS = genBlock("fake_grass", new NWISBlock(PROP_SOIL), 0);
