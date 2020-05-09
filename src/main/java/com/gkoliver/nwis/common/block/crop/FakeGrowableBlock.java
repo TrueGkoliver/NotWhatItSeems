@@ -78,7 +78,7 @@ public class FakeGrowableBlock extends Block implements IWaterLoggable {
 		super(properties);
 		this.stages = maxStages;
 		this.type = type;
-		this.setDefaultState(this.stateContainer.getBaseState().with(AGE, Integer.valueOf(0)));
+		this.setDefaultState(this.stateContainer.getBaseState().with(AGE, Integer.valueOf(0)).with(WATERLOGGED, false));
 	}
 	
 	@Override
