@@ -22,7 +22,7 @@ public class TileEntityRegistry {
 	
 	public static final DeferredRegister<TileEntityType<?>> TILE_ENTITIES = new DeferredRegister<TileEntityType<?>>(ForgeRegistries.TILE_ENTITIES, NotWhatItSeems.MODID);
 	public static final RegistryObject<TileEntityType<VoidTileEntity>> VOID_BLOCK = TILE_ENTITIES.register("tile_void", () -> new TileEntityType<>(VoidTileEntity::new, Sets.newHashSet(BlockRegistry.VOID_BLOCK.get()), null));
-
+	public static final RegistryObject<TileEntityType<VoidTileEntity>> VOID_BLOCK_SEMI = TILE_ENTITIES.register("tile_void_2", () -> new TileEntityType<>(VoidTileEntity::new, Sets.newHashSet(BlockRegistry.VOID_BLOCK_SEMISOLID.get()), null));
 	public static final DeferredRegister<ContainerType<?>> CONTAINERS = new DeferredRegister<ContainerType<?>>(ForgeRegistries.CONTAINERS, NotWhatItSeems.MODID);
 	
 	

@@ -30,6 +30,7 @@ import com.gkoliver.nwis.common.gui.ImposterContainer;
 import com.gkoliver.nwis.core.event.ClientEvents;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.Block.Properties;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.SoundType;
@@ -187,7 +188,7 @@ public static RegistryObject<Block> genBlock(String id, Block block) {
 	public static final Block.Properties PROP_CORAL_T = Block.Properties.create(Material.CORAL).sound(SoundType.CORAL)
 			.doesNotBlockMovement().notSolid();
 	public static final Block.Properties PROP_CHORUS_FRUIT = Block.Properties.create(Material.WOOD).sound(SoundType.WOOD).notSolid();
-	
+	private static final Properties PROP_VOID_SEMI = Block.Properties.create(Material.PORTAL).notSolid().doesNotBlockMovement();
 	
 	public static final RegistryObject<Block> FAKE_CARROTS = genBlock2("fake_carrot",
 			new FakeGrowableBlock(PROP_CROPS, 0, ECropTypes.CARROT), 0xFF8E09);
@@ -206,9 +207,14 @@ public static RegistryObject<Block> genBlock(String id, Block block) {
 			new FakeAttachedBlock(PROP_CROPS, ECropTypes.PUMPKIN_STEM), 0);
 	public static final RegistryObject<Block> FAKE_MELON_STEM_ATTACHED = genBlock2("fake_melon_stem_attached",
 			new FakeAttachedBlock(PROP_CROPS, ECropTypes.MELON_STEM), 0);
+	
 	public static final RegistryObject<Block> VOID_BLOCK = genBlock("void_block", new VoidBlock(PROP_VOID), 0);
 	public static final RegistryObject<Block> DILLUTED_VOID_BLOCK = genBlock("dilluted_void_block",
 			new SemiInvisibleBlock(PROP_VOID), 0);
+	public static final RegistryObject<Block> VOID_BLOCK_SEMISOLID = genBlock("void_block_semi", new VoidBlock(PROP_VOID_SEMI), 0);
+	
+	public static final RegistryObject<Block> DILLUTED_VOID_BLOCK_SEMISOLID = genBlock("dilluted_void_block_semi",
+			new SemiInvisibleBlock(PROP_VOID_SEMI), 0);
 	public static final RegistryObject<Block> RESTRAINED_DILLUTED_VOID_BLOCK = genBlock(
 			"restrained_dilluted_void_block", new RestrainedDillutedPortalBlock(PROP_VOID), 0);
 

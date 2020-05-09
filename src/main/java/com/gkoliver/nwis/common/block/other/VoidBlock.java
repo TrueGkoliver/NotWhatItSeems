@@ -14,7 +14,6 @@ public class VoidBlock extends ContainerBlock {
 
 	@Override
 	public TileEntity createNewTileEntity(IBlockReader worldIn) {
-		System.out.println("Get the zoom");
 		return new VoidTileEntity();
 	}
 
