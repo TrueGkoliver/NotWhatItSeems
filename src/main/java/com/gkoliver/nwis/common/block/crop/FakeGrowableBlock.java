@@ -7,7 +7,12 @@ import com.gkoliver.nwis.core.register.BlockRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.IGrowable;
+import net.minecraft.block.IWaterLoggable;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.fluid.Fluid;
+import net.minecraft.fluid.Fluids;
+import net.minecraft.fluid.IFluidState;
+import net.minecraft.state.BooleanProperty;
 import net.minecraft.state.IntegerProperty;
 import net.minecraft.state.StateContainer;
 import net.minecraft.state.properties.BlockStateProperties;
@@ -19,12 +24,14 @@ import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.world.IBlockReader;
+import net.minecraft.world.IWorld;
 import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
 
-public class FakeGrowableBlock extends Block {
+public class FakeGrowableBlock extends Block implements IWaterLoggable {
 	int stages;
 	ECropTypes type;
+	public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
 	public static final IntegerProperty AGE = BlockStateProperties.AGE_0_7;
 	//Stage block sizes
 	private static final VoxelShape[] CARROT_SHAPES = new VoxelShape[]{
@@ -91,6 +98,7 @@ public class FakeGrowableBlock extends Block {
 	}
 	protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
 	      builder.add(AGE);
+	      builder.add(WATERLOGGED);
 	}
 	
 	@Override
@@ -120,4 +128,24 @@ public class FakeGrowableBlock extends Block {
 		}
 		return ActionResultType.SUCCESS;
 	}
+	
+	public IFluidState getFluidState(BlockState state) {
+		return state.get(WATERLOGGED) ? Fluids.WATER.getStillFluidState(false) : super.getFluidState(state);
+	}
+
+	public boolean receiveFluid(IWorld worldIn, BlockPos pos, BlockState state, IFluidState fluidStateIn) {
+		return IWaterLoggable.super.receiveFluid(worldIn, pos, state, fluidStateIn);
+	}
+
+	public boolean canContainFluid(IBlockReader worldIn, BlockPos pos, BlockState state, Fluid fluidIn) {
+		return IWaterLoggable.super.canContainFluid(worldIn, pos, state, fluidIn);
+	}
+	public BlockState updatePostPlacement(BlockState stateIn, Direction facing, BlockState facingState, IWorld worldIn, BlockPos currentPos, BlockPos facingPos) {
+		if (stateIn.get(WATERLOGGED)) {
+			worldIn.getPendingFluidTicks().scheduleTick(currentPos, Fluids.WATER, Fluids.WATER.getTickRate(worldIn));
+		}
+	
+		return super.updatePostPlacement(stateIn, facing, facingState, worldIn, currentPos, facingPos);
+	}
+	
 }

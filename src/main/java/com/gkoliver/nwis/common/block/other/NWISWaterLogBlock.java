@@ -32,32 +32,25 @@ public class NWISWaterLogBlock extends Block implements IWaterLoggable {
 		builder.add(WATERLOGGED);
 	}
 	public IFluidState getFluidState(BlockState state) {
-	      return state.get(WATERLOGGED) ? Fluids.WATER.getStillFluidState(false) : super.getFluidState(state);
-	   }
+		return state.get(WATERLOGGED) ? Fluids.WATER.getStillFluidState(false) : super.getFluidState(state);
+	}
 
-	   public boolean receiveFluid(IWorld worldIn, BlockPos pos, BlockState state, IFluidState fluidStateIn) {
-	      return IWaterLoggable.super.receiveFluid(worldIn, pos, state, fluidStateIn);
-	   }
+	public boolean receiveFluid(IWorld worldIn, BlockPos pos, BlockState state, IFluidState fluidStateIn) {
+		return IWaterLoggable.super.receiveFluid(worldIn, pos, state, fluidStateIn);
+	}
 
-	   public boolean canContainFluid(IBlockReader worldIn, BlockPos pos, BlockState state, Fluid fluidIn) {
-	      return IWaterLoggable.super.canContainFluid(worldIn, pos, state, fluidIn);
-	   }
-
-	   /**
-	    * Update the provided state given the provided neighbor facing and neighbor state, returning a new state.
-	    * For example, fences make their connections to the passed in state if possible, and wet concrete powder immediately
-	    * returns its solidified counterpart.
-	    * Note that this method should ideally consider only the specific face passed in.
-	    */
-	   public BlockState updatePostPlacement(BlockState stateIn, Direction facing, BlockState facingState, IWorld worldIn, BlockPos currentPos, BlockPos facingPos) {
-	      if (stateIn.get(WATERLOGGED)) {
-	         worldIn.getPendingFluidTicks().scheduleTick(currentPos, Fluids.WATER, Fluids.WATER.getTickRate(worldIn));
-	      }
-
-	      return super.updatePostPlacement(stateIn, facing, facingState, worldIn, currentPos, facingPos);
-	   }
-	   @Override
-		public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
+	public boolean canContainFluid(IBlockReader worldIn, BlockPos pos, BlockState state, Fluid fluidIn) {
+		return IWaterLoggable.super.canContainFluid(worldIn, pos, state, fluidIn);
+	}
+	public BlockState updatePostPlacement(BlockState stateIn, Direction facing, BlockState facingState, IWorld worldIn, BlockPos currentPos, BlockPos facingPos) {
+		if (stateIn.get(WATERLOGGED)) {
+			worldIn.getPendingFluidTicks().scheduleTick(currentPos, Fluids.WATER, Fluids.WATER.getTickRate(worldIn));
+		}
+	
+		return super.updatePostPlacement(stateIn, facing, facingState, worldIn, currentPos, facingPos);
+	}
+	@Override
+	public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
 			boolean isSapling = (state.getBlock() == BlockRegistry.FAKE_OAK_SAPLING.get() || 
 					state.getBlock() == BlockRegistry.FAKE_BIRCH_SAPLING.get() ||
 					state.getBlock() == BlockRegistry.FAKE_SPRUCE_SAPLING.get() ||
