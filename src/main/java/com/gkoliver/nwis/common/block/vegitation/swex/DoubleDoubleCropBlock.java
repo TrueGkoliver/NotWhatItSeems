@@ -9,6 +9,9 @@ import net.minecraft.block.Blocks;
 import net.minecraft.block.IWaterLoggable;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.fluid.Fluid;
+import net.minecraft.fluid.Fluids;
+import net.minecraft.fluid.IFluidState;
 import net.minecraft.item.ItemStack;
 import net.minecraft.state.BooleanProperty;
 import net.minecraft.state.EnumProperty;
@@ -17,24 +20,30 @@ import net.minecraft.state.properties.BlockStateProperties;
 import net.minecraft.state.properties.DoubleBlockHalf;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ActionResultType;
+import net.minecraft.util.Direction;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockRayTraceResult;
+import net.minecraft.world.IBlockReader;
+import net.minecraft.world.IWorld;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.RegistryObject;
 
-public class DoubleDoubleCropBlock extends Block {
+public class DoubleDoubleCropBlock extends Block implements IWaterLoggable{
 	public static BooleanProperty isDone = BooleanProperty.create("grown");
 	public static EnumProperty<DoubleBlockHalf> blockHalf = BlockStateProperties.DOUBLE_BLOCK_HALF;
+	public static BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
 	private EDoubleCropType type;
 	public DoubleDoubleCropBlock(Properties properties, EDoubleCropType type) {
 		super(properties);
 		this.type = type;
+		this.setDefaultState(this.getDefaultState().with(WATERLOGGED, false));
 	}
 	@Override
 	protected void fillStateContainer(Builder<Block, BlockState> builder) {
 		builder.add(isDone);
 		builder.add(blockHalf);
+		builder.add(WATERLOGGED);
 	}
 	public static void generateDoubleBlock(int type, BlockPos lower_pos, BlockState i, World worldIn) {
 		if (worldIn.getBlockState(lower_pos.up()).getBlock() == Blocks.AIR) {
@@ -57,17 +66,33 @@ public class DoubleDoubleCropBlock extends Block {
 	@Override
 	public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player,
 			Hand handIn, BlockRayTraceResult p_225533_6_) {
+		boolean isWater = state.get(WATERLOGGED);
+		if (!player.isShiftKeyDown()) {
+			return super.onBlockActivated(state, worldIn, pos, player, handIn, p_225533_6_);
+		}
 		if (state.get(isDone)) {
 			if (state.get(blockHalf)==DoubleBlockHalf.UPPER) {
 				BlockPos newPos = pos.down();
-				BlockState stateHere = Blocks.AIR.getDefaultState();
-				BlockState newerState = BlockRegistry.CATTAIL_SPROUT.get().getDefaultState();
+				BlockState stateHere = null;
+				BlockState newerState = null;
+				if (isWater) {
+					stateHere = Blocks.WATER.getDefaultState();
+				} else {
+					stateHere = Blocks.AIR.getDefaultState();
+				}
+				
+				newerState = BlockRegistry.CATTAIL_SPROUT.get().getDefaultState();
 				worldIn.setBlockState(pos, stateHere);
 				worldIn.setBlockState(newPos, newerState);
 			} else {
-				BlockPos newPos = pos.up();
 				BlockState stateHere = BlockRegistry.CATTAIL_SPROUT.get().getDefaultState();
 				BlockState newerState = Blocks.AIR.getDefaultState();
+				BlockPos newPos = pos.up();
+				if (isWater) {
+					newerState = Blocks.WATER.getDefaultState();
+				} else {
+					newerState = Blocks.AIR.getDefaultState();
+				}
 				worldIn.setBlockState(pos, stateHere);
 				worldIn.setBlockState(newPos, newerState);
 			}
@@ -75,13 +100,13 @@ public class DoubleDoubleCropBlock extends Block {
 		} else {
 			if (state.get(blockHalf)==DoubleBlockHalf.UPPER) {
 				BlockPos newPos = pos.down();
-				BlockState stateHere = worldIn.getBlockState(pos).with(isDone, true);
+				BlockState stateHere = state.with(isDone, true);
 				BlockState newerState = worldIn.getBlockState(newPos).with(isDone, true);
 				worldIn.setBlockState(pos, stateHere);
 				worldIn.setBlockState(newPos, newerState);
 			} else {
 				BlockPos newPos = pos.up();
-				BlockState stateHere = worldIn.getBlockState(pos).with(isDone, true);
+				BlockState stateHere = state.with(isDone, true);
 				BlockState newerState = worldIn.getBlockState(newPos).with(isDone, true);
 				worldIn.setBlockState(pos, stateHere);
 				worldIn.setBlockState(newPos, newerState);
@@ -102,5 +127,22 @@ public class DoubleDoubleCropBlock extends Block {
 
 	      super.onBlockHarvested(worldIn, pos, state, player);
 	   }
+	public IFluidState getFluidState(BlockState state) {
+		return state.get(WATERLOGGED) ? Fluids.WATER.getStillFluidState(false) : super.getFluidState(state);
+	}
 
+	public boolean receiveFluid(IWorld worldIn, BlockPos pos, BlockState state, IFluidState fluidStateIn) {
+		return IWaterLoggable.super.receiveFluid(worldIn, pos, state, fluidStateIn);
+	}
+
+	public boolean canContainFluid(IBlockReader worldIn, BlockPos pos, BlockState state, Fluid fluidIn) {
+		return IWaterLoggable.super.canContainFluid(worldIn, pos, state, fluidIn);
+	}
+	public BlockState updatePostPlacement(BlockState stateIn, Direction facing, BlockState facingState, IWorld worldIn, BlockPos currentPos, BlockPos facingPos) {
+		if (stateIn.get(WATERLOGGED)) {
+			worldIn.getPendingFluidTicks().scheduleTick(currentPos, Fluids.WATER, Fluids.WATER.getTickRate(worldIn));
+		}
+	
+		return super.updatePostPlacement(stateIn, facing, facingState, worldIn, currentPos, facingPos);
+	}
 }
