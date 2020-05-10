@@ -21,6 +21,7 @@ import com.gkoliver.nwis.common.block.vegitation.NewChorusPlantBlock;
 import com.gkoliver.nwis.common.block.vegitation.SemiInvisibleBlock;
 import com.gkoliver.nwis.common.block.vegitation.SemiInvisibleNorthableBlock;
 import com.gkoliver.nwis.common.block.vegitation.SmallCoralBlock;
+import com.gkoliver.nwis.common.block.vegitation.kelp.KelpBlock;
 import com.gkoliver.nwis.common.block.vegitation.swex.CropSproutBlock;
 import com.gkoliver.nwis.common.block.vegitation.swex.DoubleDoubleCropBlock;
 import com.gkoliver.nwis.common.block.vegitation.swex.EDoubleCropType;
@@ -337,4 +338,8 @@ public static RegistryObject<Block> genBlock(String id, Block block) {
 	//I'm keeping this in code as a relic for the history books.
 	//public static final ArrayList<ArrayList<RegistryObject<Block>>> CORALS = new ArrayList<ArrayList<RegistryObject<Block>>>();
 
+	
+	
+	//Kelps
+	public static final RegistryObject<Block> KELP = genBlock2("fake_kelp", new KelpBlock(PROP_CROPS));
 }

@@ -1,0 +1,6 @@
+{
+    "variants": {
+        "grown=false": { "model": "block/kelp" },
+        "grown=true": { "model": "block/kelp_plant" }
+    }
+}
