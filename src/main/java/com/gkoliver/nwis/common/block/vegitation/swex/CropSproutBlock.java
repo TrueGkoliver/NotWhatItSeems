@@ -37,9 +37,14 @@ public class CropSproutBlock extends Block implements IWaterLoggable {
 	public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player,
 			Hand handIn, BlockRayTraceResult p_225533_6_) {
 		if (player.isShiftKeyDown()) {
+			if (state.get(WATERLOGGED)) {
+				worldIn.setBlockState(pos, BlockRegistry.CATTAIL.get().getDefaultState().with(SingleDoubleCropBlock.WATERLOGGED, true));
+				return ActionResultType.SUCCESS;
+			}
 			worldIn.setBlockState(pos, BlockRegistry.CATTAIL.get().getDefaultState());
+			return ActionResultType.SUCCESS;
 		}
-		return ActionResultType.SUCCESS;
+		return super.onBlockActivated(state, worldIn, pos, player, handIn, p_225533_6_);
 	}
 	
 	public IFluidState getFluidState(BlockState state) {

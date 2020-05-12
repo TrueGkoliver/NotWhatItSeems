@@ -26,6 +26,8 @@ import com.gkoliver.nwis.common.block.vegitation.swex.CropSproutBlock;
 import com.gkoliver.nwis.common.block.vegitation.swex.DoubleDoubleCropBlock;
 import com.gkoliver.nwis.common.block.vegitation.swex.EDoubleCropType;
 import com.gkoliver.nwis.common.block.vegitation.swex.SingleDoubleCropBlock;
+import com.gkoliver.nwis.common.block.vegitation.swex.pickelreedtype.PickelReedSingleBlock;
+import com.gkoliver.nwis.common.block.vegitation.swex.pickelreedtype.PickelreedDoubleBlock;
 import com.gkoliver.nwis.common.block.vegitation.swex.rice.RiceDoubleSingleBlock;
 import com.gkoliver.nwis.common.block.vegitation.swex.rice.RiceSingleSingleBlock;
 import com.gkoliver.nwis.common.gui.ImposterContainer;
@@ -334,7 +336,11 @@ public static RegistryObject<Block> genBlock(String id, Block block) {
 	public static final RegistryObject<Block> RICE = genBlock2("fake_rice", new RiceSingleSingleBlock(PROP_CROPS));
 	public static final RegistryObject<Block> WILLOW_SAPLING = genBlock2("fake_willow_sap", new NWISBlock(PROP_CROPS));
 	
+	public static final RegistryObject<Block> PICKELREED_BLUE_BIG = genBlock2("pickelreed_blue_big", new PickelreedDoubleBlock(PROP_CROPS));
+	public static final RegistryObject<Block> PICKELREED_PURPLE_BIG = genBlock2("pickelreed_purple_big", new PickelreedDoubleBlock(PROP_CROPS));
 	
+	public static final RegistryObject<Block> PICKELREED_BLUE = genBlock2("pickelreed_blue", new PickelReedSingleBlock(PROP_CROPS));
+	public static final RegistryObject<Block> PICKELREED_PURPLE = genBlock2("pickelreed_purple", new PickelReedSingleBlock(PROP_CROPS));
 	//I'm keeping this in code as a relic for the history books.
 	//public static final ArrayList<ArrayList<RegistryObject<Block>>> CORALS = new ArrayList<ArrayList<RegistryObject<Block>>>();
 

@@ -46,14 +46,18 @@ public class DoubleDoubleCropBlock extends Block implements IWaterLoggable{
 		builder.add(WATERLOGGED);
 	}
 	public static void generateDoubleBlock(int type, BlockPos lower_pos, BlockState i, World worldIn) {
-		if (worldIn.getBlockState(lower_pos.up()).getBlock() == Blocks.AIR) {
+		if (worldIn.getBlockState(lower_pos.up()).getBlock() == Blocks.AIR || worldIn.getBlockState(lower_pos.up()).getBlock() == Blocks.WATER) {
 			if (type==0) {
 				 BlockState newstate = null;
 				 BlockState newstate_up = null;
 				 if (i.get(SingleDoubleCropBlock.WATERLOGGED)) {
-					 newstate = BlockRegistry.CATTAIL_BIG.get().getDefaultState().with(blockHalf, DoubleBlockHalf.LOWER).with(isDone, false);
+					 newstate = BlockRegistry.CATTAIL_BIG.get().getDefaultState().with(blockHalf, DoubleBlockHalf.LOWER).with(isDone, false).with(WATERLOGGED, true);
 				 } else {
-					 newstate_up = BlockRegistry.CATTAIL_BIG.get().getDefaultState().with(blockHalf, DoubleBlockHalf.UPPER).with(isDone, false);
+					 newstate = BlockRegistry.CATTAIL_BIG.get().getDefaultState().with(blockHalf, DoubleBlockHalf.LOWER).with(isDone, false).with(WATERLOGGED, false);
+				 }
+				 newstate_up = BlockRegistry.CATTAIL_BIG.get().getDefaultState().with(blockHalf, DoubleBlockHalf.UPPER).with(isDone, false);
+				 if (worldIn.getBlockState(lower_pos.up()).getBlock() == Blocks.WATER) {
+					 newstate_up = newstate_up.with(WATERLOGGED, true);
 				 }
 				 worldIn.setBlockState(lower_pos, newstate);
 				 worldIn.setBlockState(lower_pos.up(), newstate_up);
@@ -82,21 +86,30 @@ public class DoubleDoubleCropBlock extends Block implements IWaterLoggable{
 				BlockState newerState = null;
 				if (isWater) {
 					stateHere = Blocks.WATER.getDefaultState();
+					newerState = BlockRegistry.CATTAIL_SPROUT.get().getDefaultState().with(CropSproutBlock.WATERLOGGED, true);
 				} else {
 					stateHere = Blocks.AIR.getDefaultState();
+					newerState = BlockRegistry.CATTAIL_SPROUT.get().getDefaultState();
 				}
 				
-				newerState = BlockRegistry.CATTAIL_SPROUT.get().getDefaultState();
+				
 				worldIn.setBlockState(pos, stateHere);
 				worldIn.setBlockState(newPos, newerState);
 			} else {
-				BlockState stateHere = BlockRegistry.CATTAIL_SPROUT.get().getDefaultState();
+				BlockState stateHere = null;
 				BlockState newerState = Blocks.AIR.getDefaultState();
 				BlockPos newPos = pos.up();
+				isWater = worldIn.getBlockState(newPos).get(WATERLOGGED);
 				if (isWater) {
 					newerState = Blocks.WATER.getDefaultState();
 				} else {
 					newerState = Blocks.AIR.getDefaultState();
+				}
+				isWater = worldIn.getBlockState(pos).get(WATERLOGGED);
+				if (isWater) {
+					stateHere = BlockRegistry.CATTAIL_SPROUT.get().getDefaultState().with(CropSproutBlock.WATERLOGGED, true);
+				} else {
+					stateHere = BlockRegistry.CATTAIL_SPROUT.get().getDefaultState();
 				}
 				worldIn.setBlockState(pos, stateHere);
 				worldIn.setBlockState(newPos, newerState);
