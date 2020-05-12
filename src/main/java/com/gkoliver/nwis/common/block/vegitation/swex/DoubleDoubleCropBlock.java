@@ -48,8 +48,13 @@ public class DoubleDoubleCropBlock extends Block implements IWaterLoggable{
 	public static void generateDoubleBlock(int type, BlockPos lower_pos, BlockState i, World worldIn) {
 		if (worldIn.getBlockState(lower_pos.up()).getBlock() == Blocks.AIR) {
 			if (type==0) {
-				 BlockState newstate = BlockRegistry.CATTAIL_BIG.get().getDefaultState().with(blockHalf, DoubleBlockHalf.LOWER).with(isDone, false);
-				 BlockState newstate_up = BlockRegistry.CATTAIL_BIG.get().getDefaultState().with(blockHalf, DoubleBlockHalf.UPPER).with(isDone, false);
+				 BlockState newstate = null;
+				 BlockState newstate_up = null;
+				 if (i.get(SingleDoubleCropBlock.WATERLOGGED)) {
+					 newstate = BlockRegistry.CATTAIL_BIG.get().getDefaultState().with(blockHalf, DoubleBlockHalf.LOWER).with(isDone, false);
+				 } else {
+					 newstate_up = BlockRegistry.CATTAIL_BIG.get().getDefaultState().with(blockHalf, DoubleBlockHalf.UPPER).with(isDone, false);
+				 }
 				 worldIn.setBlockState(lower_pos, newstate);
 				 worldIn.setBlockState(lower_pos.up(), newstate_up);
 			}

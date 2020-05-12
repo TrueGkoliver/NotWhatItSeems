@@ -2,6 +2,10 @@ package com.gkoliver.nwis.common.block.other;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.IWaterLoggable;
+import net.minecraft.fluid.Fluid;
+import net.minecraft.fluid.Fluids;
+import net.minecraft.fluid.IFluidState;
 import net.minecraft.item.BlockItemUseContext;
 import net.minecraft.state.BooleanProperty;
 import net.minecraft.state.EnumProperty;
@@ -13,18 +17,20 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.world.IBlockReader;
+import net.minecraft.world.IWorld;
 import net.minecraft.world.IWorldReader;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
-public class RestrainedDillutedPortalBlock extends Block {
+public class RestrainedDillutedPortalBlock extends Block implements IWaterLoggable {
 	public static final EnumProperty<Direction.Axis> AXIS = BlockStateProperties.HORIZONTAL_AXIS;
 	protected static final VoxelShape X_AABB = Block.makeCuboidShape(0.0D, 0.0D, 6.0D, 16.0D, 16.0D, 10.0D);
 	protected static final VoxelShape Z_AABB = Block.makeCuboidShape(6.0D, 0.0D, 0.0D, 10.0D, 16.0D, 16.0D);
-	
+	public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
 	
 	public RestrainedDillutedPortalBlock(Properties properties) {
 		super(properties);
+		this.setDefaultState(this.getDefaultState().with(WATERLOGGED,false));
 	}
 	
 	@Override
@@ -84,5 +90,18 @@ public class RestrainedDillutedPortalBlock extends Block {
 	@Override
 	protected void fillStateContainer(Builder<Block, BlockState> builder) {
 		builder.add(AXIS);
+		builder.add(WATERLOGGED);
+	}
+	
+	public IFluidState getFluidState(BlockState state) {
+		return state.get(WATERLOGGED) ? Fluids.WATER.getStillFluidState(false) : super.getFluidState(state);
+	}
+
+	public boolean receiveFluid(IWorld worldIn, BlockPos pos, BlockState state, IFluidState fluidStateIn) {
+		return IWaterLoggable.super.receiveFluid(worldIn, pos, state, fluidStateIn);
+	}
+
+	public boolean canContainFluid(IBlockReader worldIn, BlockPos pos, BlockState state, Fluid fluidIn) {
+		return IWaterLoggable.super.canContainFluid(worldIn, pos, state, fluidIn);
 	}
 }

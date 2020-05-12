@@ -37,6 +37,9 @@ public class SingleDoubleCropBlock extends Block implements IWaterLoggable {
 	@Override
 	public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player,
 			Hand handIn, BlockRayTraceResult p_225533_6_) {
+		if (!player.isShiftKeyDown()) {
+			return super.onBlockActivated(state, worldIn, pos, player, handIn, p_225533_6_);
+		}
 		if (type == EDoubleCropType.CATTAIL) {
 			DoubleDoubleCropBlock.generateDoubleBlock(0, pos, state, player.world);
 			return ActionResultType.SUCCESS;
