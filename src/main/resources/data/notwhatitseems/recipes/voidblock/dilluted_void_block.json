@@ -1,0 +1,8 @@
+{
+	"type" : "minecraft:crafting_shapeless",
+	"ingredients" : [
+		{"item" : "notwhatitseems:void_block"},
+		{"item" : "minecraft:water_bucket"}
+	],
+	"result" : {"item" : "notwhatitseems:dilluted_void_block", "count" : 1}
+}

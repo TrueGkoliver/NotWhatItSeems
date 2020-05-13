@@ -287,7 +287,7 @@ public class BlockRegistry {
 	public static final RegistryObject<Block> STATIC_MYCELIUM_A = genBlock("fake_mycelium_a", new NWISBlock(PROP_SOIL), 0);
 	public static final RegistryObject<Block> STATIC_PODZOL_A = genBlock("fake_podzol_a", new NWISBlock(PROP_SOIL), 0);
 	public static final RegistryObject<Block> IMPOSTER_STATION = genBlock("imposter_station",
-			new ImposterStationBlock(PROP_SOIL), 0);
+			new ImposterStationBlock(PROP_STATION), 0);
 	public static final RegistryObject<Block> SPECIAL_MUSHROOM = genBlock("fake_brown_mushroom_block",
 			new NWISNorthableBlock(PROP_MUSH), 0);
 	public static final RegistryObject<Block> SPECIAL_MUSHROOM_R = genBlock("fake_red_mushroom_block",

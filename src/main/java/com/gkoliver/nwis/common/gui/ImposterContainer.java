@@ -75,7 +75,7 @@ public class ImposterContainer extends Container {
 		putRecipe(Items.RED_MUSHROOM_BLOCK, BlockRegistry.SPECIAL_MUSHROOM_R);
 		
 		putRecipe(Items.MUSHROOM_STEM, BlockRegistry.FAKE_MUSHROOM_STEM);
-		
+		putRecipe(Items.DRAGON_EGG, BlockRegistry.FAKE_DRAGON_EGG);
 		
 		
 		//
