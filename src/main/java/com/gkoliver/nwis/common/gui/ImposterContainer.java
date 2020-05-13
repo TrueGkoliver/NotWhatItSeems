@@ -74,6 +74,20 @@ public class ImposterContainer extends Container {
 			addModdedRecipe("autumnity", "orange_maple_sapling", BlockRegistry.MAPLE_SAPLING_ORANGE);
 			addModdedRecipe("autumnity", "yellow_maple_sapling", BlockRegistry.MAPLE_SAPLING_YELLOW);
 		}
+		if (NotWhatItSeems.bloomful) {
+			addModdedRecipe("bloomful", "blue_wisteria_sapling", BlockRegistry.WISTERIA_BLUE);
+			addModdedRecipe("bloomful", "pink_wisteria_sapling", BlockRegistry.WISTERIA_PINK);
+			addModdedRecipe("bloomful", "purple_wisteria_sapling", BlockRegistry.WISTERIA_PURPLE);
+			addModdedRecipe("bloomful", "white_wisteria_sapling", BlockRegistry.WISTERIA_WHITE);
+		}
+		if (NotWhatItSeems.endergetic) {
+			addModdedRecipe("endergetic", "poise_grass_block", BlockRegistry.STATIC_POSIMOSS);
+			addModdedRecipe("endergetic", "poismoss_eumus", BlockRegistry.STATIC_POSIMOSS_EUMUS);
+			addModdedRecipe("endergetic", "poise_cluster", BlockRegistry.STATIC_POISE_CLUSTER);
+		}
+		if (NotWhatItSeems.quark) {
+			addModdedRecipe("quark", "glowcelium")
+		}
 		
 		if (NotWhatItSeems.ua) {
 			Iterator<ArrayList<String>> iter_1 = ua_corals.iterator();
@@ -119,9 +133,7 @@ public class ImposterContainer extends Container {
 		this.callable = worldPosCallableIn;
 		this.addSlot(new Slot(this.inputInventory, 0, 44, 20) {
 	         public boolean isItemValid(ItemStack stack) {
-	        	boolean stacker = stack.getItem() == Items.PAPER ||
-	        			stack.getItem() == Items.ENDER_EYE ||
-	        			stack.getItem() == Items.ELYTRA;
+	        	boolean stacker = stack.getItem() == Items.PAPER;
 	            return stacker;
 	         }
 	      });

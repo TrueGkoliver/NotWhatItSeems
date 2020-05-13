@@ -386,15 +386,15 @@ public class BlockRegistry {
 	
 	
 	//Kelps
-	public static final RegistryObject<Block> KELP = genBlock2("fake_kelp", new KelpBlock(PROP_CROPS));
-	public static final RegistryObject<Block> KELP_OCHRE = genBlock2("fake_kelp_ochre", new KelpBlock(PROP_CROPS));
-	public static final RegistryObject<Block> KELP_TONGUE = genBlock2("fake_kelp_tongue", new KelpBlock(PROP_CROPS));
-	public static final RegistryObject<Block> KELP_POLAR = genBlock2("fake_kelp_polar", new KelpBlock(PROP_CROPS));
-	public static final RegistryObject<Block> KELP_THORNY = genBlock2("fake_kelp_thorny", new KelpBlock(PROP_CROPS));
+	public static final RegistryObject<Block> KELP = genBlock2("fake_kelp", new KelpBlock(PROP_CROPS), 0x458425);
+	public static final RegistryObject<Block> KELP_OCHRE = genBlock2("fake_kelp_ochre", new KelpBlock(PROP_CROPS), 0xA39041, "upgrade_aquatic");
+	public static final RegistryObject<Block> KELP_TONGUE = genBlock2("fake_kelp_tongue", new KelpBlock(PROP_CROPS), 0x8D2434, "upgrade_aquatic");
+	public static final RegistryObject<Block> KELP_POLAR = genBlock2("fake_kelp_polar", new KelpBlock(PROP_CROPS), 0x347C59, "upgrade_aquatic");
+	public static final RegistryObject<Block> KELP_THORNY = genBlock2("fake_kelp_thorny", new KelpBlock(PROP_CROPS), 0x605341, "upgrade_aquatic");
 	
 	//Seagrass
-	public static final RegistryObject<Block> SEAGRASS = genBlock2("fake_seagrass", new KelpBlock(PROP_CROPS));
-	public static final RegistryObject<Block> SEAGRASS_SMOL = genBlock2("fake_seagrass_small", new NWISWaterLogBlock(PROP_CROPS));
-	public static final RegistryObject<Block> BEACHGRASS = genBlock2("fake_beachgrass", new KelpBlock(PROP_CROPS));
-	public static final RegistryObject<Block> BEACHGRASS_SMOL = genBlock2("fake_beachgrass_small", new NWISWaterLogBlock(PROP_CROPS));
+	public static final RegistryObject<Block> SEAGRASS = genBlock2("fake_seagrass", new KelpBlock(PROP_CROPS), 0x7C7340);
+	public static final RegistryObject<Block> SEAGRASS_SMOL = genBlock2("fake_seagrass_small", new NWISWaterLogBlock(PROP_CROPS), 0x7C7340);
+	public static final RegistryObject<Block> BEACHGRASS = genBlock2("fake_beachgrass", new KelpBlock(PROP_CROPS), 0x8D994C, "upgrade_aquatic");
+	public static final RegistryObject<Block> BEACHGRASS_SMOL = genBlock2("fake_beachgrass_small", new NWISWaterLogBlock(PROP_CROPS), 0x8D994C, "upgrade_aquatic");
 }
