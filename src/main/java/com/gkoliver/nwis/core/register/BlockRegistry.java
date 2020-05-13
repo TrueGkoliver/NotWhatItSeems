@@ -236,9 +236,9 @@ public class BlockRegistry {
 			new FakeGrowableBlock(PROP_CROPS, 0, ECropTypes.PUMPKIN_STEM), 0xCBC68D);
 
 	public static final RegistryObject<Block> FAKE_PUMPKIN_STEM_ATTACHED = genBlock2("fake_pumpkin_stem_attached",
-			new FakeAttachedBlock(PROP_CROPS, ECropTypes.PUMPKIN_STEM), 0);
+			new FakeAttachedBlock(PROP_CROPS, ECropTypes.PUMPKIN_STEM), 0, "???!!!");
 	public static final RegistryObject<Block> FAKE_MELON_STEM_ATTACHED = genBlock2("fake_melon_stem_attached",
-			new FakeAttachedBlock(PROP_CROPS, ECropTypes.MELON_STEM), 0);
+			new FakeAttachedBlock(PROP_CROPS, ECropTypes.MELON_STEM), 0, "???!!!");
 	
 	//Void Blocks
 	public static final RegistryObject<Block> VOID_BLOCK = genBlock("void_block", new VoidBlock(PROP_VOID), 0);
