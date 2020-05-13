@@ -1,0 +1,8 @@
+{
+	"type" : "minecraft:crafting_shapeless",
+	"ingredients" : [
+		{"item" : "notwhatitseems:restrained_dilluted_void_block_semi"},
+		{"item" : "minecraft:glass"}
+	],
+	"result" : {"item" : "notwhatitseems:restrained_dilluted_void_block", "count" : 1}
+}

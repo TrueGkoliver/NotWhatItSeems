@@ -1,0 +1,25 @@
+{
+	"type" : "minecraft:crafting_shaped",
+	"pattern" : [
+		"IGI",
+		"WRW",
+		"IWI"
+	],
+	"key" : {
+		"I" : {
+			"item" : "minecraft:iron_ingot"
+		},
+		"W" : {
+			"tag" : "minecraft:planks"
+		},
+		"R" : {
+			"item" : "minecraft:redstone"
+		},
+		"G" : {
+			"item" : "minecraft:glass"
+		}
+	},
+	"result" : {
+		"item" : "notwhatitseems:imposter_station"
+	}
+}

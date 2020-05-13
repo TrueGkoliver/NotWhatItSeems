@@ -1,0 +1,8 @@
+{
+	"type" : "minecraft:crafting_shapeless",
+	"ingredients" : [
+		{"item" : "notwhatitseems:fake_grass"},
+		{"item" : "minecraft:wheat_seeds"}
+	],
+	"result" : {"item" : "notwhatitseems:fake_grass_a", "count" : 1}
+}
