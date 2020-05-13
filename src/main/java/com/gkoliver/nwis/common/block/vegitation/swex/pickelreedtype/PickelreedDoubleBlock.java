@@ -104,9 +104,9 @@ public class PickelreedDoubleBlock extends Block implements IWaterLoggable {
 				BlockState stateHere = null;
 				BlockState newerState = null;
 				if (this == BlockRegistry.PICKELREED_BLUE_BIG.get()) {
-					newerState = BlockRegistry.PICKELREED_BLUE.get().getDefaultState();
+					stateHere = BlockRegistry.PICKELREED_BLUE.get().getDefaultState();
 				} else {
-					newerState = BlockRegistry.PICKELREED_PURPLE.get().getDefaultState();
+					stateHere = BlockRegistry.PICKELREED_PURPLE.get().getDefaultState();
 				}
 				
 				if (isWater) {

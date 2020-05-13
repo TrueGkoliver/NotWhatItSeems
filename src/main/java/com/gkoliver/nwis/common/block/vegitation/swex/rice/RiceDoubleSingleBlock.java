@@ -79,6 +79,20 @@ public class RiceDoubleSingleBlock extends Block {
 		return ActionResultType.SUCCESS;
 	}
 	
+	@Override
+	public void onBlockHarvested(World worldIn, BlockPos pos, BlockState state, PlayerEntity player) {
+		System.out.println("yooo");
+	      DoubleBlockHalf doubleblockhalf = state.get(blockHalf);
+	      BlockPos blockpos = doubleblockhalf == DoubleBlockHalf.LOWER ? pos.up() : pos.down();
+	      BlockState blockstate = worldIn.getBlockState(blockpos);
+	      if (blockstate.getBlock() == this && blockstate.get(blockHalf) != doubleblockhalf) {
+	         worldIn.setBlockState(blockpos, Blocks.AIR.getDefaultState(), 35);
+	         worldIn.playEvent(player, 2001, blockpos, Block.getStateId(blockstate));
+	      }
+
+	      super.onBlockHarvested(worldIn, pos, state, player);
+	   }
+	
 	
 	
 

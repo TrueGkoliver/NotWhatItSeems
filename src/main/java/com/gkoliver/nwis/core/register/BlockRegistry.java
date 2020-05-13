@@ -316,7 +316,7 @@ public class BlockRegistry {
 			new SemiInvisibleNorthableBlock(PROP_GLOWMUSH), 0, "quark");
 	public static final RegistryObject<Block> FAKE_BIG_GLOWSHROOM_STEM = genBlock("fake_big_glowshroom_stem",
 			new SemiInvisibleNorthableBlock(PROP_GLOWMUSH), 0, "quark");
-	public static final RegistryObject<Block> FAKE_GLOWSHROOM = genBlock2("fake_glowshroom", new NWISBlock(PROP_SAPLING), 0x6BD8F8, "quark");
+	public static final RegistryObject<Block> FAKE_GLOWSHROOM = genBlock2("fake_glowshroom", new NWISWaterLogBlock(PROP_SAPLING), 0x6BD8F8, "quark");
 	public static final RegistryObject<Block> FAKE_CAVE_ROOTS = genBlock("fake_cave_roots", new FakeVineBlock(PROP_MUSH), 0xCBA365, "quark");
 	// Sapling
 	public static final RegistryObject<Block> FROSTY_SAPLING = genBlock2("fake_qsap_frosty", new NWISBlock(PROP_SAPLING), 0x3C95B7, "quark");
@@ -366,20 +366,20 @@ public class BlockRegistry {
 	public static final RegistryObject<Block> ELDER_PRISMARINE_SHOWER = genBlock2("fake_elder_prismarine_shower", new SmallCoralBlock(PROP_CORAL_T, ECoralType.SHOWER, null), 0xA29281, "upgrade_aquatic");
 	
 	//Swamp Expansion Compat
-	public static final RegistryObject<Block> CATTAIL_BIG = genBlock2("fake_cattail_big", new DoubleDoubleCropBlock(PROP_CROPS, EDoubleCropType.CATTAIL), 0, "swampexpansion");
-	public static final RegistryObject<Block> CATTAIL = genBlock2("fake_cattail", new SingleDoubleCropBlock(PROP_CROPS, EDoubleCropType.CATTAIL), 0, "swampexpansion");
-	public static final RegistryObject<Block> CATTAIL_SPROUT = genBlock2("fake_cattail_sprout", new CropSproutBlock(PROP_CROPS), 0, "swampexpansion");
+	public static final RegistryObject<Block> CATTAIL_BIG = genBlock2("fake_cattail_big", new DoubleDoubleCropBlock(PROP_CROPS, EDoubleCropType.CATTAIL), 0x6E412A, "swampexpansion");
+	public static final RegistryObject<Block> CATTAIL = genBlock2("fake_cattail", new SingleDoubleCropBlock(PROP_CROPS, EDoubleCropType.CATTAIL), 0x6E412A, "swampexpansion");
+	public static final RegistryObject<Block> CATTAIL_SPROUT = genBlock2("fake_cattail_sprout", new CropSproutBlock(PROP_CROPS), 0x6E412A, "swampexpansion");
 	
-	public static final RegistryObject<Block> RICE_BIG = genBlock2("fake_rice_big", new RiceDoubleSingleBlock(PROP_CROPS), 0, "swampexpansion");
-	public static final RegistryObject<Block> RICE = genBlock2("fake_rice", new RiceSingleSingleBlock(PROP_CROPS), 0, "swampexpansion");
+	public static final RegistryObject<Block> RICE_BIG = genBlock2("fake_rice_big", new RiceDoubleSingleBlock(PROP_CROPS), 0xBFA355, "swampexpansion");
+	public static final RegistryObject<Block> RICE = genBlock2("fake_rice", new RiceSingleSingleBlock(PROP_CROPS), 0xBFA355, "swampexpansion");
 	
-	public static final RegistryObject<Block> WILLOW_SAPLING = genBlock2("fake_willow_sap", new NWISBlock(PROP_CROPS), 0, "swampexpansion");
+	public static final RegistryObject<Block> WILLOW_SAPLING = genBlock2("fake_willow_sap", new NWISBlock(PROP_CROPS), 0x0F3217, "swampexpansion");
 	
-	public static final RegistryObject<Block> PICKELREED_BLUE_BIG = genBlock2("pickelreed_blue_big", new PickelreedDoubleBlock(PROP_CROPS), 0, "upgrade_aquatic");
-	public static final RegistryObject<Block> PICKELREED_PURPLE_BIG = genBlock2("pickelreed_purple_big", new PickelreedDoubleBlock(PROP_CROPS), 0, "upgrade_aquatic");
+	public static final RegistryObject<Block> PICKELREED_BLUE_BIG = genBlock2("pickelreed_blue_big", new PickelreedDoubleBlock(PROP_CROPS), 0x2F3E87, "???!!!");
+	public static final RegistryObject<Block> PICKELREED_PURPLE_BIG = genBlock2("pickelreed_purple_big", new PickelreedDoubleBlock(PROP_CROPS), 0x9649A7, "???!!!");
 	
-	public static final RegistryObject<Block> PICKELREED_BLUE = genBlock2("pickelreed_blue", new PickelReedSingleBlock(PROP_CROPS), 0, "upgrade_aquatic");
-	public static final RegistryObject<Block> PICKELREED_PURPLE = genBlock2("pickelreed_purple", new PickelReedSingleBlock(PROP_CROPS), 0, "upgrade_aquatic");
+	public static final RegistryObject<Block> PICKELREED_BLUE = genBlock2("pickelreed_blue", new PickelReedSingleBlock(PROP_CROPS), 0x2F3E87, "upgrade_aquatic");
+	public static final RegistryObject<Block> PICKELREED_PURPLE = genBlock2("pickelreed_purple", new PickelReedSingleBlock(PROP_CROPS), 0x9649A7, "upgrade_aquatic");
 	//I'm keeping this in code as a relic for the history books.
 	//public static final ArrayList<ArrayList<RegistryObject<Block>>> CORALS = new ArrayList<ArrayList<RegistryObject<Block>>>();
 
