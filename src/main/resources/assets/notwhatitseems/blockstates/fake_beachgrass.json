@@ -1,0 +1,6 @@
+{
+    "variants": {
+        "grown=true": { "model": "upgrade_aquatic:block/tall_beachgrass_bottom" },
+        "grown=false":    { "model": "upgrade_aquatic:block/tall_beachgrass_top" }
+    }
+}

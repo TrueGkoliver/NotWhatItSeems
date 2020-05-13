@@ -1,0 +1,6 @@
+{
+    "variants": {
+        "grown=true": { "model": "block/tall_seagrass_bottom" },
+        "grown=false":    { "model": "block/tall_seagrass_top" }
+    }
+}
