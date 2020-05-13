@@ -43,6 +43,9 @@ public class ImposterContainer extends Container {
 	public static void addModdedRecipe(String modid, String id, RegistryObject<Block> object) {
 		ITEMS.put(ForgeRegistries.ITEMS.getValue(new ResourceLocation(modid, id)), Item.getItemFromBlock(object.get()));
 	}
+	public static void putRecipe(Item item, RegistryObject<Block> object) {
+		ITEMS.put(item, Item.getItemFromBlock(object.get()));
+	}
 	@SuppressWarnings("deprecation")
 	public void addBlocks() {
 		ITEMS.put(Items.CARROT, Item.getItemFromBlock(BlockRegistry.FAKE_CARROTS.get()));
@@ -60,13 +63,24 @@ public class ImposterContainer extends Container {
 		ITEMS.put(Items.DARK_OAK_SAPLING, Item.getItemFromBlock(BlockRegistry.FAKE_DARK_OAK_SAPLING.get()));
 		ITEMS.put(Items.ACACIA_SAPLING, Item.getItemFromBlock(BlockRegistry.FAKE_ACACIA_SAPLING.get()));
 		
+		putRecipe(Items.VINE, BlockRegistry.FAKE_VINE);
+		putRecipe(Items.GRASS_BLOCK, BlockRegistry.STATIC_GRASS);
+		putRecipe(Items.PODZOL, BlockRegistry.STATIC_PODZOL);
+		putRecipe(Items.MYCELIUM, BlockRegistry.STATIC_MYCELIUM);
+		
+		putRecipe(Items.BROWN_MUSHROOM, BlockRegistry.FAKE_MUSHOOM_2);
+		putRecipe(Items.BROWN_MUSHROOM_BLOCK, BlockRegistry.SPECIAL_MUSHROOM);
+		
+		putRecipe(Items.RED_MUSHROOM, BlockRegistry.FAKE_MUSHOOM_2);
+		putRecipe(Items.RED_MUSHROOM_BLOCK, BlockRegistry.SPECIAL_MUSHROOM_R);
+		
 		//
 		if (NotWhatItSeems.atmospheric) {
 			addModdedRecipe("atmospheric", "rosewood_sapling", BlockRegistry.ROSEWOOD_SAPLING);
 			addModdedRecipe("atmospheric", "yucca_sapling", BlockRegistry.YUCCA_SAPLING);
 			addModdedRecipe("atmospheric", "aspen_sapling", BlockRegistry.ASPEN_SAPLING);
 			addModdedRecipe("atmospheric", "kousa_sapling", BlockRegistry.KOUSA_SAPLING);
-			addModdedRecipe("atmospheric", "passionfruit", BlockRegistry.PASSION_VINE);
+			addModdedRecipe("atmospheric", "passion_vine", BlockRegistry.PASSION_VINE);
 		}
 		if (NotWhatItSeems.atumwhatever) {
 			addModdedRecipe("autumnity", "maple_sapling", BlockRegistry.MAPLE_SAPLING);
@@ -86,7 +100,35 @@ public class ImposterContainer extends Container {
 			addModdedRecipe("endergetic", "poise_cluster", BlockRegistry.STATIC_POISE_CLUSTER);
 		}
 		if (NotWhatItSeems.quark) {
-			addModdedRecipe("quark", "glowcelium")
+			addModdedRecipe("quark", "glowcelium", BlockRegistry.FAKE_GLOWCELIUM);
+			addModdedRecipe("quark", "glowshroom", BlockRegistry.FAKE_GLOWSHROOM);
+			addModdedRecipe("quark", "glowshroom_stem", BlockRegistry.FAKE_BIG_GLOWSHROOM_STEM);
+			addModdedRecipe("quark", "glowshroom_block", BlockRegistry.FAKE_BIG_GLOWSHROOM);
+			
+			addModdedRecipe("quark", "blue_blossom_sapling", BlockRegistry.FROSTY_SAPLING);
+			addModdedRecipe("quark", "lavender_blossom_sapling", BlockRegistry.SERENE_SAPLING);
+			addModdedRecipe("quark", "orange_blossom_sapling", BlockRegistry.WARM_SAPLING);
+			addModdedRecipe("quark", "pink_blossom_sapling", BlockRegistry.SWEET_SAPLING);
+			addModdedRecipe("quark", "yellow_blossom_sapling", BlockRegistry.SUNNY_SAPLING);
+			
+			
+		}
+		if (NotWhatItSeems.swampexpansion) {
+			addModdedRecipe("swampexpansion", "rice", BlockRegistry.RICE);
+			addModdedRecipe("swampexpansion", "cattail", BlockRegistry.CATTAIL_SPROUT);
+		}
+		if (NotWhatItSeems.ua) {
+			addModdedRecipe("upgrade_aquatic", "pickerel_weed_blue", BlockRegistry.PICKELREED_BLUE);
+			addModdedRecipe("upgrade_aquatic", "pickerel_weed_purple", BlockRegistry.PICKELREED_PURPLE);
+			addModdedRecipe("upgrade_aquatic", "beachgrass", BlockRegistry.BEACHGRASS);
+			addModdedRecipe("upgrade_aquatic", "tall_beachgrass", BlockRegistry.BEACHGRASS_SMOL);
+			addModdedRecipe("upgrade_aquatic", "elder_prismarine_coral_shower", BlockRegistry.ELDER_PRISMARINE_SHOWER);
+			addModdedRecipe("upgrade_aquatic", "prismarine_coral_shower", BlockRegistry.PRISMARINE_SHOWER);
+			
+			addModdedRecipe("upgrade_aquatic", "tongue_kelp", BlockRegistry.KELP_TONGUE);
+			addModdedRecipe("upgrade_aquatic", "ochre_kelp", BlockRegistry.KELP_OCHRE);
+			addModdedRecipe("upgrade_aquatic", "polar_kelp", BlockRegistry.KELP_POLAR);
+			addModdedRecipe("upgrade_aquatic", "thorny_kelp", BlockRegistry.KELP_THORNY);
 		}
 		
 		if (NotWhatItSeems.ua) {
