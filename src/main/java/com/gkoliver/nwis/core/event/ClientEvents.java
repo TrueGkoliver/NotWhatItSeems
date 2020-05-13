@@ -47,6 +47,7 @@ public class ClientEvents {
 		}
 		RenderTypeLookup.setRenderLayer(BlockRegistry.STATIC_GRASS.get(), RenderType.getCutout());
 		RenderTypeLookup.setRenderLayer(BlockRegistry.RESTRAINED_DILLUTED_VOID_BLOCK.get(), RenderType.getTranslucent());
+		RenderTypeLookup.setRenderLayer(BlockRegistry.RESTRAINED_DILLUTED_VOID_BLOCK_SEMI.get(), RenderType.getTranslucent());
 		RenderTypeLookup.setRenderLayer(BlockRegistry.DILLUTED_VOID_BLOCK.get(), RenderType.getTranslucent());
 		RenderTypeLookup.setRenderLayer(BlockRegistry.FAKE_BIG_GLOWSHROOM.get(), RenderType.getTranslucent());
 		RenderTypeLookup.setRenderLayer(BlockRegistry.FAKE_BIG_GLOWSHROOM_STEM.get(), RenderType.getTranslucent());
