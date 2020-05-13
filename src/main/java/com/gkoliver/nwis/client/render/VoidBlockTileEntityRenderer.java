@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Random;
 import java.util.stream.IntStream;
 
+import com.gkoliver.nwis.common.tile.RestrainedVoidTileEntity;
 import com.gkoliver.nwis.common.tile.VoidTileEntity;
 import com.google.common.collect.ImmutableList;
 import com.mojang.blaze3d.matrix.MatrixStack;
@@ -39,7 +40,7 @@ public class VoidBlockTileEntityRenderer extends EndPortalTileEntityRenderer<Voi
 	}
 	
 	protected float getOffset() {
-	      return 1.0F;
+	      return 1F;
 	}
 	
 	

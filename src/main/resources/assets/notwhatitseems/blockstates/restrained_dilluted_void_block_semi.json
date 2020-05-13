@@ -1,0 +1,6 @@
+{
+    "variants": {
+        "axis=z": { "model": "notwhatitseems:block/portal/nether_portal_ew" },
+        "axis=x": { "model": "notwhatitseems:block/portal/nether_portal_ns" }
+    }
+}

@@ -12,6 +12,7 @@ import com.gkoliver.nwis.common.block.other.NWISBlock;
 import com.gkoliver.nwis.common.block.other.NWISNorthableBlock;
 import com.gkoliver.nwis.common.block.other.NWISWaterLogBlock;
 import com.gkoliver.nwis.common.block.other.RestrainedDillutedPortalBlock;
+import com.gkoliver.nwis.common.block.other.RestrainedVoidBlock;
 import com.gkoliver.nwis.common.block.other.VoidBlock;
 import com.gkoliver.nwis.common.block.vegitation.ChorusFruitBlock;
 import com.gkoliver.nwis.common.block.vegitation.CoralWallFanBlock;
@@ -212,18 +213,20 @@ public static RegistryObject<Block> genBlock(String id, Block block) {
 	public static final RegistryObject<Block> FAKE_MELON_STEM_ATTACHED = genBlock2("fake_melon_stem_attached",
 			new FakeAttachedBlock(PROP_CROPS, ECropTypes.MELON_STEM), 0);
 	
+	//Void Blocks
 	public static final RegistryObject<Block> VOID_BLOCK = genBlock("void_block", new VoidBlock(PROP_VOID), 0);
+	public static final RegistryObject<Block> VOID_BLOCK_SEMISOLID = genBlock("void_block_semi", new VoidBlock(PROP_VOID_SEMI), 0);
+	public static final RegistryObject<Block> RESTRAINED_VOID_BLOCK = genBlock("restrained_void_block", new RestrainedVoidBlock(PROP_VOID), 0);
+	public static final RegistryObject<Block> RESTRAINED_VOID_BLOCK_SEMI = genBlock("restrained_void_block_semi", new RestrainedVoidBlock(PROP_VOID_SEMI), 0);
+	
+	
+	//Dilluted Void Blocks
 	public static final RegistryObject<Block> DILLUTED_VOID_BLOCK = genBlock("dilluted_void_block",
 			new SemiInvisibleBlock(PROP_VOID), 0);
-	
-	public static final RegistryObject<Block> VOID_BLOCK_SEMISOLID = genBlock("void_block_semi", new VoidBlock(PROP_VOID_SEMI), 0);
-	
 	public static final RegistryObject<Block> DILLUTED_VOID_BLOCK_SEMISOLID = genBlock("dilluted_void_block_semi",
 			new SemiInvisibleBlock(PROP_VOID_SEMI), 0);
-	
 	public static final RegistryObject<Block> RESTRAINED_DILLUTED_VOID_BLOCK = genBlock(
 			"restrained_dilluted_void_block", new RestrainedDillutedPortalBlock(PROP_VOID), 0);
-
 	public static final RegistryObject<Block> RESTRAINED_DILLUTED_VOID_BLOCK_SEMI = genBlock(
 			"restrained_dilluted_void_block_semi", new RestrainedDillutedPortalBlock(PROP_VOID), 0);
 	

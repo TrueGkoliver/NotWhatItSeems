@@ -3,6 +3,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 
 import com.gkoliver.nwis.NotWhatItSeems;
+import com.gkoliver.nwis.client.render.RestrainedVoidTileEntityRenderer;
 import com.gkoliver.nwis.client.render.VoidBlockTileEntityRenderer;
 import com.gkoliver.nwis.common.gui.ImposterScreen;
 import com.gkoliver.nwis.core.keybind.InverseKeybind;
@@ -52,6 +53,7 @@ public class ClientEvents {
 		RenderTypeLookup.setRenderLayer(BlockRegistry.FAKE_BIG_GLOWSHROOM_STEM.get(), RenderType.getTranslucent());
 		RenderTypeLookup.setRenderLayer(BlockRegistry.STATIC_POISE_CLUSTER.get(), RenderType.getTranslucent());
 		ClientRegistry.bindTileEntityRenderer(TileEntityRegistry.VOID_BLOCK.get(), VoidBlockTileEntityRenderer::new);
+		ClientRegistry.bindTileEntityRenderer(TileEntityRegistry.RESTAINED_VOID_BLOCK.get(), RestrainedVoidTileEntityRenderer::new);
 		ScreenManager.registerFactory(TileEntityRegistry.COPIER.get(), ImposterScreen::new);
 		InverseKeybind.addKey();
 	}

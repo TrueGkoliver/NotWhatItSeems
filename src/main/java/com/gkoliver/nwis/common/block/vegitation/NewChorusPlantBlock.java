@@ -7,8 +7,12 @@ import com.google.common.collect.Maps;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.IWaterLoggable;
 import net.minecraft.block.Block.Properties;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.fluid.Fluid;
+import net.minecraft.fluid.Fluids;
+import net.minecraft.fluid.IFluidState;
 import net.minecraft.state.BooleanProperty;
 import net.minecraft.state.StateContainer;
 import net.minecraft.state.properties.BlockStateProperties;
@@ -22,19 +26,21 @@ import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.util.math.shapes.VoxelShapes;
 import net.minecraft.world.IBlockReader;
+import net.minecraft.world.IWorld;
 import net.minecraft.world.World;
 
-public class NewChorusPlantBlock extends Block {
-	
+public class NewChorusPlantBlock extends Block implements IWaterLoggable {
+	public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
 	protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
 	      builder.add(NORTH, EAST, SOUTH, WEST, UP, DOWN);
+	      builder.add(WATERLOGGED);
 	}
 	protected final VoxelShape[] shapes;
 	
 	public NewChorusPlantBlock(Properties properties) {
 		super(properties);
 		this.shapes = this.makeShapes();
-		this.setDefaultState(this.stateContainer.getBaseState().with(NORTH, false).with(EAST, false).with(WEST, false).with(SOUTH, false).with(UP, false).with(DOWN, false));
+		this.setDefaultState(this.stateContainer.getBaseState().with(NORTH, false).with(EAST, false).with(WEST, false).with(SOUTH, false).with(UP, false).with(DOWN, false).with(WATERLOGGED, false));
 	}
 	private static final Direction[] FACING_VALUES = Direction.values();
 	   public static final BooleanProperty NORTH = BlockStateProperties.NORTH;
@@ -120,5 +126,22 @@ public class NewChorusPlantBlock extends Block {
 
 	      return i;
 	   }
+	public IFluidState getFluidState(BlockState state) {
+		return state.get(WATERLOGGED) ? Fluids.WATER.getStillFluidState(false) : super.getFluidState(state);
+	}
 
+	public boolean receiveFluid(IWorld worldIn, BlockPos pos, BlockState state, IFluidState fluidStateIn) {
+		return IWaterLoggable.super.receiveFluid(worldIn, pos, state, fluidStateIn);
+	}
+
+	public boolean canContainFluid(IBlockReader worldIn, BlockPos pos, BlockState state, Fluid fluidIn) {
+		return IWaterLoggable.super.canContainFluid(worldIn, pos, state, fluidIn);
+	}
+	public BlockState updatePostPlacement(BlockState stateIn, Direction facing, BlockState facingState, IWorld worldIn, BlockPos currentPos, BlockPos facingPos) {
+		if (stateIn.get(WATERLOGGED)) {
+			worldIn.getPendingFluidTicks().scheduleTick(currentPos, Fluids.WATER, Fluids.WATER.getTickRate(worldIn));
+		}
+	
+		return super.updatePostPlacement(stateIn, facing, facingState, worldIn, currentPos, facingPos);
+	}
 }
