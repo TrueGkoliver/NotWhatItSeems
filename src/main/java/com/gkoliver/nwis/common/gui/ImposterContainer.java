@@ -74,6 +74,10 @@ public class ImposterContainer extends Container {
 		putRecipe(Items.RED_MUSHROOM, BlockRegistry.FAKE_MUSHOOM_2);
 		putRecipe(Items.RED_MUSHROOM_BLOCK, BlockRegistry.SPECIAL_MUSHROOM_R);
 		
+		putRecipe(Items.MUSHROOM_STEM, BlockRegistry.FAKE_MUSHROOM_STEM);
+		
+		
+		
 		//
 		if (NotWhatItSeems.atmospheric) {
 			addModdedRecipe("atmospheric", "rosewood_sapling", BlockRegistry.ROSEWOOD_SAPLING);
