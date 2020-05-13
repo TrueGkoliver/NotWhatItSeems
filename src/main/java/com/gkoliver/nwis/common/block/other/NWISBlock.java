@@ -18,6 +18,7 @@ import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorld;
+import net.minecraftforge.fml.ModList;
 
 public class NWISBlock extends Block implements IWaterLoggable {
 	protected static final VoxelShape SAPLING_SHAPE = Block.makeCuboidShape(2.0D, 0.0D, 2.0D, 14.0D, 12.0D, 14.0D);
@@ -28,7 +29,6 @@ public class NWISBlock extends Block implements IWaterLoggable {
 		super(properties);
 		this.setDefaultState(this.getDefaultState());
 	}
-	
 	
 	
 	@Override
