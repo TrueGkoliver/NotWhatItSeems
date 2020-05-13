@@ -22,7 +22,7 @@ import net.minecraft.world.IWorld;
 public class NWISBlock extends Block implements IWaterLoggable {
 	protected static final VoxelShape SAPLING_SHAPE = Block.makeCuboidShape(2.0D, 0.0D, 2.0D, 14.0D, 12.0D, 14.0D);
 	protected static final VoxelShape MUSHROOM_SHAPE = Block.makeCuboidShape(5.0D, 0.0D, 5.0D, 11.0D, 6.0D, 11.0D);
-	
+	protected static final VoxelShape EDRAG_SHAPE = Block.makeCuboidShape(1.0D, 0.0D, 1.0D, 15.0D, 16.0D, 15.0D);
 	public boolean waterlog = false;
 	public NWISBlock(Properties properties) {
 		super(properties);

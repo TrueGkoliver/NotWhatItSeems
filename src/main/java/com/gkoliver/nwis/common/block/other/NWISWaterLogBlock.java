@@ -23,6 +23,7 @@ public class NWISWaterLogBlock extends Block implements IWaterLoggable {
 	public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
 	protected static final VoxelShape SAPLING_SHAPE = Block.makeCuboidShape(2.0D, 0.0D, 2.0D, 14.0D, 12.0D, 14.0D);
 	protected static final VoxelShape MUSHROOM_SHAPE = Block.makeCuboidShape(5.0D, 0.0D, 5.0D, 11.0D, 6.0D, 11.0D);
+	protected static final VoxelShape EDRAG_SHAPE = Block.makeCuboidShape(1.0D, 0.0D, 1.0D, 15.0D, 16.0D, 15.0D);
 	public NWISWaterLogBlock(Properties properties) {
 		super(properties);
 		this.setDefaultState(this.getDefaultState().with(WATERLOGGED, false));
@@ -77,6 +78,8 @@ public class NWISWaterLogBlock extends Block implements IWaterLoggable {
 				return SAPLING_SHAPE;
 			} else if (isMushroom) {
 				return MUSHROOM_SHAPE;
+			} else if (state.getBlock()==BlockRegistry.FAKE_DRAGON_EGG.get()) {
+				return EDRAG_SHAPE;
 			}
 			return Block.makeCuboidShape(0, 0, 0, 16, 16, 16);
 		}

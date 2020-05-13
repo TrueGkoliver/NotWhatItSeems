@@ -215,13 +215,18 @@ public static RegistryObject<Block> genBlock(String id, Block block) {
 	public static final RegistryObject<Block> VOID_BLOCK = genBlock("void_block", new VoidBlock(PROP_VOID), 0);
 	public static final RegistryObject<Block> DILLUTED_VOID_BLOCK = genBlock("dilluted_void_block",
 			new SemiInvisibleBlock(PROP_VOID), 0);
+	
 	public static final RegistryObject<Block> VOID_BLOCK_SEMISOLID = genBlock("void_block_semi", new VoidBlock(PROP_VOID_SEMI), 0);
 	
 	public static final RegistryObject<Block> DILLUTED_VOID_BLOCK_SEMISOLID = genBlock("dilluted_void_block_semi",
 			new SemiInvisibleBlock(PROP_VOID_SEMI), 0);
+	
 	public static final RegistryObject<Block> RESTRAINED_DILLUTED_VOID_BLOCK = genBlock(
 			"restrained_dilluted_void_block", new RestrainedDillutedPortalBlock(PROP_VOID), 0);
 
+	public static final RegistryObject<Block> RESTRAINED_DILLUTED_VOID_BLOCK_SEMI = genBlock(
+			"restrained_dilluted_void_block_semi", new RestrainedDillutedPortalBlock(PROP_VOID), 0);
+	
 	public static final RegistryObject<Block> FAKE_OAK_SAPLING = genBlock2("fake_oak_sapling",
 			new NWISWaterLogBlock(PROP_SAPLING), 0x408F2F);
 	public static final RegistryObject<Block> FAKE_BIRCH_SAPLING = genBlock2("fake_birch_sapling",
@@ -262,6 +267,8 @@ public static RegistryObject<Block> genBlock(String id, Block block) {
 			new NewChorusPlantBlock(PROP_CHORUS_FRUIT), 0);
 	public static final RegistryObject<Block> FAKE_CHORUS_FLOWER = genBlock("fake_chorus_flower",
 			new ChorusFruitBlock(PROP_CHORUS_FRUIT), 0);
+	public static final RegistryObject<Block> FAKE_DRAGON_EGG = genBlock("fake_dragon_egg",
+			new NWISWaterLogBlock(PROP_CHORUS_FRUIT), 0);
 
 	// Endergetic
 	public static final RegistryObject<Block> STATIC_POSIMOSS = genBlock("fake_posimoss", new NWISBlock(PROP_SOIL), 0);
