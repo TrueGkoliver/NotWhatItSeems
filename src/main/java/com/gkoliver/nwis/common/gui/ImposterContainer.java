@@ -147,10 +147,11 @@ public class ImposterContainer extends Container {
 				Iterator<String> iter_2 = e.iterator();
 				while (iter_2.hasNext()) {
 					String id = iter_2.next();
+					String id2 = iter_2.next();
 					if (id.contains("prismarine")) {
-						id.replace("dead", "elder");
+						id2.replace("dead", "elder");
 					}
-					ITEMS.put(ForgeRegistries.ITEMS.getValue(new ResourceLocation("upgrade_aquatic", id)), ForgeRegistries.ITEMS.getValue(new ResourceLocation("notwhatitseems", id)));
+					ITEMS.put(ForgeRegistries.ITEMS.getValue(new ResourceLocation("upgrade_aquatic", id2)), ForgeRegistries.ITEMS.getValue(new ResourceLocation("notwhatitseems", id)));
 				}
 			}
 		}
