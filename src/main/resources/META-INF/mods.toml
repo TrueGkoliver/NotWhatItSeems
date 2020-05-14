@@ -14,7 +14,7 @@ issueTrackerURL="http://my.issue.tracker/" #optional
 # The modid of the mod
 modId="notwhatitseems" #mandatory
 # The version number of the mod - there's a few well known ${} variables useable here or just hardcode it
-version="0.0.1" #mandatory
+version="1.0" #mandatory
  # A display name for the mod
 displayName="Not What It Seems" #mandatory
 # A URL to query for updates for this mod. See the JSON update specification <here>
@@ -24,7 +24,7 @@ displayName="Not What It Seems" #mandatory
 # A file name (in the root of the mod JAR) containing a logo for display
 #logoFile="examplemod.png" #optional
 # A text field displayed in the mod UI
-credits="Mojang for lots of the blockstate and model code" #optional
+credits="Mojang and mod devs for lots of the blockstate and model code" #optional
 # A text field displayed in the mod UI
 authors="Gkoliver" #optional
 # The description text for the mod (multi line!) (#mandatory)

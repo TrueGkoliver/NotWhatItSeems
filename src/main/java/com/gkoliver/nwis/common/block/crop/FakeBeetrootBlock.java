@@ -28,7 +28,7 @@ public class FakeBeetrootBlock extends Block implements IWaterLoggable {
 	public static final IntegerProperty AGE = BlockStateProperties.AGE_0_3;
 	public FakeBeetrootBlock(Properties properties) {
 		super(properties);
-		this.setDefaultState(this.stateContainer.getBaseState().with(AGE, Integer.valueOf(0)));
+		this.setDefaultState(this.stateContainer.getBaseState().with(AGE, Integer.valueOf(0)).with(WATERLOGGED, false));
 	}
 	public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
 	private static final VoxelShape[] BEETROOT_SHAPES = new VoxelShape[]{
