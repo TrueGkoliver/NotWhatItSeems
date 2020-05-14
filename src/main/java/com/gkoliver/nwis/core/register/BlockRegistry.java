@@ -7,6 +7,7 @@ import com.gkoliver.nwis.common.block.crop.ECropTypes;
 import com.gkoliver.nwis.common.block.crop.FakeAttachedBlock;
 import com.gkoliver.nwis.common.block.crop.FakeBeetrootBlock;
 import com.gkoliver.nwis.common.block.crop.FakeGrowableBlock;
+import com.gkoliver.nwis.common.block.crop.FakeNetherWart;
 import com.gkoliver.nwis.common.block.other.ImposterStationBlock;
 import com.gkoliver.nwis.common.block.other.NWISBlock;
 import com.gkoliver.nwis.common.block.other.NWISNorthableBlock;
@@ -273,6 +274,8 @@ public class BlockRegistry {
 			new NWISWaterLogBlock(PROP_SAPLING), 0x7E9821);
 	public static final RegistryObject<Block> FAKE_DARK_OAK_SAPLING = genBlock2("fake_dark_oak_sapling",
 			new NWISWaterLogBlock(PROP_SAPLING), 0x105210);
+	public static final RegistryObject<Block> FAKE_NETHER_WART = genBlock2("fake_nether_wart",
+			new FakeNetherWart(PROP_CROPS), 0x760001);
 
 	public static final RegistryObject<Block> FAKE_VINE = genBlock2("fake_vine", new FakeVineBlock(PROP_CROPS), 0x255E0D);
 

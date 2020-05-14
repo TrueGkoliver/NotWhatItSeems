@@ -218,5 +218,6 @@
 	"block.notwhatitseems.fake_beachgrass_small" : "Cardboard Beachgrass Pattern",
 	"block.notwhatitseems.fake_beachgrass" : "Cardboard Tall Beachgrass Pattern",
 	"block.notwhatitseems.fake_dirt" : "Poisoned Dirt",
-	"block.notwhatitseems.fake_bamboo" : "Cardboard Bamboo Pattern"
+	"block.notwhatitseems.fake_bamboo" : "Cardboard Bamboo Pattern",
+	"block.notwhatitseems.fake_nether_wart" : "Cardboard Nether Wart Pattern"
 }
