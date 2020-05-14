@@ -124,6 +124,7 @@ public class ImposterContainer extends Container {
 		if (NotWhatItSeems.swampexpansion) {
 			addModdedRecipe("swampexpansion", "rice", BlockRegistry.RICE);
 			addModdedRecipe("swampexpansion", "cattail", BlockRegistry.CATTAIL_SPROUT);
+			addModdedRecipe("swampexpansion", "willow_sapling", BlockRegistry.WILLOW_SAPLING);
 		}
 		if (NotWhatItSeems.ua) {
 			addModdedRecipe("upgrade_aquatic", "pickerel_weed_blue", BlockRegistry.PICKELREED_BLUE);
