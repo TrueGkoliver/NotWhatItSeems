@@ -25,6 +25,7 @@ import net.minecraftforge.fml.RegistryObject;
 public class SmallCoralBlock extends Block implements IWaterLoggable {
 	private static final VoxelShape SHAPE_FAN = Block.makeCuboidShape(2.0D, 0.0D, 2.0D, 14.0D, 4.0D, 14.0D);
 	protected static final VoxelShape SHAPE_SMALL = Block.makeCuboidShape(2.0D, 0.0D, 2.0D, 14.0D, 15.0D, 14.0D);
+	protected static final VoxelShape SHAPE_SHOWER = Block.makeCuboidShape(2.0D, 1.0D, 2.0D, 14.0D, 16.0D, 14.0D);
 	public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
 	private ECoralType type;
 	private CoralWallFanBlock wallFan;
@@ -42,7 +43,11 @@ public class SmallCoralBlock extends Block implements IWaterLoggable {
 	public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
 		if (type==ECoralType.SMALL) {
 			return SHAPE_SMALL;
-		} else {
+		} 
+		else if (type==ECoralType.SHOWER) {
+			return SHAPE_SHOWER;
+		}
+		else {
 			return SHAPE_FAN;
 		}
 	}
