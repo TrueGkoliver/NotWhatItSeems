@@ -327,7 +327,7 @@ public class BlockRegistry {
 	public static final RegistryObject<Block> FAKE_BIG_GLOWSHROOM_STEM = genBlock("fake_big_glowshroom_stem",
 			new SemiInvisibleNorthableBlock(PROP_GLOWMUSH), 0, "quark");
 	public static final RegistryObject<Block> FAKE_GLOWSHROOM = genBlock2("fake_glowshroom", new NWISWaterLogBlock(PROP_SAPLING), 0x6BD8F8, "quark");
-	public static final RegistryObject<Block> FAKE_CAVE_ROOTS = genBlock("fake_cave_roots", new FakeVineBlock(PROP_CROPS), 0xCBA365, "quark");
+	public static final RegistryObject<Block> FAKE_CAVE_ROOTS = genBlock2("fake_cave_roots", new FakeVineBlock(PROP_CROPS), 0xCBA365, "quark");
 	// Sapling
 	public static final RegistryObject<Block> FROSTY_SAPLING = genBlock2("fake_qsap_frosty", new NWISBlock(PROP_SAPLING), 0x3C95B7, "quark");
 	public static final RegistryObject<Block> SERENE_SAPLING = genBlock2("fake_qsap_serene", new NWISBlock(PROP_SAPLING), 0x9D7EAA, "quark");
