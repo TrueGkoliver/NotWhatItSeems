@@ -53,7 +53,7 @@ public class ImposterContainer extends Container {
 		ITEMS.put(Items.WHEAT_SEEDS, Item.getItemFromBlock(BlockRegistry.FAKE_WHEAT.get()));
 		ITEMS.put(Items.BEETROOT_SEEDS, Item.getItemFromBlock(BlockRegistry.FAKE_BEETROOT.get()));
 		ITEMS.put(Items.CARROT, Item.getItemFromBlock(BlockRegistry.FAKE_CARROTS.get()));
-		ITEMS.put(Items.BEETROOT, Item.getItemFromBlock(BlockRegistry.DILLUTED_VOID_BLOCK.get()));
+		ITEMS.put(Items.BEETROOT, Item.getItemFromBlock(BlockRegistry.FAKE_BEETROOT.get()));
 		
 		//Saplings
 		ITEMS.put(Items.OAK_SAPLING, Item.getItemFromBlock(BlockRegistry.FAKE_OAK_SAPLING.get()));
