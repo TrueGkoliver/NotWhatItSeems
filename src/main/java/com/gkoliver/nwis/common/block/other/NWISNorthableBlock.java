@@ -57,7 +57,8 @@ public class NWISNorthableBlock extends Block {
 			BooleanProperty ste1 = FACING_TO_PROPERTY_MAP.get(result.getFace());
 			BooleanProperty ste2 = FACING_TO_PROPERTY_MAP.get(result.getFace().getOpposite());
 			worldIn.setBlockState(pos, state.with(ste1, !state.get(ste1)));
-			worldIn.setBlockState(pos, state.with(ste2, !state.get(ste2)));
+			BlockState newState = worldIn.getBlockState(pos);
+			worldIn.setBlockState(pos, newState.with(ste2, !state.get(ste2)));
 			return ActionResultType.SUCCESS;
 		}
 		if (InverseKeybind.KEYBIND_INVERSE.isKeyDown()) {
