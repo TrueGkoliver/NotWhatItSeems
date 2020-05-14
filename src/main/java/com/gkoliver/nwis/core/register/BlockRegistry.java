@@ -18,6 +18,7 @@ import com.gkoliver.nwis.common.block.vegitation.ChorusFruitBlock;
 import com.gkoliver.nwis.common.block.vegitation.CoralWallFanBlock;
 import com.gkoliver.nwis.common.block.vegitation.ECoralType;
 import com.gkoliver.nwis.common.block.vegitation.FakeVineBlock;
+import com.gkoliver.nwis.common.block.vegitation.NWISBambooBlock;
 import com.gkoliver.nwis.common.block.vegitation.NewChorusPlantBlock;
 import com.gkoliver.nwis.common.block.vegitation.PassionVineBlock;
 import com.gkoliver.nwis.common.block.vegitation.SemiInvisibleBlock;
@@ -80,7 +81,7 @@ public class BlockRegistry {
 	}
 	public static RegistryObject<Block> genBlock(String id, Block block, int color, String modid) {
 		Item.Properties prop = new Item.Properties();
-		if (ModList.get().isLoaded(modid)) {
+		if (ModList.get().isLoaded(modid) && modid!="???!!!") {
 			prop.group(ItemGroup.SEARCH);
 		}
 		BlockItem item = new BlockItem(block, prop);
@@ -92,7 +93,7 @@ public class BlockRegistry {
 	}
 	
 	public static RegistryObject<Block> genBlock2(String id, Block block) {
-		BlockItem item = new BlockItem(block, new Item.Properties().group(ItemGroup.SEARCH));
+		BlockItem item = new BlockItem(block, new Item.Properties());
 		ItemRegistry.ITEMS.register(id, () -> item);
 		CUTOUTS.add(block);
 		return BlockRegistry.BLOCKS.register(id, () -> block);
@@ -302,7 +303,8 @@ public class BlockRegistry {
 			new ChorusFruitBlock(PROP_CHORUS_FRUIT), 0);
 	public static final RegistryObject<Block> FAKE_DRAGON_EGG = genBlock("fake_dragon_egg",
 			new NWISWaterLogBlock(PROP_CHORUS_FRUIT), 0);
-
+	public static final RegistryObject<Block> FAKE_BAMBOO = genBlock2("fake_bamboo",
+			new NWISBambooBlock(PROP_CHORUS_FRUIT), 0x467301);
 	// Endergetic
 	public static final RegistryObject<Block> STATIC_POSIMOSS = genBlock("fake_posimoss", new NWISBlock(PROP_SOIL), 0, "endergetic");
 	public static final RegistryObject<Block> STATIC_POSIMOSS_A = genBlock("fake_posimoss_a", new NWISBlock(PROP_SOIL), 0, "endergetic");
@@ -336,7 +338,7 @@ public class BlockRegistry {
 	public static final RegistryObject<Block> MAPLE_SAPLING_ORANGE = genBlock2("fake_maple_sapling_orange",
 			new NWISBlock(PROP_SAPLING), 0x924D17, "autumnity");
 	// Atmospheric
-	public static final RegistryObject<Block> PASSION_VINE = genBlock2("fake_passion_vine", new PassionVineBlock(PROP_MUSH), 0x7A0145, "atmospheric");
+	public static final RegistryObject<Block> PASSION_VINE = genBlock2("fake_passion_vine", new PassionVineBlock(PROP_CROPS), 0x7A0145, "atmospheric");
 	public static final RegistryObject<Block> ROSEWOOD_SAPLING = genBlock2("fake_rosewood_sapling", new NWISBlock(PROP_MUSH), 0x437224, "atmospheric");
 	public static final RegistryObject<Block> YUCCA_SAPLING = genBlock2("fake_yucca_sapling", new NWISBlock(PROP_MUSH), 0x85A143, "atmospheric");
 	public static final RegistryObject<Block> ASPEN_SAPLING = genBlock2("fake_aspen_sapling", new NWISBlock(PROP_MUSH), 0xFFD556, "atmospheric");
@@ -369,11 +371,11 @@ public class BlockRegistry {
 	public static final RegistryObject<Block> ELDER_PRISMARINE_SHOWER = genBlock2("fake_elder_prismarine_shower", new SmallCoralBlock(PROP_CORAL_T, ECoralType.SHOWER, null), 0xA29281, "upgrade_aquatic");
 	
 	//Swamp Expansion Compat
-	public static final RegistryObject<Block> CATTAIL_BIG = genBlock2("fake_cattail_big", new DoubleDoubleCropBlock(PROP_CROPS, EDoubleCropType.CATTAIL), 0x6E412A, "swampexpansion");
-	public static final RegistryObject<Block> CATTAIL = genBlock2("fake_cattail", new SingleDoubleCropBlock(PROP_CROPS, EDoubleCropType.CATTAIL), 0x6E412A, "swampexpansion");
+	public static final RegistryObject<Block> CATTAIL_BIG = genBlock2("fake_cattail_big", new DoubleDoubleCropBlock(PROP_CROPS, EDoubleCropType.CATTAIL), 0x6E412A, "???!!!");
+	public static final RegistryObject<Block> CATTAIL = genBlock2("fake_cattail", new SingleDoubleCropBlock(PROP_CROPS, EDoubleCropType.CATTAIL), 0x6E412A, "???!!!");
 	public static final RegistryObject<Block> CATTAIL_SPROUT = genBlock2("fake_cattail_sprout", new CropSproutBlock(PROP_CROPS), 0x6E412A, "swampexpansion");
 	
-	public static final RegistryObject<Block> RICE_BIG = genBlock2("fake_rice_big", new RiceDoubleSingleBlock(PROP_CROPS), 0xBFA355, "swampexpansion");
+	public static final RegistryObject<Block> RICE_BIG = genBlock2("fake_rice_big", new RiceDoubleSingleBlock(PROP_CROPS), 0xBFA355, "???!!!");
 	public static final RegistryObject<Block> RICE = genBlock2("fake_rice", new RiceSingleSingleBlock(PROP_CROPS), 0xBFA355, "swampexpansion");
 	
 	public static final RegistryObject<Block> WILLOW_SAPLING = genBlock2("fake_willow_sap", new NWISBlock(PROP_CROPS), 0x0F3217, "swampexpansion");

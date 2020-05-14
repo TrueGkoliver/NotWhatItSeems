@@ -3,7 +3,9 @@ package com.gkoliver.nwis.common.block.vegitation;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.state.BooleanProperty;
 import net.minecraft.state.EnumProperty;
+import net.minecraft.state.IntegerProperty;
 import net.minecraft.state.StateContainer.Builder;
 import net.minecraft.state.properties.BambooLeaves;
 import net.minecraft.state.properties.BlockStateProperties;
@@ -18,7 +20,8 @@ import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
 
 public class NWISBambooBlock extends Block {
-	   public static final EnumProperty<BambooLeaves> BAMBOO_LEAVES = BlockStateProperties.BAMBOO_LEAVES;
+	public static final EnumProperty<BambooLeaves> BAMBOO_LEAVES = BlockStateProperties.BAMBOO_LEAVES;
+	public static final IntegerProperty AGE = IntegerProperty.create("age", 0, 2);
 	public NWISBambooBlock(Properties properties) {
 		super(properties);
 		this.setDefaultState(this.getDefaultState().with(BAMBOO_LEAVES, BambooLeaves.NONE));
@@ -26,6 +29,7 @@ public class NWISBambooBlock extends Block {
 	@Override
 	protected void fillStateContainer(Builder<Block, BlockState> builder) {
 		builder.add(BAMBOO_LEAVES);
+		builder.add(AGE);
 	}
 	protected static final VoxelShape SHAPE_NORMAL = Block.makeCuboidShape(5.0D, 0.0D, 5.0D, 11.0D, 16.0D, 11.0D);
 	protected static final VoxelShape SHAPE_LARGE_LEAVES = Block.makeCuboidShape(3.0D, 0.0D, 3.0D, 13.0D, 16.0D, 13.0D);
@@ -34,8 +38,9 @@ public class NWISBambooBlock extends Block {
 	@Override
 	public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player,
 			Hand handIn, BlockRayTraceResult p_225533_6_) {
-		if (player.isShiftKeyDown()) {
+		if (player.isShiftKeyDown() && state.get(AGE)!=2) {
 			BambooLeaves newer = BambooLeaves.NONE;
+			BlockState newState = state;
 			if (state.get(BAMBOO_LEAVES)==BambooLeaves.NONE) {
 				newer = BambooLeaves.SMALL;
 			} else if (state.get(BAMBOO_LEAVES)==BambooLeaves.SMALL) {
@@ -44,8 +49,17 @@ public class NWISBambooBlock extends Block {
 			else {
 				newer = BambooLeaves.NONE;
 			}
+			newState = newState.with(BAMBOO_LEAVES, newer);
+			worldIn.setBlockState(pos, newState);
+			return ActionResultType.SUCCESS;
+		} else {
+			if (state.get(AGE)==2) {
+				worldIn.setBlockState(pos, state.with(AGE, 0));
+			} else {
+				worldIn.setBlockState(pos, state.with(AGE, state.get(AGE)+1));
+			}
+			return ActionResultType.SUCCESS;
 		}
-		return super.onBlockActivated(state, worldIn, pos, player, handIn, p_225533_6_);
 	}
 	
 	public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {

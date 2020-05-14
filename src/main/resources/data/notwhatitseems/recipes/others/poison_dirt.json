@@ -1,0 +1,8 @@
+{
+	"type" : "minecraft:crafting_shapeless",
+	"ingredients" : [
+		{"item" : "minecraft:dirt"},
+		{"item" : "minecraft:spider_eye"}
+	],
+	"result" : {"item" : "notwhatitseems:fake_dirt", "count" : 1}
+}

@@ -52,16 +52,16 @@ public class PassionVineBlock extends Block implements IWaterLoggable {
 	public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
 		Direction a = state.get(FACING);
 		if (a == Direction.NORTH) {
-			return NORTH_AABB;
-		}
-		else if (a == Direction.SOUTH) {
 			return SOUTH_AABB;
 		}
+		else if (a == Direction.SOUTH) {
+			return NORTH_AABB;
+		}
 		else if (a == Direction.EAST) {
-			return EAST_AABB;
+			return WEST_AABB;
 		}
 		else {
-			return WEST_AABB;
+			return EAST_AABB;
 		}
 	}
 	@Override
