@@ -53,6 +53,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ToolType;
 import net.minecraftforge.fml.ModList;
+import net.minecraftforge.fml.ModLoader;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -180,15 +181,15 @@ public class BlockRegistry {
 		for (int i = 0; i < blocky.size(); i++) {
 			Block block = blocky.get(i);
 			BlockItem bi;
+			Item.Properties prop = new Item.Properties();
 			if (ua) {
-				if (NotWhatItSeems.ua) {
-					bi = new BlockItem(block, new Item.Properties().group(ItemGroup.SEARCH));
-				} else {
-					bi = new BlockItem(block, new Item.Properties());
+				if (ModList.get().isLoaded("upgrade_aquatic")) {
+					prop.group(ItemGroup.SEARCH);
 				}
 			} else {
-				bi = new BlockItem(block, new Item.Properties().group(ItemGroup.SEARCH));
+				prop.group(ItemGroup.SEARCH);
 			}
+			bi = new BlockItem(block, prop);
 			if (stringy.get(i).contains("dead")) {
 				if (stringy.get(i).contains("prismarine")) {
 					ClientEvents.COLOR_MAPS.put(bi, 0xA29281);
