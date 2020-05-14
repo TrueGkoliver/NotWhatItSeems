@@ -50,6 +50,7 @@ import net.minecraft.state.properties.DoubleBlockHalf;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.minecraftforge.common.ToolType;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
@@ -211,19 +212,19 @@ public class BlockRegistry {
 	}
 	
 	public static final Block.Properties PROP_CROPS = Block.Properties.create(Material.PLANTS).doesNotBlockMovement().notSolid().sound(SoundType.PLANT);
-	public static final Block.Properties PROP_VOID = Block.Properties.create(Material.PORTAL).notSolid();
+	public static final Block.Properties PROP_VOID = Block.Properties.create(Material.PORTAL).notSolid().hardnessAndResistance(2.0F, 3.0F);
 	public static final Block.Properties PROP_SAPLING = Block.Properties.create(Material.PLANTS).doesNotBlockMovement()
 			.notSolid().sound(SoundType.PLANT);
-	public static final Block.Properties PROP_SOIL = Block.Properties.create(Material.ORGANIC).sound(SoundType.PLANT);
-	public static final Block.Properties PROP_POISE = Block.Properties.create(Material.ORGANIC).sound(SoundType.BAMBOO);
-	public static final Block.Properties PROP_MUSH = Block.Properties.create(Material.ORGANIC).sound(SoundType.WOOD);
-	public static final Block.Properties PROP_GLOWMUSH = Block.Properties.create(Material.ORGANIC).sound(SoundType.WOOD).notSolid();
-	public static final Block.Properties PROP_STATION = Block.Properties.create(Material.ROCK).sound(SoundType.METAL);
-	public static final Block.Properties PROP_CORAL = Block.Properties.create(Material.CORAL).sound(SoundType.CORAL);
-	public static final Block.Properties PROP_CORAL_T = Block.Properties.create(Material.CORAL).sound(SoundType.CORAL)
+	public static final Block.Properties PROP_SOIL = Block.Properties.create(Material.ORGANIC).sound(SoundType.PLANT).hardnessAndResistance(0.5F).harvestTool(ToolType.SHOVEL);
+	public static final Block.Properties PROP_POISE = Block.Properties.create(Material.ORGANIC).sound(SoundType.BAMBOO).hardnessAndResistance(0.5F);
+	public static final Block.Properties PROP_MUSH = Block.Properties.create(Material.ORGANIC).sound(SoundType.WOOD).hardnessAndResistance(0.2F).harvestTool(ToolType.AXE);
+	public static final Block.Properties PROP_GLOWMUSH = Block.Properties.create(Material.ORGANIC).sound(SoundType.WOOD).notSolid().hardnessAndResistance(0.2F).harvestTool(ToolType.AXE);
+	public static final Block.Properties PROP_STATION = Block.Properties.create(Material.ROCK).sound(SoundType.METAL).hardnessAndResistance(1.5F, 3.0F);
+	public static final Block.Properties PROP_CORAL = Block.Properties.create(Material.CORAL).sound(SoundType.CORAL).hardnessAndResistance(1.5F, 6.0F);
+	public static final Block.Properties PROP_CORAL_T = Block.Properties.create(Material.CORAL).sound(SoundType.CORAL).hardnessAndResistance(1.5F, 6.0F)
 			.doesNotBlockMovement().notSolid();
-	public static final Block.Properties PROP_CHORUS_FRUIT = Block.Properties.create(Material.WOOD).sound(SoundType.WOOD).notSolid();
-	private static final Properties PROP_VOID_SEMI = Block.Properties.create(Material.PORTAL).notSolid().doesNotBlockMovement();
+	public static final Block.Properties PROP_CHORUS_FRUIT = Block.Properties.create(Material.WOOD).sound(SoundType.WOOD).notSolid().hardnessAndResistance(0.4F).harvestTool(ToolType.AXE);
+	private static final Properties PROP_VOID_SEMI = Block.Properties.create(Material.PORTAL).notSolid().doesNotBlockMovement().hardnessAndResistance(2.0F, 3.0F);
 	
 	public static final RegistryObject<Block> FAKE_CARROTS = genBlock2("fake_carrot",
 			new FakeGrowableBlock(PROP_CROPS, 0, ECropTypes.CARROT), 0xFF8E09);
@@ -304,7 +305,7 @@ public class BlockRegistry {
 	public static final RegistryObject<Block> FAKE_DRAGON_EGG = genBlock("fake_dragon_egg",
 			new NWISWaterLogBlock(PROP_CHORUS_FRUIT), 0);
 	public static final RegistryObject<Block> FAKE_BAMBOO = genBlock2("fake_bamboo",
-			new NWISBambooBlock(PROP_CHORUS_FRUIT), 0x467301);
+			new NWISBambooBlock(PROP_POISE), 0x467301);
 	// Endergetic
 	public static final RegistryObject<Block> STATIC_POSIMOSS = genBlock("fake_posimoss", new NWISBlock(PROP_SOIL), 0, "endergetic");
 	public static final RegistryObject<Block> STATIC_POSIMOSS_A = genBlock("fake_posimoss_a", new NWISBlock(PROP_SOIL), 0, "endergetic");
