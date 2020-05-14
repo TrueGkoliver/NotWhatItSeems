@@ -260,7 +260,7 @@ public class BlockRegistry {
 	public static final RegistryObject<Block> RESTRAINED_DILLUTED_VOID_BLOCK = genBlock(
 			"restrained_dilluted_void_block", new RestrainedDillutedPortalBlock(PROP_VOID), 0);
 	public static final RegistryObject<Block> RESTRAINED_DILLUTED_VOID_BLOCK_SEMI = genBlock(
-			"restrained_dilluted_void_block_semi", new RestrainedDillutedPortalBlock(PROP_VOID), 0);
+			"restrained_dilluted_void_block_semi", new RestrainedDillutedPortalBlock(PROP_VOID_SEMI), 0);
 	
 	public static final RegistryObject<Block> FAKE_OAK_SAPLING = genBlock2("fake_oak_sapling",
 			new NWISWaterLogBlock(PROP_SAPLING), 0x408F2F);
