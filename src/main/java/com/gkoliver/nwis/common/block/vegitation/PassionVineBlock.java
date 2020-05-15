@@ -46,7 +46,7 @@ public class PassionVineBlock extends Block implements IWaterLoggable {
 	}
 	@Override
 	public BlockState getStateForPlacement(BlockItemUseContext context) {
-		return this.getDefaultState().with(FACING, context.getPlacementHorizontalFacing());
+		return this.getDefaultState().with(FACING, context.getPlacementHorizontalFacing().getOpposite());
 	}
 	@Override
 	public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
