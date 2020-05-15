@@ -54,6 +54,9 @@ public class NWISBlock extends Block {
 				state.getBlock() == BlockRegistry.MAPLE_SAPLING_ORANGE.get() ||
 				state.getBlock() == BlockRegistry.MAPLE_SAPLING_RED.get() ||
 				state.getBlock() == BlockRegistry.ROSEWOOD_SAPLING.get() ||
+				state.getBlock() == BlockRegistry.YUCCA_SAPLING.get() ||
+				state.getBlock() == BlockRegistry.ASPEN_SAPLING.get() ||
+				state.getBlock() == BlockRegistry.KOUSA_SAPLING.get() ||
 				state.getBlock() == BlockRegistry.SERENE_SAPLING.get() || 
 				state.getBlock() == BlockRegistry.SUNNY_SAPLING.get() ||
 				state.getBlock() == BlockRegistry.SWEET_SAPLING.get() ||
