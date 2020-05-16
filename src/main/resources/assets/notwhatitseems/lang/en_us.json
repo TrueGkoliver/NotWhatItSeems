@@ -219,5 +219,20 @@
 	"block.notwhatitseems.fake_beachgrass" : "Cardboard Tall Beachgrass Pattern",
 	"block.notwhatitseems.fake_dirt" : "Poisoned Dirt",
 	"block.notwhatitseems.fake_bamboo" : "Cardboard Bamboo Pattern",
-	"block.notwhatitseems.fake_nether_wart" : "Cardboard Nether Wart Pattern"
+	"block.notwhatitseems.fake_nether_wart" : "Cardboard Nether Wart Pattern",
+	
+	"advancements.story.copier.title" : "The Great Jest",
+	"advancements.story.copier.description" : "Craft a Copier with iron, planks, redstone, and glass",
+	
+	"advancements.story.voidblock.title" : "Ascension to the Void",
+	"advancements.story.voidblock.description" : "Infuse ender pearls and obsidian to create a Void Block",
+	
+	"advancements.story.dillute_voidblock.title" : "Watered-Down",
+	"advancements.story.dillute_voidblock.description" : "Dillute a Void Block with a Water Bucket",
+	
+	"advancements.story.harden_voidblock.title" : "A Physical Nothing",
+	"advancements.story.harden_voidblock.description" : "Harden a Void Block with glass",
+	
+	"advancements.story.restrain_void.title" : "Don't Jump In!",
+	"advancements.story.restrain_void.description" : "Restrain a Void Block with shears"
 }

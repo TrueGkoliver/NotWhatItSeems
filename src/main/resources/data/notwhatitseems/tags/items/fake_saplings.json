@@ -1,0 +1,14 @@
+{
+	"replace" : false,
+	"values" : [
+		"notwhatitseems:fake_oak_sapling",
+		"notwhatitseems:fake_birch_sapling",
+		"notwhatitseems:fake_spruce_sapling",
+		"notwhatitseems:fake_jungle_sapling",
+		"notwhatitseems:fake_acacia_sapling",
+		"notwhatitseems:fake_dark_oak_sapling",
+		"notwhatitseems:fake_"
+		
+	]
+
+}

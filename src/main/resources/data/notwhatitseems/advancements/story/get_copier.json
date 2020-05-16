@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:story/smelt_iron",
+  "display": {
+    "icon": {
+      "item": "notwhatitseems:imposter_station"
+    },
+    "title": {
+      "translate": "advancements.story.copier.title"
+    },
+    "description": {
+      "translate": "advancements.story.copier.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "imposter_station": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "notwhatitseems:imposter_station"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "imposter_station"
+    ]
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "parent": "notwhatitseems:story/get_void",
+  "display": {
+    "icon": {
+      "item": "minecraft:shears"
+    },
+    "title": {
+      "translate": "advancements.story.restrain_voidblock.title"
+    },
+    "description": {
+      "translate": "advancements.story.restrain_voidblock.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "restrain": {
+      "trigger": "notwhatitseems:restrain_void",
+      "conditions": {}
+    }
+  },
+  "requirements": [
+    [
+      "restrain"
+    ]
+  ]
+}

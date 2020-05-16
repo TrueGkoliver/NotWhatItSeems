@@ -1,0 +1,35 @@
+{
+  "parent": "notwhatitseems:story/get_void",
+  "display": {
+    "icon": {
+      "item": "minecraft:glass"
+    },
+    "title": {
+      "translate": "advancements.story.harden_voidblock.title"
+    },
+    "description": {
+      "translate": "advancements.story.harden_voidblock.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "dillute": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "notwhatitseems:hardened_void_blocks"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "dillute"
+    ]
+  ]
+}

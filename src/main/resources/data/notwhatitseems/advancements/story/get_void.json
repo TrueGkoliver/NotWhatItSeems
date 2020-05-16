@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:story/form_obsidian",
+  "display": {
+    "icon": {
+      "item": "notwhatitseems:void_block"
+    },
+    "title": {
+      "translate": "advancements.story.voidblock.title"
+    },
+    "description": {
+      "translate": "advancements.story.voidblock.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "void": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "notwhatitseems:void_block"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "void"
+    ]
+  ]
+}
