@@ -1,5 +1,6 @@
 package com.gkoliver.nwis;
 
+import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -14,6 +15,7 @@ import org.apache.logging.log4j.Logger;
 
 import com.gkoliver.nwis.client.render.VoidBlockTileEntityRenderer;
 import com.gkoliver.nwis.common.gui.ImposterContainer;
+import com.gkoliver.nwis.common.trigger.RestrainTrigger;
 import com.gkoliver.nwis.core.register.BlockRegistry;
 import com.gkoliver.nwis.core.register.ItemRegistry;
 import com.gkoliver.nwis.core.register.TileEntityRegistry;
@@ -62,9 +64,19 @@ public class NotWhatItSeems
         if (ModList.get().isLoaded("swampexpansion")) {
         	swampexpansion = true;
         }
+        Triggers.RESTRAIN_VOID = Triggers.bigRegistry();
     }
 
     private void setup(final FMLCommonSetupEvent event)
     {
     }
+    
+    public static class Triggers {
+    	public static RestrainTrigger RESTRAIN_VOID;
+    	public static RestrainTrigger bigRegistry() {
+    		System.out.println("I HEAR THIS YES");
+    		return CriteriaTriggers.register(new RestrainTrigger());
+    	}
+    }
+
 }

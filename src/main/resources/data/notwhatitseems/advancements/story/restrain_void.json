@@ -5,10 +5,10 @@
       "item": "minecraft:shears"
     },
     "title": {
-      "translate": "advancements.story.restrain_voidblock.title"
+      "translate": "advancements.story.restrain_void.title"
     },
     "description": {
-      "translate": "advancements.story.restrain_voidblock.description"
+      "translate": "advancements.story.restrain_void.description"
     },
     "frame": "task",
     "show_toast": true,

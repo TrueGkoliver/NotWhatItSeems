@@ -2,10 +2,10 @@ package com.gkoliver.nwis.common.block.vegitation;
 
 import java.util.Random;
 
+import com.gkoliver.nwis.NotWhatItSeems;
 import com.gkoliver.nwis.common.block.other.NWISNorthableBlock;
 import com.gkoliver.nwis.common.block.other.RestrainedDillutedPortalBlock;
 import com.gkoliver.nwis.core.register.BlockRegistry;
-import com.gkoliver.nwis.core.register.Triggers;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -43,7 +43,7 @@ public class SemiInvisibleBlock extends Block {
 		if (!(player.getHeldItem(handIn).getItem() instanceof ShearsItem)) {
 			return super.onBlockActivated(state, worldIn, pos, player, handIn, p_225533_6_);
 		}
-		Triggers.RESTRAIN_VOID.trigger((ServerPlayerEntity)player);
+		NotWhatItSeems.Triggers.RESTRAIN_VOID.trigger((ServerPlayerEntity)player);
 		ItemStack itemstack = player.getHeldItem(handIn);
 		if (!player.isCreative()) {
 			itemstack.attemptDamageItem(1, new Random(), (ServerPlayerEntity)player);
