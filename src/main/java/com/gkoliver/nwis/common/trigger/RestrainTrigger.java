@@ -13,7 +13,7 @@ import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.util.ResourceLocation;
 
 public class RestrainTrigger extends AbstractCriterionTrigger<RestrainTrigger.RestrainTriggerInstance> {
-	public final ResourceLocation LOCATION = new ResourceLocation(NotWhatItSeems.MODID, "restrain_void");
+	public static final ResourceLocation LOCATION = new ResourceLocation(NotWhatItSeems.MODID, "restrain_void");
 	@Override
 	public ResourceLocation getId() {
 		return LOCATION;

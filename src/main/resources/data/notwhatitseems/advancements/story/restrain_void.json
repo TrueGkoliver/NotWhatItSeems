@@ -17,13 +17,7 @@
   },
   "criteria": {
     "restrain": {
-      "trigger": "notwhatitseems:restrain_void",
-      "conditions": {}
+      "trigger": "notwhatitseems:restrain_void"
     }
-  },
-  "requirements": [
-    [
-      "restrain"
-    ]
-  ]
+  }
 }
