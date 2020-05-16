@@ -1,0 +1,9 @@
+{
+	"replace" : false,
+	"values" : [
+		"notwhatitseems:void_block",
+		"notwhatitseems:void_block_semi",
+		"notwhatitseems:restrained_void_block",
+		"notwhatitseems:restrained_void_block_semi"
+	]
+}

@@ -1,0 +1,9 @@
+{
+	"replace" : false,
+	"values" : [
+		"#notwhatitseems:restrained_void_blocks",
+		"#notwhatitseems:regular_void_blocks",
+		"#notwhatitseems:dilluted_void_blocks",
+		"#notwhatitseems:hardened_void_blocks"
+	]
+}

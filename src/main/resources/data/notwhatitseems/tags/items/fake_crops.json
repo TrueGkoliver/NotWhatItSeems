@@ -1,0 +1,12 @@
+{
+	"replace" : false,
+	"values" : [
+		"notwhatitseems:fake_carrot",
+		"notwhatitseems:fake_potato",
+		"notwhatitseems:fake_wheat",
+		"notwhatitseems:fake_beetroot",
+		"notwhatitseems:fake_melon_stem",
+		"notwhatitseems:fake_pumpkin_stem",
+		""
+	]
+}
