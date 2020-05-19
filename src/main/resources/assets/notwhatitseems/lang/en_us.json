@@ -221,7 +221,7 @@
 	"block.notwhatitseems.fake_bamboo" : "Cardboard Bamboo Pattern",
 	"block.notwhatitseems.fake_nether_wart" : "Cardboard Nether Wart Pattern",
 	
-	"advancements.story.copier.title" : "The Great Jest",
+	"advancements.story.copier.title" : "Definitely not a Dupe",
 	"advancements.story.copier.description" : "Craft a Copier with iron, planks, redstone, and glass",
 	
 	"advancements.story.voidblock.title" : "Ascension to the Void",
@@ -234,5 +234,12 @@
 	"advancements.story.harden_voidblock.description" : "Harden a Void Block with glass",
 	
 	"advancements.story.restrain_void.title" : "Don't Jump In!",
-	"advancements.story.restrain_void.description" : "Restrain a Void Block with shears"
+	"advancements.story.restrain_void.description" : "Restrain a Void Block with shears",
+	
+	"advancements.story.get_fake_blocks.title" : "Cardboard Cutout",
+	"advancements.story.get_fake_blocks.description" : "Create a Cardboard Pattern at a Copier",
+	
+	"advancements.story.crop_change.title" : "That's Not Bone Meal...",
+	"advancements.story.crop_change.description" : "Change a block's type by shift-clicking a fake block"
+	
 }

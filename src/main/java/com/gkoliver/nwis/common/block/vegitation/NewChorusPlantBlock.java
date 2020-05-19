@@ -2,6 +2,7 @@ package com.gkoliver.nwis.common.block.vegitation;
 
 import java.util.Map;
 
+import com.gkoliver.nwis.NotWhatItSeems;
 import com.gkoliver.nwis.core.keybind.InverseKeybind;
 import com.google.common.collect.Maps;
 
@@ -10,6 +11,7 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.IWaterLoggable;
 import net.minecraft.block.Block.Properties;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.fluid.Fluid;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.fluid.IFluidState;
@@ -60,22 +62,32 @@ public class NewChorusPlantBlock extends Block implements IWaterLoggable {
 	@Override
 	public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player,
 			Hand handIn, BlockRayTraceResult result) {
+		
 		if (InverseKeybind.KEYBIND_BOTHSIDES.isKeyDown()) {
 			BooleanProperty ste1 = FACING_TO_PROPERTY_MAP.get(result.getFace());
 			BooleanProperty ste2 = FACING_TO_PROPERTY_MAP.get(result.getFace().getOpposite());
 			worldIn.setBlockState(pos, state.with(ste1, !state.get(ste1)));
 			BlockState newState = worldIn.getBlockState(pos);
+			if (!worldIn.isRemote()) {
+				NotWhatItSeems.Triggers.CROP_CHANGES.trigger((ServerPlayerEntity)player);
+			}
 			worldIn.setBlockState(pos, newState.with(ste2, !state.get(ste2)));
 			return ActionResultType.SUCCESS;
 		}
 		if (InverseKeybind.KEYBIND_INVERSE.isKeyDown()) {
 			BooleanProperty ste = FACING_TO_PROPERTY_MAP.get(result.getFace().getOpposite());
 			worldIn.setBlockState(pos, state.with(ste, !state.get(ste)));
+			if (!worldIn.isRemote()) {
+				NotWhatItSeems.Triggers.CROP_CHANGES.trigger((ServerPlayerEntity)player);
+			}
 			return ActionResultType.SUCCESS;
 		}
 		if (player.isShiftKeyDown()) {
 			BooleanProperty ste = FACING_TO_PROPERTY_MAP.get(result.getFace());
 			worldIn.setBlockState(pos, state.with(ste, !state.get(ste)));
+			if (!worldIn.isRemote()) {
+				NotWhatItSeems.Triggers.CROP_CHANGES.trigger((ServerPlayerEntity)player);
+			}
 			return ActionResultType.SUCCESS;
 		} else {
 			return super.onBlockActivated(state, worldIn, pos, player, handIn, result);

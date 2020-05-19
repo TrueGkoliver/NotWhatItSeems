@@ -1,10 +1,13 @@
 package com.gkoliver.nwis.common.block.vegitation;
 
+import com.gkoliver.nwis.NotWhatItSeems;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.HorizontalBlock;
 import net.minecraft.block.IWaterLoggable;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.fluid.Fluid;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.fluid.IFluidState;
@@ -68,6 +71,9 @@ public class PassionVineBlock extends Block implements IWaterLoggable {
 	public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player,
 			Hand handIn, BlockRayTraceResult p_225533_6_) {
 		if (player.isShiftKeyDown()) {
+			if (!worldIn.isRemote()) {
+				NotWhatItSeems.Triggers.CROP_CHANGES.trigger((ServerPlayerEntity)player);
+			}
 			int i = state.get(AGE);
 			if (i==4) {
 				worldIn.setBlockState(pos, state.with(AGE, 0));

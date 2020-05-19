@@ -1,11 +1,12 @@
 package com.gkoliver.nwis.common.block.crop;
 
-import com.gkoliver.nwis.core.register.BlockRegistry;
+import com.gkoliver.nwis.NotWhatItSeems;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.IWaterLoggable;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.fluid.Fluid;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.fluid.IFluidState;
@@ -51,6 +52,9 @@ public class FakeBeetrootBlock extends Block implements IWaterLoggable {
 	public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player,
 			Hand handIn, BlockRayTraceResult p_225533_6_) {
 		if (player.isShiftKeyDown()) {
+			if (!worldIn.isRemote()) {
+				NotWhatItSeems.Triggers.CROP_CHANGES.trigger((ServerPlayerEntity)player);
+			}
 			int i = state.get(AGE);
 			if (i==3) {
 				worldIn.setBlockState(pos, state.with(AGE, 0));
@@ -71,6 +75,7 @@ public class FakeBeetrootBlock extends Block implements IWaterLoggable {
 	public boolean canContainFluid(IBlockReader worldIn, BlockPos pos, BlockState state, Fluid fluidIn) {
 		return IWaterLoggable.super.canContainFluid(worldIn, pos, state, fluidIn);
 	}
+	@SuppressWarnings("deprecation")
 	public BlockState updatePostPlacement(BlockState stateIn, Direction facing, BlockState facingState, IWorld worldIn, BlockPos currentPos, BlockPos facingPos) {
 		if (stateIn.get(WATERLOGGED)) {
 			worldIn.getPendingFluidTicks().scheduleTick(currentPos, Fluids.WATER, Fluids.WATER.getTickRate(worldIn));

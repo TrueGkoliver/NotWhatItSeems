@@ -2,6 +2,7 @@ package com.gkoliver.nwis.common.block.other;
 
 import java.util.Map;
 
+import com.gkoliver.nwis.NotWhatItSeems;
 import com.gkoliver.nwis.core.keybind.InverseKeybind;
 import com.google.common.collect.Maps;
 
@@ -9,6 +10,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.SixWayBlock;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.state.BooleanProperty;
 import net.minecraft.state.StateContainer;
 import net.minecraft.state.StateContainer.Builder;
@@ -59,14 +61,23 @@ public class NWISNorthableBlock extends Block {
 			worldIn.setBlockState(pos, state.with(ste1, !state.get(ste1)));
 			BlockState newState = worldIn.getBlockState(pos);
 			worldIn.setBlockState(pos, newState.with(ste2, !state.get(ste2)));
+			if (!worldIn.isRemote()) {
+				NotWhatItSeems.Triggers.CROP_CHANGES.trigger((ServerPlayerEntity)player);
+			}
 			return ActionResultType.SUCCESS;
 		}
 		if (InverseKeybind.KEYBIND_INVERSE.isKeyDown()) {
+			if (!worldIn.isRemote()) {
+				NotWhatItSeems.Triggers.CROP_CHANGES.trigger((ServerPlayerEntity)player);
+			}
 			BooleanProperty ste = FACING_TO_PROPERTY_MAP.get(result.getFace().getOpposite());
 			worldIn.setBlockState(pos, state.with(ste, !state.get(ste)));
 			return ActionResultType.SUCCESS;
 		}
 		if (player.isShiftKeyDown()) {
+			if (!worldIn.isRemote()) {
+				NotWhatItSeems.Triggers.CROP_CHANGES.trigger((ServerPlayerEntity)player);
+			}
 			BooleanProperty ste = FACING_TO_PROPERTY_MAP.get(result.getFace());
 			worldIn.setBlockState(pos, state.with(ste, !state.get(ste)));
 			return ActionResultType.SUCCESS;

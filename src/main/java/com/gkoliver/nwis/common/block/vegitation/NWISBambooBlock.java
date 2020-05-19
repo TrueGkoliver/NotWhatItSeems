@@ -1,8 +1,11 @@
 package com.gkoliver.nwis.common.block.vegitation;
 
+import com.gkoliver.nwis.NotWhatItSeems;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.state.BooleanProperty;
 import net.minecraft.state.EnumProperty;
 import net.minecraft.state.IntegerProperty;
@@ -38,6 +41,9 @@ public class NWISBambooBlock extends Block {
 	@Override
 	public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player,
 			Hand handIn, BlockRayTraceResult p_225533_6_) {
+		if (!worldIn.isRemote()) {
+			NotWhatItSeems.Triggers.CROP_CHANGES.trigger((ServerPlayerEntity)player);
+		}
 		if (player.isShiftKeyDown() && state.get(AGE)!=2) {
 			BambooLeaves newer = BambooLeaves.NONE;
 			BlockState newState = state;

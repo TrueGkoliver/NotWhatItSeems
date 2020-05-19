@@ -1,6 +1,7 @@
 package com.gkoliver.nwis;
 
 import net.minecraft.advancements.CriteriaTriggers;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -65,6 +66,7 @@ public class NotWhatItSeems
         	swampexpansion = true;
         }
         Triggers.RESTRAIN_VOID = Triggers.bigRegistry();
+        Triggers.CROP_CHANGES = Triggers.getConstrain();
     }
 
     private void setup(final FMLCommonSetupEvent event)
@@ -73,9 +75,12 @@ public class NotWhatItSeems
     
     public static class Triggers {
     	public static RestrainTrigger RESTRAIN_VOID;
+    	public static RestrainTrigger CROP_CHANGES;
+    	public static RestrainTrigger getConstrain() {
+    		return CriteriaTriggers.register(new RestrainTrigger(new ResourceLocation(NotWhatItSeems.MODID, "crop_change")));
+    	}
     	public static RestrainTrigger bigRegistry() {
-    		System.out.println("I HEAR THIS YES");
-    		return CriteriaTriggers.register(new RestrainTrigger());
+    		return CriteriaTriggers.register(new RestrainTrigger(new ResourceLocation(NotWhatItSeems.MODID, "restrain_void")));
     	}
     }
 

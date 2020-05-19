@@ -1,0 +1,23 @@
+{
+  "parent": "notwhatitseems:story/get_fake_blocks",
+  "display": {
+    "icon": {
+      "item": "minecraft:bone_meal"
+    },
+    "title": {
+      "translate": "advancements.story.crop_change.title"
+    },
+    "description": {
+      "translate": "advancements.story.crop_change.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "crop_change": {
+      "trigger": "notwhatitseems:crop_change"
+    }
+  }
+}

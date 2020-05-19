@@ -1,0 +1,30 @@
+{
+  "parent": "notwhatitseems:story/get_copier",
+  "display": {
+    "icon": {
+      "item": "minecraft:map"
+    },
+    "title": {
+      "translate": "advancements.story.get_fake_blocks.title"
+    },
+    "description": {
+      "translate": "advancements.story.get_fake_blocks.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "gain_fake": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "notwhatitseems:all_fake_blocks"
+          }
+        ]
+      }
+    }
+  }
+}

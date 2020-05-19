@@ -1,0 +1,7 @@
+{
+	"replace" : false,
+	"values" : [
+		"#notwhatitseems:fake_crops",
+		"#notwhatitseems:fake_saplings"
+	]
+}

@@ -2,6 +2,7 @@ package com.gkoliver.nwis.common.block.crop;
 
 import java.util.Map;
 
+import com.gkoliver.nwis.NotWhatItSeems;
 import com.gkoliver.nwis.core.register.BlockRegistry;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Maps;
@@ -10,8 +11,8 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.HorizontalBlock;
 import net.minecraft.block.IWaterLoggable;
-import net.minecraft.block.Block.Properties;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.fluid.Fluid;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.fluid.IFluidState;
@@ -19,7 +20,6 @@ import net.minecraft.item.BlockItemUseContext;
 import net.minecraft.state.BooleanProperty;
 import net.minecraft.state.DirectionProperty;
 import net.minecraft.state.StateContainer;
-import net.minecraft.state.StateContainer.Builder;
 import net.minecraft.state.properties.BlockStateProperties;
 import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Direction;
@@ -64,7 +64,11 @@ public class FakeAttachedBlock extends Block implements IWaterLoggable {
 	public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player,
 			Hand handIn, BlockRayTraceResult p_225533_6_) {
 		if (player.isShiftKeyDown()) {
+			if (!worldIn.isRemote()) {
+				NotWhatItSeems.Triggers.CROP_CHANGES.trigger((ServerPlayerEntity)player);
+			}
 			if (type==ECropTypes.MELON_STEM) {
+				
 				worldIn.setBlockState(pos, BlockRegistry.FAKE_MELON_STEM.get().getDefaultState());
 			}
 			else {
@@ -74,6 +78,7 @@ public class FakeAttachedBlock extends Block implements IWaterLoggable {
 		}
 		return ActionResultType.SUCCESS;
 	}
+	@SuppressWarnings("deprecation")
 	public IFluidState getFluidState(BlockState state) {
 		return state.get(WATERLOGGED) ? Fluids.WATER.getStillFluidState(false) : super.getFluidState(state);
 	}
@@ -85,6 +90,7 @@ public class FakeAttachedBlock extends Block implements IWaterLoggable {
 	public boolean canContainFluid(IBlockReader worldIn, BlockPos pos, BlockState state, Fluid fluidIn) {
 		return IWaterLoggable.super.canContainFluid(worldIn, pos, state, fluidIn);
 	}
+	@SuppressWarnings("deprecation")
 	public BlockState updatePostPlacement(BlockState stateIn, Direction facing, BlockState facingState, IWorld worldIn, BlockPos currentPos, BlockPos facingPos) {
 		if (stateIn.get(WATERLOGGED)) {
 			worldIn.getPendingFluidTicks().scheduleTick(currentPos, Fluids.WATER, Fluids.WATER.getTickRate(worldIn));

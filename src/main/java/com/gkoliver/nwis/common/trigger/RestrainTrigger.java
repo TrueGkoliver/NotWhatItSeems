@@ -13,10 +13,15 @@ import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.util.ResourceLocation;
 
 public class RestrainTrigger extends AbstractCriterionTrigger<RestrainTrigger.RestrainTriggerInstance> {
-	public static final ResourceLocation LOCATION = new ResourceLocation(NotWhatItSeems.MODID, "restrain_void");
+	public ResourceLocation LOCATION;
+	public RestrainTrigger(ResourceLocation location) {
+		this.LOCATION = location;
+		
+	}
 	@Override
 	public ResourceLocation getId() {
 		return LOCATION;
+		
 	}
 	public void trigger(ServerPlayerEntity player) {
 	      this.func_227070_a_(player.getAdvancements(), (trigger) -> {
