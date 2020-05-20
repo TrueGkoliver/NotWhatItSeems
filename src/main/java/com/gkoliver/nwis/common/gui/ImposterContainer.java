@@ -48,20 +48,21 @@ public class ImposterContainer extends Container {
 	}
 	@SuppressWarnings("deprecation")
 	public void addBlocks() {
-		ITEMS.put(Items.CARROT, Item.getItemFromBlock(BlockRegistry.FAKE_CARROTS.get()));
-		ITEMS.put(Items.POTATO, Item.getItemFromBlock(BlockRegistry.FAKE_POTATO.get()));
-		ITEMS.put(Items.WHEAT_SEEDS, Item.getItemFromBlock(BlockRegistry.FAKE_WHEAT.get()));
-		ITEMS.put(Items.BEETROOT_SEEDS, Item.getItemFromBlock(BlockRegistry.FAKE_BEETROOT.get()));
-		ITEMS.put(Items.CARROT, Item.getItemFromBlock(BlockRegistry.FAKE_CARROTS.get()));
-		ITEMS.put(Items.BEETROOT, Item.getItemFromBlock(BlockRegistry.FAKE_BEETROOT.get()));
+		putRecipe(Items.CARROT, BlockRegistry.FAKE_CARROTS);
+		putRecipe(Items.POTATO, BlockRegistry.FAKE_POTATO);
+		putRecipe(Items.WHEAT_SEEDS, BlockRegistry.FAKE_WHEAT);
+		putRecipe(Items.BEETROOT_SEEDS, BlockRegistry.FAKE_BEETROOT);
+		putRecipe(Items.MELON_SEEDS, BlockRegistry.FAKE_MELON_STEM);
+		putRecipe(Items.PUMPKIN_SEEDS, BlockRegistry.FAKE_PUMPKIN_STEM);
+		putRecipe(Items.NETHER_WART, BlockRegistry.FAKE_NETHER_WART);
 		
 		//Saplings
-		ITEMS.put(Items.OAK_SAPLING, Item.getItemFromBlock(BlockRegistry.FAKE_OAK_SAPLING.get()));
-		ITEMS.put(Items.BIRCH_SAPLING, Item.getItemFromBlock(BlockRegistry.FAKE_BIRCH_SAPLING.get()));
-		ITEMS.put(Items.SPRUCE_SAPLING, Item.getItemFromBlock(BlockRegistry.FAKE_SPRUCE_SAPLING.get()));
-		ITEMS.put(Items.JUNGLE_SAPLING, Item.getItemFromBlock(BlockRegistry.FAKE_JUNGLE_SAPLING.get()));
-		ITEMS.put(Items.DARK_OAK_SAPLING, Item.getItemFromBlock(BlockRegistry.FAKE_DARK_OAK_SAPLING.get()));
-		ITEMS.put(Items.ACACIA_SAPLING, Item.getItemFromBlock(BlockRegistry.FAKE_ACACIA_SAPLING.get()));
+		putRecipe(Items.OAK_SAPLING, BlockRegistry.FAKE_OAK_SAPLING);
+		putRecipe(Items.BIRCH_SAPLING, BlockRegistry.FAKE_BIRCH_SAPLING);
+		putRecipe(Items.SPRUCE_SAPLING, BlockRegistry.FAKE_SPRUCE_SAPLING);
+		putRecipe(Items.JUNGLE_SAPLING, BlockRegistry.FAKE_JUNGLE_SAPLING);
+		putRecipe(Items.DARK_OAK_SAPLING, BlockRegistry.FAKE_DARK_OAK_SAPLING);
+		putRecipe(Items.ACACIA_SAPLING, BlockRegistry.FAKE_ACACIA_SAPLING);
 		
 		putRecipe(Items.VINE, BlockRegistry.FAKE_VINE);
 		putRecipe(Items.GRASS_BLOCK, BlockRegistry.STATIC_GRASS);
