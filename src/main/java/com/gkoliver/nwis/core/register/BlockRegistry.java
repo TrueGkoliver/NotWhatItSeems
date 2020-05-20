@@ -6,6 +6,7 @@ import com.gkoliver.nwis.NotWhatItSeems;
 import com.gkoliver.nwis.common.block.crop.ECropTypes;
 import com.gkoliver.nwis.common.block.crop.FakeAttachedBlock;
 import com.gkoliver.nwis.common.block.crop.FakeBeetrootBlock;
+import com.gkoliver.nwis.common.block.crop.FakeCocoaBeanBlock;
 import com.gkoliver.nwis.common.block.crop.FakeGrowableBlock;
 import com.gkoliver.nwis.common.block.crop.FakeNetherWart;
 import com.gkoliver.nwis.common.block.other.ImposterStationBlock;
@@ -240,7 +241,8 @@ public class BlockRegistry {
 			new FakeGrowableBlock(PROP_CROPS, 0, ECropTypes.MELON_STEM), 0x2A220B);
 	public static final RegistryObject<Block> FAKE_PUMPKIN_STEM = genBlock2("fake_pumpkin_stem",
 			new FakeGrowableBlock(PROP_CROPS, 0, ECropTypes.PUMPKIN_STEM), 0xCBC68D);
-
+	public static final RegistryObject<Block> FAKE_COCOA_BEAN = genBlock2("fake_cocoa_beans",
+			new FakeCocoaBeanBlock(PROP_MUSH), 0x704425);
 	public static final RegistryObject<Block> FAKE_PUMPKIN_STEM_ATTACHED = genBlock2("fake_pumpkin_stem_attached",
 			new FakeAttachedBlock(PROP_CROPS, ECropTypes.PUMPKIN_STEM), 0, "???!!!");
 	public static final RegistryObject<Block> FAKE_MELON_STEM_ATTACHED = genBlock2("fake_melon_stem_attached",
