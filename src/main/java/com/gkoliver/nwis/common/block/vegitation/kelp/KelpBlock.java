@@ -1,9 +1,12 @@
 package com.gkoliver.nwis.common.block.vegitation.kelp;
 
+import com.gkoliver.nwis.NotWhatItSeems;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.IWaterLoggable;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.fluid.Fluid;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.fluid.IFluidState;
@@ -24,10 +27,11 @@ import net.minecraft.world.World;
 public class KelpBlock extends Block implements IWaterLoggable {
 	public static BooleanProperty isGrown = BooleanProperty.create("grown");
 	public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
-	protected static final VoxelShape SHAPE_TOP = Block.makeCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 9.0D, 16.0D);
+	protected static final VoxelShape SHAPE_TOP = Block.makeCuboidShape(2.0D, 0.0D, 2.0D, 14.0D, 9.0D, 14.0D);
+	protected static final VoxelShape SHAPE_BOTTOM = Block.makeCuboidShape(2.0D, 0.0D, 2.0D, 14.0D, 16.0D, 14.0D);
 	public KelpBlock(Properties properties) {
 		super(properties);
-		this.setDefaultState(this.getDefaultState().with(WATERLOGGED, false));
+		this.setDefaultState(this.getDefaultState().with(WATERLOGGED, false).with(isGrown, true));
 	}
 	@Override
 	protected void fillStateContainer(Builder<Block, BlockState> builder) {
@@ -40,6 +44,9 @@ public class KelpBlock extends Block implements IWaterLoggable {
 	public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player,
 			Hand handIn, BlockRayTraceResult p_225533_6_) {
 		if (player.isShiftKeyDown()) {
+			if (!worldIn.isRemote()) {
+				NotWhatItSeems.Triggers.CROP_CHANGES.trigger((ServerPlayerEntity)player);
+			}
 			worldIn.setBlockState(pos, state.with(isGrown, !state.get(isGrown)));
 			return ActionResultType.SUCCESS;
 		}
@@ -68,8 +75,9 @@ public class KelpBlock extends Block implements IWaterLoggable {
 	public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
 		if (!state.get(isGrown)) {
 			return SHAPE_TOP;
+		} else {
+			return SHAPE_BOTTOM;
 		}
-		return super.getShape(state, worldIn, pos, context);
 	}
 
 }

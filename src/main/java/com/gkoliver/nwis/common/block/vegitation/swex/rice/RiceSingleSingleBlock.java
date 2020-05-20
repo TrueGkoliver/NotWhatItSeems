@@ -1,8 +1,11 @@
 package com.gkoliver.nwis.common.block.vegitation.swex.rice;
 
+import com.gkoliver.nwis.NotWhatItSeems;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.state.IntegerProperty;
 import net.minecraft.state.StateContainer.Builder;
 import net.minecraft.util.ActionResultType;
@@ -26,6 +29,9 @@ public class RiceSingleSingleBlock extends Block {
 	public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player,
 			Hand handIn, BlockRayTraceResult p_225533_6_) {
 		if (player.isShiftKeyDown()) {
+			if (!worldIn.isRemote()) {
+				NotWhatItSeems.Triggers.CROP_CHANGES.trigger((ServerPlayerEntity)player);
+			}
 			Integer age2 = state.get(age);
 			if (age2==5) {
 				RiceDoubleSingleBlock.generateDoubleBlock(0, pos, state, worldIn);

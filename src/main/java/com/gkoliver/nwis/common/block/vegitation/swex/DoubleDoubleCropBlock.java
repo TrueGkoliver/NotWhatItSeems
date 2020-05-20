@@ -1,5 +1,6 @@
 package com.gkoliver.nwis.common.block.vegitation.swex;
 
+import com.gkoliver.nwis.NotWhatItSeems;
 import com.gkoliver.nwis.core.register.BlockRegistry;
 import com.google.common.util.concurrent.Service.State;
 
@@ -9,6 +10,7 @@ import net.minecraft.block.Blocks;
 import net.minecraft.block.IWaterLoggable;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.fluid.Fluid;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.fluid.IFluidState;
@@ -78,6 +80,9 @@ public class DoubleDoubleCropBlock extends Block implements IWaterLoggable{
 		boolean isWater = state.get(WATERLOGGED);
 		if (!player.isShiftKeyDown()) {
 			return super.onBlockActivated(state, worldIn, pos, player, handIn, p_225533_6_);
+		}
+		if (!worldIn.isRemote()) {
+			NotWhatItSeems.Triggers.CROP_CHANGES.trigger((ServerPlayerEntity)player);
 		}
 		if (state.get(isDone)) {
 			if (state.get(blockHalf)==DoubleBlockHalf.UPPER) {

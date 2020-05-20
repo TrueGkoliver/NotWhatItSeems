@@ -1,6 +1,6 @@
 {
     "variants": {
-        "grown=true": { "model": "upgrade_aquatic:block/thorny_kelp" },
-        "grown=false" : {"model":"upgrade_aquatic:block/thorny_kelp_plant"}
+        "grown=false": { "model": "upgrade_aquatic:block/thorny_kelp" },
+        "grown=true" : {"model":"upgrade_aquatic:block/thorny_kelp_plant"}
     }
 }

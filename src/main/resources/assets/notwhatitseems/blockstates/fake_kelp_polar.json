@@ -1,6 +1,6 @@
 {
     "variants": {
-        "grown=true": { "model": "upgrade_aquatic:block/polar_kelp" },
-        "grown=false" : {"model":"upgrade_aquatic:block/polar_kelp_plant"}
+        "grown=false": { "model": "upgrade_aquatic:block/polar_kelp" },
+        "grown=true" : {"model":"upgrade_aquatic:block/polar_kelp_plant"}
     }
 }
