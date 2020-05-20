@@ -13,6 +13,7 @@ import net.minecraft.fluid.Fluid;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.fluid.IFluidState;
 import net.minecraft.item.BlockItemUseContext;
+import net.minecraft.item.ItemStack;
 import net.minecraft.state.BooleanProperty;
 import net.minecraft.state.DirectionProperty;
 import net.minecraft.state.StateContainer.Builder;
@@ -31,6 +32,11 @@ public class CoralWallFanBlock extends Block implements IWaterLoggable {
 	public CoralWallFanBlock(Properties properties) {
 		super(properties);
 		this.setDefaultState(this.getDefaultState().with(WATERLOGGED, false));
+		
+	}
+	@Override
+	public ItemStack getItem(IBlockReader worldIn, BlockPos pos, BlockState state) {
+		return super.getItem(worldIn, pos, state);
 	}
 	@Override
 	protected void fillStateContainer(Builder<Block, BlockState> builder) {
@@ -66,6 +72,8 @@ public class CoralWallFanBlock extends Block implements IWaterLoggable {
 	
 		return super.updatePostPlacement(stateIn, facing, facingState, worldIn, currentPos, facingPos);
 	}
+	
+	
 	
 	
 

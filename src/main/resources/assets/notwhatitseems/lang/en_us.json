@@ -240,6 +240,9 @@
 	"advancements.story.get_fake_blocks.description" : "Create a Cardboard Pattern at a Copier",
 	
 	"advancements.story.crop_change.title" : "That's Not Bone Meal...",
-	"advancements.story.crop_change.description" : "Change a block's type by shift-clicking a fake block"
+	"advancements.story.crop_change.description" : "Change a block's type by shift-clicking a fake block",
+	
+	"advancements.story.get_bigname.title" : "What a Mouthful!",
+	"advancements.story.get_bigname.description" : "Obtain a Hardened Restrained Dilluted Void Block"
 	
 }

@@ -2,13 +2,13 @@
   "parent": "notwhatitseems:story/get_void",
   "display": {
     "icon": {
-      "item": "minecraft:glass"
+      "item": "minecraft:filled_map"
     },
     "title": {
-      "translate": "advancements.story.harden_voidblock.title"
+      "translate": "advancements.story.get_bigname.title"
     },
     "description": {
-      "translate": "advancements.story.harden_voidblock.description"
+      "translate": "advancements.story.get_bigname.description"
     },
     "frame": "task",
     "show_toast": true,
@@ -16,12 +16,12 @@
     "hidden": false
   },
   "criteria": {
-    "dillute": {
+    "mouthful": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "tag": "notwhatitseems:hardened_void_blocks"
+            "item": "notwhatitseems:restrained_dilluted_void_block"
           }
         ]
       }
@@ -29,7 +29,7 @@
   },
   "requirements": [
     [
-      "dillute"
+      "mouthful"
     ]
   ]
 }
