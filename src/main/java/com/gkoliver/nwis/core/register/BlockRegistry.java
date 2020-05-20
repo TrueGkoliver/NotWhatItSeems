@@ -68,6 +68,7 @@ public class BlockRegistry {
 	 * @return
 	 */
 	public static ArrayList<Block> CUTOUTS = new ArrayList<Block>();
+	static boolean debug = true;
 	public static RegistryObject<Block> genBlock(String id, Block block) {
 		
 		BlockItem item = new BlockItem(block, new Item.Properties().group(ItemGroup.SEARCH));
@@ -85,7 +86,7 @@ public class BlockRegistry {
 	}
 	public static RegistryObject<Block> genBlock(String id, Block block, int color, String modid) {
 		Item.Properties prop = new Item.Properties();
-		if (ModList.get().isLoaded(modid) && modid!="???!!!") {
+		if (ModList.get().isLoaded(modid) && modid!="???!!!" || debug) {
 			prop.group(ItemGroup.SEARCH);
 		}
 		BlockItem item = new BlockItem(block, prop);
@@ -113,7 +114,7 @@ public class BlockRegistry {
 	}
 	public static RegistryObject<Block> genBlock2(String id, Block block, int color, String modid) {
 		Item.Properties prop = new Item.Properties();
-		if (ModList.get().isLoaded(modid)) {
+		if (ModList.get().isLoaded(modid) || debug) {
 			prop.group(ItemGroup.SEARCH);
 		}
 		BlockItem item = new BlockItem(block, prop);
@@ -184,7 +185,7 @@ public class BlockRegistry {
 			BlockItem bi;
 			Item.Properties prop = new Item.Properties();
 			if (ua) {
-				if (ModList.get().isLoaded("upgrade_aquatic")) {
+				if (ModList.get().isLoaded("upgrade_aquatic") || debug) {
 					prop.group(ItemGroup.SEARCH);
 				}
 			} else {
