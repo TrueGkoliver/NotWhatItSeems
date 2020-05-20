@@ -1,0 +1,27 @@
+{
+	"replace" : false,
+	"values" : [
+		"notwhatitseems:fake_vine",
+		"notwhatitseems:fake_mushroom_red",
+		"notwhatitseems:fake_mushroom_brown",
+		"notwhatitseems:fake_bamboo",
+		"notwhatitseems:fake_glowshroom",
+		"notwhatitseems:fake_cave_root",
+		
+		"notwhatitseems:fake_passion_vine",
+		"notwhatitseems:fake_cattail_sprout",
+		
+		"notwhatitseems:fake_rice",
+		"notwhatitseems:pickelreed_blue",
+		"notwhatitseems:pickelreed_purple",
+		"notwhatitseems:fake_kelp",
+		"notwhatitseems:fake_kelp_ochre",
+		"notwhatitseems:fake_kelp_tongue",
+		"notwhatitseems:fake_kelp_polar",
+		"notwhatitseems:fake_kelp_thorny",
+		"notwhatitseems:fake_seagrass",
+		"notwhatitseems:fake_seagrass_small",
+		"notwhatitseems:fake_beachgrass",
+		"notwhatitseems:fake_beachgrass_small"
+	]
+}

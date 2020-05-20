@@ -1,0 +1,23 @@
+{
+	"replace" : false,
+	"values" : [
+		"notwhatitseems:fake_grass",
+		"notwhatitseems:fake_grass_a",
+		"notwhatitseems:fake_podzol",
+		"notwhatitseems:fake_podzol_a",
+		"notwhatitseems:fake_mycelium_a",
+		"notwhatitseems:fake_mycelium",
+		"notwhatitseems:fake_glowcelium",
+		"notwhatitseems:fake_glowcelium_a",
+		"notwhatitseems:fake_posimoss",
+		"notwhatitseems:fake_posimoss_eumus",
+		"notwhatitseems:fake_posimoss_a",
+		"notwhatitseems:fake_dragon_egg",
+		"notwhatitseems:fake_dirt",
+		"notwhatitseems:fake_brown_mushroom_block",
+		"notwhatitseems:fake_red_mushroom_block",
+		"notwhatitseems:fake_mushroom_stem",
+		"notwhatitseems:fake_big_glowshroom",
+		"notwhatitseems:fake_big_glowshroom_stem"
+	]
+}

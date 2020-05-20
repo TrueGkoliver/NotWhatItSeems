@@ -1,0 +1,136 @@
+{
+    "replace": false,
+    "values": [
+        "notwhatitseems:acan_coral",
+        "notwhatitseems:acan_coral_block",
+        "notwhatitseems:acan_coral_fan",
+
+        "notwhatitseems:brain_coral",
+        "notwhatitseems:brain_coral_block",
+        "notwhatitseems:brain_coral_fan",
+
+        "notwhatitseems:branch_coral",
+        "notwhatitseems:branch_coral_block",
+        "notwhatitseems:branch_coral_fan",
+
+        "notwhatitseems:bubble_coral",
+        "notwhatitseems:bubble_coral_block",
+        "notwhatitseems:bubble_coral_fan",
+
+        "notwhatitseems:chrome_coral",
+        "notwhatitseems:chrome_coral_block",
+        "notwhatitseems:chrome_coral_fan",
+
+        "notwhatitseems:dead_acan_coral",
+        "notwhatitseems:dead_acan_coral_block",
+        "notwhatitseems:dead_acan_coral_fan",
+
+        "notwhatitseems:dead_brain_coral",
+        "notwhatitseems:dead_brain_coral_block",
+        "notwhatitseems:dead_brain_coral_fan",
+
+        "notwhatitseems:dead_branch_coral",
+        "notwhatitseems:dead_branch_coral_block",
+        "notwhatitseems:dead_branch_coral_fan",
+
+        "notwhatitseems:dead_bubble_coral",
+        "notwhatitseems:dead_bubble_coral_block",
+        "notwhatitseems:dead_bubble_coral_fan",
+
+        "notwhatitseems:dead_chrome_coral",
+        "notwhatitseems:dead_chrome_coral_block",
+        "notwhatitseems:dead_chrome_coral_fan",
+
+        "notwhatitseems:dead_finger_coral",
+        "notwhatitseems:dead_finger_coral_block",
+        "notwhatitseems:dead_finger_coral_fan",
+
+        "notwhatitseems:dead_fire_coral",
+        "notwhatitseems:dead_fire_coral_block",
+        "notwhatitseems:dead_fire_coral_fan",
+
+        "notwhatitseems:dead_horn_coral",
+        "notwhatitseems:dead_horn_coral_block",
+        "notwhatitseems:dead_horn_coral_fan",
+
+        "notwhatitseems:dead_moss_coral",
+        "notwhatitseems:dead_moss_coral_block",
+        "notwhatitseems:dead_moss_coral_fan",
+
+        "notwhatitseems:dead_petal_coral",
+        "notwhatitseems:dead_petal_coral_block",
+        "notwhatitseems:dead_petal_coral_fan",
+
+        "notwhatitseems:dead_pillow_coral",
+        "notwhatitseems:dead_pillow_coral_block",
+        "notwhatitseems:dead_pillow_coral_fan",
+
+        "notwhatitseems:dead_prismarine_coral",
+        "notwhatitseems:dead_prismarine_coral_block",
+        "notwhatitseems:dead_prismarine_coral_fan",
+        "notwhatitseems:dead_prismarine_coral_shower",
+
+        "notwhatitseems:dead_rock_coral",
+        "notwhatitseems:dead_rock_coral_block",
+        "notwhatitseems:dead_rock_coral_fan",
+
+        "notwhatitseems:dead_silk_coral",
+        "notwhatitseems:dead_silk_coral_block",
+        "notwhatitseems:dead_silk_coral_fan",
+
+        "notwhatitseems:dead_star_coral",
+        "notwhatitseems:dead_star_coral_block",
+        "notwhatitseems:dead_star_coral_fan",
+
+        "notwhatitseems:dead_tube_coral",
+        "notwhatitseems:dead_tube_coral_block",
+        "notwhatitseems:dead_tube_coral_fan",
+
+        "notwhatitseems:finger_coral",
+        "notwhatitseems:finger_coral_block",
+        "notwhatitseems:finger_coral_fan",
+
+        "notwhatitseems:fire_coral",
+        "notwhatitseems:fire_coral_block",
+        "notwhatitseems:fire_coral_fan",
+
+        "notwhatitseems:horn_coral",
+        "notwhatitseems:horn_coral_block",
+        "notwhatitseems:horn_coral_fan",
+
+        "notwhatitseems:moss_coral",
+        "notwhatitseems:moss_coral_block",
+        "notwhatitseems:moss_coral_fan",
+
+        "notwhatitseems:petal_coral",
+        "notwhatitseems:petal_coral_block",
+        "notwhatitseems:petal_coral_fan",
+
+        "notwhatitseems:pillow_coral",
+        "notwhatitseems:pillow_coral_block",
+        "notwhatitseems:pillow_coral_fan",
+
+        "notwhatitseems:prismarine_coral",
+        "notwhatitseems:prismarine_coral_block",
+        "notwhatitseems:prismarine_coral_fan",
+        "notwhatitseems:prismarine_coral_shower",
+		"notwhatitseems:fake_elder_prismarine_shower",
+		"notwhatitseems:fake_prismarine_shower",
+        "notwhatitseems:rock_coral",
+        "notwhatitseems:rock_coral_block",
+        "notwhatitseems:rock_coral_fan",
+
+        "notwhatitseems:silk_coral",
+        "notwhatitseems:silk_coral_block",
+        "notwhatitseems:silk_coral_fan",
+
+        "notwhatitseems:star_coral",
+        "notwhatitseems:star_coral_block",
+        "notwhatitseems:star_coral_fan",
+
+        "notwhatitseems:tube_coral",
+        "notwhatitseems:tube_coral_block",
+        "notwhatitseems:tube_coral_fan"
+
+    ]
+}
