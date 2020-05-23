@@ -1,6 +1,7 @@
 package com.gkoliver.nwis.common.block.other;
 
 import com.gkoliver.nwis.common.gui.ImposterContainer;
+import com.gkoliver.nwis.core.config.NWISConfig;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -36,6 +37,7 @@ public class ImposterStationBlock extends Block {
 		if (worldIn.isRemote) {
 	         return ActionResultType.SUCCESS;
 	      } else {
+	    	 ImposterContainer.isDragonEgg = NWISConfig.CONFIG.DRAGON_EGG.get();
 	    	 NetworkHooks.openGui((ServerPlayerEntity)player, state.getContainer(worldIn, pos));
 	         return ActionResultType.SUCCESS;
 	      }

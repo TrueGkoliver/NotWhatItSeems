@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 
 import com.gkoliver.nwis.NotWhatItSeems;
+import com.gkoliver.nwis.core.config.NWISConfig;
 import com.gkoliver.nwis.core.register.BlockRegistry;
 import com.gkoliver.nwis.core.register.TileEntityRegistry;
 import com.gkoliver.nwis.core.util.SharedFunctions;
@@ -46,6 +47,7 @@ public class ImposterContainer extends Container {
 	public static void putRecipe(Item item, RegistryObject<Block> object) {
 		ITEMS.put(item, Item.getItemFromBlock(object.get()));
 	}
+	public static boolean isDragonEgg;
 	@SuppressWarnings("deprecation")
 	public void addBlocks() {
 		putRecipe(Items.CARROT, BlockRegistry.FAKE_CARROTS);
@@ -76,8 +78,9 @@ public class ImposterContainer extends Container {
 		putRecipe(Items.RED_MUSHROOM_BLOCK, BlockRegistry.SPECIAL_MUSHROOM_R);
 		
 		putRecipe(Items.MUSHROOM_STEM, BlockRegistry.FAKE_MUSHROOM_STEM);
-		putRecipe(Items.DRAGON_EGG, BlockRegistry.FAKE_DRAGON_EGG);
-		
+		if (isDragonEgg) {
+			putRecipe(Items.DRAGON_EGG, BlockRegistry.FAKE_DRAGON_EGG);
+		}
 		putRecipe(Items.CHORUS_FRUIT, BlockRegistry.FAKE_CHORUS);
 		putRecipe(Items.CHORUS_PLANT, BlockRegistry.FAKE_CHORUS);
 		putRecipe(Items.CHORUS_FLOWER, BlockRegistry.FAKE_CHORUS_FLOWER);
@@ -193,7 +196,7 @@ public class ImposterContainer extends Container {
 	      });
 		this.addSlot(new Slot(this.inputInventory, 1, 62, 20) {
 	         public boolean isItemValid(ItemStack stack) {
-	            return ITEMS.keySet().contains(stack.getItem()) || stack.getItem()==Items.OBSIDIAN;
+	            return ITEMS.keySet().contains(stack.getItem());
 	         }
 	      });
 		this.addSlot(new Slot(this.outputInventory, 0, 116, 20) {

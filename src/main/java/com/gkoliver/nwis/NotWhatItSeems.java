@@ -7,8 +7,10 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModList;
+import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.config.ModConfig.Type;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
@@ -17,6 +19,7 @@ import org.apache.logging.log4j.Logger;
 import com.gkoliver.nwis.client.render.VoidBlockTileEntityRenderer;
 import com.gkoliver.nwis.common.gui.ImposterContainer;
 import com.gkoliver.nwis.common.trigger.RestrainTrigger;
+import com.gkoliver.nwis.core.config.NWISConfig;
 import com.gkoliver.nwis.core.register.BlockRegistry;
 import com.gkoliver.nwis.core.register.ItemRegistry;
 import com.gkoliver.nwis.core.register.TileEntityRegistry;
@@ -39,7 +42,6 @@ public class NotWhatItSeems
 
     public NotWhatItSeems() {
     	IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
         BlockRegistry.BLOCKS.register(eventBus);
         ItemRegistry.ITEMS.register(eventBus);
         TileEntityRegistry.TILE_ENTITIES.register(eventBus);
@@ -67,10 +69,7 @@ public class NotWhatItSeems
         }
         Triggers.RESTRAIN_VOID = Triggers.bigRegistry();
         Triggers.CROP_CHANGES = Triggers.getConstrain();
-    }
-
-    private void setup(final FMLCommonSetupEvent event)
-    {
+        ModLoadingContext.get().registerConfig(Type.COMMON, NWISConfig.CONFIGSPEC, "nwis-common.toml");
     }
     
     public static class Triggers {
