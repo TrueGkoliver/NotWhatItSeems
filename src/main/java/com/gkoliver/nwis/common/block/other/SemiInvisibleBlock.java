@@ -1,10 +1,8 @@
-package com.gkoliver.nwis.common.block.vegitation;
+package com.gkoliver.nwis.common.block.other;
 
 import java.util.Random;
 
 import com.gkoliver.nwis.NotWhatItSeems;
-import com.gkoliver.nwis.common.block.other.NWISNorthableBlock;
-import com.gkoliver.nwis.common.block.other.RestrainedDillutedPortalBlock;
 import com.gkoliver.nwis.core.register.BlockRegistry;
 
 import net.minecraft.block.Block;

@@ -1,4 +1,4 @@
-package com.gkoliver.nwis.common.block.vegitation;
+package com.gkoliver.nwis.common.block.vegitation.vanilla;
 
 import java.util.Map;
 

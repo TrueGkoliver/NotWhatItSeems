@@ -1,6 +1,4 @@
-package com.gkoliver.nwis.common.block.vegitation;
-
-import com.gkoliver.nwis.common.block.other.NWISNorthableBlock;
+package com.gkoliver.nwis.common.block.other;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.util.Direction;

@@ -1,53 +1,66 @@
-package com.gkoliver.nwis.common.block.vegitation;
+package com.gkoliver.nwis.common.block.vegitation.corals;
 
-import com.gkoliver.nwis.NotWhatItSeems;
+import java.util.ArrayList;
+
+import com.gkoliver.nwis.core.register.BlockRegistry;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.IWaterLoggable;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.fluid.Fluid;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.fluid.IFluidState;
+import net.minecraft.item.BlockItemUseContext;
 import net.minecraft.state.BooleanProperty;
 import net.minecraft.state.StateContainer.Builder;
 import net.minecraft.state.properties.BlockStateProperties;
-import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Direction;
-import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.BlockRayTraceResult;
+import net.minecraft.util.math.shapes.ISelectionContext;
+import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorld;
-import net.minecraft.world.World;
+import net.minecraftforge.fml.RegistryObject;
 
-public class ChorusFruitBlock extends Block implements IWaterLoggable {
-	public static final BooleanProperty GROWN = BooleanProperty.create("grown");
+public class SmallCoralBlock extends Block implements IWaterLoggable {
+	private static final VoxelShape SHAPE_FAN = Block.makeCuboidShape(2.0D, 0.0D, 2.0D, 14.0D, 4.0D, 14.0D);
+	protected static final VoxelShape SHAPE_SMALL = Block.makeCuboidShape(2.0D, 0.0D, 2.0D, 14.0D, 15.0D, 14.0D);
+	protected static final VoxelShape SHAPE_SHOWER = Block.makeCuboidShape(2.0D, 1.0D, 2.0D, 14.0D, 16.0D, 14.0D);
 	public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
-	public ChorusFruitBlock(Properties properties) {
+	private ECoralType type;
+	private CoralWallFanBlock wallFan;
+	public SmallCoralBlock(Properties properties, ECoralType type, CoralWallFanBlock wallFan) {
 		super(properties);
+		this.type = type;
+		this.wallFan = wallFan;
 		this.setDefaultState(this.getDefaultState().with(WATERLOGGED, false));
 	}
 	@Override
 	protected void fillStateContainer(Builder<Block, BlockState> builder) {
-		builder.add(GROWN);
 		builder.add(WATERLOGGED);
 	}
 	@Override
-	public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player,
-			Hand handIn, BlockRayTraceResult p_225533_6_) {
-		
-		if (player.isShiftKeyDown()) {
-			if (!worldIn.isRemote()) {
-				NotWhatItSeems.Triggers.CROP_CHANGES.trigger((ServerPlayerEntity)player);
-			}
-			worldIn.setBlockState(pos, state.with(GROWN, !state.get(GROWN)));
-			return ActionResultType.SUCCESS;
+	public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
+		if (type==ECoralType.SMALL) {
+			return SHAPE_SMALL;
+		} 
+		else if (type==ECoralType.SHOWER) {
+			return SHAPE_SHOWER;
 		}
-		return super.onBlockActivated(state, worldIn, pos, player, handIn, p_225533_6_);
+		else {
+			return SHAPE_FAN;
+		}
 	}
-	
+	@Override
+	public BlockState getStateForPlacement(BlockItemUseContext context) {
+		if (type==ECoralType.FAN) {
+			boolean isGoodFace = !(context.getFace() == Direction.UP || context.getFace() == Direction.DOWN);
+			if (isGoodFace) {
+				return wallFan.getDefaultState().with(CoralWallFanBlock.FACING, context.getFace());
+			}
+		}
+		return this.getDefaultState();
+	}
 	public IFluidState getFluidState(BlockState state) {
 		return state.get(WATERLOGGED) ? Fluids.WATER.getStillFluidState(false) : super.getFluidState(state);
 	}

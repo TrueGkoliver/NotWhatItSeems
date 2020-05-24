@@ -1,37 +1,51 @@
-package com.gkoliver.nwis.common.block.vegitation;
+package com.gkoliver.nwis.common.block.vegitation.vanilla;
 
-import java.util.Map;
+import com.gkoliver.nwis.NotWhatItSeems;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.Block.Properties;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.IWaterLoggable;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.fluid.Fluid;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.fluid.IFluidState;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.IWaterLoggable;
-import net.minecraft.block.SixWayBlock;
-import net.minecraft.block.VineBlock;
 import net.minecraft.state.BooleanProperty;
 import net.minecraft.state.StateContainer.Builder;
 import net.minecraft.state.properties.BlockStateProperties;
+import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Direction;
-import net.minecraft.util.Util;
+import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.shapes.VoxelShape;
+import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorld;
-import net.minecraft.world.IWorldReader;
+import net.minecraft.world.World;
 
-public class FakeVineBlock extends VineBlock implements IWaterLoggable {
+public class ChorusFruitBlock extends Block implements IWaterLoggable {
+	public static final BooleanProperty GROWN = BooleanProperty.create("grown");
 	public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
-	public FakeVineBlock(Properties properties) {
+	public ChorusFruitBlock(Properties properties) {
 		super(properties);
 		this.setDefaultState(this.getDefaultState().with(WATERLOGGED, false));
 	}
 	@Override
 	protected void fillStateContainer(Builder<Block, BlockState> builder) {
-		super.fillStateContainer(builder);
+		builder.add(GROWN);
 		builder.add(WATERLOGGED);
+	}
+	@Override
+	public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player,
+			Hand handIn, BlockRayTraceResult p_225533_6_) {
+		
+		if (player.isShiftKeyDown()) {
+			if (!worldIn.isRemote()) {
+				NotWhatItSeems.Triggers.CROP_CHANGES.trigger((ServerPlayerEntity)player);
+			}
+			worldIn.setBlockState(pos, state.with(GROWN, !state.get(GROWN)));
+			return ActionResultType.SUCCESS;
+		}
+		return super.onBlockActivated(state, worldIn, pos, player, handIn, p_225533_6_);
 	}
 	
 	public IFluidState getFluidState(BlockState state) {
@@ -52,4 +66,5 @@ public class FakeVineBlock extends VineBlock implements IWaterLoggable {
 	
 		return super.updatePostPlacement(stateIn, facing, facingState, worldIn, currentPos, facingPos);
 	}
+
 }

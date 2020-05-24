@@ -12,20 +12,17 @@ import com.gkoliver.nwis.common.block.crop.FakeNetherWart;
 import com.gkoliver.nwis.common.block.other.ImposterStationBlock;
 import com.gkoliver.nwis.common.block.other.NWISBlock;
 import com.gkoliver.nwis.common.block.other.NWISNorthableBlock;
+import com.gkoliver.nwis.common.block.other.NWISOrientableBlock;
 import com.gkoliver.nwis.common.block.other.NWISWaterLogBlock;
 import com.gkoliver.nwis.common.block.other.RestrainedDillutedPortalBlock;
 import com.gkoliver.nwis.common.block.other.RestrainedVoidBlock;
+import com.gkoliver.nwis.common.block.other.SemiInvisibleBlock;
+import com.gkoliver.nwis.common.block.other.SemiInvisibleNorthableBlock;
 import com.gkoliver.nwis.common.block.other.VoidBlock;
-import com.gkoliver.nwis.common.block.vegitation.ChorusFruitBlock;
-import com.gkoliver.nwis.common.block.vegitation.CoralWallFanBlock;
-import com.gkoliver.nwis.common.block.vegitation.ECoralType;
-import com.gkoliver.nwis.common.block.vegitation.FakeVineBlock;
-import com.gkoliver.nwis.common.block.vegitation.NWISBambooBlock;
-import com.gkoliver.nwis.common.block.vegitation.NewChorusPlantBlock;
 import com.gkoliver.nwis.common.block.vegitation.PassionVineBlock;
-import com.gkoliver.nwis.common.block.vegitation.SemiInvisibleBlock;
-import com.gkoliver.nwis.common.block.vegitation.SemiInvisibleNorthableBlock;
-import com.gkoliver.nwis.common.block.vegitation.SmallCoralBlock;
+import com.gkoliver.nwis.common.block.vegitation.corals.CoralWallFanBlock;
+import com.gkoliver.nwis.common.block.vegitation.corals.ECoralType;
+import com.gkoliver.nwis.common.block.vegitation.corals.SmallCoralBlock;
 import com.gkoliver.nwis.common.block.vegitation.kelp.KelpBlock;
 import com.gkoliver.nwis.common.block.vegitation.swex.CropSproutBlock;
 import com.gkoliver.nwis.common.block.vegitation.swex.DoubleDoubleCropBlock;
@@ -35,6 +32,10 @@ import com.gkoliver.nwis.common.block.vegitation.swex.pickelreedtype.PickelReedS
 import com.gkoliver.nwis.common.block.vegitation.swex.pickelreedtype.PickelreedDoubleBlock;
 import com.gkoliver.nwis.common.block.vegitation.swex.rice.RiceDoubleSingleBlock;
 import com.gkoliver.nwis.common.block.vegitation.swex.rice.RiceSingleSingleBlock;
+import com.gkoliver.nwis.common.block.vegitation.vanilla.ChorusFruitBlock;
+import com.gkoliver.nwis.common.block.vegitation.vanilla.FakeVineBlock;
+import com.gkoliver.nwis.common.block.vegitation.vanilla.NWISBambooBlock;
+import com.gkoliver.nwis.common.block.vegitation.vanilla.NewChorusPlantBlock;
 import com.gkoliver.nwis.common.gui.ImposterContainer;
 import com.gkoliver.nwis.core.event.ClientEvents;
 
@@ -290,9 +291,9 @@ public class BlockRegistry {
 
 	// Grass Blocks
 	public static final RegistryObject<Block> STATIC_DIRT = genBlock("fake_dirt", new NWISBlock(PROP_SOIL), 0);
-	public static final RegistryObject<Block> STATIC_GRASS = genBlock("fake_grass", new NWISBlock(PROP_SOIL), 0);
-	public static final RegistryObject<Block> STATIC_MYCELIUM = genBlock("fake_mycelium", new NWISBlock(PROP_SOIL), 0);
-	public static final RegistryObject<Block> STATIC_PODZOL = genBlock("fake_podzol", new NWISBlock(PROP_SOIL), 0);
+	public static final RegistryObject<Block> STATIC_GRASS = genBlock("fake_grass", new NWISOrientableBlock(PROP_SOIL), 0);
+	public static final RegistryObject<Block> STATIC_MYCELIUM = genBlock("fake_mycelium", new NWISOrientableBlock(PROP_SOIL), 0);
+	public static final RegistryObject<Block> STATIC_PODZOL = genBlock("fake_podzol", new NWISOrientableBlock(PROP_SOIL), 0);
 
 	public static final RegistryObject<Block> STATIC_GRASS_A = genBlock("fake_grass_a", new NWISBlock(PROP_SOIL), 0);
 	public static final RegistryObject<Block> STATIC_MYCELIUM_A = genBlock("fake_mycelium_a", new NWISBlock(PROP_SOIL), 0);

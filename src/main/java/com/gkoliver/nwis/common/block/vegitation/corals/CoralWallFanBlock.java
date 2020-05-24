@@ -1,17 +1,21 @@
-package com.gkoliver.nwis.common.block.vegitation;
+package com.gkoliver.nwis.common.block.vegitation.corals;
 
-import java.util.ArrayList;
+import java.util.Map;
 
-import com.gkoliver.nwis.core.register.BlockRegistry;
+import com.google.common.collect.ImmutableMap;
+import com.google.common.collect.Maps;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.HorizontalBlock;
 import net.minecraft.block.IWaterLoggable;
 import net.minecraft.fluid.Fluid;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.fluid.IFluidState;
 import net.minecraft.item.BlockItemUseContext;
+import net.minecraft.item.ItemStack;
 import net.minecraft.state.BooleanProperty;
+import net.minecraft.state.DirectionProperty;
 import net.minecraft.state.StateContainer.Builder;
 import net.minecraft.state.properties.BlockStateProperties;
 import net.minecraft.util.Direction;
@@ -20,47 +24,36 @@ import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorld;
-import net.minecraftforge.fml.RegistryObject;
 
-public class SmallCoralBlock extends Block implements IWaterLoggable {
-	private static final VoxelShape SHAPE_FAN = Block.makeCuboidShape(2.0D, 0.0D, 2.0D, 14.0D, 4.0D, 14.0D);
-	protected static final VoxelShape SHAPE_SMALL = Block.makeCuboidShape(2.0D, 0.0D, 2.0D, 14.0D, 15.0D, 14.0D);
-	protected static final VoxelShape SHAPE_SHOWER = Block.makeCuboidShape(2.0D, 1.0D, 2.0D, 14.0D, 16.0D, 14.0D);
+public class CoralWallFanBlock extends Block implements IWaterLoggable {
+	public static final DirectionProperty FACING = HorizontalBlock.HORIZONTAL_FACING;
 	public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
-	private ECoralType type;
-	private CoralWallFanBlock wallFan;
-	public SmallCoralBlock(Properties properties, ECoralType type, CoralWallFanBlock wallFan) {
+	private static final Map<Direction, VoxelShape> SHAPES = Maps.newEnumMap(ImmutableMap.of(Direction.NORTH, Block.makeCuboidShape(0.0D, 4.0D, 5.0D, 16.0D, 12.0D, 16.0D), Direction.SOUTH, Block.makeCuboidShape(0.0D, 4.0D, 0.0D, 16.0D, 12.0D, 11.0D), Direction.WEST, Block.makeCuboidShape(5.0D, 4.0D, 0.0D, 16.0D, 12.0D, 16.0D), Direction.EAST, Block.makeCuboidShape(0.0D, 4.0D, 0.0D, 11.0D, 12.0D, 16.0D)));
+	public CoralWallFanBlock(Properties properties) {
 		super(properties);
-		this.type = type;
-		this.wallFan = wallFan;
 		this.setDefaultState(this.getDefaultState().with(WATERLOGGED, false));
+		
+	}
+	@Override
+	public ItemStack getItem(IBlockReader worldIn, BlockPos pos, BlockState state) {
+		return super.getItem(worldIn, pos, state);
 	}
 	@Override
 	protected void fillStateContainer(Builder<Block, BlockState> builder) {
+		builder.add(FACING);
 		builder.add(WATERLOGGED);
 	}
-	@Override
-	public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
-		if (type==ECoralType.SMALL) {
-			return SHAPE_SMALL;
-		} 
-		else if (type==ECoralType.SHOWER) {
-			return SHAPE_SHOWER;
-		}
-		else {
-			return SHAPE_FAN;
-		}
-	}
+	
 	@Override
 	public BlockState getStateForPlacement(BlockItemUseContext context) {
-		if (type==ECoralType.FAN) {
-			boolean isGoodFace = !(context.getFace() == Direction.UP || context.getFace() == Direction.DOWN);
-			if (isGoodFace) {
-				return wallFan.getDefaultState().with(CoralWallFanBlock.FACING, context.getFace());
-			}
-		}
-		return this.getDefaultState();
+		return this.getDefaultState().with(FACING, context.getPlacementHorizontalFacing());
 	}
+	
+	@Override
+	public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
+		return SHAPES.get(state.get(FACING));
+	}
+	
 	public IFluidState getFluidState(BlockState state) {
 		return state.get(WATERLOGGED) ? Fluids.WATER.getStillFluidState(false) : super.getFluidState(state);
 	}
@@ -79,5 +72,9 @@ public class SmallCoralBlock extends Block implements IWaterLoggable {
 	
 		return super.updatePostPlacement(stateIn, facing, facingState, worldIn, currentPos, facingPos);
 	}
+	
+	
+	
+	
 
 }

@@ -1,5 +1,10 @@
 {
 	"variants" : {
-		"" : {"model" : "notwhatitseems:block/soils/grass_2"}
+		"facing=up": { "model": "notwhatitseems:block/soils/grass_2" },
+        "facing=down": { "model": "notwhatitseems:block/soils/grass_2", "x": 180 },
+        "facing=east": { "model": "notwhatitseems:block/soils/grass_2", "y": 90, "x": 90 },
+        "facing=south": { "model": "notwhatitseems:block/soils/grass_2", "y": 180, "x": 90 },
+        "facing=west": { "model": "notwhatitseems:block/soils/grass_2", "y": 270, "x": 90 },
+        "facing=north": { "model": "notwhatitseems:block/soils/grass_2", "y": 0, "x": 90 }
 	}
 }
