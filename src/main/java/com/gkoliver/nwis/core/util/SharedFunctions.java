@@ -9,12 +9,51 @@ import net.minecraft.block.Block;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.util.Direction;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.util.math.shapes.VoxelShapes;
 
 public class SharedFunctions {
-	public static double inv(double i, int direction) {
-		return 0.0D;
+	public static BlockPos getOppositePos(BlockPos posIn, boolean isTop, Direction directionIn) {
+		if (directionIn == Direction.UP) {
+			if (isTop) {
+				return posIn.down();
+			}
+			return posIn.up();
+		}
+		else if (directionIn == Direction.DOWN) {
+			if (isTop) {
+				return posIn.up();
+			}
+			return posIn.down();
+		}
+		else if (directionIn == Direction.NORTH) {
+			if (isTop) {
+				return posIn.south();
+			}
+			return posIn.north();
+		}
+		else if (directionIn == Direction.SOUTH) {
+			if (isTop) {
+				return posIn.north();
+			}
+			return posIn.south();
+		}
+		else if (directionIn == Direction.WEST) {
+			if (isTop) {
+				return posIn.east();
+			}
+			return posIn.west();
+		}
+		else if (directionIn == Direction.EAST) {
+			if (isTop) {
+				return posIn.west();
+			}
+			return posIn.east();
+		}
+		else {
+			return null;
+		}
 	}
 	public static HashMap<Direction, VoxelShape> makeShapeList(double x1, double y1, double z1, double x2, double y2, double z2) {
 		VoxelShape Voxel_UP = Block.makeCuboidShape(x1, y1, z1, x2, y2, z2);

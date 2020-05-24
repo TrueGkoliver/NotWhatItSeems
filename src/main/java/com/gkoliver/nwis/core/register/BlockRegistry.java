@@ -34,10 +34,12 @@ import com.gkoliver.nwis.common.block.vegitation.swex.rice.RiceDoubleSingleBlock
 import com.gkoliver.nwis.common.block.vegitation.swex.rice.RiceSingleSingleBlock;
 import com.gkoliver.nwis.common.block.vegitation.vanilla.ChorusFruitBlock;
 import com.gkoliver.nwis.common.block.vegitation.vanilla.EOrientables;
+import com.gkoliver.nwis.common.block.vegitation.vanilla.ETallTypes;
 import com.gkoliver.nwis.common.block.vegitation.vanilla.FakeVineBlock;
 import com.gkoliver.nwis.common.block.vegitation.vanilla.NWISBambooBlock;
 import com.gkoliver.nwis.common.block.vegitation.vanilla.NewChorusPlantBlock;
 import com.gkoliver.nwis.common.block.vegitation.vanilla.OrientableVeggies;
+import com.gkoliver.nwis.common.block.vegitation.vanilla.TallOrientableBlock;
 import com.gkoliver.nwis.common.gui.ImposterContainer;
 import com.gkoliver.nwis.core.event.ClientEvents;
 
@@ -415,5 +417,6 @@ public class BlockRegistry {
 	public static final RegistryObject<Block> BEACHGRASS_SMOL = genBlock2("fake_beachgrass_small", new NWISWaterLogBlock(PROP_CROPS), 0x8D994C, "upgrade_aquatic");
 
 	//Orientables...
-	public static final RegistryObject<Block> FAKE_TALL_GRASS = genBlock2("fake_tall_grass", new OrientableVeggies(EOrientables.GRASS, PROP_CROPS));
+	public static final RegistryObject<Block> FAKE_GRASS = genBlock2("fake_grass_b", new OrientableVeggies(EOrientables.GRASS, PROP_CROPS));
+	public static final RegistryObject<Block> FAKE_TALL_GRASS = genBlock2("fake_tallgrass", new TallOrientableBlock(ETallTypes.TALL_GRASS, PROP_CROPS));
 }

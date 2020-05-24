@@ -78,7 +78,7 @@ public class ClientEvents {
 		
 		event.getBlockColors().register((p_228064_0_, p_228064_1_, p_228064_2_, p_228064_3_) -> {
 	         return p_228064_1_ != null && p_228064_2_ != null ? BiomeColors.getGrassColor(p_228064_1_, p_228064_2_) : GrassColors.get(0.5D, 1.0D);
-	    }, BlockRegistry.STATIC_GRASS.get(), BlockRegistry.STATIC_GRASS_A.get(), BlockRegistry.FAKE_TALL_GRASS.get());
+	    }, BlockRegistry.STATIC_GRASS.get(), BlockRegistry.STATIC_GRASS_A.get(), BlockRegistry.FAKE_TALL_GRASS.get(), BlockRegistry.FAKE_GRASS.get());
 	}
 	public static HashMap<BlockItem, Integer> COLOR_MAPS = new HashMap<BlockItem, Integer>();
 	@SubscribeEvent
