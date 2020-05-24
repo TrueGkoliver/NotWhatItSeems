@@ -26,12 +26,15 @@ public class SharedFunctions {
 		VoxelShape Voxel_WEST = Block.makeCuboidShape(x1, z1, y1, x2, z2, y2);
 		VoxelShape Voxel_EAST = Block.makeCuboidShape(x1, z1, y1+16.0, x2, z2, 16.0-y2);
 		HashMap<Direction, VoxelShape> tbr = new HashMap<Direction, VoxelShape>();
+		System.out.println("cHECKING THROUGH");
 		tbr.put(Direction.UP, Voxel_UP);
 		tbr.put(Direction.DOWN, Voxel_DOWN);
-		tbr.put(Direction.NORTH, Voxel_NORTH);
-		tbr.put(Direction.SOUTH, Voxel_SOUTH);
-		tbr.put(Direction.EAST, Voxel_EAST);
-		tbr.put(Direction.WEST, Voxel_WEST);
+		
+		tbr.put(Direction.EAST, Voxel_NORTH);
+		tbr.put(Direction.WEST, Voxel_SOUTH);
+		
+		tbr.put(Direction.NORTH, Voxel_EAST);
+		tbr.put(Direction.SOUTH, Voxel_WEST);
 		return tbr;
 	}
 
