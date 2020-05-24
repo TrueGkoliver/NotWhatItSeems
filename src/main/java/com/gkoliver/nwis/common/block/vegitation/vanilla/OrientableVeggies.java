@@ -1,8 +1,10 @@
 package com.gkoliver.nwis.common.block.vegitation.vanilla;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import com.gkoliver.nwis.common.block.other.NWISOrientableBlock;
+import com.gkoliver.nwis.core.util.SharedFunctions;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Maps;
 
@@ -15,24 +17,19 @@ import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.world.IBlockReader;
 //This is really just used for shapes, tbh.
 public class OrientableVeggies extends NWISOrientableBlock {
-	/*private static final Map<Direction, VoxelShape> SHAPES_GRASS = Maps.newEnumMap(
-			ImmutableMap.of(
-					Direction.NORTH, Block.makeCuboidShape(0.0D, 4.0D, 5.0D, 16.0D, 12.0D, 16.0D), 
-					Direction.SOUTH, Block.makeCuboidShape(0.0D, 4.0D, 0.0D, 16.0D, 12.0D, 11.0D), 
-					Direction.WEST, Block.makeCuboidShape(5.0D, 4.0D, 0.0D, 16.0D, 12.0D, 16.0D), 
-					Direction.EAST, Block.makeCuboidShape(0.0D, 4.0D, 0.0D, 11.0D, 12.0D, 16.0D),
-					Direction.UP, Block.makeCuboidShape(2.0D, 0.0D, 2.0D, 14.0D, 13.0D, 14.0D),
-					Direction.DOWN, Block.makeCuboidShape(2.0D, 0.0D, 2.0D, 14.0D, 13.0D, 14.0D)
-					)
-			);*/
+	private static final HashMap<Direction, VoxelShape> GRASS_SHAPES = SharedFunctions.makeShapeList(2.0D, 0.0D, 2.0D, 14.0D, 13.0D, 14.0D);
 	
-	
-	public OrientableVeggies(Properties properties) {
+	EOrientables type;
+	public OrientableVeggies(EOrientables type, Properties properties) {
 		super(properties);
+		this.type = type;
 	}
 	
 	@Override
 	public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
+		if (type==EOrientables.GRASS) {
+			return GRASS_SHAPES.get(state.get(FACING));
+		}
 		return super.getShape(state, worldIn, pos, context);
 	}
 
