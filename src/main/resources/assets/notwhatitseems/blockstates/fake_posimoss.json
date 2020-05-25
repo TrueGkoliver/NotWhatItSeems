@@ -1,5 +1,10 @@
 {
    	"variants": {
-        "": { "model": "endergetic:block/poise_grass_block" }
+        "facing=up": { "model": "endergetic:block/poise_grass_block" },
+        "facing=down": { "model": "endergetic:block/poise_grass_block", "x": 180 },
+        "facing=east": { "model": "endergetic:block/poise_grass_block", "y": 90, "x": 90 },
+        "facing=south": { "model": "endergetic:block/poise_grass_block", "y": 180, "x": 90 },
+        "facing=west": { "model": "endergetic:block/poise_grass_block", "y": 270, "x": 90 },
+        "facing=north": { "model": "endergetic:block/poise_grass_block", "y": 0, "x": 90 }
     }
 }

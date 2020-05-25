@@ -1,5 +1,10 @@
 {
 	"variants": {
-		"": { "model": "quark:block/glowshroom" }
+		"facing=up": { "model": "quark:block/glowshroom" },
+        "facing=down": { "model": "quark:block/glowshroom", "x": 180 },
+        "facing=east": { "model": "quark:block/glowshroom", "y": 90, "x": 90 },
+        "facing=south": { "model": "quark:block/glowshroom", "y": 180, "x": 90 },
+        "facing=west": { "model": "quark:block/glowshroom", "y": 270, "x": 90 },
+        "facing=north": { "model": "quark:block/glowshroom", "y": 0, "x": 90 }
 	}
 }

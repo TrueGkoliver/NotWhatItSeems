@@ -1,5 +1,10 @@
 {
 	"variants": {
-		"": { "model": "quark:block/glowcelium" }
+		"facing=up": { "model": "quark:block/glowcelium" },
+        "facing=down": { "model": "quark:block/glowcelium", "x": 180 },
+        "facing=east": { "model": "quark:block/glowcelium", "y": 90, "x": 90 },
+        "facing=south": { "model": "quark:block/glowcelium", "y": 180, "x": 90 },
+        "facing=west": { "model": "quark:block/glowcelium", "y": 270, "x": 90 },
+        "facing=north": { "model": "quark:block/glowcelium", "y": 0, "x": 90 }
 	}
 }

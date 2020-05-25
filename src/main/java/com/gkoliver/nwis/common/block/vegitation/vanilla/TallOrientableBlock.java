@@ -16,6 +16,9 @@ import net.minecraft.state.properties.DoubleBlockHalf;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.shapes.ISelectionContext;
+import net.minecraft.util.math.shapes.VoxelShape;
+import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
 
 public class TallOrientableBlock extends OrientableVeggies {
@@ -55,6 +58,14 @@ public class TallOrientableBlock extends OrientableVeggies {
 			worldIn.setBlockState(poggers, Blocks.AIR.getDefaultState());
 		}
 		super.onBlockHarvested(worldIn, pos, state, player);
+	}
+	@Override
+	public boolean propagatesSkylightDown(BlockState state, IBlockReader reader, BlockPos pos) {
+		return true;
+	}
+	@Override
+	public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
+		return Block.makeCuboidShape(0, 0, 0, 16, 16, 16);
 	}
 	
 }

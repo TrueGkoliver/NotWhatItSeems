@@ -26,6 +26,8 @@ import net.minecraft.world.IWorld;
 //This is really just used for shapes, tbh.
 public class OrientableVeggies extends NWISOrientableBlock implements IWaterLoggable {
 	private static final HashMap<Direction, VoxelShape> GRASS_SHAPES = SharedFunctions.makeShapeList(2.0D, 0.0D, 2.0D, 14.0D, 13.0D, 14.0D);
+	private static final HashMap<Direction, VoxelShape> SHROOM_SHAPES = SharedFunctions.makeShapeList(5.0D, 0.0D, 5.0D, 11.0D, 6.0D, 11.0D);
+	private static final HashMap<Direction, VoxelShape> DEAD_SHAPES = SharedFunctions.makeShapeList(2.0D, 0.0D, 2.0D, 14.0D, 13.0D, 14.0D);
 	public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
 	EOrientables type;
 	public OrientableVeggies(EOrientables type, Properties properties) {
@@ -63,8 +65,17 @@ public class OrientableVeggies extends NWISOrientableBlock implements IWaterLogg
 	public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
 		if (type==EOrientables.GRASS) {
 			return GRASS_SHAPES.get(state.get(FACING));
+		} else if (type==EOrientables.MUSHROOM) {
+			return SHROOM_SHAPES.get(state.get(FACING));
+		} else if (type==EOrientables.DEAD_BUSH) {
+			return DEAD_SHAPES.get(state.get(FACING));
 		}
 		return super.getShape(state, worldIn, pos, context);
+	}
+	
+	@Override
+	public boolean propagatesSkylightDown(BlockState state, IBlockReader reader, BlockPos pos) {
+		return true;
 	}
 	
 

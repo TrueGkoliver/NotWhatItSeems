@@ -1,5 +1,10 @@
 {
     "variants": {
-        "": { "model": "block/red_mushroom" }
+        "facing=up": { "model": "block/red_mushroom" },
+        "facing=down": { "model": "block/red_mushroom", "x": 180 },
+        "facing=east": { "model": "block/red_mushroom", "y": 90, "x": 90 },
+        "facing=south": { "model": "block/red_mushroom", "y": 180, "x": 90 },
+        "facing=west": { "model": "block/red_mushroom", "y": 270, "x": 90 },
+        "facing=north": { "model": "block/red_mushroom", "y": 0, "x": 90 }
     }
 }

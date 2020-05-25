@@ -1,0 +1,10 @@
+{
+    "variants": {
+        "facing=up": { "model": "block/fern" },
+        "facing=down": { "model": "block/fern", "x": 180 },
+        "facing=east": { "model": "block/fern", "y": 90, "x": 90 },
+        "facing=south": { "model": "block/fern", "y": 180, "x": 90 },
+        "facing=west": { "model": "block/fern", "y": 270, "x": 90 },
+        "facing=north": { "model": "block/fern", "y": 0, "x": 90 }
+    }
+}

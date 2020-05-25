@@ -101,7 +101,6 @@ public class BlockRegistry {
 		}
 		return BlockRegistry.BLOCKS.register(id, () -> block);
 	}
-	
 	public static RegistryObject<Block> genBlock2(String id, Block block) {
 		BlockItem item = new BlockItem(block, new Item.Properties());
 		ItemRegistry.ITEMS.register(id, () -> item);
@@ -234,7 +233,7 @@ public class BlockRegistry {
 			.doesNotBlockMovement().notSolid();
 	public static final Block.Properties PROP_CHORUS_FRUIT = Block.Properties.create(Material.WOOD).sound(SoundType.WOOD).notSolid().hardnessAndResistance(0.4F).harvestTool(ToolType.AXE);
 	private static final Properties PROP_VOID_SEMI = Block.Properties.create(Material.PORTAL).notSolid().doesNotBlockMovement().hardnessAndResistance(2.0F, 3.0F);
-	
+	private static final Properties PROP_TALL_GRASS = Block.Properties.create(Material.TALL_PLANTS).doesNotBlockMovement().sound(SoundType.PLANT);
 	public static final RegistryObject<Block> FAKE_CARROTS = genBlock2("fake_carrot",
 			new FakeGrowableBlock(PROP_CROPS, 0, ECropTypes.CARROT), 0xFF8E09);
 	public static final RegistryObject<Block> FAKE_POTATO = genBlock2("fake_potato",
@@ -289,9 +288,9 @@ public class BlockRegistry {
 	public static final RegistryObject<Block> FAKE_VINE = genBlock2("fake_vine", new FakeVineBlock(PROP_CROPS), 0x255E0D);
 
 	public static final RegistryObject<Block> FAKE_MUSHOOM_1 = genBlock2("fake_mushroom_red",
-			new NWISWaterLogBlock(PROP_SAPLING), 0xFE2A2A);
+			new OrientableVeggies(EOrientables.MUSHROOM, PROP_SAPLING), 0xFE2A2A);
 	public static final RegistryObject<Block> FAKE_MUSHOOM_2 = genBlock2("fake_mushroom_brown",
-			new NWISWaterLogBlock(PROP_SAPLING), 0x916D55);
+			new OrientableVeggies(EOrientables.MUSHROOM, PROP_SAPLING), 0x916D55);
 
 	// Grass Blocks
 	public static final RegistryObject<Block> STATIC_DIRT = genBlock("fake_dirt", new NWISBlock(PROP_SOIL), 0);
@@ -318,23 +317,24 @@ public class BlockRegistry {
 			new NWISWaterLogBlock(PROP_CHORUS_FRUIT), 0);
 	public static final RegistryObject<Block> FAKE_BAMBOO = genBlock2("fake_bamboo",
 			new NWISBambooBlock(PROP_POISE), 0x467301);
+	
 	// Endergetic
-	public static final RegistryObject<Block> STATIC_POSIMOSS = genBlock("fake_posimoss", new NWISBlock(PROP_SOIL), 0, "endergetic");
+	public static final RegistryObject<Block> STATIC_POSIMOSS = genBlock("fake_posimoss", new NWISOrientableBlock(PROP_SOIL), 0, "endergetic");
 	public static final RegistryObject<Block> STATIC_POSIMOSS_A = genBlock("fake_posimoss_a", new NWISBlock(PROP_SOIL), 0, "endergetic");
 	public static final RegistryObject<Block> STATIC_POSIMOSS_EUMUS = genBlock("fake_posimoss_eumus",
-			new NWISBlock(PROP_SOIL), 0, "endergetic");
+			new NWISOrientableBlock(PROP_SOIL), 0, "endergetic");
 	public static final RegistryObject<Block> STATIC_POISE_CLUSTER = genBlock("fake_poise_cluster",
 			new SemiInvisibleBlock(PROP_POISE), 0, "endergetic");
 
 	// Quark: Glowing Caves
-	public static final RegistryObject<Block> FAKE_GLOWCELIUM = genBlock("fake_glowcelium", new NWISBlock(PROP_MUSH), 0, "quark");
+	public static final RegistryObject<Block> FAKE_GLOWCELIUM = genBlock("fake_glowcelium", new NWISOrientableBlock(PROP_MUSH), 0, "quark");
 	public static final RegistryObject<Block> FAKE_GLOWCELIUM_A = genBlock("fake_glowcelium_a",
 			new NWISBlock(PROP_MUSH), 0, "quark");
 	public static final RegistryObject<Block> FAKE_BIG_GLOWSHROOM = genBlock("fake_big_glowshroom",
 			new SemiInvisibleNorthableBlock(PROP_GLOWMUSH), 0, "quark");
 	public static final RegistryObject<Block> FAKE_BIG_GLOWSHROOM_STEM = genBlock("fake_big_glowshroom_stem",
 			new SemiInvisibleNorthableBlock(PROP_GLOWMUSH), 0, "quark");
-	public static final RegistryObject<Block> FAKE_GLOWSHROOM = genBlock2("fake_glowshroom", new NWISWaterLogBlock(PROP_SAPLING), 0x6BD8F8, "quark");
+	public static final RegistryObject<Block> FAKE_GLOWSHROOM = genBlock2("fake_glowshroom", new OrientableVeggies(EOrientables.MUSHROOM,PROP_SAPLING), 0x6BD8F8, "quark");
 	public static final RegistryObject<Block> FAKE_CAVE_ROOTS = genBlock2("fake_cave_roots", new FakeVineBlock(PROP_CROPS), 0xCBA365, "quark");
 	// Sapling
 	public static final RegistryObject<Block> FROSTY_SAPLING = genBlock2("fake_qsap_frosty", new NWISBlock(PROP_SAPLING), 0x3C95B7, "quark");
@@ -418,17 +418,16 @@ public class BlockRegistry {
 	public static final RegistryObject<Block> BEACHGRASS_SMOL = genBlock2("fake_beachgrass_small", new NWISWaterLogBlock(PROP_CROPS), 0x8D994C, "upgrade_aquatic");
 
 	//Orientables...
-	public static final RegistryObject<Block> FAKE_GRASS = genBlock2("fake_grass_b", new OrientableVeggies(EOrientables.GRASS, PROP_CROPS));
-	public static final RegistryObject<Block> FAKE_TALL_GRASS = genBlock2("fake_tallgrass", new TallOrientableBlock(ETallTypes.TALL_GRASS, PROP_CROPS));
+	public static final RegistryObject<Block> FAKE_GRASS = genBlock2("fake_grass_b", new OrientableVeggies(EOrientables.GRASS, PROP_CROPS), 0x395832);
+	public static final RegistryObject<Block> FAKE_TALL_GRASS = genBlock2("fake_tallgrass", new TallOrientableBlock(ETallTypes.TALL_GRASS, PROP_TALL_GRASS), 0x395832);
 	
 	//Tall....
-	public static final RegistryObject<Block> FAKE_PEONY = genBlock2("fake_peony", new TallOrientableBlock(ETallTypes.PEONY, PROP_CROPS), 0);
-	public static final RegistryObject<Block> FAKE_ROSEBUSH = genBlock2("fake_rose_bush", new TallOrientableBlock(ETallTypes.TALL_ROSE, PROP_CROPS), 0);
-	public static final RegistryObject<Block> FAKE_LILAC = genBlock2("fake_lilac", new TallOrientableBlock(ETallTypes.LILAC, PROP_CROPS), 0);
-	public static final RegistryObject<Block> FAKE_TALL_FERN = genBlock2("fake_large_fern", new TallOrientableBlock(ETallTypes.LARGE_FERN, PROP_CROPS), 0);
-	public static final RegistryObject<Block> FAKE_SUNFLOWER = genBlock2("fake_sunflower", new TallOrientableBlock(ETallTypes.SUNFLOWER, PROP_CROPS), 0);
+	public static final RegistryObject<Block> FAKE_PEONY = genBlock2("fake_peony", new TallOrientableBlock(ETallTypes.PEONY, PROP_TALL_GRASS), 0xEBC5FD);
+	public static final RegistryObject<Block> FAKE_ROSEBUSH = genBlock2("fake_rose_bush", new TallOrientableBlock(ETallTypes.TALL_ROSE, PROP_TALL_GRASS), 0xBF2529);
+	public static final RegistryObject<Block> FAKE_LILAC = genBlock2("fake_lilac", new TallOrientableBlock(ETallTypes.LILAC, PROP_TALL_GRASS), 0xD380D3);
+	public static final RegistryObject<Block> FAKE_TALL_FERN = genBlock2("fake_large_fern", new TallOrientableBlock(ETallTypes.LARGE_FERN, PROP_TALL_GRASS), 0x395832);
+	public static final RegistryObject<Block> FAKE_SUNFLOWER = genBlock2("fake_sunflower", new TallOrientableBlock(ETallTypes.SUNFLOWER, PROP_TALL_GRASS), 0xFED639);
 	//It do be flowers doe :ono:
-
-
-
+	public static final RegistryObject<Block> FAKE_FERN = genBlock2("fake_fern", new OrientableVeggies(EOrientables.FERN, PROP_TALL_GRASS), 0x395832);
+	public static final RegistryObject<Block> FAKE_DEAD_BUSH = genBlock2("fake_dead_bush", new OrientableVeggies(EOrientables.DEAD_BUSH, PROP_TALL_GRASS), 0x395832);
 }
