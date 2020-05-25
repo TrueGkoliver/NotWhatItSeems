@@ -430,4 +430,15 @@ public class BlockRegistry {
 	//It do be flowers doe :ono:
 	public static final RegistryObject<Block> FAKE_FERN = genBlock2("fake_fern", new OrientableVeggies(EOrientables.FERN, PROP_TALL_GRASS), 0x395832);
 	public static final RegistryObject<Block> FAKE_DEAD_BUSH = genBlock2("fake_dead_bush", new OrientableVeggies(EOrientables.DEAD_BUSH, PROP_TALL_GRASS), 0x395832);
+	
+	public static final RegistryObject<Block> FAKE_DANDELION = genBlock2("fake_dandelion", new OrientableVeggies(EOrientables.FLOWER, PROP_TALL_GRASS));
+	public static final RegistryObject<Block> FAKE_POPPY = genBlock2("fake_poppy", new OrientableVeggies(EOrientables.FLOWER, PROP_TALL_GRASS));
+	public static final RegistryObject<Block> FAKE_BLUE_ORCHID = genBlock2("fake_blue_orchid", new OrientableVeggies(EOrientables.FLOWER, PROP_TALL_GRASS));
+	public static final RegistryObject<Block> FAKE_ALLIUM = genBlock2("fake_allium", new OrientableVeggies(EOrientables.FLOWER, PROP_TALL_GRASS));
+	public static final RegistryObject<Block> FAKE_AZURE_BLUET = genBlock2("fake_azure_bluet", new OrientableVeggies(EOrientables.FLOWER, PROP_TALL_GRASS));
+	
+
+
+
+
 }

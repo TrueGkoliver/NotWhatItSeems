@@ -10,5 +10,6 @@ public enum EOrientables {
 	MUSHROOM,
 	SAPLING,
 	FERN,
-	DEAD_BUSH
+	DEAD_BUSH,
+	FLOWER
 }
