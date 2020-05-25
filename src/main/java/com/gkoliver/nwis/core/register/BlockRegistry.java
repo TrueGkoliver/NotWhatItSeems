@@ -73,7 +73,7 @@ public class BlockRegistry {
 	 * @return
 	 */
 	public static ArrayList<Block> CUTOUTS = new ArrayList<Block>();
-	static boolean debug = false;
+	static boolean debug = true;
 	public static RegistryObject<Block> genBlock(String id, Block block) {
 		
 		BlockItem item = new BlockItem(block, new Item.Properties().group(ItemGroup.SEARCH));
@@ -411,12 +411,24 @@ public class BlockRegistry {
 	public static final RegistryObject<Block> KELP_THORNY = genBlock2("fake_kelp_thorny", new KelpBlock(PROP_CROPS), 0x605341, "upgrade_aquatic");
 	
 	//Seagrass
-	public static final RegistryObject<Block> SEAGRASS = genBlock2("fake_seagrass", new KelpBlock(PROP_CROPS), 0x7C7340);
+	public static final RegistryObject<Block> SEAGRASS = genBlock2("fake_seagrass", new TallOrientableBlock(ETallTypes.LARGE_FERN, PROP_CROPS), 0x7C7340);
 	public static final RegistryObject<Block> SEAGRASS_SMOL = genBlock2("fake_seagrass_small", new NWISWaterLogBlock(PROP_CROPS), 0x7C7340);
+	
 	public static final RegistryObject<Block> BEACHGRASS = genBlock2("fake_beachgrass", new KelpBlock(PROP_CROPS), 0x8D994C, "upgrade_aquatic");
 	public static final RegistryObject<Block> BEACHGRASS_SMOL = genBlock2("fake_beachgrass_small", new NWISWaterLogBlock(PROP_CROPS), 0x8D994C, "upgrade_aquatic");
 
 	//Orientables...
 	public static final RegistryObject<Block> FAKE_GRASS = genBlock2("fake_grass_b", new OrientableVeggies(EOrientables.GRASS, PROP_CROPS));
 	public static final RegistryObject<Block> FAKE_TALL_GRASS = genBlock2("fake_tallgrass", new TallOrientableBlock(ETallTypes.TALL_GRASS, PROP_CROPS));
+	
+	//Tall....
+	public static final RegistryObject<Block> FAKE_PEONY = genBlock2("fake_peony", new TallOrientableBlock(ETallTypes.PEONY, PROP_CROPS), 0);
+	public static final RegistryObject<Block> FAKE_ROSEBUSH = genBlock2("fake_rose_bush", new TallOrientableBlock(ETallTypes.TALL_ROSE, PROP_CROPS), 0);
+	public static final RegistryObject<Block> FAKE_LILAC = genBlock2("fake_lilac", new TallOrientableBlock(ETallTypes.LILAC, PROP_CROPS), 0);
+	public static final RegistryObject<Block> FAKE_TALL_FERN = genBlock2("fake_large_fern", new TallOrientableBlock(ETallTypes.LARGE_FERN, PROP_CROPS), 0);
+	public static final RegistryObject<Block> FAKE_SUNFLOWER = genBlock2("fake_sunflower", new TallOrientableBlock(ETallTypes.SUNFLOWER, PROP_CROPS), 0);
+	//It do be flowers doe :ono:
+
+
+
 }

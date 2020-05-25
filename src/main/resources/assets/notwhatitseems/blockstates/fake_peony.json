@@ -1,0 +1,16 @@
+{
+    "variants": {
+        "half=lower,facing=up": { "model": "block/peony_bottom" },
+        "half=lower,facing=down": { "model": "block/peony_bottom", "x": 180 },
+        "half=lower,facing=east": { "model": "block/peony_bottom", "y": 90, "x": 90 },
+        "half=lower,facing=south": { "model": "block/peony_bottom", "y": 180, "x": 90 },
+        "half=lower,facing=west": { "model": "block/peony_bottom", "y": 270, "x": 90 },
+        "half=lower,facing=north": { "model": "block/peony_bottom", "y": 0, "x": 90 },
+        "half=upper,facing=up": { "model": "block/peony_top" },
+        "half=upper,facing=down": { "model": "block/peony_top", "x": 180 },
+        "half=upper,facing=east": { "model": "block/peony_top", "y": 90, "x": 90 },
+        "half=upper,facing=south": { "model": "block/peony_top", "y": 180, "x": 90 },
+        "half=upper,facing=west": { "model": "block/peony_top", "y": 270, "x": 90 },
+        "half=upper,facing=north": { "model": "block/peony_top", "y": 0, "x": 90 }
+    }
+}
