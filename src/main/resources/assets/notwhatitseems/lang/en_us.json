@@ -244,6 +244,34 @@
 	
 	"advancements.story.get_bigname.title" : "What a Mouthful!",
 	"advancements.story.get_bigname.description" : "Obtain a Hardened Restrained Dilluted Void Block",
-	"notwhatitseems.config.dragon_egg" : "Enable Cardboard Dragon Eggs"
+	"notwhatitseems.config.dragon_egg" : "Enable Cardboard Dragon Eggs",
+	
+	
+	"block.notwhatitseems.fake_allium": "Cardboard Allium Pattern",
+    "block.notwhatitseems.fake_azure_bluet": "Cardboard Azure Bluet Pattern",
+    "block.notwhatitseems.fake_blue_orchid": "Cardboard Blue Orchid Pattern",
+    "block.notwhatitseems.fake_cornflower": "Cardboard Cornflower Pattern",
+    "block.notwhatitseems.fake_dandelion": "Cardboard Dandelion Pattern",
+    "block.notwhatitseems.fake_dead_bush": "Cardboard Dead Bush Pattern",
+    "block.notwhatitseems.fake_fern": "Cardboard Fern Pattern",
+    "block.notwhatitseems.fake_grass_b": "Cardboard Grass Pattern",
+    "block.notwhatitseems.fake_large_fern": "Cardboard Large Fern Pattern",
+    "block.notwhatitseems.fake_lilac": "Cardboard Lilac Pattern",
+    "block.notwhatitseems.fake_lily_of_the_valley": "Cardboard Lily of the Valley Pattern",
+    "block.notwhatitseems.fake_orange_tulip": "Cardboard Orange Tulip Pattern",
+    "block.notwhatitseems.fake_oxeye_daisy": "Cardboard Oxeye Daisy",
+    "block.notwhatitseems.fake_path": "Cardboard Path",
+    "block.notwhatitseems.fake_path_a": "Overgrown Cardboard Path",
+    "block.notwhatitseems.fake_peony": "Cardboard Peony Pattern",
+    "block.notwhatitseems.fake_pink_tulip": "Cardboard Pink Tulip Pattern",
+    "block.notwhatitseems.fake_poppy": "Cardboard Poppy Pattern",
+    "block.notwhatitseems.fake_red_tulip": "Cardboard Red Tulip Pattern",
+    "block.notwhatitseems.fake_rose_bush": "Cardboard Rose Bush Pattern",
+    "block.notwhatitseems.fake_sunflower": "Cardboard Sunflower Pattern",
+    "block.notwhatitseems.fake_tallgrass": "Cardboard Tall Grass Pattern",
+    "block.notwhatitseems.fake_white_tulip": "Cardboard White Tulip Pattern",
+    "block.notwhatitseems.fake_wither_rose": "Cardboard Wither Rose Pattern",
+    
+    "block.notwhatitseems.fake_posimoss_tall" : "Cardboard Poismoss Pattern"
 	
 }

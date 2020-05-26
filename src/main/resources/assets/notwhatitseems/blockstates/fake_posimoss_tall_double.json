@@ -1,0 +1,16 @@
+{
+    "variants": {
+        "half=lower,facing=up": { "model": "endergetic:block/tall_poise_grass_bottom" },
+        "half=lower,facing=down": { "model": "endergetic:block/tall_poise_grass_bottom", "x": 180 },
+        "half=lower,facing=east": { "model": "endergetic:block/tall_poise_grass_bottom", "y": 90, "x": 90 },
+        "half=lower,facing=south": { "model": "endergetic:block/tall_poise_grass_bottom", "y": 180, "x": 90 },
+        "half=lower,facing=west": { "model": "endergetic:block/tall_poise_grass_bottom", "y": 270, "x": 90 },
+        "half=lower,facing=north": { "model": "endergetic:block/tall_poise_grass_bottom", "y": 0, "x": 90 },
+        "half=upper,facing=up": { "model": "endergetic:block/tall_poise_grass_top" },
+        "half=upper,facing=down": { "model": "endergetic:block/tall_poise_grass_top", "x": 180 },
+        "half=upper,facing=east": { "model": "endergetic:block/tall_poise_grass_top", "y": 90, "x": 90 },
+        "half=upper,facing=south": { "model": "endergetic:block/tall_poise_grass_top", "y": 180, "x": 90 },
+        "half=upper,facing=west": { "model": "endergetic:block/tall_poise_grass_top", "y": 270, "x": 90 },
+        "half=upper,facing=north": { "model": "endergetic:block/tall_poise_grass_top", "y": 0, "x": 90 }
+    }
+}

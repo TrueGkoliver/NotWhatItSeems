@@ -1,0 +1,10 @@
+{
+    "variants": {
+        "facing=up": { "model": "endergetic:block/corrock_end" },
+        "facing=down": { "model": "endergetic:block/corrock_end", "x": 180 },
+        "facing=east": { "model": "endergetic:block/corrock_end", "y": 90, "x": 90 },
+        "facing=south": { "model": "endergetic:block/corrock_end", "y": 180, "x": 90 },
+        "facing=west": { "model": "endergetic:block/corrock_end", "y": 270, "x": 90 },
+        "facing=north": { "model": "endergetic:block/corrock_end", "y": 0, "x": 90 }
+    }
+}
