@@ -328,14 +328,6 @@ public class BlockRegistry {
 	public static final RegistryObject<Block> STATIC_POSIMOSS_A = genBlock("fake_posimoss_a", new NWISBlock(PROP_SOIL), 0, "endergetic");
 	public static final RegistryObject<Block> STATIC_POSIMOSS_EUMUS = genBlock("fake_posimoss_eumus", new NWISOrientableBlock(PROP_SOIL), 0, "endergetic");
 	public static final RegistryObject<Block> STATIC_POISE_CLUSTER = genBlock("fake_poise_cluster", new SemiInvisibleBlock(PROP_POISE), 0, "endergetic");
-
-	public static final RegistryObject<Block> OVERWORLD_CORROCK_BLOCK = genBlock("overworld_corrock_block", new NWISBlock(PROP_SOIL), 0, "endergetic");
-	public static final RegistryObject<Block> NETHER_CORROCK_BLOCK = genBlock("nether_corrock_block", new NWISBlock(PROP_SOIL), 0, "endergetic");
-	public static final RegistryObject<Block> END_CORROCK_BLOCK = genBlock("end_corrock_block", new NWISBlock(PROP_SOIL), 0, "endergetic");
-	
-	public static final RegistryObject<Block> CORROCK_OVERWORLD = genBlock2("overworld_corrock", new OrientableVeggies(EOrientables.SAPLING, PROP_SOIL), 0x51412B);
-	public static final RegistryObject<Block> CORROCK_NETHER = genBlock2("nether_corrock", new OrientableVeggies(EOrientables.SAPLING, PROP_SOIL), 0x563138);
-	public static final RegistryObject<Block> CORROCK_END = genBlock2("end_corrock", new OrientableVeggies(EOrientables.SAPLING, PROP_SOIL), 0x503D5F);
 	
 	
 	
@@ -467,14 +459,14 @@ public class BlockRegistry {
 	public static final RegistryObject<Block> FAKE_HIBISCUS_ORANGE = genBlock2("fake_hibiscus_orange", new OrientableVeggies(EOrientables.SAPLING, PROP_TALL_GRASS), 0, "buzzierbees");
 	public static final RegistryObject<Block> FAKE_HIBISCUS_YELLOW = genBlock2("fake_hibiscus_yellow", new OrientableVeggies(EOrientables.SAPLING, PROP_TALL_GRASS), 0, "buzzierbees");
 	
-	public static final RegistryObject<Block> DIANTHUS = genBlock2("fake_dianthus", new OrientableVeggies(EOrientables.SAPLING, PROP_TALL_GRASS), 0, "buzzierbees");
-	public static final RegistryObject<Block> WHITE_CLOVER = genBlock2("fake_dianthus", new OrientableVeggies(EOrientables.SAPLING, PROP_TALL_GRASS), 0, "buzzierbees");
-	public static final RegistryObject<Block> PINK_CLOVER = genBlock2("fake_dianthus", new OrientableVeggies(EOrientables.SAPLING, PROP_TALL_GRASS), 0, "buzzierbees");
-	public static final RegistryObject<Block> COLUMBINE = genBlock2("fake_dianthus", new OrientableVeggies(EOrientables.SAPLING, PROP_TALL_GRASS), 0, "buzzierbees");
-	public static final RegistryObject<Block> CARTWHEEL = genBlock2("fake_dianthus", new OrientableVeggies(EOrientables.SAPLING, PROP_TALL_GRASS), 0, "buzzierbees");
-	public static final RegistryObject<Block> BLUEBELL = genBlock2("fake_dianthus", new OrientableVeggies(EOrientables.SAPLING, PROP_TALL_GRASS), 0, "buzzierbees");
-	public static final RegistryObject<Block> VIOLET = genBlock2("fake_dianthus", new OrientableVeggies(EOrientables.SAPLING, PROP_TALL_GRASS), 0, "buzzierbees");
-	public static final RegistryObject<Block> BIRD_OF_PARADISE = genBlock2("fake_dianthus", new OrientableVeggies(EOrientables.SAPLING, PROP_TALL_GRASS), 0, "buzzierbees");
+	public static final RegistryObject<Block> FAKE_DIANTHUS = genBlock2("fake_dianthus", new OrientableVeggies(EOrientables.SAPLING, PROP_TALL_GRASS), 0, "buzzierbees");
+	public static final RegistryObject<Block> FAKE_WHITE_CLOVER = genBlock2("fake_dianthus", new OrientableVeggies(EOrientables.SAPLING, PROP_TALL_GRASS), 0, "buzzierbees");
+	public static final RegistryObject<Block> FAKE_PINK_CLOVER = genBlock2("fake_dianthus", new OrientableVeggies(EOrientables.SAPLING, PROP_TALL_GRASS), 0, "buzzierbees");
+	public static final RegistryObject<Block> FAKE_COLUMBINE = genBlock2("fake_dianthus", new OrientableVeggies(EOrientables.SAPLING, PROP_TALL_GRASS), 0, "buzzierbees");
+	public static final RegistryObject<Block> FAKE_CARTWHEEL = genBlock2("fake_dianthus", new OrientableVeggies(EOrientables.SAPLING, PROP_TALL_GRASS), 0, "buzzierbees");
+	public static final RegistryObject<Block> FAKE_BLUEBELL = genBlock2("fake_dianthus", new OrientableVeggies(EOrientables.SAPLING, PROP_TALL_GRASS), 0, "buzzierbees");
+	public static final RegistryObject<Block> FAKE_VIOLET = genBlock2("fake_dianthus", new OrientableVeggies(EOrientables.SAPLING, PROP_TALL_GRASS), 0, "buzzierbees");
+	public static final RegistryObject<Block> FAKE_BIRD_OF_PARADISE = genBlock2("fake_dianthus", new OrientableVeggies(EOrientables.SAPLING, PROP_TALL_GRASS), 0, "buzzierbees");
 	
 	
 }
