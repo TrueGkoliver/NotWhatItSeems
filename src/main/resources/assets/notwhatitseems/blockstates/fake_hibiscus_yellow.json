@@ -1,0 +1,10 @@
+{
+    "variants": {
+        "facing=up": { "model": "buzzierbees:block/daybloom" },
+        "facing=down": { "model": "buzzierbees:block/daybloom", "x": 180 },
+        "facing=east": { "model": "buzzierbees:block/daybloom", "y": 90, "x": 90 },
+        "facing=south": { "model": "buzzierbees:block/daybloom", "y": 180, "x": 90 },
+        "facing=west": { "model": "buzzierbees:block/daybloom", "y": 270, "x": 90 },
+        "facing=north": { "model": "buzzierbees:block/daybloom", "y": 0, "x": 90 }
+    }
+}

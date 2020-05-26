@@ -1,0 +1,10 @@
+{
+    "variants": {
+        "facing=up": { "model": "buzzierbees:block/orange_hibiscus" },
+        "facing=down": { "model": "buzzierbees:block/orange_hibiscus", "x": 180 },
+        "facing=east": { "model": "buzzierbees:block/orange_hibiscus", "y": 90, "x": 90 },
+        "facing=south": { "model": "buzzierbees:block/orange_hibiscus", "y": 180, "x": 90 },
+        "facing=west": { "model": "buzzierbees:block/orange_hibiscus", "y": 270, "x": 90 },
+        "facing=north": { "model": "buzzierbees:block/orange_hibiscus", "y": 0, "x": 90 }
+    }
+}

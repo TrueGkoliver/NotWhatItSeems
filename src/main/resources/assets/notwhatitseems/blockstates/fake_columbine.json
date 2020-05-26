@@ -1,0 +1,10 @@
+{
+    "variants": {
+        "facing=up": { "model": "buzzierbees:block/columbine" },
+        "facing=down": { "model": "buzzierbees:block/columbine", "x": 180 },
+        "facing=east": { "model": "buzzierbees:block/columbine", "y": 90, "x": 90 },
+        "facing=south": { "model": "buzzierbees:block/columbine", "y": 180, "x": 90 },
+        "facing=west": { "model": "buzzierbees:block/columbine", "y": 270, "x": 90 },
+        "facing=north": { "model": "buzzierbees:block/columbine", "y": 0, "x": 90 }
+    }
+}

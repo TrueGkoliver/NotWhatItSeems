@@ -1,0 +1,16 @@
+{
+    "variants": {
+        "half=lower,facing=up": { "model": "buzzierbees:block/bird_of_paradise_bottom" },
+        "half=lower,facing=down": { "model": "buzzierbees:block/bird_of_paradise_bottom", "x": 180 },
+        "half=lower,facing=east": { "model": "buzzierbees:block/bird_of_paradise_bottom", "y": 90, "x": 90 },
+        "half=lower,facing=south": { "model": "buzzierbees:block/bird_of_paradise_bottom", "y": 180, "x": 90 },
+        "half=lower,facing=west": { "model": "buzzierbees:block/bird_of_paradise_bottom", "y": 270, "x": 90 },
+        "half=lower,facing=north": { "model": "buzzierbees:block/bird_of_paradise_bottom", "y": 0, "x": 90 },
+        "half=upper,facing=up": { "model": "buzzierbees:block/bird_of_paradise_top" },
+        "half=upper,facing=down": { "model": "buzzierbees:block/bird_of_paradise_top", "x": 180 },
+        "half=upper,facing=east": { "model": "buzzierbees:block/bird_of_paradise_top", "y": 90, "x": 90 },
+        "half=upper,facing=south": { "model": "buzzierbees:block/bird_of_paradise_top", "y": 180, "x": 90 },
+        "half=upper,facing=west": { "model": "buzzierbees:block/bird_of_paradise_top", "y": 270, "x": 90 },
+        "half=upper,facing=north": { "model": "buzzierbees:block/bird_of_paradise_top", "y": 0, "x": 90 }
+    }
+}
