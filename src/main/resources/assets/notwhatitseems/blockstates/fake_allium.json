@@ -1,0 +1,10 @@
+{
+    "variants": {
+        "facing=up": { "model": "block/allium" },
+        "facing=down": { "model": "block/allium", "x": 180 },
+        "facing=east": { "model": "block/allium", "y": 90, "x": 90 },
+        "facing=south": { "model": "block/allium", "y": 180, "x": 90 },
+        "facing=west": { "model": "block/allium", "y": 270, "x": 90 },
+        "facing=north": { "model": "block/allium", "y": 0, "x": 90 }
+    }
+}

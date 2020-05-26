@@ -1,0 +1,10 @@
+{
+    "variants": {
+        "facing=up": { "model": "block/grass_path" },
+        "facing=down": { "model": "block/grass_path", "x": 180 },
+        "facing=east": { "model": "block/grass_path", "y": 90, "x": 90 },
+        "facing=south": { "model": "block/grass_path", "y": 180, "x": 90 },
+        "facing=west": { "model": "block/grass_path", "y": 270, "x": 90 },
+        "facing=north": { "model": "block/grass_path", "y": 0, "x": 90 }
+    }
+}

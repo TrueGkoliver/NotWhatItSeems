@@ -1,0 +1,10 @@
+{
+    "variants": {
+        "facing=up": { "model": "block/red_tulip" },
+        "facing=down": { "model": "block/red_tulip", "x": 180 },
+        "facing=east": { "model": "block/red_tulip", "y": 90, "x": 90 },
+        "facing=south": { "model": "block/red_tulip", "y": 180, "x": 90 },
+        "facing=west": { "model": "block/red_tulip", "y": 270, "x": 90 },
+        "facing=north": { "model": "block/red_tulip", "y": 0, "x": 90 }
+    }
+}

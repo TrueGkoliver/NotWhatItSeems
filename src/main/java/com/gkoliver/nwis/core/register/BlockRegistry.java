@@ -297,10 +297,13 @@ public class BlockRegistry {
 	public static final RegistryObject<Block> STATIC_GRASS = genBlock("fake_grass", new NWISOrientableBlock(PROP_SOIL), 0);
 	public static final RegistryObject<Block> STATIC_MYCELIUM = genBlock("fake_mycelium", new NWISOrientableBlock(PROP_SOIL), 0);
 	public static final RegistryObject<Block> STATIC_PODZOL = genBlock("fake_podzol", new NWISOrientableBlock(PROP_SOIL), 0);
-
+	public static final RegistryObject<Block> STATIC_PATH = genBlock("fake_path", new NWISOrientableBlock(PROP_SOIL));
+	
 	public static final RegistryObject<Block> STATIC_GRASS_A = genBlock("fake_grass_a", new NWISBlock(PROP_SOIL), 0);
 	public static final RegistryObject<Block> STATIC_MYCELIUM_A = genBlock("fake_mycelium_a", new NWISBlock(PROP_SOIL), 0);
 	public static final RegistryObject<Block> STATIC_PODZOL_A = genBlock("fake_podzol_a", new NWISBlock(PROP_SOIL), 0);
+	public static final RegistryObject<Block> STATIC_PATH_A = genBlock("fake_path_a", new NWISBlock(PROP_SOIL));
+	
 	public static final RegistryObject<Block> IMPOSTER_STATION = genBlock("imposter_station",
 			new ImposterStationBlock(PROP_STATION), 0);
 	public static final RegistryObject<Block> SPECIAL_MUSHROOM = genBlock("fake_brown_mushroom_block",
@@ -431,11 +434,21 @@ public class BlockRegistry {
 	public static final RegistryObject<Block> FAKE_FERN = genBlock2("fake_fern", new OrientableVeggies(EOrientables.FERN, PROP_TALL_GRASS), 0x395832);
 	public static final RegistryObject<Block> FAKE_DEAD_BUSH = genBlock2("fake_dead_bush", new OrientableVeggies(EOrientables.DEAD_BUSH, PROP_TALL_GRASS), 0x395832);
 	
-	public static final RegistryObject<Block> FAKE_DANDELION = genBlock2("fake_dandelion", new OrientableVeggies(EOrientables.FLOWER, PROP_TALL_GRASS));
-	public static final RegistryObject<Block> FAKE_POPPY = genBlock2("fake_poppy", new OrientableVeggies(EOrientables.FLOWER, PROP_TALL_GRASS));
-	public static final RegistryObject<Block> FAKE_BLUE_ORCHID = genBlock2("fake_blue_orchid", new OrientableVeggies(EOrientables.FLOWER, PROP_TALL_GRASS));
-	public static final RegistryObject<Block> FAKE_ALLIUM = genBlock2("fake_allium", new OrientableVeggies(EOrientables.FLOWER, PROP_TALL_GRASS));
-	public static final RegistryObject<Block> FAKE_AZURE_BLUET = genBlock2("fake_azure_bluet", new OrientableVeggies(EOrientables.FLOWER, PROP_TALL_GRASS));
+	public static final RegistryObject<Block> FAKE_ALLIUM = genBlock2("fake_allium", new OrientableVeggies(EOrientables.FLOWER, PROP_TALL_GRASS), 0);
+	public static final RegistryObject<Block> FAKE_AZURE_BLUET = genBlock2("fake_azure_bluet", new OrientableVeggies(EOrientables.FLOWER, PROP_TALL_GRASS), 0);
+	public static final RegistryObject<Block> FAKE_BLUE_ORCHID = genBlock2("fake_blue_orchid", new OrientableVeggies(EOrientables.FLOWER, PROP_TALL_GRASS), 0);
+	public static final RegistryObject<Block> FAKE_CORNFLOWER = genBlock2("fake_cornflower", new OrientableVeggies(EOrientables.FLOWER, PROP_TALL_GRASS), 0);
+	public static final RegistryObject<Block> FAKE_DANDELION = genBlock2("fake_dandelion", new OrientableVeggies(EOrientables.FLOWER, PROP_TALL_GRASS), 0);
+	public static final RegistryObject<Block> FAKE_LILY_OF_THE_VALLEY = genBlock2("fake_lily_of_the_valley", new OrientableVeggies(EOrientables.FLOWER, PROP_TALL_GRASS), 0);
+	public static final RegistryObject<Block> FAKE_OXEYE_DAISY = genBlock2("fake_oxeye_daisy", new OrientableVeggies(EOrientables.FLOWER, PROP_TALL_GRASS), 0);
+	public static final RegistryObject<Block> FAKE_POPPY = genBlock2("fake_poppy", new OrientableVeggies(EOrientables.FLOWER, PROP_TALL_GRASS), 0);
+	public static final RegistryObject<Block> FAKE_WITHER_ROSE = genBlock2("fake_wither_rose", new OrientableVeggies(EOrientables.FLOWER, PROP_TALL_GRASS), 0);
+	
+	public static final RegistryObject<Block> FAKE_RED_TULIP = genBlock2("fake_red_tulip", new OrientableVeggies(EOrientables.FLOWER, PROP_TALL_GRASS), 0);
+	public static final RegistryObject<Block> FAKE_WHITE_TULIP = genBlock2("fake_white_tulip", new OrientableVeggies(EOrientables.FLOWER, PROP_TALL_GRASS), 0);
+	public static final RegistryObject<Block> FAKE_ORANGE_TULIP = genBlock2("fake_orange_tulip", new OrientableVeggies(EOrientables.FLOWER, PROP_TALL_GRASS), 0);
+	public static final RegistryObject<Block> FAKE_PINK_TULIP = genBlock2("fake_pink_tulip", new OrientableVeggies(EOrientables.FLOWER, PROP_TALL_GRASS), 0);
+	
 	
 
 

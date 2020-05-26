@@ -1,0 +1,11 @@
+{
+    "variants": {
+        "facing=up": { "model": "block/wither_rose" },
+        "facing=down": { "model": "block/wither_rose", "x": 180 },
+        "facing=east": { "model": "block/wither_rose", "y": 90, "x": 90 },
+        "facing=south": { "model": "block/wither_rose", "y": 180, "x": 90 },
+        "facing=west": { "model": "block/wither_rose", "y": 270, "x": 90 },
+        "facing=north": { "model": "block/wither_rose", "y": 0, "x": 90 }
+    }
+}
+s

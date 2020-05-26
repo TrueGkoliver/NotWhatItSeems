@@ -1,0 +1,10 @@
+{
+    "variants": {
+        "facing=up": { "model": "block/azure_bluet" },
+        "facing=down": { "model": "block/azure_bluet", "x": 180 },
+        "facing=east": { "model": "block/azure_bluet", "y": 90, "x": 90 },
+        "facing=south": { "model": "block/azure_bluet", "y": 180, "x": 90 },
+        "facing=west": { "model": "block/azure_bluet", "y": 270, "x": 90 },
+        "facing=north": { "model": "block/azure_bluet", "y": 0, "x": 90 }
+    }
+}
