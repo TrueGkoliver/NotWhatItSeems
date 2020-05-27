@@ -83,10 +83,11 @@ public class ClientEvents {
 	public static HashMap<BlockItem, Integer> COLOR_MAPS = new HashMap<BlockItem, Integer>();
 	@SubscribeEvent
 	public static void onColorItemRegister(ColorHandlerEvent.Item event) {
-		event.getItemColors().register((p_210235_1_, p_210235_2_) -> {
-	         BlockState blockstate = ((BlockItem)p_210235_1_.getItem()).getBlock().getDefaultState();
-	         return event.getBlockColors().getColor(blockstate, (ILightReader)null, (BlockPos)null, p_210235_2_);
-	      }, Item.getItemFromBlock(BlockRegistry.STATIC_GRASS.get()), Item.getItemFromBlock(BlockRegistry.STATIC_GRASS_A.get()));
+		event.getItemColors().register((itemstack, p_210235_2_) -> {
+			
+	        BlockState blockstate = ((BlockItem)itemstack.getItem()).getBlock().getDefaultState();
+	        return event.getBlockColors().getColor(blockstate, (ILightReader)null, (BlockPos)null, p_210235_2_);
+	   }, Item.getItemFromBlock(BlockRegistry.STATIC_GRASS.get()), Item.getItemFromBlock(BlockRegistry.STATIC_GRASS_A.get()));
 		for (BlockItem item : COLOR_MAPS.keySet()) {
 			int blocker = COLOR_MAPS.get(item);
 			event.getItemColors().register((p_210235_1_, p_210235_2_) -> {

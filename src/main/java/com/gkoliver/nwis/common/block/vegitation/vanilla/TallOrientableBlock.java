@@ -19,6 +19,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.world.IBlockReader;
+import net.minecraft.world.IWorldReader;
 import net.minecraft.world.World;
 
 public class TallOrientableBlock extends OrientableVeggies {
@@ -52,10 +53,13 @@ public class TallOrientableBlock extends OrientableVeggies {
 		Direction d = state.get(FACING);
 		boolean isHeight = state.get(HALF) == DoubleBlockHalf.UPPER;
 		BlockPos poggers = SharedFunctions.getOppositePos(pos, isHeight, d);
-		if (worldIn.getBlockState(poggers).get(WATERLOGGED)) {
-			worldIn.setBlockState(poggers, Blocks.WATER.getDefaultState());
-		} else {
-			worldIn.setBlockState(poggers, Blocks.AIR.getDefaultState());
+		BlockState cool = worldIn.getBlockState(poggers);
+		if (cool.getBlock() == this) {
+			if (worldIn.getBlockState(poggers).get(WATERLOGGED)) {
+				worldIn.setBlockState(poggers, Blocks.WATER.getDefaultState());
+			} else {
+				worldIn.setBlockState(poggers, Blocks.AIR.getDefaultState());
+			}
 		}
 		super.onBlockHarvested(worldIn, pos, state, player);
 	}
@@ -67,5 +71,22 @@ public class TallOrientableBlock extends OrientableVeggies {
 	public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
 		return Block.makeCuboidShape(0, 0, 0, 16, 16, 16);
 	}
+	
+	@SuppressWarnings("deprecation")
+	public boolean isValidPosition(BlockState state, IWorldReader worldIn, BlockPos pos) {
+	      if (state.get(HALF) != DoubleBlockHalf.UPPER) {
+	    	  BlockState otherBlock = worldIn.getBlockState(SharedFunctions.getOppositePos(pos, false, state.get(FACING)));
+	    	  if (otherBlock.getBlock().isSolid(otherBlock)) {
+	    		  return false;
+	    	  }
+	    	  return true;
+	      } else {
+	    	  BlockState otherBlock = worldIn.getBlockState(SharedFunctions.getOppositePos(pos, true, state.get(FACING)));
+	    	  if (otherBlock.getBlock().isSolid(otherBlock)) {
+	    		  return false;
+	    	  }
+	    	  return true;
+	      }
+	   }
 	
 }

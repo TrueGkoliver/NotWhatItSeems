@@ -323,8 +323,8 @@ public class BlockRegistry {
 	
 	// Endergetic
 	public static final RegistryObject<Block> STATIC_POSIMOSS = genBlock("fake_posimoss", new NWISOrientableBlock(PROP_SOIL), 0, "endergetic");
-	public static final RegistryObject<Block> STATIC_POSIMOSS_TALL = genBlock("fake_posimoss_tall", new NWISOrientableBlock(PROP_SOIL), 0x4A2A4A, "endergetic");
-	public static final RegistryObject<Block> STATIC_POSIMOSS_TALL_DOUBLE = genBlock("fake_posimoss_tall_double", new TallOrientableBlock(ETallTypes.TALL_GRASS, PROP_SOIL), 0xCF40B5, "endergetic");
+	public static final RegistryObject<Block> STATIC_POSIMOSS_TALL = genBlock2("fake_posimoss_tall", new NWISOrientableBlock(PROP_TALL_GRASS), 0x4A2A4A, "endergetic");
+	public static final RegistryObject<Block> STATIC_POSIMOSS_TALL_DOUBLE = genBlock2("fake_posimoss_tall_double", new TallOrientableBlock(ETallTypes.TALL_GRASS, PROP_TALL_GRASS), 0xCF40B5, "endergetic");
 	public static final RegistryObject<Block> STATIC_POSIMOSS_A = genBlock("fake_posimoss_a", new NWISBlock(PROP_SOIL), 0, "endergetic");
 	public static final RegistryObject<Block> STATIC_POSIMOSS_EUMUS = genBlock("fake_posimoss_eumus", new NWISOrientableBlock(PROP_SOIL), 0, "endergetic");
 	public static final RegistryObject<Block> STATIC_POISE_CLUSTER = genBlock("fake_poise_cluster", new SemiInvisibleBlock(PROP_POISE), 0, "endergetic");
@@ -464,7 +464,7 @@ public class BlockRegistry {
 	public static final RegistryObject<Block> FAKE_CARTWHEEL = genBlock2("fake_cartwheel", new OrientableVeggies(EOrientables.SAPLING, PROP_TALL_GRASS), 0, "buzzierbees");
 	public static final RegistryObject<Block> FAKE_BLUEBELL = genBlock2("fake_bluebell", new OrientableVeggies(EOrientables.SAPLING, PROP_TALL_GRASS), 0, "buzzierbees");
 	public static final RegistryObject<Block> FAKE_VIOLET = genBlock2("fake_violet", new OrientableVeggies(EOrientables.SAPLING, PROP_TALL_GRASS), 0, "buzzierbees");
-	public static final RegistryObject<Block> FAKE_BIRD_OF_PARADISE = genBlock2("fake_bird_of_paradise", new OrientableVeggies(EOrientables.SAPLING, PROP_TALL_GRASS), 0, "buzzierbees");
+	public static final RegistryObject<Block> FAKE_BIRD_OF_PARADISE = genBlock2("fake_bird_of_paradise", new TallOrientableBlock(ETallTypes.TALL_GRASS, PROP_TALL_GRASS), 0, "buzzierbees");
 	
 	
 }
