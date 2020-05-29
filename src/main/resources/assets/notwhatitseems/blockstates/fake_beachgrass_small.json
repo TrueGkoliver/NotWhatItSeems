@@ -1,5 +1,10 @@
 {
     "variants": {
-        "": { "model": "upgrade_aquatic:block/beachgrass" }
+        "facing=up": { "model": "upgrade_aquatic:block/beachgrass" },
+        "facing=down": { "model": "upgrade_aquatic:block/beachgrass", "x": 180 },
+        "facing=east": { "model": "upgrade_aquatic:block/beachgrass", "y": 90, "x": 90 },
+        "facing=south": { "model": "upgrade_aquatic:block/beachgrass", "y": 180, "x": 90 },
+        "facing=west": { "model": "upgrade_aquatic:block/beachgrass", "y": 270, "x": 90 },
+        "facing=north": { "model": "upgrade_aquatic:block/beachgrass", "y": 0, "x": 90 }
     }
 }

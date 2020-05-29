@@ -4,6 +4,7 @@ import com.gkoliver.nwis.NotWhatItSeems;
 import com.mojang.blaze3d.systems.RenderSystem;
 
 import net.minecraft.client.gui.screen.inventory.ContainerScreen;
+import net.minecraft.client.gui.widget.button.ImageButton;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.container.GrindstoneContainer;
 import net.minecraft.util.ResourceLocation;
@@ -15,7 +16,7 @@ public class ImposterScreen extends ContainerScreen<ImposterContainer> {
 	   public ImposterScreen(ImposterContainer container, PlayerInventory inv, ITextComponent component) {
 	      super(container, inv, component);
 	   }
-
+	   
 	   /**
 	    * Draw the foreground layer for the GuiContainer (everything in front of the items)
 	    */

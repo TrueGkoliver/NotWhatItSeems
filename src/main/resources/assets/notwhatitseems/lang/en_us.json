@@ -272,6 +272,23 @@
     "block.notwhatitseems.fake_white_tulip": "Cardboard White Tulip Pattern",
     "block.notwhatitseems.fake_wither_rose": "Cardboard Wither Rose Pattern",
     
-    "block.notwhatitseems.fake_posimoss_tall" : "Cardboard Poismoss Pattern"
+    "block.notwhatitseems.fake_posimoss_tall" : "Cardboard Poismoss Pattern",
+    
+    "block.notwhatitseems.fake_bird_of_paradise": "Cardboard Bird of Paradise Pattern",
+    "block.notwhatitseems.fake_bluebell": "Cardboard Bluebell Pattern",
+    "block.notwhatitseems.fake_cartwheel": "Cardboard Cartwheel Pattern",
+    "block.notwhatitseems.fake_columbine": "Cardboard Columbine Pattern",
+    "block.notwhatitseems.fake_dianthus": "Cardboard Dianthus Pattern",
+    "block.notwhatitseems.fake_hibiscus_magenta": "Cardboard Magenta Hibiscus Pattern",
+    "block.notwhatitseems.fake_hibiscus_orange": "Cardboard Orange Hibiscus Pattern",
+    "block.notwhatitseems.fake_hibiscus_pink": "Cardboard Pink Hibiscus Pattern",
+    "block.notwhatitseems.fake_hibiscus_purple": "Cardboard Purple Hibiscus Pattern",
+    "block.notwhatitseems.fake_hibiscus_red": "Cardboard Red Hibiscus Pattern",
+    "block.notwhatitseems.fake_hibiscus_yellow": "Cardboard Yellow Hibiscus Pattern",
+    "block.notwhatitseems.fake_pink_clover": "Cardboard Pink Clover Pattern",
+    "block.notwhatitseems.fake_posimoss_tall_double": "Cardboard Tall Poismoss Pattern",
+    "block.notwhatitseems.fake_violet": "Cardboard Violet Pattern",
+    "block.notwhatitseems.fake_white_clover": "Cardboard White Clover Pattern"
+    
 	
 }
