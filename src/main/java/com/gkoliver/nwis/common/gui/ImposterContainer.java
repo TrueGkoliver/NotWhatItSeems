@@ -87,6 +87,32 @@ public class ImposterContainer extends Container {
 		putRecipe(Items.SEAGRASS, BlockRegistry.SEAGRASS_SMOL);
 		putRecipe(Items.NETHER_WART, BlockRegistry.FAKE_NETHER_WART);
 		putRecipe(Items.COCOA_BEANS, BlockRegistry.FAKE_COCOA_BEAN);
+		putRecipe(Items.GRASS_PATH, BlockRegistry.STATIC_PATH);
+		
+		putRecipe(Items.ALLIUM, BlockRegistry.FAKE_ALLIUM);
+		putRecipe(Items.AZURE_BLUET, BlockRegistry.FAKE_AZURE_BLUET);
+		putRecipe(Items.BLUE_ORCHID, BlockRegistry.FAKE_BLUE_ORCHID);
+		putRecipe(Items.CORNFLOWER, BlockRegistry.FAKE_CORNFLOWER);
+		putRecipe(Items.DANDELION, BlockRegistry.FAKE_DANDELION);
+		putRecipe(Items.DEAD_BUSH, BlockRegistry.FAKE_DEAD_BUSH);
+		putRecipe(Items.FERN, BlockRegistry.FAKE_FERN);
+		putRecipe(Items.LARGE_FERN, BlockRegistry.FAKE_TALL_FERN);
+		putRecipe(Items.GRASS, BlockRegistry.FAKE_GRASS);
+		putRecipe(Items.TALL_GRASS, BlockRegistry.FAKE_TALL_GRASS);
+		putRecipe(Items.SUNFLOWER, BlockRegistry.FAKE_SUNFLOWER);
+		putRecipe(Items.LILAC, BlockRegistry.FAKE_LILAC);
+		putRecipe(Items.ROSE_BUSH, BlockRegistry.FAKE_ROSEBUSH);
+		putRecipe(Items.PEONY, BlockRegistry.FAKE_PEONY);
+		
+		
+		putRecipe(Items.WITHER_ROSE, BlockRegistry.FAKE_WITHER_ROSE);
+		putRecipe(Items.LILY_OF_THE_VALLEY, BlockRegistry.FAKE_LILY_OF_THE_VALLEY);
+		putRecipe(Items.OXEYE_DAISY, BlockRegistry.FAKE_OXEYE_DAISY);
+		putRecipe(Items.ORANGE_TULIP, BlockRegistry.FAKE_ORANGE_TULIP);
+		putRecipe(Items.PINK_TULIP, BlockRegistry.FAKE_PINK_TULIP);
+		putRecipe(Items.RED_TULIP, BlockRegistry.FAKE_RED_TULIP);
+		putRecipe(Items.WHITE_TULIP, BlockRegistry.FAKE_WHITE_TULIP);
+		
 		//
 		if (NotWhatItSeems.atmospheric) {
 			addModdedRecipe("atmospheric", "rosewood_sapling", BlockRegistry.ROSEWOOD_SAPLING);
@@ -144,7 +170,24 @@ public class ImposterContainer extends Container {
 			addModdedRecipe("upgrade_aquatic", "polar_kelp", BlockRegistry.KELP_POLAR);
 			addModdedRecipe("upgrade_aquatic", "thorny_kelp", BlockRegistry.KELP_THORNY);
 		}
-		
+		if (NotWhatItSeems.buzzierbees) {
+			addModdedRecipe("buzzierbees", "magenta_hibiscus", BlockRegistry.FAKE_HIBISCUS_MAGENTA);
+			addModdedRecipe("buzzierbees", "orange_hibiscus", BlockRegistry.FAKE_HIBISCUS_ORANGE);
+			addModdedRecipe("buzzierbees", "pink_hibiscus", BlockRegistry.FAKE_HIBISCUS_PINK);
+			addModdedRecipe("buzzierbees", "purple_hibiscus", BlockRegistry.FAKE_HIBISCUS_PURPLE);
+			addModdedRecipe("buzzierbees", "red_hibiscus", BlockRegistry.FAKE_HIBISCUS_RED);
+			addModdedRecipe("buzzierbees", "daybloom", BlockRegistry.FAKE_HIBISCUS_YELLOW);
+			
+			addModdedRecipe("buzzierbees", "jolyce", BlockRegistry.FAKE_DIANTHUS);
+			addModdedRecipe("buzzierbees", "cartwheel", BlockRegistry.FAKE_CARTWHEEL);
+			addModdedRecipe("buzzierbees", "bluebell", BlockRegistry.FAKE_BLUEBELL);
+			addModdedRecipe("buzzierbees", "columbine", BlockRegistry.FAKE_COLUMBINE);
+			addModdedRecipe("buzzierbees", "pink_clover", BlockRegistry.FAKE_PINK_CLOVER);
+			addModdedRecipe("buzzierbees", "white_clover", BlockRegistry.FAKE_WHITE_CLOVER);
+			addModdedRecipe("buzzierbees", "violet", BlockRegistry.FAKE_VIOLET);
+			addModdedRecipe("buzzierbees", "bird_of_paradise", BlockRegistry.FAKE_BIRD_OF_PARADISE);
+			
+		}
 		if (NotWhatItSeems.ua) {
 			Iterator<ArrayList<String>> iter_1 = ua_corals.iterator();
 			while (iter_1.hasNext()) {

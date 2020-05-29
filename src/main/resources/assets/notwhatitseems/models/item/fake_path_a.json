@@ -1,6 +1,3 @@
 {
-    "parent": "item/generated",
-    "textures": {
-        "layer0": "notwhatitseems:item/cardboard_veggies"
-    }
+    "parent" : "notwhatitseems:block/soils/path"
 }

@@ -37,6 +37,7 @@ public class NotWhatItSeems
 	public static boolean atmospheric = false;
 	public static boolean atumwhatever = false;
 	public static boolean swampexpansion = false;
+	public static boolean buzzierbees = true;
 	public static final String MODID = "notwhatitseems";
     private static final Logger LOGGER = LogManager.getLogger();
 
@@ -66,6 +67,9 @@ public class NotWhatItSeems
         }
         if (ModList.get().isLoaded("swampexpansion")) {
         	swampexpansion = true;
+        }
+        if (ModList.get().isLoaded("buzzierbees")) {
+        	buzzierbees = true;
         }
         Triggers.RESTRAIN_VOID = Triggers.bigRegistry();
         Triggers.CROP_CHANGES = Triggers.getConstrain();
