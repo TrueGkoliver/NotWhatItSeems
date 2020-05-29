@@ -73,7 +73,7 @@ public class BlockRegistry {
 	 * @return
 	 */
 	public static ArrayList<Block> CUTOUTS = new ArrayList<Block>();
-	static boolean debug = true;
+	static boolean debug = false;
 	public static RegistryObject<Block> genBlock(String id, Block block) {
 		
 		BlockItem item = new BlockItem(block, new Item.Properties().group(ItemGroup.SEARCH));
