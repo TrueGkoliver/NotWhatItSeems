@@ -1,5 +1,31 @@
 {
-	"variants": {
-		"": { "model": "quark:block/orange_blossom_sapling" }
-	}
+    "variants": {
+        "facing=up": {
+            "model": "quark:block/orange_blossom_sapling"
+        },
+        "facing=down": {
+            "model": "quark:block/orange_blossom_sapling",
+            "x": 180
+        },
+        "facing=east": {
+            "model": "quark:block/orange_blossom_sapling",
+            "y": 90,
+            "x": 90
+        },
+        "facing=south": {
+            "model": "quark:block/orange_blossom_sapling",
+            "y": 180,
+            "x": 90
+        },
+        "facing=west": {
+            "model": "quark:block/orange_blossom_sapling",
+            "y": 270,
+            "x": 90
+        },
+        "facing=north": {
+            "model": "quark:block/orange_blossom_sapling",
+            "y": 0,
+            "x": 90
+        }
+    }
 }

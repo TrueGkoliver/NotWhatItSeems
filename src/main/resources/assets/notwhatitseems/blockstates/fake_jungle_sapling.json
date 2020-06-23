@@ -1,5 +1,31 @@
 {
-	"variants" : {
-		"" : {"model" : "block/jungle_sapling" }
-	}
+    "variants": {
+        "facing=up": {
+            "model": "block/jungle_sapling"
+        },
+        "facing=down": {
+            "model": "block/jungle_sapling",
+            "x": 180
+        },
+        "facing=east": {
+            "model": "block/jungle_sapling",
+            "y": 90,
+            "x": 90
+        },
+        "facing=south": {
+            "model": "block/jungle_sapling",
+            "y": 180,
+            "x": 90
+        },
+        "facing=west": {
+            "model": "block/jungle_sapling",
+            "y": 270,
+            "x": 90
+        },
+        "facing=north": {
+            "model": "block/jungle_sapling",
+            "y": 0,
+            "x": 90
+        }
+    }
 }
