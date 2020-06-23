@@ -475,4 +475,6 @@ public class BlockRegistry {
 	public static final RegistryObject<Block> STATIC_NYLIUM_WARPED = genBlock("fake_nylium_warped", new NWISOrientableBlock(PROP_SOIL), 0);
 	public static final RegistryObject<Block> STATIC_NYLIUM_CRIMSON_A = genBlock("fake_nylium_crimson_a", new NWISOrientableBlock(PROP_SOIL), 0);
 	public static final RegistryObject<Block> STATIC_NYLIUM_WARPED_A = genBlock("fake_nylium_warped_a", new NWISOrientableBlock(PROP_SOIL), 0);
+	
+	
 }
