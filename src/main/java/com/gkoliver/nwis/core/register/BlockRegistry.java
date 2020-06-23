@@ -232,6 +232,9 @@ public class BlockRegistry {
 	public static final Block.Properties PROP_CORAL = Block.Properties.create(Material.CORAL).sound(SoundType.CORAL).hardnessAndResistance(1.5F, 6.0F);
 	public static final Block.Properties PROP_CORAL_T = Block.Properties.create(Material.CORAL).sound(SoundType.CORAL).hardnessAndResistance(1.5F, 6.0F)
 			.doesNotBlockMovement().notSolid();
+	public static final Block.Properties PROP_NYLIUM = Block.Properties.create(Material.WOOD).sound(SoundType.WOOD).hardnessAndResistance(1.0F);
+	public static final Block.Properties PROP_FUNGUS = Block.Properties.create(Material.WOOD).sound(SoundType.PLANT).doesNotBlockMovement().notSolid();
+	
 	public static final Block.Properties PROP_CHORUS_FRUIT = Block.Properties.create(Material.WOOD).sound(SoundType.WOOD).notSolid().hardnessAndResistance(0.4F).harvestTool(ToolType.AXE);
 	private static final Properties PROP_VOID_SEMI = Block.Properties.create(Material.PORTAL).notSolid().doesNotBlockMovement().hardnessAndResistance(2.0F, 3.0F);
 	private static final Properties PROP_TALL_GRASS = Block.Properties.create(Material.TALL_PLANTS).doesNotBlockMovement().sound(SoundType.PLANT);
@@ -467,5 +470,9 @@ public class BlockRegistry {
 	public static final RegistryObject<Block> FAKE_VIOLET = genBlock2("fake_violet", new OrientableVeggies(EOrientables.SAPLING, PROP_TALL_GRASS), 0x81559E, "buzzierbees");
 	public static final RegistryObject<Block> FAKE_BIRD_OF_PARADISE = genBlock2("fake_bird_of_paradise", new TallOrientableBlock(ETallTypes.TALL_GRASS, PROP_TALL_GRASS), 0x5C61C4, "buzzierbees");
 	
-	
+	//1.16
+	public static final RegistryObject<Block> STATIC_NYLIUM_CRIMSON = genBlock("fake_nylium_crimson", new NWISOrientableBlock(PROP_SOIL), 0);
+	public static final RegistryObject<Block> STATIC_NYLIUM_WARPED = genBlock("fake_nylium_warped", new NWISOrientableBlock(PROP_SOIL), 0);
+	public static final RegistryObject<Block> STATIC_NYLIUM_CRIMSON_A = genBlock("fake_nylium_crimson_a", new NWISOrientableBlock(PROP_SOIL), 0);
+	public static final RegistryObject<Block> STATIC_NYLIUM_WARPED_A = genBlock("fake_nylium_warped_a", new NWISOrientableBlock(PROP_SOIL), 0);
 }
