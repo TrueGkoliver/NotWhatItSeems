@@ -14,7 +14,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.fluid.Fluid;
 import net.minecraft.fluid.Fluids;
-import net.minecraft.fluid.IFluidState;
+import net.minecraft.fluid.FluidState;
 import net.minecraft.state.BooleanProperty;
 import net.minecraft.state.StateContainer;
 import net.minecraft.state.properties.BlockStateProperties;
@@ -82,7 +82,7 @@ public class NewChorusPlantBlock extends Block implements IWaterLoggable {
 			}
 			return ActionResultType.SUCCESS;
 		}
-		if (player.isShiftKeyDown()) {
+		if (player.isCrouching()) {
 			BooleanProperty ste = FACING_TO_PROPERTY_MAP.get(result.getFace());
 			worldIn.setBlockState(pos, state.with(ste, !state.get(ste)));
 			if (!worldIn.isRemote()) {
@@ -138,11 +138,11 @@ public class NewChorusPlantBlock extends Block implements IWaterLoggable {
 
 	      return i;
 	   }
-	public IFluidState getFluidState(BlockState state) {
+	public FluidState getFluidState(BlockState state) {
 		return state.get(WATERLOGGED) ? Fluids.WATER.getStillFluidState(false) : super.getFluidState(state);
 	}
 
-	public boolean receiveFluid(IWorld worldIn, BlockPos pos, BlockState state, IFluidState fluidStateIn) {
+	public boolean receiveFluid(IWorld worldIn, BlockPos pos, BlockState state, FluidState fluidStateIn) {
 		return IWaterLoggable.super.receiveFluid(worldIn, pos, state, fluidStateIn);
 	}
 

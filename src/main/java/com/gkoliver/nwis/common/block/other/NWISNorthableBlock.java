@@ -74,7 +74,7 @@ public class NWISNorthableBlock extends Block {
 			worldIn.setBlockState(pos, state.with(ste, !state.get(ste)));
 			return ActionResultType.SUCCESS;
 		}
-		if (player.isShiftKeyDown()) {
+		if (player.isCrouching()) {
 			if (!worldIn.isRemote()) {
 				NotWhatItSeems.Triggers.CROP_CHANGES.trigger((ServerPlayerEntity)player);
 			}
