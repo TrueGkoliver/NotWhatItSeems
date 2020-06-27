@@ -1,0 +1,10 @@
+{
+    "variants": {
+        "facing=up": { "model": "minecraft:block/fire_floor0" },
+        "facing=down": { "model": "minecraft:block/fire_floor0", "x": 180 },
+        "facing=east": { "model": "minecraft:block/fire_floor0", "y": 90, "x": 90 },
+        "facing=south": { "model": "minecraft:block/fire_floor0", "y": 180, "x": 90 },
+        "facing=west": { "model": "minecraft:block/fire_floor0", "y": 270, "x": 90 },
+        "facing=north": { "model": "minecraft:block/fire_floor0", "y": 0, "x": 90 }
+    }
+}

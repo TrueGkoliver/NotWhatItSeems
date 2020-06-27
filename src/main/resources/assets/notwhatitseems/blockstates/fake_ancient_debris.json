@@ -1,0 +1,10 @@
+{
+    "variants": {
+        "facing=up": { "model": "minecraft:block/ancient_debris" },
+        "facing=down": { "model": "minecraft:block/ancient_debris", "x": 180 },
+        "facing=east": { "model": "minecraft:block/ancient_debris", "y": 90, "x": 90 },
+        "facing=south": { "model": "minecraft:block/ancient_debris", "y": 180, "x": 90 },
+        "facing=west": { "model": "minecraft:block/ancient_debris", "y": 270, "x": 90 },
+        "facing=north": { "model": "minecraft:block/ancient_debris", "y": 0, "x": 90 }
+    }
+}

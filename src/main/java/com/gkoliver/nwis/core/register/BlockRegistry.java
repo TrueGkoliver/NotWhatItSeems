@@ -487,4 +487,11 @@ public class BlockRegistry {
 	public static final RegistryObject<Block> FAKE_CRIMSON_FUNGUS = genBlock2("fake_crimson_fungus", new OrientableVeggies(EOrientables.MUSHROOM, PROP_FUNGUS), 0);
 	
 	public static final RegistryObject<Block> FAKE_NETHER_SPROUT = genBlock2("fake_nether_sprout", new OrientableVeggies(EOrientables.GRASS, PROP_FUNGUS), 0);
+
+	public static final RegistryObject<Block> FAKE_CHAIN = genBlock2("fake_chain", new OrientableVeggies(EOrientables.GRASS, PROP_FUNGUS), 0);
+	public static final RegistryObject<Block> FAKE_LANTERN = genBlock2("fake_lantern", new OrientableVeggies(EOrientables.GRASS, PROP_FUNGUS), 0);
+	public static final RegistryObject<Block> FAKE_SOUL_LANTERN = genBlock2("fake_soul_lantern", new OrientableVeggies(EOrientables.GRASS, PROP_FUNGUS), 0);
+
+
+	public static final RegistryObject<Block> FAKE_ANCIENT_DEBRIS = genBlock2("fake_ancient_debris", new NWISOrientableBlock(PROP_FUNGUS), 0);
 }

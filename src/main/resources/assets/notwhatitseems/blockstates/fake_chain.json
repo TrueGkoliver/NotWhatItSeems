@@ -1,0 +1,10 @@
+{
+    "variants": {
+        "facing=up": { "model": "minecraft:block/chain" },
+        "facing=down": { "model": "minecraft:block/chain", "x": 180 },
+        "facing=east": { "model": "minecraft:block/chain", "y": 90, "x": 90 },
+        "facing=south": { "model": "minecraft:block/chain", "y": 180, "x": 90 },
+        "facing=west": { "model": "minecraft:block/chain", "y": 270, "x": 90 },
+        "facing=north": { "model": "minecraft:block/chain", "y": 0, "x": 90 }
+    }
+}
