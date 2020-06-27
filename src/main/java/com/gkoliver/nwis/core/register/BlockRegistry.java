@@ -492,6 +492,5 @@ public class BlockRegistry {
 	public static final RegistryObject<Block> FAKE_LANTERN = genBlock2("fake_lantern", new OrientableVeggies(EOrientables.GRASS, PROP_FUNGUS), 0);
 	public static final RegistryObject<Block> FAKE_SOUL_LANTERN = genBlock2("fake_soul_lantern", new OrientableVeggies(EOrientables.GRASS, PROP_FUNGUS), 0);
 
-
 	public static final RegistryObject<Block> FAKE_ANCIENT_DEBRIS = genBlock2("fake_ancient_debris", new NWISOrientableBlock(PROP_FUNGUS), 0);
 }
