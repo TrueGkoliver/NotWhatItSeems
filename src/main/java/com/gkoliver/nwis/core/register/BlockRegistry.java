@@ -225,18 +225,18 @@ public class BlockRegistry {
 	public static final Block.Properties PROP_VOID = Block.Properties.create(Material.PORTAL).notSolid().hardnessAndResistance(2.0F, 3.0F);
 	public static final Block.Properties PROP_SAPLING = Block.Properties.create(Material.PLANTS).doesNotBlockMovement()
 			.notSolid().sound(SoundType.PLANT);
-	public static final Block.Properties PROP_SOIL = Block.Properties.create(Material.ORGANIC).sound(SoundType.PLANT).hardnessAndResistance(0.5F).harvestTool(ToolType.SHOVEL);
+	public static final Block.Properties PROP_SOIL = Block.Properties.create(Material.ORGANIC).sound(SoundType.PLANT).hardnessAndResistance(0.5F);//.harvestTool(ToolType.SHOVEL);
 	public static final Block.Properties PROP_POISE = Block.Properties.create(Material.ORGANIC).sound(SoundType.BAMBOO).hardnessAndResistance(0.5F).notSolid();
-	public static final Block.Properties PROP_MUSH = Block.Properties.create(Material.ORGANIC).sound(SoundType.WOOD).hardnessAndResistance(0.2F).harvestTool(ToolType.AXE);
-	public static final Block.Properties PROP_GLOWMUSH = Block.Properties.create(Material.ORGANIC).sound(SoundType.WOOD).notSolid().hardnessAndResistance(0.2F).harvestTool(ToolType.AXE);
+	public static final Block.Properties PROP_MUSH = Block.Properties.create(Material.ORGANIC).sound(SoundType.WOOD).hardnessAndResistance(0.2F);//.(ToolType.AXE);
+	public static final Block.Properties PROP_GLOWMUSH = Block.Properties.create(Material.ORGANIC).sound(SoundType.WOOD).notSolid().hardnessAndResistance(0.2F);//.harvestTool(ToolType.AXE);
 	public static final Block.Properties PROP_STATION = Block.Properties.create(Material.ROCK).sound(SoundType.METAL).hardnessAndResistance(1.5F, 3.0F);
 	public static final Block.Properties PROP_CORAL = Block.Properties.create(Material.CORAL).sound(SoundType.CORAL).hardnessAndResistance(1.5F, 6.0F);
 	public static final Block.Properties PROP_CORAL_T = Block.Properties.create(Material.CORAL).sound(SoundType.CORAL).hardnessAndResistance(1.5F, 6.0F)
 			.doesNotBlockMovement().notSolid();
 	public static final Block.Properties PROP_NYLIUM = Block.Properties.create(Material.WOOD).sound(SoundType.WOOD).hardnessAndResistance(1.0F);
-	public static final Block.Properties PROP_FUNGUS = Block.Properties.create(Material.WOOD).sound(SoundType.PLANT).doesNotBlockMovement().notSolid();
+	public static final Block.Properties PROP_FUNGUS = Block.Properties.create(Material.WOOD).sound(SoundType.WOOD).doesNotBlockMovement().notSolid();
 	
-	public static final Block.Properties PROP_CHORUS_FRUIT = Block.Properties.create(Material.WOOD).sound(SoundType.WOOD).notSolid().hardnessAndResistance(0.4F).harvestTool(ToolType.AXE);
+	public static final Block.Properties PROP_CHORUS_FRUIT = Block.Properties.create(Material.WOOD).sound(SoundType.WOOD).notSolid().hardnessAndResistance(0.4F);//(ToolType.AXE);
 	private static final Properties PROP_VOID_SEMI = Block.Properties.create(Material.PORTAL).notSolid().doesNotBlockMovement().hardnessAndResistance(2.0F, 3.0F);
 	private static final Properties PROP_TALL_GRASS = Block.Properties.create(Material.TALL_PLANTS).doesNotBlockMovement().sound(SoundType.PLANT);
 	public static final RegistryObject<Block> FAKE_CARROTS = genBlock2("fake_carrot",
@@ -480,9 +480,11 @@ public class BlockRegistry {
 	public static final RegistryObject<Block> FAKE_WEEPING_VINE = genBlock2("fake_weeping_vine", new NetherRootStuff(EOrientables.TALL_SEAGRASS, PROP_CROPS), 0);
 	public static final RegistryObject<Block> FAKE_TWISTING_VINE = genBlock2("fake_twisting_vine", new NetherRootStuff(EOrientables.TALL_SEAGRASS, PROP_CROPS), 0);
 
-	public static final RegistryObject<Block> FAKE_CRIMSON_ROOT = genBlock2("fake_crimson_root", new OrientableVeggies(EOrientables.GRASS, PROP_FUNGUS));
-	public static final RegistryObject<Block> FAKE_WARPED_ROOT = genBlock2("fake_warped_root", new OrientableVeggies(EOrientables.GRASS, PROP_FUNGUS));
-
-	public static final RegistryObject<Block> FAKE_WARPED_FUNGUS = genBlock2("fake_warped_fungus", new OrientableVeggies(EOrientables.MUSHROOM, PROP_FUNGUS));
-	public static final RegistryObject<Block> FAKE_CRIMSON_FUNGUS = genBlock2("fake_crimson_fungus", new OrientableVeggies(EOrientables.MUSHROOM, PROP_FUNGUS));
+	public static final RegistryObject<Block> FAKE_CRIMSON_ROOT = genBlock2("fake_crimson_root", new OrientableVeggies(EOrientables.GRASS, PROP_FUNGUS), 0);
+	public static final RegistryObject<Block> FAKE_WARPED_ROOT = genBlock2("fake_warped_root", new OrientableVeggies(EOrientables.GRASS, PROP_FUNGUS), 0);
+	
+	public static final RegistryObject<Block> FAKE_WARPED_FUNGUS = genBlock2("fake_warped_fungus", new OrientableVeggies(EOrientables.MUSHROOM, PROP_FUNGUS), 0);
+	public static final RegistryObject<Block> FAKE_CRIMSON_FUNGUS = genBlock2("fake_crimson_fungus", new OrientableVeggies(EOrientables.MUSHROOM, PROP_FUNGUS), 0);
+	
+	public static final RegistryObject<Block> FAKE_NETHER_SPROUT = genBlock2("fake_nether_sprout", new OrientableVeggies(EOrientables.GRASS, PROP_FUNGUS), 0);
 }

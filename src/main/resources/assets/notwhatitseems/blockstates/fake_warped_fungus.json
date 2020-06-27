@@ -1,0 +1,10 @@
+{
+    "variants": {
+        "facing=up": { "model": "minecraft:block/warped_fungus" },
+        "facing=down": { "model": "minecraft:block/warped_fungus", "x": 180 },
+        "facing=east": { "model": "minecraft:block/warped_fungus", "y": 90, "x": 90 },
+        "facing=south": { "model": "minecraft:block/warped_fungus", "y": 180, "x": 90 },
+        "facing=west": { "model": "minecraft:block/warped_fungus", "y": 270, "x": 90 },
+        "facing=north": { "model": "minecraft:block/warped_fungus", "y": 0, "x": 90 }
+    }
+}

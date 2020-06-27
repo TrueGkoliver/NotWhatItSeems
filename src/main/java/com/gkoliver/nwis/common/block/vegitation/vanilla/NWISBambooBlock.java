@@ -16,9 +16,9 @@ import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockRayTraceResult;
-import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
+import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
 
@@ -44,7 +44,7 @@ public class NWISBambooBlock extends Block {
 		if (!worldIn.isRemote()) {
 			NotWhatItSeems.Triggers.CROP_CHANGES.trigger((ServerPlayerEntity)player);
 		}
-		if (player.isShiftKeyDown() && state.get(AGE)!=2) {
+		if (player.isCrouching() && state.get(AGE)!=2) {
 			BambooLeaves newer = BambooLeaves.NONE;
 			BlockState newState = state;
 			if (state.get(BAMBOO_LEAVES)==BambooLeaves.NONE) {
@@ -70,7 +70,7 @@ public class NWISBambooBlock extends Block {
 	
 	public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
 	      VoxelShape voxelshape = state.get(BAMBOO_LEAVES) == BambooLeaves.LARGE ? SHAPE_LARGE_LEAVES : SHAPE_NORMAL;
-	      Vec3d vec3d = state.getOffset(worldIn, pos);
+	      Vector3d vec3d = state.getOffset(worldIn, pos);
 	      return voxelshape.withOffset(vec3d.x, vec3d.y, vec3d.z);
 	}
 }

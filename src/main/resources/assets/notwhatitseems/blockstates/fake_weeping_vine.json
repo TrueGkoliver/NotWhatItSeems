@@ -1,0 +1,16 @@
+{
+    "variants": {
+        "age=false,facing=up": { "model": "minecraft:block/weeping_vines_plant" },
+        "age=false,facing=down": { "model": "minecraft:block/weeping_vines_plant", "x": 180 },
+        "age=false,facing=east": { "model": "minecraft:block/weeping_vines_plant", "y": 90, "x": 90 },
+        "age=false,facing=south": { "model": "minecraft:block/weeping_vines_plant", "y": 180, "x": 90 },
+        "age=false,facing=west": { "model": "minecraft:block/weeping_vines_plant", "y": 270, "x": 90 },
+        "age=false,facing=north": { "model": "minecraft:block/weeping_vines_plant", "y": 0, "x": 90 },
+        "age=true,facing=up": { "model": "minecraft:block/weeping_vines" },
+        "age=true,facing=down": { "model": "minecraft:block/weeping_vines", "x": 180 },
+        "age=true,facing=east": { "model": "minecraft:block/weeping_vines", "y": 90, "x": 90 },
+        "age=true,facing=south": { "model": "minecraft:block/weeping_vines", "y": 180, "x": 90 },
+        "age=true,facing=west": { "model": "minecraft:block/weeping_vines", "y": 270, "x": 90 },
+        "age=true,facing=north": { "model": "minecraft:block/weeping_vines", "y": 0, "x": 90 }
+    }
+}

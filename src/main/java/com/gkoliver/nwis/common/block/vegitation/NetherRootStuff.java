@@ -35,9 +35,9 @@ public class NetherRootStuff extends OrientableVeggies {
 	@Override
 	public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player,
 			Hand handIn, BlockRayTraceResult p_225533_6_) {
-		if (player.isShiftKeyDown()) {
+		if (player.isCrouching()) {
 			worldIn.setBlockState(pos, state.with(AGE, !state.get(AGE)));
-			NotWhatItSeems.Triggers.CROP_CHANGES.trigger((ServerPlayerEntity)player);
+			//NotWhatItSeems.Triggers.CROP_CHANGES.trigger((ServerPlayerEntity)player);
 			return ActionResultType.SUCCESS;
 		}
 		return super.onBlockActivated(state, worldIn, pos, player, handIn, p_225533_6_);
