@@ -1,7 +1,9 @@
 {
-    "parent": "block/cube_column",
+    "parent": "block/orientable_with_bottom",
     "textures": {
-        "end": "notwhatitseems:block/copier_top",
-        "side": "notwhatitseems:block/copier_side"
+        "top": "notwhatitseems:block/copier_top",
+		"bottom": "notwhatitseems:block/copier_side",
+        "side": "notwhatitseems:block/copier_side",
+		"front": "notwhatitseems:block/copier_front"
     }
 }
