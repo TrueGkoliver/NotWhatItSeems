@@ -288,7 +288,27 @@
     "block.notwhatitseems.fake_pink_clover": "Cardboard Pink Clover Pattern",
     "block.notwhatitseems.fake_posimoss_tall_double": "Cardboard Tall Poismoss Pattern",
     "block.notwhatitseems.fake_violet": "Cardboard Violet Pattern",
-    "block.notwhatitseems.fake_white_clover": "Cardboard White Clover Pattern"
-    
-	
+    "block.notwhatitseems.fake_white_clover": "Cardboard White Clover Pattern",
+
+	"block.notwhatitseems.fake_nylium_crimson" : "Cardboard Crimson Nylium",
+	"block.notwhatitseems.fake_nylium_warped" : "Cardboard Warped Nylium",
+
+	"block.notwhatitseems.fake_nylium_crimson_a" : "Overgrown Cardboard Crimson Nylium",
+	"block.notwhatitseems.fake_nylium_warped_a" : "Overgrown Cardboard Warped Nylium",
+
+	"block.notwhatitseems.fake_weeping_vine" : "Cardboard Weeping Vine",
+	"block.notwhatitseems.fake_twisting_vine" : "Cardboard Twisting Vine",
+	"block.notwhatitseems.fake_crimson_root" : "Cardboard Crimson Root",
+	"block.notwhatitseems.fake_warped_root" : "Cardboard Warped Root",
+	"block.notwhatitseems.fake_warped_fungus" : "Cardboard Warped Fungus",
+	"block.notwhatitseems.fake_crimson_fungus" : "Cardboard Crimson Fungus",
+	"block.notwhatitseems.fake_nether_sprout" : "Cardboard Warped Root",
+
+	"block.notwhatitseems.fake_chain" : "Cardboard Chain",
+	"block.notwhatitseems.fake_lantern" : "Cardboard Lantern",
+	"block.notwhatitseems.fake_soul_lantern" : "Cardboard Soul Lantern",
+
+	"block.notwhatitseems.fake_ancient_debris" : "Cardboard Ancient Debris",
+	"block.notwhatitseems.fake_torch" : "Cardboard Torch",
+	"block.notwhatitseems.fake_soul_torch" : "Cardboard Soul Touch"
 }

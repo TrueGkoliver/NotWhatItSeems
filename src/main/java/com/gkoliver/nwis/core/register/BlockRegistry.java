@@ -479,16 +479,16 @@ public class BlockRegistry {
 	public static final RegistryObject<Block> STATIC_NYLIUM_CRIMSON_A = genBlock("fake_nylium_crimson_a", new NWISOrientableBlock(PROP_SOIL), 0);
 	public static final RegistryObject<Block> STATIC_NYLIUM_WARPED_A = genBlock("fake_nylium_warped_a", new NWISOrientableBlock(PROP_SOIL), 0);
 	
-	public static final RegistryObject<Block> FAKE_WEEPING_VINE = genBlock2("fake_weeping_vine", new NetherRootStuff(EOrientables.TALL_SEAGRASS, PROP_CROPS), 0);
-	public static final RegistryObject<Block> FAKE_TWISTING_VINE = genBlock2("fake_twisting_vine", new NetherRootStuff(EOrientables.TALL_SEAGRASS, PROP_CROPS), 0);
+	public static final RegistryObject<Block> FAKE_WEEPING_VINE = genBlock2("fake_weeping_vine", new NetherRootStuff(EOrientables.TALL_SEAGRASS, PROP_CROPS), 0x920A0A);
+	public static final RegistryObject<Block> FAKE_TWISTING_VINE = genBlock2("fake_twisting_vine", new NetherRootStuff(EOrientables.TALL_SEAGRASS, PROP_CROPS), 0x197977);
 
-	public static final RegistryObject<Block> FAKE_CRIMSON_ROOT = genBlock2("fake_crimson_root", new OrientableVeggies(EOrientables.GRASS, PROP_FUNGUS), 0);
-	public static final RegistryObject<Block> FAKE_WARPED_ROOT = genBlock2("fake_warped_root", new OrientableVeggies(EOrientables.GRASS, PROP_FUNGUS), 0);
+	public static final RegistryObject<Block> FAKE_CRIMSON_ROOT = genBlock2("fake_crimson_root", new OrientableVeggies(EOrientables.GRASS, PROP_FUNGUS), 0x920A0A);
+	public static final RegistryObject<Block> FAKE_WARPED_ROOT = genBlock2("fake_warped_root", new OrientableVeggies(EOrientables.GRASS, PROP_FUNGUS), 0x197977);
 	
-	public static final RegistryObject<Block> FAKE_WARPED_FUNGUS = genBlock2("fake_warped_fungus", new OrientableVeggies(EOrientables.MUSHROOM, PROP_FUNGUS), 0);
-	public static final RegistryObject<Block> FAKE_CRIMSON_FUNGUS = genBlock2("fake_crimson_fungus", new OrientableVeggies(EOrientables.MUSHROOM, PROP_FUNGUS), 0);
+	public static final RegistryObject<Block> FAKE_WARPED_FUNGUS = genBlock2("fake_warped_fungus", new OrientableVeggies(EOrientables.MUSHROOM, PROP_FUNGUS), 0x197977);
+	public static final RegistryObject<Block> FAKE_CRIMSON_FUNGUS = genBlock2("fake_crimson_fungus", new OrientableVeggies(EOrientables.MUSHROOM, PROP_FUNGUS), 0x920A0A);
 	
-	public static final RegistryObject<Block> FAKE_NETHER_SPROUT = genBlock2("fake_nether_sprout", new OrientableVeggies(EOrientables.GRASS, PROP_FUNGUS), 0);
+	public static final RegistryObject<Block> FAKE_NETHER_SPROUT = genBlock2("fake_nether_sprout", new OrientableVeggies(EOrientables.GRASS, PROP_FUNGUS), 0x197977);
 
 	public static final RegistryObject<Block> FAKE_CHAIN = genBlock2("fake_chain", new OrientableVeggies(EOrientables.GRASS, PROP_FUNGUS), 0);
 	public static final RegistryObject<Block> FAKE_LANTERN = genBlock2("fake_lantern", new NetherRootStuff(EOrientables.GRASS, PROP_FUNGUS), 0);
@@ -496,5 +496,6 @@ public class BlockRegistry {
 
 	public static final RegistryObject<Block> FAKE_ANCIENT_DEBRIS = genBlock2("fake_ancient_debris", new NWISOrientableBlock(PROP_FUNGUS), 0);
 
-	//public static final RegistryObject<Block> FAKE_LADDER = genBlock2("fake_ladder", new NotLadderButLadderBlock(PROP_FUNGUS));
+	public static final RegistryObject<Block> FAKE_TORCH = genBlock2("fake_torch", new NWISOrientableBlock(PROP_FUNGUS), 0);
+	public static final RegistryObject<Block> FAKE_SOUL_TORCH = genBlock2("fake_soul_torch", new NWISOrientableBlock(PROP_FUNGUS), 0);
 }

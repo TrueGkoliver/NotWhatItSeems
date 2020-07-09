@@ -1,5 +1,19 @@
 {
 	"variants" : {
-		"" : { "model" : "notwhatitseems:block/copier"}
+		"facing=east": {
+			"model": "notwhatitseems:block/copier",
+			"y": 90
+		},
+		"facing=north": {
+			"model": "notwhatitseems:block/copier"
+		},
+		"facing=south": {
+			"model": "notwhatitseems:block/copier",
+			"y": 180
+		},
+		"facing=west": {
+			"model": "notwhatitseems:block/copier",
+			"y": 270
+		}
 	}
 }
