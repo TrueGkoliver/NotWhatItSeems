@@ -7,6 +7,7 @@ import net.minecraft.advancements.criterion.AbstractCriterionTrigger;
 import net.minecraft.advancements.ICriterionTrigger;
 import net.minecraft.advancements.PlayerAdvancements;
 import net.minecraft.advancements.criterion.CriterionInstance;
+import net.minecraft.advancements.criterion.CuredZombieVillagerTrigger;
 import net.minecraft.advancements.criterion.EntityPredicate;
 import net.minecraft.advancements.criterion.EntityPredicate.AndPredicate;
 import net.minecraft.entity.merchant.villager.VillagerEntity;
@@ -27,18 +28,19 @@ public class RestrainTrigger extends AbstractCriterionTrigger<RestrainTrigger.Re
 		
 	}
 	public void trigger(ServerPlayerEntity player) {
-	      this.func_235959_a_(player, (trigger) -> {
-	         return true;
-	      });
-	   }
-	/*@Override
-	public RestrainTrigger.RestrainTriggerInstance func_230241_b_(JsonObject json, JsonDeserializationContext context) {
+	   this.func_235959_a_(player, (trigger) -> {
+		  return true;
+	   });
+    }
+
+	/*public RestrainTrigger.RestrainTriggerInstance func_230241_b_(JsonObject json, JsonDeserializationContext context) {
 		return new RestrainTriggerInstance(LOCATION);
 	}*/
 	
 	@Override
 	protected RestrainTriggerInstance func_230241_b_(JsonObject p_230241_1_, AndPredicate p_230241_2_,
 			ConditionArrayParser p_230241_3_) {
+		System.out.println("WE DO BE FIRING THIS DOE");
 		return new RestrainTriggerInstance(p_230241_2_, LOCATION);
 	}
 	

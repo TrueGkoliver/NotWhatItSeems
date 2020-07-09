@@ -6,7 +6,7 @@
         "notwhatitseems:fake_mushroom_brown",
         "notwhatitseems:fake_bamboo",
         "notwhatitseems:fake_glowshroom",
-        "notwhatitseems:fake_cave_root",
+        "notwhatitseems:fake_cave_roots",
         "notwhatitseems:fake_passion_vine",
         "notwhatitseems:fake_cattail_sprout",
         "notwhatitseems:fake_rice",
@@ -44,7 +44,6 @@
         "notwhatitseems:fake_sunflower",
         "notwhatitseems:fake_tallgrass",
         "notwhatitseems:fake_white_tulip",
-        "notwhatitseems:fake_wither_rose",
-        "notwhatitseems:gitto"
+        "notwhatitseems:fake_wither_rose"
     ]
 }

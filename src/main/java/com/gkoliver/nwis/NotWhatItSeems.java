@@ -71,18 +71,18 @@ public class NotWhatItSeems
         if (ModList.get().isLoaded("buzzierbees")) {
         	buzzierbees = true;
         }
-        Triggers.RESTRAIN_VOID = Triggers.bigRegistry();
-        Triggers.CROP_CHANGES = Triggers.getConstrain();
+        Triggers.RESTRAIN_VOID = Triggers.getConstrain();
+        Triggers.CROP_CHANGES = Triggers.getCropChange();
         ModLoadingContext.get().registerConfig(Type.COMMON, NWISConfig.CONFIGSPEC, "nwis-common.toml");
     }
     
     public static class Triggers {
     	public static RestrainTrigger RESTRAIN_VOID;
     	public static RestrainTrigger CROP_CHANGES;
-    	public static RestrainTrigger getConstrain() {
+    	public static RestrainTrigger getCropChange() {
     		return CriteriaTriggers.register(new RestrainTrigger(new ResourceLocation(NotWhatItSeems.MODID, "crop_change")));
     	}
-    	public static RestrainTrigger bigRegistry() {
+    	public static RestrainTrigger getConstrain() {
     		return CriteriaTriggers.register(new RestrainTrigger(new ResourceLocation(NotWhatItSeems.MODID, "restrain_void")));
     	}
     }
