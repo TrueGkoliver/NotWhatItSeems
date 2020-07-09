@@ -2,15 +2,15 @@
 	"type" : "minecraft:crafting_shaped",
 	"pattern" : [
 		"IGI",
-		"WRW",
-		"IWI"
+		"BRB",
+		"IBI"
 	],
 	"key" : {
 		"I" : {
 			"item" : "minecraft:iron_ingot"
 		},
-		"W" : {
-			"tag" : "minecraft:planks"
+		"B" : {
+			"item" : "minecraft:blackstone"
 		},
 		"R" : {
 			"item" : "minecraft:redstone"
