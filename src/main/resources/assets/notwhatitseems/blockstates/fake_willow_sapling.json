@@ -1,5 +1,31 @@
 {
     "variants": {
-        "": { "model": "swampexpansion:block/willow_sapling" }
+        "facing=up": {
+            "model": "swampexpansion:block/willow_sapling"
+        },
+        "facing=down": {
+            "model": "swampexpansion:block/willow_sapling",
+            "x": 180
+        },
+        "facing=east": {
+            "model": "swampexpansion:block/willow_sapling",
+            "y": 90,
+            "x": 90
+        },
+        "facing=south": {
+            "model": "swampexpansion:block/willow_sapling",
+            "y": 180,
+            "x": 90
+        },
+        "facing=west": {
+            "model": "swampexpansion:block/willow_sapling",
+            "y": 270,
+            "x": 90
+        },
+        "facing=north": {
+            "model": "swampexpansion:block/willow_sapling",
+            "y": 0,
+            "x": 90
+        }
     }
 }

@@ -28,7 +28,7 @@ public class RiceSingleSingleBlock extends Block {
 	@Override
 	public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player,
 			Hand handIn, BlockRayTraceResult p_225533_6_) {
-		if (player.isShiftKeyDown()) {
+		if (player.isCrouching()) {
 			if (!worldIn.isRemote()) {
 				NotWhatItSeems.Triggers.CROP_CHANGES.trigger((ServerPlayerEntity)player);
 			}

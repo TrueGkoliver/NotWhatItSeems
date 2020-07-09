@@ -1,5 +1,31 @@
 {
-	"variants" : {
-		"" : {"model" : "block/acacia_sapling" }
-	}
+    "variants": {
+        "facing=up": {
+            "model": "block/acacia_sapling"
+        },
+        "facing=down": {
+            "model": "block/acacia_sapling",
+            "x": 180
+        },
+        "facing=east": {
+            "model": "block/acacia_sapling",
+            "y": 90,
+            "x": 90
+        },
+        "facing=south": {
+            "model": "block/acacia_sapling",
+            "y": 180,
+            "x": 90
+        },
+        "facing=west": {
+            "model": "block/acacia_sapling",
+            "y": 270,
+            "x": 90
+        },
+        "facing=north": {
+            "model": "block/acacia_sapling",
+            "y": 0,
+            "x": 90
+        }
+    }
 }

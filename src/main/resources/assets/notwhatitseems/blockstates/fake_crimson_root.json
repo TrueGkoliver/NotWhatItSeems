@@ -1,0 +1,10 @@
+{
+    "variants": {
+        "facing=up": { "model": "minecraft:block/crimson_roots" },
+        "facing=down": { "model": "minecraft:block/crimson_roots", "x": 180 },
+        "facing=east": { "model": "minecraft:block/crimson_roots", "y": 90, "x": 90 },
+        "facing=south": { "model": "minecraft:block/crimson_roots", "y": 180, "x": 90 },
+        "facing=west": { "model": "minecraft:block/crimson_roots", "y": 270, "x": 90 },
+        "facing=north": { "model": "minecraft:block/crimson_roots", "y": 0, "x": 90 }
+    }
+}

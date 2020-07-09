@@ -1,0 +1,10 @@
+{
+    "variants": {
+        "facing=up": { "model": "minecraft:block/nether_sprouts" },
+        "facing=down": { "model": "minecraft:block/nether_sprouts", "x": 180 },
+        "facing=east": { "model": "minecraft:block/nether_sprouts", "y": 90, "x": 90 },
+        "facing=south": { "model": "minecraft:block/nether_sprouts", "y": 180, "x": 90 },
+        "facing=west": { "model": "minecraft:block/nether_sprouts", "y": 270, "x": 90 },
+        "facing=north": { "model": "minecraft:block/nether_sprouts", "y": 0, "x": 90 }
+    }
+}

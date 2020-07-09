@@ -14,8 +14,8 @@ import net.minecraft.block.IWaterLoggable;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.fluid.Fluid;
+import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
-import net.minecraft.fluid.IFluidState;
 import net.minecraft.item.BlockItemUseContext;
 import net.minecraft.state.BooleanProperty;
 import net.minecraft.state.DirectionProperty;
@@ -63,7 +63,7 @@ public class FakeAttachedBlock extends Block implements IWaterLoggable {
 	@Override
 	public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player,
 			Hand handIn, BlockRayTraceResult p_225533_6_) {
-		if (player.isShiftKeyDown()) {
+		if (player.isCrouching()) {
 			if (!worldIn.isRemote()) {
 				NotWhatItSeems.Triggers.CROP_CHANGES.trigger((ServerPlayerEntity)player);
 			}
@@ -79,11 +79,11 @@ public class FakeAttachedBlock extends Block implements IWaterLoggable {
 		return ActionResultType.SUCCESS;
 	}
 	@SuppressWarnings("deprecation")
-	public IFluidState getFluidState(BlockState state) {
+	public FluidState getFluidState(BlockState state) {
 		return state.get(WATERLOGGED) ? Fluids.WATER.getStillFluidState(false) : super.getFluidState(state);
 	}
 
-	public boolean receiveFluid(IWorld worldIn, BlockPos pos, BlockState state, IFluidState fluidStateIn) {
+	public boolean receiveFluid(IWorld worldIn, BlockPos pos, BlockState state, FluidState fluidStateIn) {
 		return IWaterLoggable.super.receiveFluid(worldIn, pos, state, fluidStateIn);
 	}
 

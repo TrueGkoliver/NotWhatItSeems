@@ -1,0 +1,81 @@
+{
+    "multipart" : [
+    	{
+	    	"when" : {"facing" : "up"},
+	    	"apply" : [
+	    		{
+	          		"model": "minecraft:block/soul_fire_floor0"
+			    },
+			    {
+			      "model": "minecraft:block/soul_fire_floor1"
+			    }
+	    	]
+    	},
+    	{
+	    	"when" : {"facing" : "down"},
+	    	"apply" : [
+	    		{
+	          		"model": "minecraft:block/soul_fire_floor0",
+	          		"x" : 180
+			    },
+			    {
+			      "model": "minecraft:block/soul_fire_floor1",
+			      "x" : 180
+			    }
+	    	]
+    	},
+    	{
+	    	"when" : {"facing" : "east"},
+	    	"apply" : [
+	    		{
+	          		"model": "minecraft:block/soul_fire_floor0",
+	          		"y": 90, "x": 90
+			    },
+			    {
+			      "model": "minecraft:block/soul_fire_floor1",
+			      "y": 90, "x": 90
+			    }
+	    	]
+    	},
+    	{
+	    	"when" : {"facing" : "south"},
+	    	"apply" : [
+	    		{
+	          		"model": "minecraft:block/soul_fire_floor0",
+	          		"y": 180, "x": 90
+			    },
+			    {
+			      "model": "minecraft:block/soul_fire_floor1",
+			      "y": 180, "x": 90
+			    }
+	    	]
+    	},
+    	{
+	    	"when" : {"facing" : "west"},
+	    	"apply" : [
+	    		{
+	          		"model": "minecraft:block/soul_fire_floor0",
+	          		"y": 270, "x": 90
+			    },
+			    {
+			      "model": "minecraft:block/soul_fire_floor1",
+			      "y": 270, "x": 90
+			    }
+	    	]
+    	},
+    	{
+	    	"when" : {"facing" : "north"},
+	    	"apply" : [
+	    		{
+	          		"model": "minecraft:block/soul_fire_floor0",
+	          		"y": 0, "x": 90
+			    },
+			    {
+			      "model": "minecraft:block/soul_fire_floor1",
+			      "y": 0, "x": 90
+			    }
+	    	]
+    	}
+    	
+    ]
+}

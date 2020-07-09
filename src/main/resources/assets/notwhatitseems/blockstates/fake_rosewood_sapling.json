@@ -1,5 +1,31 @@
 {
     "variants": {
-        "": { "model": "atmospheric:block/rosewood_sapling" }
+        "facing=up": {
+            "model": "atmospheric:block/rosewood_sapling"
+        },
+        "facing=down": {
+            "model": "atmospheric:block/rosewood_sapling",
+            "x": 180
+        },
+        "facing=east": {
+            "model": "atmospheric:block/rosewood_sapling",
+            "y": 90,
+            "x": 90
+        },
+        "facing=south": {
+            "model": "atmospheric:block/rosewood_sapling",
+            "y": 180,
+            "x": 90
+        },
+        "facing=west": {
+            "model": "atmospheric:block/rosewood_sapling",
+            "y": 270,
+            "x": 90
+        },
+        "facing=north": {
+            "model": "atmospheric:block/rosewood_sapling",
+            "y": 0,
+            "x": 90
+        }
     }
 }

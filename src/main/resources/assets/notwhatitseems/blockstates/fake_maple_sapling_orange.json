@@ -1,5 +1,31 @@
 {
     "variants": {
-        "": { "model": "autumnity:block/orange_maple_sapling" }
+        "facing=up": {
+            "model": "autumnity:block/orange_maple_sapling"
+        },
+        "facing=down": {
+            "model": "autumnity:block/orange_maple_sapling",
+            "x": 180
+        },
+        "facing=east": {
+            "model": "autumnity:block/orange_maple_sapling",
+            "y": 90,
+            "x": 90
+        },
+        "facing=south": {
+            "model": "autumnity:block/orange_maple_sapling",
+            "y": 180,
+            "x": 90
+        },
+        "facing=west": {
+            "model": "autumnity:block/orange_maple_sapling",
+            "y": 270,
+            "x": 90
+        },
+        "facing=north": {
+            "model": "autumnity:block/orange_maple_sapling",
+            "y": 0,
+            "x": 90
+        }
     }
 }

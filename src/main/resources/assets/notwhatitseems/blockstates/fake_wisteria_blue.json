@@ -1,5 +1,31 @@
 {
     "variants": {
-        "": { "model": "bloomful:block/blue_wisteria_sapling" }
+        "facing=up": {
+            "model": "bloomful:block/blue_wisteria_sapling"
+        },
+        "facing=down": {
+            "model": "bloomful:block/blue_wisteria_sapling",
+            "x": 180
+        },
+        "facing=east": {
+            "model": "bloomful:block/blue_wisteria_sapling",
+            "y": 90,
+            "x": 90
+        },
+        "facing=south": {
+            "model": "bloomful:block/blue_wisteria_sapling",
+            "y": 180,
+            "x": 90
+        },
+        "facing=west": {
+            "model": "bloomful:block/blue_wisteria_sapling",
+            "y": 270,
+            "x": 90
+        },
+        "facing=north": {
+            "model": "bloomful:block/blue_wisteria_sapling",
+            "y": 0,
+            "x": 90
+        }
     }
 }

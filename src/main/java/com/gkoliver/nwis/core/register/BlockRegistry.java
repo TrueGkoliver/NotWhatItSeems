@@ -13,12 +13,15 @@ import com.gkoliver.nwis.common.block.other.ImposterStationBlock;
 import com.gkoliver.nwis.common.block.other.NWISBlock;
 import com.gkoliver.nwis.common.block.other.NWISNorthableBlock;
 import com.gkoliver.nwis.common.block.other.NWISOrientableBlock;
+import com.gkoliver.nwis.common.block.other.NWISSaplingBlock;
 import com.gkoliver.nwis.common.block.other.NWISWaterLogBlock;
+import com.gkoliver.nwis.common.block.other.NotLadderButLadderBlock;
 import com.gkoliver.nwis.common.block.other.RestrainedDillutedPortalBlock;
 import com.gkoliver.nwis.common.block.other.RestrainedVoidBlock;
 import com.gkoliver.nwis.common.block.other.SemiInvisibleBlock;
 import com.gkoliver.nwis.common.block.other.SemiInvisibleNorthableBlock;
 import com.gkoliver.nwis.common.block.other.VoidBlock;
+import com.gkoliver.nwis.common.block.vegitation.NetherRootStuff;
 import com.gkoliver.nwis.common.block.vegitation.PassionVineBlock;
 import com.gkoliver.nwis.common.block.vegitation.corals.CoralWallFanBlock;
 import com.gkoliver.nwis.common.block.vegitation.corals.ECoralType;
@@ -44,7 +47,7 @@ import com.gkoliver.nwis.common.gui.ImposterContainer;
 import com.gkoliver.nwis.core.event.ClientEvents;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.Block.Properties;
+import net.minecraft.block.AbstractBlock.Properties;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.SoundType;
@@ -65,8 +68,9 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 
 public class BlockRegistry {
-	public static final DeferredRegister<Block> BLOCKS = new DeferredRegister<Block>(ForgeRegistries.BLOCKS,
+	public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS,
 			NotWhatItSeems.MODID);
+	static final public String ID = ""; 
 	/**
 	 * Generates a block with no creative tab.
 	 * 
@@ -223,15 +227,18 @@ public class BlockRegistry {
 	public static final Block.Properties PROP_VOID = Block.Properties.create(Material.PORTAL).notSolid().hardnessAndResistance(2.0F, 3.0F);
 	public static final Block.Properties PROP_SAPLING = Block.Properties.create(Material.PLANTS).doesNotBlockMovement()
 			.notSolid().sound(SoundType.PLANT);
-	public static final Block.Properties PROP_SOIL = Block.Properties.create(Material.ORGANIC).sound(SoundType.PLANT).hardnessAndResistance(0.5F).harvestTool(ToolType.SHOVEL);
+	public static final Block.Properties PROP_SOIL = Block.Properties.create(Material.ORGANIC).sound(SoundType.PLANT).hardnessAndResistance(0.5F);//.harvestTool(ToolType.SHOVEL);
 	public static final Block.Properties PROP_POISE = Block.Properties.create(Material.ORGANIC).sound(SoundType.BAMBOO).hardnessAndResistance(0.5F).notSolid();
-	public static final Block.Properties PROP_MUSH = Block.Properties.create(Material.ORGANIC).sound(SoundType.WOOD).hardnessAndResistance(0.2F).harvestTool(ToolType.AXE);
-	public static final Block.Properties PROP_GLOWMUSH = Block.Properties.create(Material.ORGANIC).sound(SoundType.WOOD).notSolid().hardnessAndResistance(0.2F).harvestTool(ToolType.AXE);
+	public static final Block.Properties PROP_MUSH = Block.Properties.create(Material.ORGANIC).sound(SoundType.WOOD).hardnessAndResistance(0.2F);//.(ToolType.AXE);
+	public static final Block.Properties PROP_GLOWMUSH = Block.Properties.create(Material.ORGANIC).sound(SoundType.WOOD).notSolid().hardnessAndResistance(0.2F);//.harvestTool(ToolType.AXE);
 	public static final Block.Properties PROP_STATION = Block.Properties.create(Material.ROCK).sound(SoundType.METAL).hardnessAndResistance(1.5F, 3.0F);
 	public static final Block.Properties PROP_CORAL = Block.Properties.create(Material.CORAL).sound(SoundType.CORAL).hardnessAndResistance(1.5F, 6.0F);
 	public static final Block.Properties PROP_CORAL_T = Block.Properties.create(Material.CORAL).sound(SoundType.CORAL).hardnessAndResistance(1.5F, 6.0F)
 			.doesNotBlockMovement().notSolid();
-	public static final Block.Properties PROP_CHORUS_FRUIT = Block.Properties.create(Material.WOOD).sound(SoundType.WOOD).notSolid().hardnessAndResistance(0.4F).harvestTool(ToolType.AXE);
+	public static final Block.Properties PROP_NYLIUM = Block.Properties.create(Material.WOOD).sound(SoundType.WOOD).hardnessAndResistance(1.0F);
+	public static final Block.Properties PROP_FUNGUS = Block.Properties.create(Material.WOOD).sound(SoundType.WOOD).doesNotBlockMovement().notSolid();
+	
+	public static final Block.Properties PROP_CHORUS_FRUIT = Block.Properties.create(Material.WOOD).sound(SoundType.WOOD).notSolid().hardnessAndResistance(0.4F);//(ToolType.AXE);
 	private static final Properties PROP_VOID_SEMI = Block.Properties.create(Material.PORTAL).notSolid().doesNotBlockMovement().hardnessAndResistance(2.0F, 3.0F);
 	private static final Properties PROP_TALL_GRASS = Block.Properties.create(Material.TALL_PLANTS).doesNotBlockMovement().sound(SoundType.PLANT);
 	public static final RegistryObject<Block> FAKE_CARROTS = genBlock2("fake_carrot",
@@ -271,19 +278,19 @@ public class BlockRegistry {
 			"restrained_dilluted_void_block_semi", new RestrainedDillutedPortalBlock(PROP_VOID_SEMI), 0);
 	
 	public static final RegistryObject<Block> FAKE_OAK_SAPLING = genBlock2("fake_oak_sapling",
-			new NWISWaterLogBlock(PROP_SAPLING), 0x408F2F);
+			new NWISSaplingBlock(PROP_SAPLING), 0x408F2F);
 	public static final RegistryObject<Block> FAKE_BIRCH_SAPLING = genBlock2("fake_birch_sapling",
-			new NWISWaterLogBlock(PROP_SAPLING), 0x6C9E38);
+			new NWISSaplingBlock(PROP_SAPLING), 0x6C9E38);
 	public static final RegistryObject<Block> FAKE_SPRUCE_SAPLING = genBlock2("fake_spruce_sapling",
-			new NWISWaterLogBlock(PROP_SAPLING), 0x2E492E);
+			new NWISSaplingBlock(PROP_SAPLING), 0x2E492E);
 	public static final RegistryObject<Block> FAKE_JUNGLE_SAPLING = genBlock2("fake_jungle_sapling",
-			new NWISWaterLogBlock(PROP_SAPLING), 0x2B4A0C);
+			new NWISSaplingBlock(PROP_SAPLING), 0x2B4A0C);
 	public static final RegistryObject<Block> FAKE_ACACIA_SAPLING = genBlock2("fake_acacia_sapling",
-			new NWISWaterLogBlock(PROP_SAPLING), 0x7E9821);
+			new NWISSaplingBlock(PROP_SAPLING), 0x7E9821);
 	public static final RegistryObject<Block> FAKE_DARK_OAK_SAPLING = genBlock2("fake_dark_oak_sapling",
-			new NWISWaterLogBlock(PROP_SAPLING), 0x105210);
+			new NWISSaplingBlock(PROP_SAPLING), 0x105210);
 	public static final RegistryObject<Block> FAKE_NETHER_WART = genBlock2("fake_nether_wart",
-			new FakeNetherWart(PROP_CROPS), 0x760001);
+			new NWISSaplingBlock(PROP_CROPS), 0x760001);
 
 	public static final RegistryObject<Block> FAKE_VINE = genBlock2("fake_vine", new FakeVineBlock(PROP_CROPS), 0x255E0D);
 
@@ -340,30 +347,30 @@ public class BlockRegistry {
 	public static final RegistryObject<Block> FAKE_GLOWSHROOM = genBlock2("fake_glowshroom", new OrientableVeggies(EOrientables.MUSHROOM,PROP_SAPLING), 0x6BD8F8, "quark");
 	public static final RegistryObject<Block> FAKE_CAVE_ROOTS = genBlock2("fake_cave_roots", new FakeVineBlock(PROP_CROPS), 0xCBA365, "quark");
 	// Sapling
-	public static final RegistryObject<Block> FROSTY_SAPLING = genBlock2("fake_qsap_frosty", new NWISBlock(PROP_SAPLING), 0x3C95B7, "quark");
-	public static final RegistryObject<Block> SERENE_SAPLING = genBlock2("fake_qsap_serene", new NWISBlock(PROP_SAPLING), 0x9D7EAA, "quark");
-	public static final RegistryObject<Block> WARM_SAPLING = genBlock2("fake_qsap_warm", new NWISBlock(PROP_SAPLING), 0xE18D2B, "quark");
-	public static final RegistryObject<Block> SUNNY_SAPLING = genBlock2("fake_qsap_sunny", new NWISBlock(PROP_SAPLING), 0xC5BC53, "quark");
-	public static final RegistryObject<Block> SWEET_SAPLING = genBlock2("fake_qsap_sweet", new NWISBlock(PROP_SAPLING), 0xE5B7D3, "quark");
+	public static final RegistryObject<Block> FROSTY_SAPLING = genBlock2("fake_qsap_frosty", new NWISSaplingBlock(PROP_SAPLING), 0x3C95B7, "quark");
+	public static final RegistryObject<Block> SERENE_SAPLING = genBlock2("fake_qsap_serene", new NWISSaplingBlock(PROP_SAPLING), 0x9D7EAA, "quark");
+	public static final RegistryObject<Block> WARM_SAPLING = genBlock2("fake_qsap_warm", new NWISSaplingBlock(PROP_SAPLING), 0xE18D2B, "quark");
+	public static final RegistryObject<Block> SUNNY_SAPLING = genBlock2("fake_qsap_sunny", new NWISSaplingBlock(PROP_SAPLING), 0xC5BC53, "quark");
+	public static final RegistryObject<Block> SWEET_SAPLING = genBlock2("fake_qsap_sweet", new NWISSaplingBlock(PROP_SAPLING), 0xE5B7D3, "quark");
 	// Autuminity
-	public static final RegistryObject<Block> MAPLE_SAPLING = genBlock2("fake_maple_sapling", new NWISBlock(PROP_SAPLING), 0x31621B, "autumnity");
+	public static final RegistryObject<Block> MAPLE_SAPLING = genBlock2("fake_maple_sapling", new NWISSaplingBlock(PROP_SAPLING), 0x31621B, "autumnity");
 	public static final RegistryObject<Block> MAPLE_SAPLING_RED = genBlock2("fake_maple_sapling_red",
-			new NWISBlock(PROP_SAPLING), 0xBA420E, "autumnity");
+			new NWISSaplingBlock(PROP_SAPLING), 0xBA420E, "autumnity");
 	public static final RegistryObject<Block> MAPLE_SAPLING_YELLOW = genBlock2("fake_maple_sapling_yellow",
-			new NWISBlock(PROP_SAPLING), 0x977200, "autumnity");
+			new NWISSaplingBlock(PROP_SAPLING), 0x977200, "autumnity");
 	public static final RegistryObject<Block> MAPLE_SAPLING_ORANGE = genBlock2("fake_maple_sapling_orange",
-			new NWISBlock(PROP_SAPLING), 0x924D17, "autumnity");
+			new NWISSaplingBlock(PROP_SAPLING), 0x924D17, "autumnity");
 	// Atmospheric
 	public static final RegistryObject<Block> PASSION_VINE = genBlock2("fake_passion_vine", new PassionVineBlock(PROP_CROPS), 0x7A0145, "atmospheric");
-	public static final RegistryObject<Block> ROSEWOOD_SAPLING = genBlock2("fake_rosewood_sapling", new NWISBlock(PROP_SAPLING), 0x437224, "atmospheric");
-	public static final RegistryObject<Block> YUCCA_SAPLING = genBlock2("fake_yucca_sapling", new NWISBlock(PROP_SAPLING), 0x85A143, "atmospheric");
-	public static final RegistryObject<Block> ASPEN_SAPLING = genBlock2("fake_aspen_sapling", new NWISBlock(PROP_SAPLING), 0xFFD556, "atmospheric");
-	public static final RegistryObject<Block> KOUSA_SAPLING = genBlock2("fake_kousa_sapling", new NWISBlock(PROP_SAPLING), 0xBBDDD1, "atmospheric");
+	public static final RegistryObject<Block> ROSEWOOD_SAPLING = genBlock2("fake_rosewood_sapling", new NWISSaplingBlock(PROP_SAPLING), 0x437224, "atmospheric");
+	public static final RegistryObject<Block> YUCCA_SAPLING = genBlock2("fake_yucca_sapling", new NWISSaplingBlock(PROP_SAPLING), 0x85A143, "atmospheric");
+	public static final RegistryObject<Block> ASPEN_SAPLING = genBlock2("fake_aspen_sapling", new NWISSaplingBlock(PROP_SAPLING), 0xFFD556, "atmospheric");
+	public static final RegistryObject<Block> KOUSA_SAPLING = genBlock2("fake_kousa_sapling", new NWISSaplingBlock(PROP_SAPLING), 0xBBDDD1, "atmospheric");
 	// Bloomful
-	public static final RegistryObject<Block> WISTERIA_PINK = genBlock2("fake_wisteria_pink", new NWISBlock(PROP_SAPLING), 0xf29bbb, "bloomful");
-	public static final RegistryObject<Block> WISTERIA_BLUE = genBlock2("fake_wisteria_blue", new NWISBlock(PROP_SAPLING), 0x6c95c9, "bloomful");
-	public static final RegistryObject<Block> WISTERIA_PURPLE = genBlock2("fake_wisteria_purple", new NWISBlock(PROP_SAPLING), 0x9c87d3, "bloomful");
-	public static final RegistryObject<Block> WISTERIA_WHITE = genBlock2("fake_wisteria_white", new NWISBlock(PROP_SAPLING), 0xb9b5a8, "bloomful");
+	public static final RegistryObject<Block> WISTERIA_PINK = genBlock2("fake_wisteria_pink", new NWISSaplingBlock(PROP_SAPLING), 0xf29bbb, "bloomful");
+	public static final RegistryObject<Block> WISTERIA_BLUE = genBlock2("fake_wisteria_blue", new NWISSaplingBlock(PROP_SAPLING), 0x6c95c9, "bloomful");
+	public static final RegistryObject<Block> WISTERIA_PURPLE = genBlock2("fake_wisteria_purple", new NWISSaplingBlock(PROP_SAPLING), 0x9c87d3, "bloomful");
+	public static final RegistryObject<Block> WISTERIA_WHITE = genBlock2("fake_wisteria_white", new NWISSaplingBlock(PROP_SAPLING), 0xb9b5a8, "bloomful");
 	// Corals
 	public static final ArrayList<RegistryObject<Block>> TUBE = genCoral("tube", false, 0x304DD9);
 	public static final ArrayList<RegistryObject<Block>> BRAIN = genCoral("brain", false, 0xDF7CB5);
@@ -394,7 +401,7 @@ public class BlockRegistry {
 	public static final RegistryObject<Block> RICE_BIG = genBlock2("fake_rice_big", new RiceDoubleSingleBlock(PROP_CROPS), 0xBFA355, "???!!!");
 	public static final RegistryObject<Block> RICE = genBlock2("fake_rice", new RiceSingleSingleBlock(PROP_CROPS), 0xBFA355, "swampexpansion");
 	
-	public static final RegistryObject<Block> WILLOW_SAPLING = genBlock2("fake_willow_sap", new NWISBlock(PROP_CROPS), 0x0F3217, "swampexpansion");
+	public static final RegistryObject<Block> WILLOW_SAPLING = genBlock2("fake_willow_sap", new NWISSaplingBlock(PROP_CROPS), 0x0F3217, "swampexpansion");
 	
 	public static final RegistryObject<Block> PICKELREED_BLUE_BIG = genBlock2("pickelreed_blue_big", new PickelreedDoubleBlock(PROP_CROPS), 0x2F3E87, "???!!!");
 	public static final RegistryObject<Block> PICKELREED_PURPLE_BIG = genBlock2("pickelreed_purple_big", new PickelreedDoubleBlock(PROP_CROPS), 0x9649A7, "???!!!");
@@ -466,5 +473,28 @@ public class BlockRegistry {
 	public static final RegistryObject<Block> FAKE_VIOLET = genBlock2("fake_violet", new OrientableVeggies(EOrientables.SAPLING, PROP_TALL_GRASS), 0x81559E, "buzzierbees");
 	public static final RegistryObject<Block> FAKE_BIRD_OF_PARADISE = genBlock2("fake_bird_of_paradise", new TallOrientableBlock(ETallTypes.TALL_GRASS, PROP_TALL_GRASS), 0x5C61C4, "buzzierbees");
 	
+	//1.16
+	public static final RegistryObject<Block> STATIC_NYLIUM_CRIMSON = genBlock("fake_nylium_crimson", new NWISOrientableBlock(PROP_SOIL), 0);
+	public static final RegistryObject<Block> STATIC_NYLIUM_WARPED = genBlock("fake_nylium_warped", new NWISOrientableBlock(PROP_SOIL), 0);
+	public static final RegistryObject<Block> STATIC_NYLIUM_CRIMSON_A = genBlock("fake_nylium_crimson_a", new NWISOrientableBlock(PROP_SOIL), 0);
+	public static final RegistryObject<Block> STATIC_NYLIUM_WARPED_A = genBlock("fake_nylium_warped_a", new NWISOrientableBlock(PROP_SOIL), 0);
 	
+	public static final RegistryObject<Block> FAKE_WEEPING_VINE = genBlock2("fake_weeping_vine", new NetherRootStuff(EOrientables.TALL_SEAGRASS, PROP_CROPS), 0);
+	public static final RegistryObject<Block> FAKE_TWISTING_VINE = genBlock2("fake_twisting_vine", new NetherRootStuff(EOrientables.TALL_SEAGRASS, PROP_CROPS), 0);
+
+	public static final RegistryObject<Block> FAKE_CRIMSON_ROOT = genBlock2("fake_crimson_root", new OrientableVeggies(EOrientables.GRASS, PROP_FUNGUS), 0);
+	public static final RegistryObject<Block> FAKE_WARPED_ROOT = genBlock2("fake_warped_root", new OrientableVeggies(EOrientables.GRASS, PROP_FUNGUS), 0);
+	
+	public static final RegistryObject<Block> FAKE_WARPED_FUNGUS = genBlock2("fake_warped_fungus", new OrientableVeggies(EOrientables.MUSHROOM, PROP_FUNGUS), 0);
+	public static final RegistryObject<Block> FAKE_CRIMSON_FUNGUS = genBlock2("fake_crimson_fungus", new OrientableVeggies(EOrientables.MUSHROOM, PROP_FUNGUS), 0);
+	
+	public static final RegistryObject<Block> FAKE_NETHER_SPROUT = genBlock2("fake_nether_sprout", new OrientableVeggies(EOrientables.GRASS, PROP_FUNGUS), 0);
+
+	public static final RegistryObject<Block> FAKE_CHAIN = genBlock2("fake_chain", new OrientableVeggies(EOrientables.GRASS, PROP_FUNGUS), 0);
+	public static final RegistryObject<Block> FAKE_LANTERN = genBlock2("fake_lantern", new NetherRootStuff(EOrientables.GRASS, PROP_FUNGUS), 0);
+	public static final RegistryObject<Block> FAKE_SOUL_LANTERN = genBlock2("fake_soul_lantern", new NetherRootStuff(EOrientables.GRASS, PROP_FUNGUS), 0);
+
+	public static final RegistryObject<Block> FAKE_ANCIENT_DEBRIS = genBlock2("fake_ancient_debris", new NWISOrientableBlock(PROP_FUNGUS), 0);
+
+	//public static final RegistryObject<Block> FAKE_LADDER = genBlock2("fake_ladder", new NotLadderButLadderBlock(PROP_FUNGUS));
 }
