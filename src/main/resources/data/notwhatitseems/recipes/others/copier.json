@@ -3,7 +3,7 @@
 	"pattern" : [
 		"IGI",
 		"CRC",
-		"CWC"
+		"ICI"
 	],
 	"key" : {
 		"I" : {
