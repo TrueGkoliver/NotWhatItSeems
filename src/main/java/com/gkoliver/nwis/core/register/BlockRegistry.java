@@ -15,6 +15,7 @@ import com.gkoliver.nwis.common.block.other.NWISNorthableBlock;
 import com.gkoliver.nwis.common.block.other.NWISOrientableBlock;
 import com.gkoliver.nwis.common.block.other.NWISSaplingBlock;
 import com.gkoliver.nwis.common.block.other.NWISWaterLogBlock;
+import com.gkoliver.nwis.common.block.other.NotLadderButLadderBlock;
 import com.gkoliver.nwis.common.block.other.RestrainedDillutedPortalBlock;
 import com.gkoliver.nwis.common.block.other.RestrainedVoidBlock;
 import com.gkoliver.nwis.common.block.other.SemiInvisibleBlock;
@@ -69,6 +70,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 public class BlockRegistry {
 	public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS,
 			NotWhatItSeems.MODID);
+	static final public String ID = ""; 
 	/**
 	 * Generates a block with no creative tab.
 	 * 
@@ -489,8 +491,10 @@ public class BlockRegistry {
 	public static final RegistryObject<Block> FAKE_NETHER_SPROUT = genBlock2("fake_nether_sprout", new OrientableVeggies(EOrientables.GRASS, PROP_FUNGUS), 0);
 
 	public static final RegistryObject<Block> FAKE_CHAIN = genBlock2("fake_chain", new OrientableVeggies(EOrientables.GRASS, PROP_FUNGUS), 0);
-	public static final RegistryObject<Block> FAKE_LANTERN = genBlock2("fake_lantern", new OrientableVeggies(EOrientables.GRASS, PROP_FUNGUS), 0);
-	public static final RegistryObject<Block> FAKE_SOUL_LANTERN = genBlock2("fake_soul_lantern", new OrientableVeggies(EOrientables.GRASS, PROP_FUNGUS), 0);
+	public static final RegistryObject<Block> FAKE_LANTERN = genBlock2("fake_lantern", new NetherRootStuff(EOrientables.GRASS, PROP_FUNGUS), 0);
+	public static final RegistryObject<Block> FAKE_SOUL_LANTERN = genBlock2("fake_soul_lantern", new NetherRootStuff(EOrientables.GRASS, PROP_FUNGUS), 0);
 
 	public static final RegistryObject<Block> FAKE_ANCIENT_DEBRIS = genBlock2("fake_ancient_debris", new NWISOrientableBlock(PROP_FUNGUS), 0);
+
+	//public static final RegistryObject<Block> FAKE_LADDER = genBlock2("fake_ladder", new NotLadderButLadderBlock(PROP_FUNGUS));
 }

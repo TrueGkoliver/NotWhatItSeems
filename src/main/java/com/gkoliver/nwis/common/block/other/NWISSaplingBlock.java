@@ -3,6 +3,7 @@ package com.gkoliver.nwis.common.block.other;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.IWaterLoggable;
+import net.minecraft.block.SixWayBlock;
 import net.minecraft.fluid.Fluid;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
@@ -17,6 +18,9 @@ import net.minecraft.world.IWorld;
 
 public class NWISSaplingBlock extends NWISOrientableBlock implements IWaterLoggable {
 	public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
+
+	
+	
 	protected static final VoxelShape SAPLING_SHAPE = Block.makeCuboidShape(2.0D, 0.0D, 2.0D, 14.0D, 12.0D, 14.0D);
 	public NWISSaplingBlock(Properties properties) {
 		super(properties);
