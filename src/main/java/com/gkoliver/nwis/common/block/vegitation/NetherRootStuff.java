@@ -4,6 +4,8 @@ import com.gkoliver.nwis.NotWhatItSeems;
 import com.gkoliver.nwis.common.block.vegitation.vanilla.EOrientables;
 import com.gkoliver.nwis.common.block.vegitation.vanilla.OrientableVeggies;
 
+import com.gkoliver.nwis.core.register.BlockRegistry;
+import com.gkoliver.nwis.core.util.SharedFunctions;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;
@@ -11,6 +13,7 @@ import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.state.BooleanProperty;
 import net.minecraft.state.StateContainer.Builder;
 import net.minecraft.util.ActionResultType;
+import net.minecraft.util.Direction;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockRayTraceResult;
@@ -19,8 +22,11 @@ import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
 
+import java.util.HashMap;
+
 public class NetherRootStuff extends OrientableVeggies {
 	public static final BooleanProperty AGE = BooleanProperty.create("age");
+	protected static final HashMap<Direction, VoxelShape> SHAPE_LANTERN = SharedFunctions.makeShapeList(5.0D, 0.0D, 5.0D, 11.0D, 7.0D, 11.0D);
 	public NetherRootStuff(EOrientables type, Properties properties) {
 		super(type, properties);
 		this.setDefaultState(this.getDefaultState().with(AGE, false));
@@ -48,6 +54,9 @@ public class NetherRootStuff extends OrientableVeggies {
 	}
 	@Override
 	public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
+		if (this== BlockRegistry.FAKE_LANTERN.get()||this==BlockRegistry.FAKE_SOUL_LANTERN.get()) {
+			return SHAPE_LANTERN.get(state.get(FACING));
+		}
 		return Block.makeCuboidShape(0, 0, 0, 16, 16, 16);
 	}
 

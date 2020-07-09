@@ -36,7 +36,21 @@ public class NWISOrientableBlock extends Block {
 	public BlockState getStateForPlacement(BlockItemUseContext context) {
 		return this.getDefaultState().with(FACING, context.getFace());
 	}
-	
+
+	@Override
+	public boolean propagatesSkylightDown(BlockState state, IBlockReader reader, BlockPos pos) {
+		if (
+				this==BlockRegistry.FAKE_LANTERN.get()
+				||(this==BlockRegistry.FAKE_SOUL_LANTERN.get())
+				||(this==BlockRegistry.FAKE_TORCH.get())
+				||(this==BlockRegistry.FAKE_SOUL_TORCH.get())
+				||(this==BlockRegistry.FAKE_CHAIN.get())
+		) {
+			return true;
+		}
+		return super.propagatesSkylightDown(state, reader, pos);
+	}
+
 	@Override
 	public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
 		if (this==BlockRegistry.STATIC_PATH.get()) { return SHAPE_DEFAULT.get(state.get(FACING)); }

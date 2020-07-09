@@ -112,7 +112,21 @@ public class ImposterContainer extends Container {
 		putRecipe(Items.PINK_TULIP, BlockRegistry.FAKE_PINK_TULIP);
 		putRecipe(Items.RED_TULIP, BlockRegistry.FAKE_RED_TULIP);
 		putRecipe(Items.WHITE_TULIP, BlockRegistry.FAKE_WHITE_TULIP);
-		
+
+		putRecipe(Items.CRIMSON_NYLIUM, BlockRegistry.STATIC_NYLIUM_CRIMSON);
+		putRecipe(Items.WARPED_NYLIUM, BlockRegistry.STATIC_NYLIUM_WARPED);
+
+		putRecipe(Items.WEEPING_VINES, BlockRegistry.FAKE_WEEPING_VINE);
+		putRecipe(Items.TWISTING_VINES, BlockRegistry.FAKE_TWISTING_VINE);
+		putRecipe(Items.CRIMSON_ROOTS, BlockRegistry.FAKE_CRIMSON_ROOT);
+		putRecipe(Items.WARPED_ROOTS, BlockRegistry.FAKE_WARPED_ROOT);
+		putRecipe(Items.WARPED_FUNGUS, BlockRegistry.FAKE_WARPED_FUNGUS);
+		putRecipe(Items.CRIMSON_FUNGUS, BlockRegistry.FAKE_CRIMSON_FUNGUS);
+
+		putRecipe(Items.NETHER_SPROUTS, BlockRegistry.FAKE_NETHER_SPROUT);
+		putRecipe(Items.CHAIN, BlockRegistry.FAKE_CHAIN);
+		putRecipe(Items.LANTERN, BlockRegistry.FAKE_LANTERN);
+		putRecipe(Items.SOUL_LANTERN, BlockRegistry.FAKE_SOUL_LANTERN);
 		//
 		if (NotWhatItSeems.atmospheric) {
 			addModdedRecipe("atmospheric", "rosewood_sapling", BlockRegistry.ROSEWOOD_SAPLING);

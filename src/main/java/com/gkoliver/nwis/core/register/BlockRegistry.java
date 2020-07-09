@@ -46,11 +46,8 @@ import com.gkoliver.nwis.common.block.vegitation.vanilla.TallOrientableBlock;
 import com.gkoliver.nwis.common.gui.ImposterContainer;
 import com.gkoliver.nwis.core.event.ClientEvents;
 
-import net.minecraft.block.Block;
+import net.minecraft.block.*;
 import net.minecraft.block.AbstractBlock.Properties;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.BlockItem;
@@ -235,9 +232,13 @@ public class BlockRegistry {
 	public static final Block.Properties PROP_CORAL = Block.Properties.create(Material.CORAL).sound(SoundType.CORAL).hardnessAndResistance(1.5F, 6.0F);
 	public static final Block.Properties PROP_CORAL_T = Block.Properties.create(Material.CORAL).sound(SoundType.CORAL).hardnessAndResistance(1.5F, 6.0F)
 			.doesNotBlockMovement().notSolid();
-	public static final Block.Properties PROP_NYLIUM = Block.Properties.create(Material.WOOD).sound(SoundType.WOOD).hardnessAndResistance(1.0F);
-	public static final Block.Properties PROP_FUNGUS = Block.Properties.create(Material.WOOD).sound(SoundType.WOOD).doesNotBlockMovement().notSolid();
-	
+	public static final Block.Properties PROP_NYLIUM = Block.Properties.create(Material.WOOD).sound(SoundType.field_235579_A_).hardnessAndResistance(1.0F);
+	public static final Block.Properties PROP_FUNGUS = Block.Properties.create(Material.WOOD).sound(SoundType.field_235580_B_).doesNotBlockMovement().notSolid();
+	public static final AbstractBlock.Properties PROP_SEMISOLIDS = AbstractBlock.Properties.create(Material.IRON).sound(SoundType.field_235597_S_).notSolid();
+	public static final AbstractBlock.Properties PROP_TORCH = AbstractBlock.Properties.create(Material.WOOD).sound(SoundType.WOOD).notSolid().doesNotBlockMovement();
+	public static final AbstractBlock.Properties PROP_ANCIENTDEBRIS = AbstractBlock.Properties.create(Material.IRON).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.field_235595_Q_);
+
+
 	public static final Block.Properties PROP_CHORUS_FRUIT = Block.Properties.create(Material.WOOD).sound(SoundType.WOOD).notSolid().hardnessAndResistance(0.4F);//(ToolType.AXE);
 	private static final Properties PROP_VOID_SEMI = Block.Properties.create(Material.PORTAL).notSolid().doesNotBlockMovement().hardnessAndResistance(2.0F, 3.0F);
 	private static final Properties PROP_TALL_GRASS = Block.Properties.create(Material.TALL_PLANTS).doesNotBlockMovement().sound(SoundType.PLANT);
@@ -474,28 +475,28 @@ public class BlockRegistry {
 	public static final RegistryObject<Block> FAKE_BIRD_OF_PARADISE = genBlock2("fake_bird_of_paradise", new TallOrientableBlock(ETallTypes.TALL_GRASS, PROP_TALL_GRASS), 0x5C61C4, "buzzierbees");
 	
 	//1.16
-	public static final RegistryObject<Block> STATIC_NYLIUM_CRIMSON = genBlock("fake_nylium_crimson", new NWISOrientableBlock(PROP_SOIL), 0);
-	public static final RegistryObject<Block> STATIC_NYLIUM_WARPED = genBlock("fake_nylium_warped", new NWISOrientableBlock(PROP_SOIL), 0);
-	public static final RegistryObject<Block> STATIC_NYLIUM_CRIMSON_A = genBlock("fake_nylium_crimson_a", new NWISOrientableBlock(PROP_SOIL), 0);
-	public static final RegistryObject<Block> STATIC_NYLIUM_WARPED_A = genBlock("fake_nylium_warped_a", new NWISOrientableBlock(PROP_SOIL), 0);
+	public static final RegistryObject<Block> STATIC_NYLIUM_CRIMSON = genBlock("fake_nylium_crimson", new NWISOrientableBlock(PROP_NYLIUM), 0);
+	public static final RegistryObject<Block> STATIC_NYLIUM_WARPED = genBlock("fake_nylium_warped", new NWISOrientableBlock(PROP_NYLIUM), 0);
+	public static final RegistryObject<Block> STATIC_NYLIUM_CRIMSON_A = genBlock("fake_nylium_crimson_a", new NWISOrientableBlock(PROP_NYLIUM), 0);
+	public static final RegistryObject<Block> STATIC_NYLIUM_WARPED_A = genBlock("fake_nylium_warped_a", new NWISOrientableBlock(PROP_NYLIUM), 0);
 	
 	public static final RegistryObject<Block> FAKE_WEEPING_VINE = genBlock2("fake_weeping_vine", new NetherRootStuff(EOrientables.TALL_SEAGRASS, PROP_CROPS), 0x920A0A);
 	public static final RegistryObject<Block> FAKE_TWISTING_VINE = genBlock2("fake_twisting_vine", new NetherRootStuff(EOrientables.TALL_SEAGRASS, PROP_CROPS), 0x197977);
 
-	public static final RegistryObject<Block> FAKE_CRIMSON_ROOT = genBlock2("fake_crimson_root", new OrientableVeggies(EOrientables.GRASS, PROP_FUNGUS), 0x920A0A);
-	public static final RegistryObject<Block> FAKE_WARPED_ROOT = genBlock2("fake_warped_root", new OrientableVeggies(EOrientables.GRASS, PROP_FUNGUS), 0x197977);
+	public static final RegistryObject<Block> FAKE_CRIMSON_ROOT = genBlock2("fake_crimson_root", new OrientableVeggies(EOrientables.GRASS, PROP_CROPS), 0x920A0A);
+	public static final RegistryObject<Block> FAKE_WARPED_ROOT = genBlock2("fake_warped_root", new OrientableVeggies(EOrientables.GRASS, PROP_CROPS), 0x197977);
 	
 	public static final RegistryObject<Block> FAKE_WARPED_FUNGUS = genBlock2("fake_warped_fungus", new OrientableVeggies(EOrientables.MUSHROOM, PROP_FUNGUS), 0x197977);
 	public static final RegistryObject<Block> FAKE_CRIMSON_FUNGUS = genBlock2("fake_crimson_fungus", new OrientableVeggies(EOrientables.MUSHROOM, PROP_FUNGUS), 0x920A0A);
 	
-	public static final RegistryObject<Block> FAKE_NETHER_SPROUT = genBlock2("fake_nether_sprout", new OrientableVeggies(EOrientables.GRASS, PROP_FUNGUS), 0x197977);
+	public static final RegistryObject<Block> FAKE_NETHER_SPROUT = genBlock2("fake_nether_sprout", new OrientableVeggies(EOrientables.GRASS, PROP_CROPS), 0x197977);
 
-	public static final RegistryObject<Block> FAKE_CHAIN = genBlock2("fake_chain", new OrientableVeggies(EOrientables.GRASS, PROP_FUNGUS), 0);
-	public static final RegistryObject<Block> FAKE_LANTERN = genBlock2("fake_lantern", new NetherRootStuff(EOrientables.GRASS, PROP_FUNGUS), 0);
-	public static final RegistryObject<Block> FAKE_SOUL_LANTERN = genBlock2("fake_soul_lantern", new NetherRootStuff(EOrientables.GRASS, PROP_FUNGUS), 0);
+	public static final RegistryObject<Block> FAKE_CHAIN = genBlock2("fake_chain", new OrientableVeggies(EOrientables.GRASS, PROP_SEMISOLIDS), 0);
+	public static final RegistryObject<Block> FAKE_LANTERN = genBlock2("fake_lantern", new NetherRootStuff(EOrientables.GRASS, PROP_SEMISOLIDS), 0);
+	public static final RegistryObject<Block> FAKE_SOUL_LANTERN = genBlock2("fake_soul_lantern", new NetherRootStuff(EOrientables.GRASS, PROP_SEMISOLIDS), 0);
 
-	public static final RegistryObject<Block> FAKE_ANCIENT_DEBRIS = genBlock2("fake_ancient_debris", new NWISOrientableBlock(PROP_FUNGUS), 0);
+	public static final RegistryObject<Block> FAKE_ANCIENT_DEBRIS = genBlock2("fake_ancient_debris", new NWISOrientableBlock(PROP_ANCIENTDEBRIS), 0);
 
-	public static final RegistryObject<Block> FAKE_TORCH = genBlock2("fake_torch", new NWISOrientableBlock(PROP_FUNGUS), 0);
-	public static final RegistryObject<Block> FAKE_SOUL_TORCH = genBlock2("fake_soul_torch", new NWISOrientableBlock(PROP_FUNGUS), 0);
+	public static final RegistryObject<Block> FAKE_TORCH = genBlock2("fake_torch", new NWISOrientableBlock(PROP_TORCH), 0);
+	public static final RegistryObject<Block> FAKE_SOUL_TORCH = genBlock2("fake_soul_torch", new NWISOrientableBlock(PROP_TORCH), 0);
 }
