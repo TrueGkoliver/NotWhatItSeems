@@ -2,15 +2,15 @@
 	"type" : "minecraft:crafting_shaped",
 	"pattern" : [
 		"IGI",
-		"CRC",
-		"ICI"
+		"BRB",
+		"IBI"
 	],
 	"key" : {
 		"I" : {
 			"item" : "minecraft:iron_ingot"
 		},
-		"C" : {
-			"item" : "minecraft:cobblestone"
+		"B" : {
+			"item" : "minecraft:blackstone"
 		},
 		"R" : {
 			"item" : "minecraft:redstone"
