@@ -1,3 +1,6 @@
 {
-	"parent" : "notwhatitseems:block/portal/nether_portal_ns"
+    "parent": "item/generated",
+    "textures": {
+        "layer0": "notwhatitseems:item/diluted_void_block"
+    }
 }
