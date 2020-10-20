@@ -1,6 +1,6 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "notwhatitseems:item/void_block"
+        "layer0": "notwhatitseems:item/restrained_void_block"
     }
 }
