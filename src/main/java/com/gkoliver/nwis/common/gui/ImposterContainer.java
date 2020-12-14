@@ -141,11 +141,11 @@ public class ImposterContainer extends Container {
 			addModdedRecipe("autumnity", "orange_maple_sapling", BlockRegistry.MAPLE_SAPLING_ORANGE);
 			addModdedRecipe("autumnity", "yellow_maple_sapling", BlockRegistry.MAPLE_SAPLING_YELLOW);
 		}
-		if (NotWhatItSeems.bloomful) {
-			addModdedRecipe("bloomful", "blue_wisteria_sapling", BlockRegistry.WISTERIA_BLUE);
-			addModdedRecipe("bloomful", "pink_wisteria_sapling", BlockRegistry.WISTERIA_PINK);
-			addModdedRecipe("bloomful", "purple_wisteria_sapling", BlockRegistry.WISTERIA_PURPLE);
-			addModdedRecipe("bloomful", "white_wisteria_sapling", BlockRegistry.WISTERIA_WHITE);
+		if (NotWhatItSeems.environmental) {
+			addModdedRecipe("environmental", "blue_wisteria_sapling", BlockRegistry.WISTERIA_BLUE);
+			addModdedRecipe("environmental", "pink_wisteria_sapling", BlockRegistry.WISTERIA_PINK);
+			addModdedRecipe("environmental", "purple_wisteria_sapling", BlockRegistry.WISTERIA_PURPLE);
+			addModdedRecipe("environmental", "white_wisteria_sapling", BlockRegistry.WISTERIA_WHITE);
 		}
 		if (NotWhatItSeems.endergetic) {
 			addModdedRecipe("endergetic", "poise_grass_block", BlockRegistry.STATIC_POSIMOSS);
@@ -166,10 +166,10 @@ public class ImposterContainer extends Container {
 			
 			
 		}
-		if (NotWhatItSeems.swampexpansion) {
-			addModdedRecipe("swampexpansion", "rice", BlockRegistry.RICE);
-			addModdedRecipe("swampexpansion", "cattail", BlockRegistry.CATTAIL_SPROUT);
-			addModdedRecipe("swampexpansion", "willow_sapling", BlockRegistry.WILLOW_SAPLING);
+		if (NotWhatItSeems.environmental) {
+			addModdedRecipe("environmental", "rice", BlockRegistry.RICE);
+			addModdedRecipe("environmental", "cattail", BlockRegistry.CATTAIL_SPROUT);
+			addModdedRecipe("environmental", "willow_sapling", BlockRegistry.WILLOW_SAPLING);
 		}
 		if (NotWhatItSeems.ua) {
 			addModdedRecipe("upgrade_aquatic", "pickerel_weed_blue", BlockRegistry.PICKELREED_BLUE);

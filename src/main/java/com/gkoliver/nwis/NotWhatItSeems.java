@@ -33,10 +33,9 @@ public class NotWhatItSeems
 	public static boolean endergetic = false;
 	public static boolean quark = false;
 	public static boolean ua = false;
-	public static boolean bloomful = false;
 	public static boolean atmospheric = false;
 	public static boolean atumwhatever = false;
-	public static boolean swampexpansion = false;
+	public static boolean environmental = false;
 	public static boolean buzzierbees = true;
 	public static final String MODID = "notwhatitseems";
     private static final Logger LOGGER = LogManager.getLogger();
@@ -56,17 +55,14 @@ public class NotWhatItSeems
         if (ModList.get().isLoaded("upgrade_aquatic")) {
         	ua = true;
         }
-        if (ModList.get().isLoaded("bloomful")) {
-        	bloomful = true;
-        }
         if (ModList.get().isLoaded("atmospheric")) {
         	atmospheric = true;
         }
         if (ModList.get().isLoaded("autumnity")) {
         	atumwhatever = true;
         }
-        if (ModList.get().isLoaded("swampexpansion")) {
-        	swampexpansion = true;
+        if (ModList.get().isLoaded("environmental")) {
+        	environmental = true;
         }
         if (ModList.get().isLoaded("buzzierbees")) {
         	buzzierbees = true;

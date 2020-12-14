@@ -368,10 +368,10 @@ public class BlockRegistry {
 	public static final RegistryObject<Block> ASPEN_SAPLING = genBlock2("fake_aspen_sapling", new NWISSaplingBlock(PROP_SAPLING), 0xFFD556, "atmospheric");
 	public static final RegistryObject<Block> KOUSA_SAPLING = genBlock2("fake_kousa_sapling", new NWISSaplingBlock(PROP_SAPLING), 0xBBDDD1, "atmospheric");
 	// Bloomful
-	public static final RegistryObject<Block> WISTERIA_PINK = genBlock2("fake_wisteria_pink", new NWISSaplingBlock(PROP_SAPLING), 0xf29bbb, "bloomful");
-	public static final RegistryObject<Block> WISTERIA_BLUE = genBlock2("fake_wisteria_blue", new NWISSaplingBlock(PROP_SAPLING), 0x6c95c9, "bloomful");
-	public static final RegistryObject<Block> WISTERIA_PURPLE = genBlock2("fake_wisteria_purple", new NWISSaplingBlock(PROP_SAPLING), 0x9c87d3, "bloomful");
-	public static final RegistryObject<Block> WISTERIA_WHITE = genBlock2("fake_wisteria_white", new NWISSaplingBlock(PROP_SAPLING), 0xb9b5a8, "bloomful");
+	public static final RegistryObject<Block> WISTERIA_PINK = genBlock2("fake_wisteria_pink", new NWISSaplingBlock(PROP_SAPLING), 0xf29bbb, "environmental");
+	public static final RegistryObject<Block> WISTERIA_BLUE = genBlock2("fake_wisteria_blue", new NWISSaplingBlock(PROP_SAPLING), 0x6c95c9, "environmental");
+	public static final RegistryObject<Block> WISTERIA_PURPLE = genBlock2("fake_wisteria_purple", new NWISSaplingBlock(PROP_SAPLING), 0x9c87d3, "environmental");
+	public static final RegistryObject<Block> WISTERIA_WHITE = genBlock2("fake_wisteria_white", new NWISSaplingBlock(PROP_SAPLING), 0xb9b5a8, "environmental");
 	// Corals
 	public static final ArrayList<RegistryObject<Block>> TUBE = genCoral("tube", false, 0x304DD9);
 	public static final ArrayList<RegistryObject<Block>> BRAIN = genCoral("brain", false, 0xDF7CB5);
@@ -397,12 +397,12 @@ public class BlockRegistry {
 	//Swamp Expansion Compat
 	public static final RegistryObject<Block> CATTAIL_BIG = genBlock2("fake_cattail_big", new DoubleDoubleCropBlock(PROP_CROPS, EDoubleCropType.CATTAIL), 0x6E412A, "???!!!");
 	public static final RegistryObject<Block> CATTAIL = genBlock2("fake_cattail", new SingleDoubleCropBlock(PROP_CROPS, EDoubleCropType.CATTAIL), 0x6E412A, "???!!!");
-	public static final RegistryObject<Block> CATTAIL_SPROUT = genBlock2("fake_cattail_sprout", new CropSproutBlock(PROP_CROPS), 0x6E412A, "swampexpansion");
+	public static final RegistryObject<Block> CATTAIL_SPROUT = genBlock2("fake_cattail_sprout", new CropSproutBlock(PROP_CROPS), 0x6E412A, "environmental");
 	
 	public static final RegistryObject<Block> RICE_BIG = genBlock2("fake_rice_big", new RiceDoubleSingleBlock(PROP_CROPS), 0xBFA355, "???!!!");
-	public static final RegistryObject<Block> RICE = genBlock2("fake_rice", new RiceSingleSingleBlock(PROP_CROPS), 0xBFA355, "swampexpansion");
+	public static final RegistryObject<Block> RICE = genBlock2("fake_rice", new RiceSingleSingleBlock(PROP_CROPS), 0xBFA355, "environmental");
 	
-	public static final RegistryObject<Block> WILLOW_SAPLING = genBlock2("fake_willow_sap", new NWISSaplingBlock(PROP_CROPS), 0x0F3217, "swampexpansion");
+	public static final RegistryObject<Block> WILLOW_SAPLING = genBlock2("fake_willow_sap", new NWISSaplingBlock(PROP_CROPS), 0x0F3217, "environmental");
 	
 	public static final RegistryObject<Block> PICKELREED_BLUE_BIG = genBlock2("pickelreed_blue_big", new PickelreedDoubleBlock(PROP_CROPS), 0x2F3E87, "???!!!");
 	public static final RegistryObject<Block> PICKELREED_PURPLE_BIG = genBlock2("pickelreed_purple_big", new PickelreedDoubleBlock(PROP_CROPS), 0x9649A7, "???!!!");
