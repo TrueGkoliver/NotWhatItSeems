@@ -183,6 +183,7 @@ public class ImposterContainer extends Container {
 			addModdedRecipe("upgrade_aquatic", "ochre_kelp", BlockRegistry.KELP_OCHRE);
 			addModdedRecipe("upgrade_aquatic", "polar_kelp", BlockRegistry.KELP_POLAR);
 			addModdedRecipe("upgrade_aquatic", "thorny_kelp", BlockRegistry.KELP_THORNY);
+
 		}
 		if (NotWhatItSeems.buzzierbees) {
 			addModdedRecipe("buzzierbees", "magenta_hibiscus", BlockRegistry.FAKE_HIBISCUS_MAGENTA);
@@ -209,7 +210,7 @@ public class ImposterContainer extends Container {
 				Iterator<String> iter_2 = e.iterator();
 				while (iter_2.hasNext()) {
 					String id = iter_2.next();
-					String id2 = iter_2.next();
+					String id2 = id;
 					if (id.contains("prismarine")) {
 						id2.replace("dead", "elder");
 					}
