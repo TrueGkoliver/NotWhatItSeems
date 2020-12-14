@@ -6,6 +6,7 @@ import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.DeferredWorkQueue;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
@@ -29,6 +30,14 @@ import com.gkoliver.nwis.core.register.TileEntityRegistry;
 @Mod.EventBusSubscriber(modid=NotWhatItSeems.MODID)
 public class NotWhatItSeems
 {
+    //𒎒𒊾𒇒𒏅𒅯𒊦𒌅𒅆𒌋𒆟𒌁𒁨𒅜𒊴𒋳𒄝𒋪𒃫𒍠𒇍𒅍𒇬𒁠𒂬𒂅𒇊𒅂𒈉𒍒
+    //𒆀𒇊𒈄𒍣𒆚𒄺𒋷𒉴𒆧𒍂𒁘𒂂𒌜𒆻𒂮𒂀𒀆𒂯𒆮𒋶𒂈𒅲𒄌𒅵𒂨𒃟𒊇𒁕𒅭𒃁𒌝𒀛𒀂𒉓𒌱
+    // 𒂟𒃾𒄏𒂅𒇆𒌑𒍆𒅀𒏀𒏾𒃺𒆌𒊶𒁹𒈹𒃋𒃎𒊌𒇨𒏧𒁚𒍞𒁷
+    // 𒏸𒆋𒌭𒁝𒀂𒀷𒅑𒊋𒄗𒆍𒅡𒍶𒊹𒄥𒍝𒉥𒋁𒈳𒀰𒅢𒂚𒎀𒁳𒈈𒄎𒅵𒀘𒄏𒌵𒊻
+    // 𒋱𒎟𒆺𒅺𒎇𒍳𒀶𒋺𒃚𒂕𒈇𒍺𒊧𒎶𒇈𒄥𒂨𒌿𒈂𒌥𒌄𒊔𒁦𒉳𒍟𒉇𒏈𒈞𒎚𒌑𒆤𒌗𒆁𒋺𒌂𒍑𒊄𒎔
+    public static final double 𒁢𒁆𒀱𒁻 = 9.0234;
+
+
 	//Common mods loaded
 	public static boolean endergetic = false;
 	public static boolean quark = false;
