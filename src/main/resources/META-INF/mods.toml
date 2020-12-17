@@ -31,6 +31,7 @@ authors="Gkoliver and Team Aurora" #optional
 description='''
 This mod adds static decorative blocks.
 '''
+license="All rights reserved"
 # A dependency - use the . to indicate dependency for a specific modid. Dependencies are optional.
 [[dependencies.notwhatitseems]] #optional
     # the modid of the dependency
