@@ -20,24 +20,24 @@ public class ImposterScreen extends ContainerScreen<ImposterContainer> {
 	   }*/
 	   
 	   public ImposterScreen(ImposterContainer p_i51085_1_, PlayerInventory p_i51085_2_, ITextComponent p_i51085_3_) {
-		      super(p_i51085_1_, p_i51085_2_, p_i51085_3_);
-		      this.passEvents = false;
-		      this.ySize = 133;
-		      this.field_238745_s_ = this.ySize - 94;
-		   }
-			@Override
-		   public void render(MatrixStack p_230430_1_, int p_230430_2_, int p_230430_3_, float p_230430_4_) {
-		      this.renderBackground(p_230430_1_);
-		      super.render(p_230430_1_, p_230430_2_, p_230430_3_, p_230430_4_);
-		      this.func_230459_a_(p_230430_1_, p_230430_2_, p_230430_3_);
-		   }
+		  super(p_i51085_1_, p_i51085_2_, p_i51085_3_);
+		  this.passEvents = false;
+		  this.ySize = 133;
+		  this.field_238745_s_ = this.ySize - 94;
+	   }
+		@Override
+	   public void render(MatrixStack p_230430_1_, int p_230430_2_, int p_230430_3_, float p_230430_4_) {
+		  this.renderBackground(p_230430_1_);
+		  super.render(p_230430_1_, p_230430_2_, p_230430_3_, p_230430_4_);
+		  this.func_230459_a_(p_230430_1_, p_230430_2_, p_230430_3_);
+	   }
 
-		   protected void func_230450_a_(MatrixStack p_230450_1_, float p_230450_2_, int p_230450_3_, int p_230450_4_) {
-		      RenderSystem.color4f(1.0F, 1.0F, 1.0F, 1.0F);
-		      this.minecraft.getTextureManager().bindTexture(TEXTURE);
-		      int i = (this.width - this.xSize) / 2;
-		      int j = (this.height - this.ySize) / 2;
-		      this.blit(p_230450_1_, i, j, 0, 0, this.xSize, this.ySize);
-		   }
+	   protected void func_230450_a_(MatrixStack p_230450_1_, float p_230450_2_, int p_230450_3_, int p_230450_4_) {
+		  RenderSystem.color4f(1.0F, 1.0F, 1.0F, 1.0F);
+		  this.minecraft.getTextureManager().bindTexture(TEXTURE);
+		  int i = (this.width - this.xSize) / 2;
+		  int j = (this.height - this.ySize) / 2;
+		  this.blit(p_230450_1_, i, j, 0, 0, this.xSize, this.ySize);
+	   }
 
 }
