@@ -74,19 +74,14 @@ public class TallOrientableBlock extends OrientableVeggies {
 	
 	@SuppressWarnings("deprecation")
 	public boolean isValidPosition(BlockState state, IWorldReader worldIn, BlockPos pos) {
-	      if (state.get(HALF) != DoubleBlockHalf.UPPER) {
-	    	  BlockState otherBlock = worldIn.getBlockState(SharedFunctions.getOppositePos(pos, false, state.get(FACING)));
-	    	  if (!otherBlock.getBlock().isTransparent(otherBlock)) {
-	    		  return false;
-	    	  }
-	    	  return true;
-	      } else {
-	    	  BlockState otherBlock = worldIn.getBlockState(SharedFunctions.getOppositePos(pos, true, state.get(FACING)));
-	    	  if (!otherBlock.getBlock().isTransparent(otherBlock)) {
-	    		  return false;
-	    	  }
-	    	  return true;
-	      }
-	   }
+		BlockState otherBlock = worldIn.getBlockState(SharedFunctions.getOppositePos(pos, false, state.get(FACING)));
+		System.out.println(otherBlock.getBlock().isAir(otherBlock, worldIn, pos));
+		boolean flag1 =  !otherBlock.getBlock().isAir(otherBlock, worldIn, pos) &&
+				!otherBlock.getBlock().isTransparent(otherBlock);
+		if (flag1) {
+			return false;
+		}
+		return true;
+	}
 	
 }

@@ -15,45 +15,7 @@ import net.minecraft.util.math.shapes.VoxelShapes;
 
 public class SharedFunctions {
 	public static BlockPos getOppositePos(BlockPos posIn, boolean isTop, Direction directionIn) {
-		if (directionIn == Direction.UP) {
-			if (isTop) {
-				return posIn.down();
-			}
-			return posIn.up();
-		}
-		else if (directionIn == Direction.DOWN) {
-			if (isTop) {
-				return posIn.up();
-			}
-			return posIn.down();
-		}
-		else if (directionIn == Direction.NORTH) {
-			if (isTop) {
-				return posIn.south();
-			}
-			return posIn.north();
-		}
-		else if (directionIn == Direction.SOUTH) {
-			if (isTop) {
-				return posIn.north();
-			}
-			return posIn.south();
-		}
-		else if (directionIn == Direction.WEST) {
-			if (isTop) {
-				return posIn.east();
-			}
-			return posIn.west();
-		}
-		else if (directionIn == Direction.EAST) {
-			if (isTop) {
-				return posIn.west();
-			}
-			return posIn.east();
-		}
-		else {
-			return null;
-		}
+		return (isTop) ? posIn.offset(directionIn.getOpposite()) : posIn.offset(directionIn);
 	}
 	public static HashMap<Direction, VoxelShape> makeShapeList(double x1, double y1, double z1, double x2, double y2, double z2) {
 		VoxelShape Voxel_UP = Block.makeCuboidShape(x1, y1, z1, x2, y2, z2);
@@ -65,7 +27,6 @@ public class SharedFunctions {
 		VoxelShape Voxel_WEST = Block.makeCuboidShape(x1, z1, y1, x2, z2, y2);
 		VoxelShape Voxel_EAST = Block.makeCuboidShape(x1, z1, y1+16.0, x2, z2, 16.0-y2);
 		HashMap<Direction, VoxelShape> tbr = new HashMap<Direction, VoxelShape>();
-		System.out.println("cHECKING THROUGH");
 		tbr.put(Direction.UP, Voxel_UP);
 		tbr.put(Direction.DOWN, Voxel_DOWN);
 		

@@ -21,7 +21,7 @@ import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.World;
 
-public class NotLadderButLadderBlock extends Block implements IWaterLoggable {
+public class FakeLadderBlock extends Block implements IWaterLoggable {
 	public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
 	
 	public static final BooleanProperty UP = SixWayBlock.UP;
@@ -31,7 +31,7 @@ public class NotLadderButLadderBlock extends Block implements IWaterLoggable {
     public static final BooleanProperty SOUTH = SixWayBlock.SOUTH;
     public static final BooleanProperty WEST = SixWayBlock.WEST;
 	
-	public NotLadderButLadderBlock(Properties properties) {
+	public FakeLadderBlock(Properties properties) {
 		super(properties);
 		this.setDefaultState(this.getDefaultState().with(WATERLOGGED, false)
 				.with(UP, false)

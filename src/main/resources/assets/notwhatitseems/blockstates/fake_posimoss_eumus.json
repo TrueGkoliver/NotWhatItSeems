@@ -1,10 +1,10 @@
 {
    	"variants": {
-        "facing=up": { "model": "endergetic:block/poismoss_eumus" },
-        "facing=down": { "model": "endergetic:block/poismoss_eumus", "x": 180 },
-        "facing=east": { "model": "endergetic:block/poismoss_eumus", "y": 90, "x": 90 },
-        "facing=south": { "model": "endergetic:block/poismoss_eumus", "y": 180, "x": 90 },
-        "facing=west": { "model": "endergetic:block/poismoss_eumus", "y": 270, "x": 90 },
-        "facing=north": { "model": "endergetic:block/poismoss_eumus", "y": 0, "x": 90 }
+        "facing=up": { "model": "endergetic:block/eumus_poismoss" },
+        "facing=down": { "model": "endergetic:block/eumus_poismoss", "x": 180 },
+        "facing=east": { "model": "endergetic:block/eumus_poismoss", "y": 90, "x": 90 },
+        "facing=south": { "model": "endergetic:block/eumus_poismoss", "y": 180, "x": 90 },
+        "facing=west": { "model": "endergetic:block/eumus_poismoss", "y": 270, "x": 90 },
+        "facing=north": { "model": "endergetic:block/eumus_poismoss", "y": 0, "x": 90 }
     }
 }

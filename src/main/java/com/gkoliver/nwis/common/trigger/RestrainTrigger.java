@@ -28,7 +28,7 @@ public class RestrainTrigger extends AbstractCriterionTrigger<RestrainTrigger.Re
 		
 	}
 	public void trigger(ServerPlayerEntity player) {
-	   this.func_235959_a_(player, (trigger) -> {
+	   this.triggerListeners(player, (trigger) -> {
 		  return true;
 	   });
     }
@@ -38,7 +38,7 @@ public class RestrainTrigger extends AbstractCriterionTrigger<RestrainTrigger.Re
 	}*/
 	
 	@Override
-	protected RestrainTriggerInstance func_230241_b_(JsonObject p_230241_1_, AndPredicate p_230241_2_,
+	protected RestrainTriggerInstance deserializeTrigger(JsonObject p_230241_1_, AndPredicate p_230241_2_,
 			ConditionArrayParser p_230241_3_) {
 		System.out.println("WE DO BE FIRING THIS DOE");
 		return new RestrainTriggerInstance(p_230241_2_, LOCATION);

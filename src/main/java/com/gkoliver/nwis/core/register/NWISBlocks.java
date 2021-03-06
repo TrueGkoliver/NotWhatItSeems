@@ -223,11 +223,11 @@ public class NWISBlocks {
 	public static final Block.Properties PROP_CORAL = Block.Properties.create(Material.CORAL).sound(SoundType.CORAL).hardnessAndResistance(1.5F, 6.0F);
 	public static final Block.Properties PROP_CORAL_T = Block.Properties.create(Material.CORAL).sound(SoundType.CORAL).hardnessAndResistance(1.5F, 6.0F)
 			.doesNotBlockMovement().notSolid();
-	public static final Block.Properties PROP_NYLIUM = Block.Properties.create(Material.WOOD).sound(SoundType.field_235579_A_).hardnessAndResistance(1.0F);
-	public static final Block.Properties PROP_FUNGUS = Block.Properties.create(Material.WOOD).sound(SoundType.field_235580_B_).doesNotBlockMovement().notSolid();
-	public static final AbstractBlock.Properties PROP_SEMISOLIDS = AbstractBlock.Properties.create(Material.IRON).sound(SoundType.field_235597_S_).notSolid();
+	public static final Block.Properties PROP_NYLIUM = Block.Properties.create(Material.WOOD).sound(SoundType.NYLIUM).hardnessAndResistance(1.0F);
+	public static final Block.Properties PROP_FUNGUS = Block.Properties.create(Material.WOOD).sound(SoundType.NYLIUM).doesNotBlockMovement().notSolid();
+	public static final AbstractBlock.Properties PROP_SEMISOLIDS = AbstractBlock.Properties.create(Material.IRON).sound(SoundType.CHAIN).notSolid();
 	public static final AbstractBlock.Properties PROP_TORCH = AbstractBlock.Properties.create(Material.WOOD).sound(SoundType.WOOD).notSolid().doesNotBlockMovement();
-	public static final AbstractBlock.Properties PROP_ANCIENTDEBRIS = AbstractBlock.Properties.create(Material.IRON).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.field_235595_Q_);
+	public static final AbstractBlock.Properties PROP_ANCIENTDEBRIS = AbstractBlock.Properties.create(Material.IRON).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.ANCIENT_DEBRIS);
 
 
 	public static final Block.Properties PROP_CHORUS_FRUIT = Block.Properties.create(Material.WOOD).sound(SoundType.WOOD).notSolid().hardnessAndResistance(0.4F);//(ToolType.AXE);
