@@ -3,7 +3,7 @@ package com.gkoliver.nwis.common.block.crop;
 import java.util.Map;
 
 import com.gkoliver.nwis.NotWhatItSeems;
-import com.gkoliver.nwis.core.register.BlockRegistry;
+import com.gkoliver.nwis.core.register.NWISBlocks;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Maps;
 
@@ -69,10 +69,10 @@ public class FakeAttachedBlock extends Block implements IWaterLoggable {
 			}
 			if (type==ECropTypes.MELON_STEM) {
 				
-				worldIn.setBlockState(pos, BlockRegistry.FAKE_MELON_STEM.get().getDefaultState());
+				worldIn.setBlockState(pos, NWISBlocks.FAKE_MELON_STEM.get().getDefaultState());
 			}
 			else {
-				worldIn.setBlockState(pos, BlockRegistry.FAKE_PUMPKIN_STEM.get().getDefaultState());
+				worldIn.setBlockState(pos, NWISBlocks.FAKE_PUMPKIN_STEM.get().getDefaultState());
 			}
 			
 		}

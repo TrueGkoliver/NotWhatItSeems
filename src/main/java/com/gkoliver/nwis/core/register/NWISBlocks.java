@@ -8,14 +8,12 @@ import com.gkoliver.nwis.common.block.crop.FakeAttachedBlock;
 import com.gkoliver.nwis.common.block.crop.FakeBeetrootBlock;
 import com.gkoliver.nwis.common.block.crop.FakeCocoaBeanBlock;
 import com.gkoliver.nwis.common.block.crop.FakeGrowableBlock;
-import com.gkoliver.nwis.common.block.crop.FakeNetherWart;
 import com.gkoliver.nwis.common.block.other.ImposterStationBlock;
 import com.gkoliver.nwis.common.block.other.NWISBlock;
 import com.gkoliver.nwis.common.block.other.NWISNorthableBlock;
 import com.gkoliver.nwis.common.block.other.NWISOrientableBlock;
 import com.gkoliver.nwis.common.block.other.NWISSaplingBlock;
 import com.gkoliver.nwis.common.block.other.NWISWaterLogBlock;
-import com.gkoliver.nwis.common.block.other.NotLadderButLadderBlock;
 import com.gkoliver.nwis.common.block.other.RestrainedDillutedPortalBlock;
 import com.gkoliver.nwis.common.block.other.RestrainedVoidBlock;
 import com.gkoliver.nwis.common.block.other.SemiInvisibleBlock;
@@ -25,7 +23,7 @@ import com.gkoliver.nwis.common.block.vegitation.NetherRootStuff;
 import com.gkoliver.nwis.common.block.vegitation.PassionVineBlock;
 import com.gkoliver.nwis.common.block.vegitation.corals.CoralWallFanBlock;
 import com.gkoliver.nwis.common.block.vegitation.corals.ECoralType;
-import com.gkoliver.nwis.common.block.vegitation.corals.SmallCoralBlock;
+import com.gkoliver.nwis.common.block.vegitation.corals.CoralFanBlock;
 import com.gkoliver.nwis.common.block.vegitation.kelp.KelpBlock;
 import com.gkoliver.nwis.common.block.vegitation.swex.CropSproutBlock;
 import com.gkoliver.nwis.common.block.vegitation.swex.DoubleDoubleCropBlock;
@@ -49,22 +47,15 @@ import com.gkoliver.nwis.core.event.ClientEvents;
 import net.minecraft.block.*;
 import net.minecraft.block.AbstractBlock.Properties;
 import net.minecraft.block.material.Material;
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
-import net.minecraft.state.properties.DoubleBlockHalf;
-import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.World;
-import net.minecraftforge.common.ToolType;
 import net.minecraftforge.fml.ModList;
-import net.minecraftforge.fml.ModLoader;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 
-public class BlockRegistry {
+public class NWISBlocks {
 	public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS,
 			NotWhatItSeems.MODID);
 	static final public String ID = ""; 
@@ -78,17 +69,17 @@ public class BlockRegistry {
 	public static RegistryObject<Block> genBlock(String id, Block block) {
 		
 		BlockItem item = new BlockItem(block, new Item.Properties().group(ItemGroup.SEARCH));
-		ItemRegistry.ITEMS.register(id, () -> item);
-		return BlockRegistry.BLOCKS.register(id, () -> block);
+		NWISItems.ITEMS.register(id, () -> item);
+		return NWISBlocks.BLOCKS.register(id, () -> block);
 	}
 	public static RegistryObject<Block> genBlock(String id, Block block, int color) {
 		
 		BlockItem item = new BlockItem(block, new Item.Properties().group(ItemGroup.SEARCH));
-		ItemRegistry.ITEMS.register(id, () -> item);
+		NWISItems.ITEMS.register(id, () -> item);
 		if (color!=0) {
 			ClientEvents.COLOR_MAPS.put(item, color);
 		}
-		return BlockRegistry.BLOCKS.register(id, () -> block);
+		return NWISBlocks.BLOCKS.register(id, () -> block);
 	}
 	public static RegistryObject<Block> genBlock(String id, Block block, int color, String modid) {
 		Item.Properties prop = new Item.Properties();
@@ -96,26 +87,26 @@ public class BlockRegistry {
 			prop.group(ItemGroup.SEARCH);
 		}
 		BlockItem item = new BlockItem(block, prop);
-		ItemRegistry.ITEMS.register(id, () -> item);
+		NWISItems.ITEMS.register(id, () -> item);
 		if (color!=0) {
 			ClientEvents.COLOR_MAPS.put(item, color);
 		}
-		return BlockRegistry.BLOCKS.register(id, () -> block);
+		return NWISBlocks.BLOCKS.register(id, () -> block);
 	}
 	public static RegistryObject<Block> genBlock2(String id, Block block) {
 		BlockItem item = new BlockItem(block, new Item.Properties());
-		ItemRegistry.ITEMS.register(id, () -> item);
+		NWISItems.ITEMS.register(id, () -> item);
 		CUTOUTS.add(block);
-		return BlockRegistry.BLOCKS.register(id, () -> block);
+		return NWISBlocks.BLOCKS.register(id, () -> block);
 	}
 	public static RegistryObject<Block> genBlock2(String id, Block block, int color) {
 		BlockItem item = new BlockItem(block, new Item.Properties().group(ItemGroup.SEARCH));
-		ItemRegistry.ITEMS.register(id, () -> item);
+		NWISItems.ITEMS.register(id, () -> item);
 		CUTOUTS.add(block);
 		if (color!=0) {
 			ClientEvents.COLOR_MAPS.put(item, color);
 		}
-		return BlockRegistry.BLOCKS.register(id, () -> block);
+		return NWISBlocks.BLOCKS.register(id, () -> block);
 	}
 	public static RegistryObject<Block> genBlock2(String id, Block block, int color, String modid) {
 		Item.Properties prop = new Item.Properties();
@@ -123,12 +114,12 @@ public class BlockRegistry {
 			prop.group(ItemGroup.SEARCH);
 		}
 		BlockItem item = new BlockItem(block, prop);
-		ItemRegistry.ITEMS.register(id, () -> item);
+		NWISItems.ITEMS.register(id, () -> item);
 		CUTOUTS.add(block);
 		if (color!=0) {
 			ClientEvents.COLOR_MAPS.put(item, color);
 		}
-		return BlockRegistry.BLOCKS.register(id, () -> block);
+		return NWISBlocks.BLOCKS.register(id, () -> block);
 	}
 
 	// 0: Alive Block
@@ -143,12 +134,12 @@ public class BlockRegistry {
 		ArrayList<RegistryObject<Block>> tbr = new ArrayList<RegistryObject<Block>>();
 		NWISBlock alive_block = new NWISBlock(PROP_CORAL);
 		NWISBlock dead_block = new NWISBlock(PROP_CORAL);
-		SmallCoralBlock alive = new SmallCoralBlock(PROP_CORAL_T, ECoralType.SMALL, null);
-		SmallCoralBlock dead = new SmallCoralBlock(PROP_CORAL_T, ECoralType.SMALL, null);
+		CoralFanBlock alive = new CoralFanBlock(PROP_CORAL_T, ECoralType.SMALL, null);
+		CoralFanBlock dead = new CoralFanBlock(PROP_CORAL_T, ECoralType.SMALL, null);
 		CoralWallFanBlock alive_wall_fan = new CoralWallFanBlock(PROP_CORAL_T);
 		CoralWallFanBlock dead_wall_fan = new CoralWallFanBlock(PROP_CORAL_T);
-		SmallCoralBlock alive_fan = new SmallCoralBlock(PROP_CORAL_T, ECoralType.FAN, alive_wall_fan);
-		SmallCoralBlock dead_fan = new SmallCoralBlock(PROP_CORAL_T, ECoralType.FAN, dead_wall_fan);
+		CoralFanBlock alive_fan = new CoralFanBlock(PROP_CORAL_T, ECoralType.FAN, alive_wall_fan);
+		CoralFanBlock dead_fan = new CoralFanBlock(PROP_CORAL_T, ECoralType.FAN, dead_wall_fan);
 		ArrayList<Block> blocky = new ArrayList<Block>() {
 			private static final long serialVersionUID = 1L;
 			{
@@ -208,7 +199,7 @@ public class BlockRegistry {
 			}
 			
 			
-			ItemRegistry.ITEMS.register(stringy.get(i), () -> bi);
+			NWISItems.ITEMS.register(stringy.get(i), () -> bi);
 		}
 		CUTOUTS.add(alive);
 		CUTOUTS.add(dead);
@@ -391,8 +382,8 @@ public class BlockRegistry {
 	public static final ArrayList<RegistryObject<Block>> SILK = genCoral("silk",true, 0x7F2EAA);
 	public static final ArrayList<RegistryObject<Block>> PRISMARINE = genCoral("prismarine",true, 0x46A9B0);
 	
-	public static final RegistryObject<Block> PRISMARINE_SHOWER = genBlock2("fake_prismarine_shower", new SmallCoralBlock(PROP_CORAL_T, ECoralType.SHOWER, null), 0x46A9B0, "upgrade_aquatic");
-	public static final RegistryObject<Block> ELDER_PRISMARINE_SHOWER = genBlock2("fake_elder_prismarine_shower", new SmallCoralBlock(PROP_CORAL_T, ECoralType.SHOWER, null), 0xA29281, "upgrade_aquatic");
+	public static final RegistryObject<Block> PRISMARINE_SHOWER = genBlock2("fake_prismarine_shower", new CoralFanBlock(PROP_CORAL_T, ECoralType.SHOWER, null), 0x46A9B0, "upgrade_aquatic");
+	public static final RegistryObject<Block> ELDER_PRISMARINE_SHOWER = genBlock2("fake_elder_prismarine_shower", new CoralFanBlock(PROP_CORAL_T, ECoralType.SHOWER, null), 0xA29281, "upgrade_aquatic");
 	
 	//Swamp Expansion Compat
 	public static final RegistryObject<Block> CATTAIL_BIG = genBlock2("fake_cattail_big", new DoubleDoubleCropBlock(PROP_CROPS, EDoubleCropType.CATTAIL), 0x6E412A, "???!!!");

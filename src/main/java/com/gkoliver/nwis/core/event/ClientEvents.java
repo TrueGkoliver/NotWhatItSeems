@@ -7,17 +7,15 @@ import com.gkoliver.nwis.client.render.RestrainedVoidTileEntityRenderer;
 import com.gkoliver.nwis.client.render.VoidBlockTileEntityRenderer;
 import com.gkoliver.nwis.common.gui.ImposterScreen;
 import com.gkoliver.nwis.core.keybind.InverseKeybind;
-import com.gkoliver.nwis.core.register.BlockRegistry;
-import com.gkoliver.nwis.core.register.TileEntityRegistry;
+import com.gkoliver.nwis.core.register.NWISBlocks;
+import com.gkoliver.nwis.core.register.NWISTileEntities;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
 import net.minecraft.block.StemBlock;
 import net.minecraft.client.gui.ScreenManager;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.RenderTypeLookup;
-import net.minecraft.client.renderer.tileentity.TileEntityRendererDispatcher;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.util.math.BlockPos;
@@ -30,7 +28,6 @@ import net.minecraftforge.client.event.ColorHandlerEvent;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
-import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
@@ -40,45 +37,45 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 public class ClientEvents {
 	@SubscribeEvent
 	public static void clientSetup(FMLClientSetupEvent event) {
-		Iterator<Block> iter = BlockRegistry.CUTOUTS.iterator();
+		Iterator<Block> iter = NWISBlocks.CUTOUTS.iterator();
 		while (iter.hasNext()) {
 			Block i = iter.next();
 			RenderTypeLookup.setRenderLayer(i, RenderType.getCutoutMipped());
 		}
-		RenderTypeLookup.setRenderLayer(BlockRegistry.STATIC_GRASS.get(), RenderType.getCutout());
-		RenderTypeLookup.setRenderLayer(BlockRegistry.RESTRAINED_DILLUTED_VOID_BLOCK.get(), RenderType.getTranslucent());
-		RenderTypeLookup.setRenderLayer(BlockRegistry.RESTRAINED_DILLUTED_VOID_BLOCK_SEMI.get(), RenderType.getTranslucent());
-		RenderTypeLookup.setRenderLayer(BlockRegistry.DILLUTED_VOID_BLOCK.get(), RenderType.getTranslucent());
-		RenderTypeLookup.setRenderLayer(BlockRegistry.DILLUTED_VOID_BLOCK_SEMISOLID.get(), RenderType.getTranslucent());
-		RenderTypeLookup.setRenderLayer(BlockRegistry.FAKE_BIG_GLOWSHROOM.get(), RenderType.getTranslucent());
-		RenderTypeLookup.setRenderLayer(BlockRegistry.FAKE_BIG_GLOWSHROOM_STEM.get(), RenderType.getTranslucent());
-		RenderTypeLookup.setRenderLayer(BlockRegistry.FAKE_BIG_GLOWSHROOM_STEM.get(), RenderType.getTranslucent());
-		RenderTypeLookup.setRenderLayer(BlockRegistry.STATIC_POISE_CLUSTER.get(), RenderType.getTranslucent());
-		ClientRegistry.bindTileEntityRenderer(TileEntityRegistry.VOID_BLOCK.get(), VoidBlockTileEntityRenderer::new);
-		ClientRegistry.bindTileEntityRenderer(TileEntityRegistry.RESTAINED_VOID_BLOCK.get(), RestrainedVoidTileEntityRenderer::new);
-		ScreenManager.registerFactory(TileEntityRegistry.COPIER.get(), ImposterScreen::new);
+		RenderTypeLookup.setRenderLayer(NWISBlocks.STATIC_GRASS.get(), RenderType.getCutout());
+		RenderTypeLookup.setRenderLayer(NWISBlocks.RESTRAINED_DILLUTED_VOID_BLOCK.get(), RenderType.getTranslucent());
+		RenderTypeLookup.setRenderLayer(NWISBlocks.RESTRAINED_DILLUTED_VOID_BLOCK_SEMI.get(), RenderType.getTranslucent());
+		RenderTypeLookup.setRenderLayer(NWISBlocks.DILLUTED_VOID_BLOCK.get(), RenderType.getTranslucent());
+		RenderTypeLookup.setRenderLayer(NWISBlocks.DILLUTED_VOID_BLOCK_SEMISOLID.get(), RenderType.getTranslucent());
+		RenderTypeLookup.setRenderLayer(NWISBlocks.FAKE_BIG_GLOWSHROOM.get(), RenderType.getTranslucent());
+		RenderTypeLookup.setRenderLayer(NWISBlocks.FAKE_BIG_GLOWSHROOM_STEM.get(), RenderType.getTranslucent());
+		RenderTypeLookup.setRenderLayer(NWISBlocks.FAKE_BIG_GLOWSHROOM_STEM.get(), RenderType.getTranslucent());
+		RenderTypeLookup.setRenderLayer(NWISBlocks.STATIC_POISE_CLUSTER.get(), RenderType.getTranslucent());
+		ClientRegistry.bindTileEntityRenderer(NWISTileEntities.VOID_BLOCK.get(), VoidBlockTileEntityRenderer::new);
+		ClientRegistry.bindTileEntityRenderer(NWISTileEntities.RESTAINED_VOID_BLOCK.get(), RestrainedVoidTileEntityRenderer::new);
+		ScreenManager.registerFactory(NWISTileEntities.COPIER.get(), ImposterScreen::new);
 		InverseKeybind.addKey();
 	}
 	@SubscribeEvent
 	public static void onColorBlockRegister(ColorHandlerEvent.Block event) {
 		event.getBlockColors().register((p_228057_0_, p_228057_1_, p_228057_2_, p_228057_3_) -> {
 	        return 14731036;
-	    }, BlockRegistry.FAKE_MELON_STEM_ATTACHED.get(), BlockRegistry.FAKE_PUMPKIN_STEM_ATTACHED.get());
+	    }, NWISBlocks.FAKE_MELON_STEM_ATTACHED.get(), NWISBlocks.FAKE_PUMPKIN_STEM_ATTACHED.get());
 		event.getBlockColors().register((p_228056_0_, p_228056_1_, p_228056_2_, p_228056_3_) -> {
 	         int i = p_228056_0_.get(StemBlock.AGE);
 	         int j = i * 32;
 	         int k = 255 - i * 8;
 	         int l = i * 4;
 	         return j << 16 | k << 8 | l;
-	      }, BlockRegistry.FAKE_MELON_STEM.get(), BlockRegistry.FAKE_PUMPKIN_STEM.get());
+	      }, NWISBlocks.FAKE_MELON_STEM.get(), NWISBlocks.FAKE_PUMPKIN_STEM.get());
 		
 		event.getBlockColors().register((p_228061_0_, p_228061_1_, p_228061_2_, p_228061_3_) -> {
 	         return p_228061_1_ != null && p_228061_2_ != null ? BiomeColors.getFoliageColor(p_228061_1_, p_228061_2_) : FoliageColors.getDefault();
-	      }, BlockRegistry.FAKE_VINE.get());
+	      }, NWISBlocks.FAKE_VINE.get());
 		
 		event.getBlockColors().register((p_228064_0_, p_228064_1_, p_228064_2_, p_228064_3_) -> {
 	         return p_228064_1_ != null && p_228064_2_ != null ? BiomeColors.getGrassColor(p_228064_1_, p_228064_2_) : GrassColors.get(0.5D, 1.0D);
-	    }, BlockRegistry.STATIC_GRASS.get(), BlockRegistry.STATIC_GRASS_A.get(), BlockRegistry.FAKE_TALL_GRASS.get(), BlockRegistry.FAKE_GRASS.get(), BlockRegistry.FAKE_TALL_FERN.get(), BlockRegistry.FAKE_FERN.get());
+	    }, NWISBlocks.STATIC_GRASS.get(), NWISBlocks.STATIC_GRASS_A.get(), NWISBlocks.FAKE_TALL_GRASS.get(), NWISBlocks.FAKE_GRASS.get(), NWISBlocks.FAKE_TALL_FERN.get(), NWISBlocks.FAKE_FERN.get());
 	}
 	public static HashMap<BlockItem, Integer> COLOR_MAPS = new HashMap<BlockItem, Integer>();
 	@SubscribeEvent
@@ -87,7 +84,7 @@ public class ClientEvents {
 			
 	        BlockState blockstate = ((BlockItem)itemstack.getItem()).getBlock().getDefaultState();
 	        return event.getBlockColors().getColor(blockstate, (IBlockDisplayReader)null, (BlockPos)null, p_210235_2_);
-	   }, Item.getItemFromBlock(BlockRegistry.STATIC_GRASS.get()), Item.getItemFromBlock(BlockRegistry.STATIC_GRASS_A.get()));
+	   }, Item.getItemFromBlock(NWISBlocks.STATIC_GRASS.get()), Item.getItemFromBlock(NWISBlocks.STATIC_GRASS_A.get()));
 		for (BlockItem item : COLOR_MAPS.keySet()) {
 			int blocker = COLOR_MAPS.get(item);
 			event.getItemColors().register((p_210235_1_, p_210235_2_) -> {
@@ -97,7 +94,7 @@ public class ClientEvents {
 	}
 	@SubscribeEvent
 	public static void onModelRegister(ModelRegistryEvent event) {
-		ClientRegistry.bindTileEntityRenderer(TileEntityRegistry.VOID_BLOCK.get(), VoidBlockTileEntityRenderer::new);
+		ClientRegistry.bindTileEntityRenderer(NWISTileEntities.VOID_BLOCK.get(), VoidBlockTileEntityRenderer::new);
 	}
 	
 	

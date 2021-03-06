@@ -1,6 +1,6 @@
 package com.gkoliver.nwis.common.block.other;
 
-import com.gkoliver.nwis.core.register.BlockRegistry;
+import com.gkoliver.nwis.core.register.NWISBlocks;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -11,7 +11,6 @@ import net.minecraft.fluid.Fluids;
 import net.minecraft.state.BooleanProperty;
 import net.minecraft.state.StateContainer.Builder;
 import net.minecraft.state.properties.BlockStateProperties;
-import net.minecraft.state.properties.SlabType;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.shapes.ISelectionContext;
@@ -57,33 +56,33 @@ public class NWISWaterLogBlock extends Block implements IWaterLoggable {
 	}
 	@Override
 	public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
-			boolean isSapling = (state.getBlock() == BlockRegistry.FAKE_OAK_SAPLING.get() || 
-					state.getBlock() == BlockRegistry.FAKE_BIRCH_SAPLING.get() ||
-					state.getBlock() == BlockRegistry.FAKE_SPRUCE_SAPLING.get() ||
-					state.getBlock() == BlockRegistry.FAKE_JUNGLE_SAPLING.get() ||
-					state.getBlock() == BlockRegistry.FAKE_ACACIA_SAPLING.get() ||
-					state.getBlock() == BlockRegistry.FAKE_DARK_OAK_SAPLING.get() ||
-					state.getBlock() == BlockRegistry.FROSTY_SAPLING.get() ||
-					state.getBlock() == BlockRegistry.MAPLE_SAPLING.get() ||
-					state.getBlock() == BlockRegistry.MAPLE_SAPLING_ORANGE.get() ||
-					state.getBlock() == BlockRegistry.MAPLE_SAPLING_RED.get() ||
-					state.getBlock() == BlockRegistry.ROSEWOOD_SAPLING.get() ||
-					state.getBlock() == BlockRegistry.SERENE_SAPLING.get() || 
-					state.getBlock() == BlockRegistry.SUNNY_SAPLING.get() ||
-					state.getBlock() == BlockRegistry.SWEET_SAPLING.get() ||
-					state.getBlock() == BlockRegistry.WARM_SAPLING.get() ||
-					state.getBlock() == BlockRegistry.WISTERIA_BLUE.get() ||
-					state.getBlock() == BlockRegistry.WISTERIA_PINK.get() ||
-					state.getBlock() == BlockRegistry.WISTERIA_PURPLE.get() ||
-					state.getBlock() == BlockRegistry.WISTERIA_WHITE.get());
-			boolean isMushroom = (state.getBlock() == BlockRegistry.FAKE_MUSHOOM_1.get() ||
-					state.getBlock() == BlockRegistry.FAKE_MUSHOOM_2.get() ||
-					state.getBlock() == BlockRegistry.FAKE_GLOWSHROOM.get());
+			boolean isSapling = (state.getBlock() == NWISBlocks.FAKE_OAK_SAPLING.get() ||
+					state.getBlock() == NWISBlocks.FAKE_BIRCH_SAPLING.get() ||
+					state.getBlock() == NWISBlocks.FAKE_SPRUCE_SAPLING.get() ||
+					state.getBlock() == NWISBlocks.FAKE_JUNGLE_SAPLING.get() ||
+					state.getBlock() == NWISBlocks.FAKE_ACACIA_SAPLING.get() ||
+					state.getBlock() == NWISBlocks.FAKE_DARK_OAK_SAPLING.get() ||
+					state.getBlock() == NWISBlocks.FROSTY_SAPLING.get() ||
+					state.getBlock() == NWISBlocks.MAPLE_SAPLING.get() ||
+					state.getBlock() == NWISBlocks.MAPLE_SAPLING_ORANGE.get() ||
+					state.getBlock() == NWISBlocks.MAPLE_SAPLING_RED.get() ||
+					state.getBlock() == NWISBlocks.ROSEWOOD_SAPLING.get() ||
+					state.getBlock() == NWISBlocks.SERENE_SAPLING.get() ||
+					state.getBlock() == NWISBlocks.SUNNY_SAPLING.get() ||
+					state.getBlock() == NWISBlocks.SWEET_SAPLING.get() ||
+					state.getBlock() == NWISBlocks.WARM_SAPLING.get() ||
+					state.getBlock() == NWISBlocks.WISTERIA_BLUE.get() ||
+					state.getBlock() == NWISBlocks.WISTERIA_PINK.get() ||
+					state.getBlock() == NWISBlocks.WISTERIA_PURPLE.get() ||
+					state.getBlock() == NWISBlocks.WISTERIA_WHITE.get());
+			boolean isMushroom = (state.getBlock() == NWISBlocks.FAKE_MUSHOOM_1.get() ||
+					state.getBlock() == NWISBlocks.FAKE_MUSHOOM_2.get() ||
+					state.getBlock() == NWISBlocks.FAKE_GLOWSHROOM.get());
 			if (isSapling) {
 				return SAPLING_SHAPE;
 			} else if (isMushroom) {
 				return MUSHROOM_SHAPE;
-			} else if (state.getBlock()==BlockRegistry.FAKE_DRAGON_EGG.get()) {
+			} else if (state.getBlock()== NWISBlocks.FAKE_DRAGON_EGG.get()) {
 				return EDRAG_SHAPE;
 			}
 			return Block.makeCuboidShape(0, 0, 0, 16, 16, 16);

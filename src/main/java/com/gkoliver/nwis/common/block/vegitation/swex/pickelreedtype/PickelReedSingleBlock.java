@@ -1,6 +1,6 @@
 package com.gkoliver.nwis.common.block.vegitation.swex.pickelreedtype;
 
-import com.gkoliver.nwis.core.register.BlockRegistry;
+import com.gkoliver.nwis.core.register.NWISBlocks;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -57,7 +57,7 @@ public class PickelReedSingleBlock extends Block implements IWaterLoggable{
 			Hand handIn, BlockRayTraceResult p_225533_6_) {
 		if (player.isCrouching()) {
 			int color = 0;
-			if (this == BlockRegistry.PICKELREED_PURPLE.get()) {
+			if (this == NWISBlocks.PICKELREED_PURPLE.get()) {
 				color = 1;
 			}
 			boolean getter = state.get(WATERLOGGED);

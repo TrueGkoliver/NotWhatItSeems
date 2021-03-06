@@ -2,28 +2,20 @@ package com.gkoliver.nwis;
 
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.client.event.ModelRegistryEvent;
-import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.DeferredWorkQueue;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.ModLoadingContext;
-import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig.Type;
-import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import com.gkoliver.nwis.client.render.VoidBlockTileEntityRenderer;
-import com.gkoliver.nwis.common.gui.ImposterContainer;
 import com.gkoliver.nwis.common.trigger.RestrainTrigger;
 import com.gkoliver.nwis.core.config.NWISConfig;
-import com.gkoliver.nwis.core.register.BlockRegistry;
-import com.gkoliver.nwis.core.register.ItemRegistry;
-import com.gkoliver.nwis.core.register.TileEntityRegistry;
+import com.gkoliver.nwis.core.register.NWISBlocks;
+import com.gkoliver.nwis.core.register.NWISItems;
+import com.gkoliver.nwis.core.register.NWISTileEntities;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(NotWhatItSeems.MODID)
@@ -43,10 +35,10 @@ public class NotWhatItSeems
 
     public NotWhatItSeems() {
     	IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
-        BlockRegistry.BLOCKS.register(eventBus);
-        ItemRegistry.ITEMS.register(eventBus);
-        TileEntityRegistry.TILE_ENTITIES.register(eventBus);
-        TileEntityRegistry.CONTAINERS.register(eventBus);
+        NWISBlocks.BLOCKS.register(eventBus);
+        NWISItems.ITEMS.register(eventBus);
+        NWISTileEntities.TILE_ENTITIES.register(eventBus);
+        NWISTileEntities.CONTAINERS.register(eventBus);
         if (ModList.get().isLoaded("quark")) {
         	quark = true;
         }

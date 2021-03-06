@@ -1,7 +1,7 @@
 package com.gkoliver.nwis.common.block.vegitation.swex.rice;
 
 import com.gkoliver.nwis.NotWhatItSeems;
-import com.gkoliver.nwis.core.register.BlockRegistry;
+import com.gkoliver.nwis.core.register.NWISBlocks;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -33,8 +33,8 @@ public class RiceDoubleSingleBlock extends Block {
 	public static void generateDoubleBlock(int type, BlockPos lower_pos, BlockState i, World worldIn) {
 		if (worldIn.getBlockState(lower_pos.up()).getBlock() == Blocks.AIR) {
 			if (type==0) {
-				 BlockState newstate = BlockRegistry.RICE_BIG.get().getDefaultState().with(blockHalf, DoubleBlockHalf.LOWER).with(age, 6);
-				 BlockState newstate_up = BlockRegistry.RICE_BIG.get().getDefaultState().with(blockHalf, DoubleBlockHalf.UPPER).with(age, 6);
+				 BlockState newstate = NWISBlocks.RICE_BIG.get().getDefaultState().with(blockHalf, DoubleBlockHalf.LOWER).with(age, 6);
+				 BlockState newstate_up = NWISBlocks.RICE_BIG.get().getDefaultState().with(blockHalf, DoubleBlockHalf.UPPER).with(age, 6);
 				 worldIn.setBlockState(lower_pos, newstate);
 				 worldIn.setBlockState(lower_pos.up(), newstate_up);
 			}
@@ -58,12 +58,12 @@ public class RiceDoubleSingleBlock extends Block {
 			if (state.get(blockHalf)==DoubleBlockHalf.UPPER) {
 				BlockPos newPos = pos.down();
 				BlockState stateHere = Blocks.AIR.getDefaultState();
-				BlockState newerState = BlockRegistry.RICE.get().getDefaultState();
+				BlockState newerState = NWISBlocks.RICE.get().getDefaultState();
 				worldIn.setBlockState(pos, stateHere);
 				worldIn.setBlockState(newPos, newerState);
 			} else {
 				BlockPos newPos = pos.up();
-				BlockState stateHere = BlockRegistry.RICE.get().getDefaultState();
+				BlockState stateHere = NWISBlocks.RICE.get().getDefaultState();
 				BlockState newerState = Blocks.AIR.getDefaultState();
 				worldIn.setBlockState(pos, stateHere);
 				worldIn.setBlockState(newPos, newerState);

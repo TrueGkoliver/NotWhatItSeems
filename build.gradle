@@ -41,7 +41,7 @@ minecraft {
 
             // Recommended logging level for the console
             property 'forge.logging.console.level', 'debug'
-
+            jvmArg "-Dmixin.env.disableRefMap=true"
             mods {
                 examplemod {
                     source sourceSets.main
@@ -57,7 +57,7 @@ minecraft {
 
             // Recommended logging level for the console
             property 'forge.logging.console.level', 'debug'
-
+            jvmArg "-Dmixin.env.disableRefMap=true"
             mods {
                 examplemod {
                     source sourceSets.main
@@ -86,17 +86,33 @@ minecraft {
 }
 
 dependencies {
-    minecraft 'net.minecraftforge:forge:1.16.4-35.1.13'
+    minecraft 'net.minecraftforge:forge:1.16.5-36.0.46'
+
+
+
+    implementation fg.deobf("curse.maven:abnormals-core-382216:3154969")
+    implementation fg.deobf("curse.maven:autoreglib-250363:3128555")
+    implementation fg.deobf("curse.maven:quark-243121:3156451")
+
+    implementation fg.deobf("curse.maven:atmospheric-362393:3154934")
+    implementation fg.deobf("curse.maven:autumnity-365045:3154935")
+    implementation fg.deobf("curse.maven:upgrade-aquatic-326895:3154943")
+    implementation fg.deobf("curse.maven:endergetic-291509:3154938")
+    implementation fg.deobf("curse.maven:environmental-388992:3221635")
+
 }
 repositories {
-  maven {
-    name = "Progwml6 maven"
-    url = "https://dvs1.progwml6.com/files/maven/"
-  }
-  maven {
-    name = "ModMaven"
-    url = "https://modmaven.k-4u.nl"
-  }
+    maven {
+        name = "Progwml6 maven"
+        url = "https://dvs1.progwml6.com/files/maven/"
+    }
+    maven {
+        name = "ModMaven"
+        url = "https://modmaven.k-4u.nl"
+    }
+    maven {
+        url "https://www.cursemaven.com"
+    }
 }
 // Example for how to get properties into the manifest for reading by the runtime..
 jar {

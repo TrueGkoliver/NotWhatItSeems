@@ -1,15 +1,13 @@
 package com.gkoliver.nwis.common.block.vegitation;
 
-import com.gkoliver.nwis.NotWhatItSeems;
 import com.gkoliver.nwis.common.block.vegitation.vanilla.EOrientables;
 import com.gkoliver.nwis.common.block.vegitation.vanilla.OrientableVeggies;
 
-import com.gkoliver.nwis.core.register.BlockRegistry;
+import com.gkoliver.nwis.core.register.NWISBlocks;
 import com.gkoliver.nwis.core.util.SharedFunctions;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.state.BooleanProperty;
 import net.minecraft.state.StateContainer.Builder;
 import net.minecraft.util.ActionResultType;
@@ -54,7 +52,7 @@ public class NetherRootStuff extends OrientableVeggies {
 	}
 	@Override
 	public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
-		if (this== BlockRegistry.FAKE_LANTERN.get()||this==BlockRegistry.FAKE_SOUL_LANTERN.get()) {
+		if (this== NWISBlocks.FAKE_LANTERN.get()||this== NWISBlocks.FAKE_SOUL_LANTERN.get()) {
 			return SHAPE_LANTERN.get(state.get(FACING));
 		}
 		return Block.makeCuboidShape(0, 0, 0, 16, 16, 16);

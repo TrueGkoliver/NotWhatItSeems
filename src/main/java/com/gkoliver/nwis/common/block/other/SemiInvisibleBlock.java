@@ -3,7 +3,7 @@ package com.gkoliver.nwis.common.block.other;
 import java.util.Random;
 
 import com.gkoliver.nwis.NotWhatItSeems;
-import com.gkoliver.nwis.core.register.BlockRegistry;
+import com.gkoliver.nwis.core.register.NWISBlocks;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -52,12 +52,12 @@ public class SemiInvisibleBlock extends Block {
 		} else {
 			axis = Axis.X;
 		}
-		if (this == BlockRegistry.DILLUTED_VOID_BLOCK.get()) {
-			BlockState stato = BlockRegistry.RESTRAINED_DILLUTED_VOID_BLOCK.get().getDefaultState().with(RestrainedDillutedPortalBlock.AXIS, axis);
+		if (this == NWISBlocks.DILLUTED_VOID_BLOCK.get()) {
+			BlockState stato = NWISBlocks.RESTRAINED_DILLUTED_VOID_BLOCK.get().getDefaultState().with(RestrainedDillutedPortalBlock.AXIS, axis);
 			worldIn.setBlockState(pos, stato);
 			return ActionResultType.SUCCESS;
-		} else if (this == BlockRegistry.DILLUTED_VOID_BLOCK_SEMISOLID.get()) {
-			BlockState stato = BlockRegistry.RESTRAINED_DILLUTED_VOID_BLOCK_SEMI.get().getDefaultState().with(RestrainedDillutedPortalBlock.AXIS, axis);
+		} else if (this == NWISBlocks.DILLUTED_VOID_BLOCK_SEMISOLID.get()) {
+			BlockState stato = NWISBlocks.RESTRAINED_DILLUTED_VOID_BLOCK_SEMI.get().getDefaultState().with(RestrainedDillutedPortalBlock.AXIS, axis);
 			worldIn.setBlockState(pos, stato);
 			return ActionResultType.SUCCESS;
 		}

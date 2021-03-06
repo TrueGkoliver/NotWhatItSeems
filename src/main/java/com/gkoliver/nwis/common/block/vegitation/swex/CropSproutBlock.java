@@ -1,7 +1,7 @@
 package com.gkoliver.nwis.common.block.vegitation.swex;
 
 import com.gkoliver.nwis.NotWhatItSeems;
-import com.gkoliver.nwis.core.register.BlockRegistry;
+import com.gkoliver.nwis.core.register.NWISBlocks;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -43,10 +43,10 @@ public class CropSproutBlock extends Block implements IWaterLoggable {
 				NotWhatItSeems.Triggers.CROP_CHANGES.trigger((ServerPlayerEntity)player);
 			}
 			if (state.get(WATERLOGGED)) {
-				worldIn.setBlockState(pos, BlockRegistry.CATTAIL.get().getDefaultState().with(SingleDoubleCropBlock.WATERLOGGED, true));
+				worldIn.setBlockState(pos, NWISBlocks.CATTAIL.get().getDefaultState().with(SingleDoubleCropBlock.WATERLOGGED, true));
 				return ActionResultType.SUCCESS;
 			}
-			worldIn.setBlockState(pos, BlockRegistry.CATTAIL.get().getDefaultState());
+			worldIn.setBlockState(pos, NWISBlocks.CATTAIL.get().getDefaultState());
 			return ActionResultType.SUCCESS;
 		}
 		return super.onBlockActivated(state, worldIn, pos, player, handIn, p_225533_6_);

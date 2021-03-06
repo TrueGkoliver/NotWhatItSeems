@@ -5,33 +5,23 @@ import java.util.HashMap;
 import java.util.Iterator;
 
 import com.gkoliver.nwis.NotWhatItSeems;
-import com.gkoliver.nwis.core.config.NWISConfig;
-import com.gkoliver.nwis.core.register.BlockRegistry;
-import com.gkoliver.nwis.core.register.TileEntityRegistry;
-import com.gkoliver.nwis.core.util.SharedFunctions;
+import com.gkoliver.nwis.core.register.NWISBlocks;
+import com.gkoliver.nwis.core.register.NWISTileEntities;
 
-import net.minecraft.advancements.AdvancementList;
-import net.minecraft.advancements.AdvancementManager;
 import net.minecraft.block.Block;
-import net.minecraft.client.Minecraft;
-import net.minecraft.data.AdvancementProvider;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
-import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.inventory.CraftResultInventory;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.inventory.container.Container;
 import net.minecraft.inventory.container.ContainerType;
-import net.minecraft.inventory.container.GrindstoneContainer;
 import net.minecraft.inventory.container.Slot;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.util.IWorldPosCallable;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.math.BlockPos;
-import net.minecraftforge.common.extensions.IForgeContainerType;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.ForgeRegistries;
 
@@ -50,157 +40,157 @@ public class ImposterContainer extends Container {
 	public static boolean isDragonEgg;
 	@SuppressWarnings("deprecation")
 	public void addBlocks() {
-		putRecipe(Items.CARROT, BlockRegistry.FAKE_CARROTS);
-		putRecipe(Items.POTATO, BlockRegistry.FAKE_POTATO);
-		putRecipe(Items.WHEAT_SEEDS, BlockRegistry.FAKE_WHEAT);
-		putRecipe(Items.BEETROOT_SEEDS, BlockRegistry.FAKE_BEETROOT);
-		putRecipe(Items.MELON_SEEDS, BlockRegistry.FAKE_MELON_STEM);
-		putRecipe(Items.PUMPKIN_SEEDS, BlockRegistry.FAKE_PUMPKIN_STEM);
-		putRecipe(Items.NETHER_WART, BlockRegistry.FAKE_NETHER_WART);
+		putRecipe(Items.CARROT, NWISBlocks.FAKE_CARROTS);
+		putRecipe(Items.POTATO, NWISBlocks.FAKE_POTATO);
+		putRecipe(Items.WHEAT_SEEDS, NWISBlocks.FAKE_WHEAT);
+		putRecipe(Items.BEETROOT_SEEDS, NWISBlocks.FAKE_BEETROOT);
+		putRecipe(Items.MELON_SEEDS, NWISBlocks.FAKE_MELON_STEM);
+		putRecipe(Items.PUMPKIN_SEEDS, NWISBlocks.FAKE_PUMPKIN_STEM);
+		putRecipe(Items.NETHER_WART, NWISBlocks.FAKE_NETHER_WART);
 		
 		//Saplings
-		putRecipe(Items.OAK_SAPLING, BlockRegistry.FAKE_OAK_SAPLING);
-		putRecipe(Items.BIRCH_SAPLING, BlockRegistry.FAKE_BIRCH_SAPLING);
-		putRecipe(Items.SPRUCE_SAPLING, BlockRegistry.FAKE_SPRUCE_SAPLING);
-		putRecipe(Items.JUNGLE_SAPLING, BlockRegistry.FAKE_JUNGLE_SAPLING);
-		putRecipe(Items.DARK_OAK_SAPLING, BlockRegistry.FAKE_DARK_OAK_SAPLING);
-		putRecipe(Items.ACACIA_SAPLING, BlockRegistry.FAKE_ACACIA_SAPLING);
+		putRecipe(Items.OAK_SAPLING, NWISBlocks.FAKE_OAK_SAPLING);
+		putRecipe(Items.BIRCH_SAPLING, NWISBlocks.FAKE_BIRCH_SAPLING);
+		putRecipe(Items.SPRUCE_SAPLING, NWISBlocks.FAKE_SPRUCE_SAPLING);
+		putRecipe(Items.JUNGLE_SAPLING, NWISBlocks.FAKE_JUNGLE_SAPLING);
+		putRecipe(Items.DARK_OAK_SAPLING, NWISBlocks.FAKE_DARK_OAK_SAPLING);
+		putRecipe(Items.ACACIA_SAPLING, NWISBlocks.FAKE_ACACIA_SAPLING);
 		
-		putRecipe(Items.VINE, BlockRegistry.FAKE_VINE);
-		putRecipe(Items.GRASS_BLOCK, BlockRegistry.STATIC_GRASS);
-		putRecipe(Items.PODZOL, BlockRegistry.STATIC_PODZOL);
-		putRecipe(Items.MYCELIUM, BlockRegistry.STATIC_MYCELIUM);
+		putRecipe(Items.VINE, NWISBlocks.FAKE_VINE);
+		putRecipe(Items.GRASS_BLOCK, NWISBlocks.STATIC_GRASS);
+		putRecipe(Items.PODZOL, NWISBlocks.STATIC_PODZOL);
+		putRecipe(Items.MYCELIUM, NWISBlocks.STATIC_MYCELIUM);
 		
-		putRecipe(Items.BROWN_MUSHROOM, BlockRegistry.FAKE_MUSHOOM_2);
-		putRecipe(Items.BROWN_MUSHROOM_BLOCK, BlockRegistry.SPECIAL_MUSHROOM);
+		putRecipe(Items.BROWN_MUSHROOM, NWISBlocks.FAKE_MUSHOOM_2);
+		putRecipe(Items.BROWN_MUSHROOM_BLOCK, NWISBlocks.SPECIAL_MUSHROOM);
 		
-		putRecipe(Items.RED_MUSHROOM, BlockRegistry.FAKE_MUSHOOM_1);
-		putRecipe(Items.RED_MUSHROOM_BLOCK, BlockRegistry.SPECIAL_MUSHROOM_R);
+		putRecipe(Items.RED_MUSHROOM, NWISBlocks.FAKE_MUSHOOM_1);
+		putRecipe(Items.RED_MUSHROOM_BLOCK, NWISBlocks.SPECIAL_MUSHROOM_R);
 		
-		putRecipe(Items.MUSHROOM_STEM, BlockRegistry.FAKE_MUSHROOM_STEM);
+		putRecipe(Items.MUSHROOM_STEM, NWISBlocks.FAKE_MUSHROOM_STEM);
 		if (isDragonEgg) {
-			putRecipe(Items.DRAGON_EGG, BlockRegistry.FAKE_DRAGON_EGG);
+			putRecipe(Items.DRAGON_EGG, NWISBlocks.FAKE_DRAGON_EGG);
 		}
-		putRecipe(Items.CHORUS_FRUIT, BlockRegistry.FAKE_CHORUS);
-		putRecipe(Items.CHORUS_PLANT, BlockRegistry.FAKE_CHORUS);
-		putRecipe(Items.CHORUS_FLOWER, BlockRegistry.FAKE_CHORUS_FLOWER);
-		putRecipe(Items.SEAGRASS, BlockRegistry.SEAGRASS_SMOL);
-		putRecipe(Items.NETHER_WART, BlockRegistry.FAKE_NETHER_WART);
-		putRecipe(Items.COCOA_BEANS, BlockRegistry.FAKE_COCOA_BEAN);
-		putRecipe(Items.GRASS_PATH, BlockRegistry.STATIC_PATH);
+		putRecipe(Items.CHORUS_FRUIT, NWISBlocks.FAKE_CHORUS);
+		putRecipe(Items.CHORUS_PLANT, NWISBlocks.FAKE_CHORUS);
+		putRecipe(Items.CHORUS_FLOWER, NWISBlocks.FAKE_CHORUS_FLOWER);
+		putRecipe(Items.SEAGRASS, NWISBlocks.SEAGRASS_SMOL);
+		putRecipe(Items.NETHER_WART, NWISBlocks.FAKE_NETHER_WART);
+		putRecipe(Items.COCOA_BEANS, NWISBlocks.FAKE_COCOA_BEAN);
+		putRecipe(Items.GRASS_PATH, NWISBlocks.STATIC_PATH);
 		
-		putRecipe(Items.ALLIUM, BlockRegistry.FAKE_ALLIUM);
-		putRecipe(Items.AZURE_BLUET, BlockRegistry.FAKE_AZURE_BLUET);
-		putRecipe(Items.BLUE_ORCHID, BlockRegistry.FAKE_BLUE_ORCHID);
-		putRecipe(Items.CORNFLOWER, BlockRegistry.FAKE_CORNFLOWER);
-		putRecipe(Items.DANDELION, BlockRegistry.FAKE_DANDELION);
-		putRecipe(Items.DEAD_BUSH, BlockRegistry.FAKE_DEAD_BUSH);
-		putRecipe(Items.FERN, BlockRegistry.FAKE_FERN);
-		putRecipe(Items.LARGE_FERN, BlockRegistry.FAKE_TALL_FERN);
-		putRecipe(Items.GRASS, BlockRegistry.FAKE_GRASS);
-		putRecipe(Items.TALL_GRASS, BlockRegistry.FAKE_TALL_GRASS);
-		putRecipe(Items.SUNFLOWER, BlockRegistry.FAKE_SUNFLOWER);
-		putRecipe(Items.LILAC, BlockRegistry.FAKE_LILAC);
-		putRecipe(Items.ROSE_BUSH, BlockRegistry.FAKE_ROSEBUSH);
-		putRecipe(Items.PEONY, BlockRegistry.FAKE_PEONY);
+		putRecipe(Items.ALLIUM, NWISBlocks.FAKE_ALLIUM);
+		putRecipe(Items.AZURE_BLUET, NWISBlocks.FAKE_AZURE_BLUET);
+		putRecipe(Items.BLUE_ORCHID, NWISBlocks.FAKE_BLUE_ORCHID);
+		putRecipe(Items.CORNFLOWER, NWISBlocks.FAKE_CORNFLOWER);
+		putRecipe(Items.DANDELION, NWISBlocks.FAKE_DANDELION);
+		putRecipe(Items.DEAD_BUSH, NWISBlocks.FAKE_DEAD_BUSH);
+		putRecipe(Items.FERN, NWISBlocks.FAKE_FERN);
+		putRecipe(Items.LARGE_FERN, NWISBlocks.FAKE_TALL_FERN);
+		putRecipe(Items.GRASS, NWISBlocks.FAKE_GRASS);
+		putRecipe(Items.TALL_GRASS, NWISBlocks.FAKE_TALL_GRASS);
+		putRecipe(Items.SUNFLOWER, NWISBlocks.FAKE_SUNFLOWER);
+		putRecipe(Items.LILAC, NWISBlocks.FAKE_LILAC);
+		putRecipe(Items.ROSE_BUSH, NWISBlocks.FAKE_ROSEBUSH);
+		putRecipe(Items.PEONY, NWISBlocks.FAKE_PEONY);
 		
 		
-		putRecipe(Items.WITHER_ROSE, BlockRegistry.FAKE_WITHER_ROSE);
-		putRecipe(Items.LILY_OF_THE_VALLEY, BlockRegistry.FAKE_LILY_OF_THE_VALLEY);
-		putRecipe(Items.OXEYE_DAISY, BlockRegistry.FAKE_OXEYE_DAISY);
-		putRecipe(Items.ORANGE_TULIP, BlockRegistry.FAKE_ORANGE_TULIP);
-		putRecipe(Items.PINK_TULIP, BlockRegistry.FAKE_PINK_TULIP);
-		putRecipe(Items.RED_TULIP, BlockRegistry.FAKE_RED_TULIP);
-		putRecipe(Items.WHITE_TULIP, BlockRegistry.FAKE_WHITE_TULIP);
+		putRecipe(Items.WITHER_ROSE, NWISBlocks.FAKE_WITHER_ROSE);
+		putRecipe(Items.LILY_OF_THE_VALLEY, NWISBlocks.FAKE_LILY_OF_THE_VALLEY);
+		putRecipe(Items.OXEYE_DAISY, NWISBlocks.FAKE_OXEYE_DAISY);
+		putRecipe(Items.ORANGE_TULIP, NWISBlocks.FAKE_ORANGE_TULIP);
+		putRecipe(Items.PINK_TULIP, NWISBlocks.FAKE_PINK_TULIP);
+		putRecipe(Items.RED_TULIP, NWISBlocks.FAKE_RED_TULIP);
+		putRecipe(Items.WHITE_TULIP, NWISBlocks.FAKE_WHITE_TULIP);
 
-		putRecipe(Items.CRIMSON_NYLIUM, BlockRegistry.STATIC_NYLIUM_CRIMSON);
-		putRecipe(Items.WARPED_NYLIUM, BlockRegistry.STATIC_NYLIUM_WARPED);
+		putRecipe(Items.CRIMSON_NYLIUM, NWISBlocks.STATIC_NYLIUM_CRIMSON);
+		putRecipe(Items.WARPED_NYLIUM, NWISBlocks.STATIC_NYLIUM_WARPED);
 
-		putRecipe(Items.WEEPING_VINES, BlockRegistry.FAKE_WEEPING_VINE);
-		putRecipe(Items.TWISTING_VINES, BlockRegistry.FAKE_TWISTING_VINE);
-		putRecipe(Items.CRIMSON_ROOTS, BlockRegistry.FAKE_CRIMSON_ROOT);
-		putRecipe(Items.WARPED_ROOTS, BlockRegistry.FAKE_WARPED_ROOT);
-		putRecipe(Items.WARPED_FUNGUS, BlockRegistry.FAKE_WARPED_FUNGUS);
-		putRecipe(Items.CRIMSON_FUNGUS, BlockRegistry.FAKE_CRIMSON_FUNGUS);
+		putRecipe(Items.WEEPING_VINES, NWISBlocks.FAKE_WEEPING_VINE);
+		putRecipe(Items.TWISTING_VINES, NWISBlocks.FAKE_TWISTING_VINE);
+		putRecipe(Items.CRIMSON_ROOTS, NWISBlocks.FAKE_CRIMSON_ROOT);
+		putRecipe(Items.WARPED_ROOTS, NWISBlocks.FAKE_WARPED_ROOT);
+		putRecipe(Items.WARPED_FUNGUS, NWISBlocks.FAKE_WARPED_FUNGUS);
+		putRecipe(Items.CRIMSON_FUNGUS, NWISBlocks.FAKE_CRIMSON_FUNGUS);
 
-		putRecipe(Items.NETHER_SPROUTS, BlockRegistry.FAKE_NETHER_SPROUT);
-		putRecipe(Items.CHAIN, BlockRegistry.FAKE_CHAIN);
-		putRecipe(Items.LANTERN, BlockRegistry.FAKE_LANTERN);
-		putRecipe(Items.SOUL_LANTERN, BlockRegistry.FAKE_SOUL_LANTERN);
+		putRecipe(Items.NETHER_SPROUTS, NWISBlocks.FAKE_NETHER_SPROUT);
+		putRecipe(Items.CHAIN, NWISBlocks.FAKE_CHAIN);
+		putRecipe(Items.LANTERN, NWISBlocks.FAKE_LANTERN);
+		putRecipe(Items.SOUL_LANTERN, NWISBlocks.FAKE_SOUL_LANTERN);
 		//
 		if (NotWhatItSeems.atmospheric) {
-			addModdedRecipe("atmospheric", "rosewood_sapling", BlockRegistry.ROSEWOOD_SAPLING);
-			addModdedRecipe("atmospheric", "yucca_sapling", BlockRegistry.YUCCA_SAPLING);
-			addModdedRecipe("atmospheric", "aspen_sapling", BlockRegistry.ASPEN_SAPLING);
-			addModdedRecipe("atmospheric", "kousa_sapling", BlockRegistry.KOUSA_SAPLING);
-			addModdedRecipe("atmospheric", "passion_vine", BlockRegistry.PASSION_VINE);
+			addModdedRecipe("atmospheric", "rosewood_sapling", NWISBlocks.ROSEWOOD_SAPLING);
+			addModdedRecipe("atmospheric", "yucca_sapling", NWISBlocks.YUCCA_SAPLING);
+			addModdedRecipe("atmospheric", "aspen_sapling", NWISBlocks.ASPEN_SAPLING);
+			addModdedRecipe("atmospheric", "kousa_sapling", NWISBlocks.KOUSA_SAPLING);
+			addModdedRecipe("atmospheric", "passion_vine", NWISBlocks.PASSION_VINE);
 		}
 		if (NotWhatItSeems.atumwhatever) {
-			addModdedRecipe("autumnity", "maple_sapling", BlockRegistry.MAPLE_SAPLING);
-			addModdedRecipe("autumnity", "red_maple_sapling", BlockRegistry.MAPLE_SAPLING_RED);
-			addModdedRecipe("autumnity", "orange_maple_sapling", BlockRegistry.MAPLE_SAPLING_ORANGE);
-			addModdedRecipe("autumnity", "yellow_maple_sapling", BlockRegistry.MAPLE_SAPLING_YELLOW);
+			addModdedRecipe("autumnity", "maple_sapling", NWISBlocks.MAPLE_SAPLING);
+			addModdedRecipe("autumnity", "red_maple_sapling", NWISBlocks.MAPLE_SAPLING_RED);
+			addModdedRecipe("autumnity", "orange_maple_sapling", NWISBlocks.MAPLE_SAPLING_ORANGE);
+			addModdedRecipe("autumnity", "yellow_maple_sapling", NWISBlocks.MAPLE_SAPLING_YELLOW);
 		}
 		if (NotWhatItSeems.environmental) {
-			addModdedRecipe("environmental", "blue_wisteria_sapling", BlockRegistry.WISTERIA_BLUE);
-			addModdedRecipe("environmental", "pink_wisteria_sapling", BlockRegistry.WISTERIA_PINK);
-			addModdedRecipe("environmental", "purple_wisteria_sapling", BlockRegistry.WISTERIA_PURPLE);
-			addModdedRecipe("environmental", "white_wisteria_sapling", BlockRegistry.WISTERIA_WHITE);
+			addModdedRecipe("environmental", "blue_wisteria_sapling", NWISBlocks.WISTERIA_BLUE);
+			addModdedRecipe("environmental", "pink_wisteria_sapling", NWISBlocks.WISTERIA_PINK);
+			addModdedRecipe("environmental", "purple_wisteria_sapling", NWISBlocks.WISTERIA_PURPLE);
+			addModdedRecipe("environmental", "white_wisteria_sapling", NWISBlocks.WISTERIA_WHITE);
 		}
 		if (NotWhatItSeems.endergetic) {
-			addModdedRecipe("endergetic", "poise_grass_block", BlockRegistry.STATIC_POSIMOSS);
-			addModdedRecipe("endergetic", "poismoss_eumus", BlockRegistry.STATIC_POSIMOSS_EUMUS);
-			addModdedRecipe("endergetic", "poise_cluster", BlockRegistry.STATIC_POISE_CLUSTER);
+			addModdedRecipe("endergetic", "poise_grass_block", NWISBlocks.STATIC_POSIMOSS);
+			addModdedRecipe("endergetic", "poismoss_eumus", NWISBlocks.STATIC_POSIMOSS_EUMUS);
+			addModdedRecipe("endergetic", "poise_cluster", NWISBlocks.STATIC_POISE_CLUSTER);
 		}
 		if (NotWhatItSeems.quark) {
-			addModdedRecipe("quark", "glowcelium", BlockRegistry.FAKE_GLOWCELIUM);
-			addModdedRecipe("quark", "glowshroom", BlockRegistry.FAKE_GLOWSHROOM);
-			addModdedRecipe("quark", "glowshroom_stem", BlockRegistry.FAKE_BIG_GLOWSHROOM_STEM);
-			addModdedRecipe("quark", "glowshroom_block", BlockRegistry.FAKE_BIG_GLOWSHROOM);
+			addModdedRecipe("quark", "glowcelium", NWISBlocks.FAKE_GLOWCELIUM);
+			addModdedRecipe("quark", "glowshroom", NWISBlocks.FAKE_GLOWSHROOM);
+			addModdedRecipe("quark", "glowshroom_stem", NWISBlocks.FAKE_BIG_GLOWSHROOM_STEM);
+			addModdedRecipe("quark", "glowshroom_block", NWISBlocks.FAKE_BIG_GLOWSHROOM);
 			
-			addModdedRecipe("quark", "blue_blossom_sapling", BlockRegistry.FROSTY_SAPLING);
-			addModdedRecipe("quark", "lavender_blossom_sapling", BlockRegistry.SERENE_SAPLING);
-			addModdedRecipe("quark", "orange_blossom_sapling", BlockRegistry.WARM_SAPLING);
-			addModdedRecipe("quark", "pink_blossom_sapling", BlockRegistry.SWEET_SAPLING);
-			addModdedRecipe("quark", "yellow_blossom_sapling", BlockRegistry.SUNNY_SAPLING);
+			addModdedRecipe("quark", "blue_blossom_sapling", NWISBlocks.FROSTY_SAPLING);
+			addModdedRecipe("quark", "lavender_blossom_sapling", NWISBlocks.SERENE_SAPLING);
+			addModdedRecipe("quark", "orange_blossom_sapling", NWISBlocks.WARM_SAPLING);
+			addModdedRecipe("quark", "pink_blossom_sapling", NWISBlocks.SWEET_SAPLING);
+			addModdedRecipe("quark", "yellow_blossom_sapling", NWISBlocks.SUNNY_SAPLING);
 			
 			
 		}
 		if (NotWhatItSeems.environmental) {
-			addModdedRecipe("environmental", "rice", BlockRegistry.RICE);
-			addModdedRecipe("environmental", "cattail", BlockRegistry.CATTAIL_SPROUT);
-			addModdedRecipe("environmental", "willow_sapling", BlockRegistry.WILLOW_SAPLING);
+			addModdedRecipe("environmental", "rice", NWISBlocks.RICE);
+			addModdedRecipe("environmental", "cattail", NWISBlocks.CATTAIL_SPROUT);
+			addModdedRecipe("environmental", "willow_sapling", NWISBlocks.WILLOW_SAPLING);
 		}
 		if (NotWhatItSeems.ua) {
-			addModdedRecipe("upgrade_aquatic", "pickerel_weed_blue", BlockRegistry.PICKELREED_BLUE);
-			addModdedRecipe("upgrade_aquatic", "pickerel_weed_purple", BlockRegistry.PICKELREED_PURPLE);
-			addModdedRecipe("upgrade_aquatic", "beachgrass", BlockRegistry.BEACHGRASS);
-			addModdedRecipe("upgrade_aquatic", "tall_beachgrass", BlockRegistry.BEACHGRASS_SMOL);
-			addModdedRecipe("upgrade_aquatic", "elder_prismarine_coral_shower", BlockRegistry.ELDER_PRISMARINE_SHOWER);
-			addModdedRecipe("upgrade_aquatic", "prismarine_coral_shower", BlockRegistry.PRISMARINE_SHOWER);
+			addModdedRecipe("upgrade_aquatic", "pickerel_weed_blue", NWISBlocks.PICKELREED_BLUE);
+			addModdedRecipe("upgrade_aquatic", "pickerel_weed_purple", NWISBlocks.PICKELREED_PURPLE);
+			addModdedRecipe("upgrade_aquatic", "beachgrass", NWISBlocks.BEACHGRASS);
+			addModdedRecipe("upgrade_aquatic", "tall_beachgrass", NWISBlocks.BEACHGRASS_SMOL);
+			addModdedRecipe("upgrade_aquatic", "elder_prismarine_coral_shower", NWISBlocks.ELDER_PRISMARINE_SHOWER);
+			addModdedRecipe("upgrade_aquatic", "prismarine_coral_shower", NWISBlocks.PRISMARINE_SHOWER);
 			
-			addModdedRecipe("upgrade_aquatic", "tongue_kelp", BlockRegistry.KELP_TONGUE);
-			addModdedRecipe("upgrade_aquatic", "ochre_kelp", BlockRegistry.KELP_OCHRE);
-			addModdedRecipe("upgrade_aquatic", "polar_kelp", BlockRegistry.KELP_POLAR);
-			addModdedRecipe("upgrade_aquatic", "thorny_kelp", BlockRegistry.KELP_THORNY);
+			addModdedRecipe("upgrade_aquatic", "tongue_kelp", NWISBlocks.KELP_TONGUE);
+			addModdedRecipe("upgrade_aquatic", "ochre_kelp", NWISBlocks.KELP_OCHRE);
+			addModdedRecipe("upgrade_aquatic", "polar_kelp", NWISBlocks.KELP_POLAR);
+			addModdedRecipe("upgrade_aquatic", "thorny_kelp", NWISBlocks.KELP_THORNY);
 
 		}
 		if (NotWhatItSeems.buzzierbees) {
-			addModdedRecipe("buzzierbees", "magenta_hibiscus", BlockRegistry.FAKE_HIBISCUS_MAGENTA);
-			addModdedRecipe("buzzierbees", "orange_hibiscus", BlockRegistry.FAKE_HIBISCUS_ORANGE);
-			addModdedRecipe("buzzierbees", "pink_hibiscus", BlockRegistry.FAKE_HIBISCUS_PINK);
-			addModdedRecipe("buzzierbees", "purple_hibiscus", BlockRegistry.FAKE_HIBISCUS_PURPLE);
-			addModdedRecipe("buzzierbees", "red_hibiscus", BlockRegistry.FAKE_HIBISCUS_RED);
-			addModdedRecipe("buzzierbees", "daybloom", BlockRegistry.FAKE_HIBISCUS_YELLOW);
+			addModdedRecipe("buzzierbees", "magenta_hibiscus", NWISBlocks.FAKE_HIBISCUS_MAGENTA);
+			addModdedRecipe("buzzierbees", "orange_hibiscus", NWISBlocks.FAKE_HIBISCUS_ORANGE);
+			addModdedRecipe("buzzierbees", "pink_hibiscus", NWISBlocks.FAKE_HIBISCUS_PINK);
+			addModdedRecipe("buzzierbees", "purple_hibiscus", NWISBlocks.FAKE_HIBISCUS_PURPLE);
+			addModdedRecipe("buzzierbees", "red_hibiscus", NWISBlocks.FAKE_HIBISCUS_RED);
+			addModdedRecipe("buzzierbees", "daybloom", NWISBlocks.FAKE_HIBISCUS_YELLOW);
 			
-			addModdedRecipe("buzzierbees", "jolyce", BlockRegistry.FAKE_DIANTHUS);
-			addModdedRecipe("buzzierbees", "cartwheel", BlockRegistry.FAKE_CARTWHEEL);
-			addModdedRecipe("buzzierbees", "bluebell", BlockRegistry.FAKE_BLUEBELL);
-			addModdedRecipe("buzzierbees", "columbine", BlockRegistry.FAKE_COLUMBINE);
-			addModdedRecipe("buzzierbees", "pink_clover", BlockRegistry.FAKE_PINK_CLOVER);
-			addModdedRecipe("buzzierbees", "white_clover", BlockRegistry.FAKE_WHITE_CLOVER);
-			addModdedRecipe("buzzierbees", "violet", BlockRegistry.FAKE_VIOLET);
-			addModdedRecipe("buzzierbees", "bird_of_paradise", BlockRegistry.FAKE_BIRD_OF_PARADISE);
+			addModdedRecipe("buzzierbees", "jolyce", NWISBlocks.FAKE_DIANTHUS);
+			addModdedRecipe("buzzierbees", "cartwheel", NWISBlocks.FAKE_CARTWHEEL);
+			addModdedRecipe("buzzierbees", "bluebell", NWISBlocks.FAKE_BLUEBELL);
+			addModdedRecipe("buzzierbees", "columbine", NWISBlocks.FAKE_COLUMBINE);
+			addModdedRecipe("buzzierbees", "pink_clover", NWISBlocks.FAKE_PINK_CLOVER);
+			addModdedRecipe("buzzierbees", "white_clover", NWISBlocks.FAKE_WHITE_CLOVER);
+			addModdedRecipe("buzzierbees", "violet", NWISBlocks.FAKE_VIOLET);
+			addModdedRecipe("buzzierbees", "bird_of_paradise", NWISBlocks.FAKE_BIRD_OF_PARADISE);
 			
 		}
 		if (NotWhatItSeems.ua) {
@@ -243,7 +233,7 @@ public class ImposterContainer extends Container {
 	}
 	
 	public ImposterContainer(int windowIdIn, PlayerInventory playerInv, final IWorldPosCallable worldPosCallableIn) {
-		super(TileEntityRegistry.COPIER.get(), windowIdIn);
+		super(NWISTileEntities.COPIER.get(), windowIdIn);
 		addBlocks();
 		this.callable = worldPosCallableIn;
 		this.addSlot(new Slot(this.inputInventory, 0, 44, 20) {

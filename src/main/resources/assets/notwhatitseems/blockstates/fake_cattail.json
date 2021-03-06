@@ -1,5 +1,5 @@
 {
     "variants": {
-        "": { "model": "swampexpansion:block/cattail" }
+        "": { "model": "environmental:block/cattail" }
     }
 }

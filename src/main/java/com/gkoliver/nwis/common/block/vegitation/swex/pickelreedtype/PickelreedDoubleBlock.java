@@ -1,7 +1,7 @@
 package com.gkoliver.nwis.common.block.vegitation.swex.pickelreedtype;
 
 import com.gkoliver.nwis.common.block.vegitation.swex.CropSproutBlock;
-import com.gkoliver.nwis.core.register.BlockRegistry;
+import com.gkoliver.nwis.core.register.NWISBlocks;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -16,7 +16,6 @@ import net.minecraft.state.EnumProperty;
 import net.minecraft.state.StateContainer.Builder;
 import net.minecraft.state.properties.BlockStateProperties;
 import net.minecraft.state.properties.DoubleBlockHalf;
-import net.minecraft.state.properties.Half;
 import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Direction;
 import net.minecraft.util.Hand;
@@ -44,11 +43,11 @@ public class PickelreedDoubleBlock extends Block implements IWaterLoggable {
 			BlockState downState = null; 
 			BlockState upState = null;
 			if (color==0) {
-				downState = BlockRegistry.PICKELREED_BLUE_BIG.get().getDefaultState().with(HALF, DoubleBlockHalf.LOWER);
-				upState = BlockRegistry.PICKELREED_BLUE_BIG.get().getDefaultState().with(HALF, DoubleBlockHalf.UPPER);
+				downState = NWISBlocks.PICKELREED_BLUE_BIG.get().getDefaultState().with(HALF, DoubleBlockHalf.LOWER);
+				upState = NWISBlocks.PICKELREED_BLUE_BIG.get().getDefaultState().with(HALF, DoubleBlockHalf.UPPER);
 			} else {
-				downState = BlockRegistry.PICKELREED_PURPLE_BIG.get().getDefaultState().with(HALF, DoubleBlockHalf.LOWER);
-				upState = BlockRegistry.PICKELREED_PURPLE_BIG.get().getDefaultState().with(HALF, DoubleBlockHalf.UPPER);
+				downState = NWISBlocks.PICKELREED_PURPLE_BIG.get().getDefaultState().with(HALF, DoubleBlockHalf.LOWER);
+				upState = NWISBlocks.PICKELREED_PURPLE_BIG.get().getDefaultState().with(HALF, DoubleBlockHalf.UPPER);
 			}
 			if (isWaterlogged) {
 				downState = downState.with(WATERLOGGED, true);
@@ -83,10 +82,10 @@ public class PickelreedDoubleBlock extends Block implements IWaterLoggable {
 				BlockPos newPos = pos.down();
 				BlockState stateHere = null;
 				BlockState newerState = null;
-				if (this == BlockRegistry.PICKELREED_BLUE_BIG.get()) {
-					newerState = BlockRegistry.PICKELREED_BLUE.get().getDefaultState();
+				if (this == NWISBlocks.PICKELREED_BLUE_BIG.get()) {
+					newerState = NWISBlocks.PICKELREED_BLUE.get().getDefaultState();
 				} else {
-					newerState = BlockRegistry.PICKELREED_PURPLE.get().getDefaultState();
+					newerState = NWISBlocks.PICKELREED_PURPLE.get().getDefaultState();
 				}
 				
 				if (isWater) {
@@ -103,10 +102,10 @@ public class PickelreedDoubleBlock extends Block implements IWaterLoggable {
 				BlockPos newPos = pos.up();
 				BlockState stateHere = null;
 				BlockState newerState = null;
-				if (this == BlockRegistry.PICKELREED_BLUE_BIG.get()) {
-					stateHere = BlockRegistry.PICKELREED_BLUE.get().getDefaultState();
+				if (this == NWISBlocks.PICKELREED_BLUE_BIG.get()) {
+					stateHere = NWISBlocks.PICKELREED_BLUE.get().getDefaultState();
 				} else {
-					stateHere = BlockRegistry.PICKELREED_PURPLE.get().getDefaultState();
+					stateHere = NWISBlocks.PICKELREED_PURPLE.get().getDefaultState();
 				}
 				
 				if (isWater) {

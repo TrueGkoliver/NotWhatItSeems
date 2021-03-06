@@ -1,8 +1,7 @@
 package com.gkoliver.nwis.common.block.vegitation.swex;
 
 import com.gkoliver.nwis.NotWhatItSeems;
-import com.gkoliver.nwis.core.register.BlockRegistry;
-import com.google.common.util.concurrent.Service.State;
+import com.gkoliver.nwis.core.register.NWISBlocks;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -20,7 +19,6 @@ import net.minecraft.state.EnumProperty;
 import net.minecraft.state.StateContainer.Builder;
 import net.minecraft.state.properties.BlockStateProperties;
 import net.minecraft.state.properties.DoubleBlockHalf;
-import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Direction;
 import net.minecraft.util.Hand;
@@ -29,7 +27,6 @@ import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.World;
-import net.minecraftforge.fml.RegistryObject;
 
 public class DoubleDoubleCropBlock extends Block implements IWaterLoggable{
 	public static BooleanProperty isDone = BooleanProperty.create("grown");
@@ -53,11 +50,11 @@ public class DoubleDoubleCropBlock extends Block implements IWaterLoggable{
 				 BlockState newstate = null;
 				 BlockState newstate_up = null;
 				 if (i.get(SingleDoubleCropBlock.WATERLOGGED)) {
-					 newstate = BlockRegistry.CATTAIL_BIG.get().getDefaultState().with(blockHalf, DoubleBlockHalf.LOWER).with(isDone, false).with(WATERLOGGED, true);
+					 newstate = NWISBlocks.CATTAIL_BIG.get().getDefaultState().with(blockHalf, DoubleBlockHalf.LOWER).with(isDone, false).with(WATERLOGGED, true);
 				 } else {
-					 newstate = BlockRegistry.CATTAIL_BIG.get().getDefaultState().with(blockHalf, DoubleBlockHalf.LOWER).with(isDone, false).with(WATERLOGGED, false);
+					 newstate = NWISBlocks.CATTAIL_BIG.get().getDefaultState().with(blockHalf, DoubleBlockHalf.LOWER).with(isDone, false).with(WATERLOGGED, false);
 				 }
-				 newstate_up = BlockRegistry.CATTAIL_BIG.get().getDefaultState().with(blockHalf, DoubleBlockHalf.UPPER).with(isDone, false);
+				 newstate_up = NWISBlocks.CATTAIL_BIG.get().getDefaultState().with(blockHalf, DoubleBlockHalf.UPPER).with(isDone, false);
 				 if (worldIn.getBlockState(lower_pos.up()).getBlock() == Blocks.WATER) {
 					 newstate_up = newstate_up.with(WATERLOGGED, true);
 				 }
@@ -91,10 +88,10 @@ public class DoubleDoubleCropBlock extends Block implements IWaterLoggable{
 				BlockState newerState = null;
 				if (isWater) {
 					stateHere = Blocks.WATER.getDefaultState();
-					newerState = BlockRegistry.CATTAIL_SPROUT.get().getDefaultState().with(CropSproutBlock.WATERLOGGED, true);
+					newerState = NWISBlocks.CATTAIL_SPROUT.get().getDefaultState().with(CropSproutBlock.WATERLOGGED, true);
 				} else {
 					stateHere = Blocks.AIR.getDefaultState();
-					newerState = BlockRegistry.CATTAIL_SPROUT.get().getDefaultState();
+					newerState = NWISBlocks.CATTAIL_SPROUT.get().getDefaultState();
 				}
 				
 				
@@ -112,9 +109,9 @@ public class DoubleDoubleCropBlock extends Block implements IWaterLoggable{
 				}
 				isWater = worldIn.getBlockState(pos).get(WATERLOGGED);
 				if (isWater) {
-					stateHere = BlockRegistry.CATTAIL_SPROUT.get().getDefaultState().with(CropSproutBlock.WATERLOGGED, true);
+					stateHere = NWISBlocks.CATTAIL_SPROUT.get().getDefaultState().with(CropSproutBlock.WATERLOGGED, true);
 				} else {
-					stateHere = BlockRegistry.CATTAIL_SPROUT.get().getDefaultState();
+					stateHere = NWISBlocks.CATTAIL_SPROUT.get().getDefaultState();
 				}
 				worldIn.setBlockState(pos, stateHere);
 				worldIn.setBlockState(newPos, newerState);

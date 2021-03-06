@@ -2,12 +2,11 @@ package com.gkoliver.nwis.common.block.other;
 
 import java.util.HashMap;
 
-import com.gkoliver.nwis.core.register.BlockRegistry;
+import com.gkoliver.nwis.core.register.NWISBlocks;
 import com.gkoliver.nwis.core.util.SharedFunctions;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.FarmlandBlock;
 import net.minecraft.item.BlockItemUseContext;
 import net.minecraft.state.DirectionProperty;
 import net.minecraft.state.StateContainer.Builder;
@@ -40,11 +39,11 @@ public class NWISOrientableBlock extends Block {
 	@Override
 	public boolean propagatesSkylightDown(BlockState state, IBlockReader reader, BlockPos pos) {
 		if (
-				this==BlockRegistry.FAKE_LANTERN.get()
-				||(this==BlockRegistry.FAKE_SOUL_LANTERN.get())
-				||(this==BlockRegistry.FAKE_TORCH.get())
-				||(this==BlockRegistry.FAKE_SOUL_TORCH.get())
-				||(this==BlockRegistry.FAKE_CHAIN.get())
+				this== NWISBlocks.FAKE_LANTERN.get()
+				||(this== NWISBlocks.FAKE_SOUL_LANTERN.get())
+				||(this== NWISBlocks.FAKE_TORCH.get())
+				||(this== NWISBlocks.FAKE_SOUL_TORCH.get())
+				||(this== NWISBlocks.FAKE_CHAIN.get())
 		) {
 			return true;
 		}
@@ -53,14 +52,14 @@ public class NWISOrientableBlock extends Block {
 
 	@Override
 	public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
-		if (this==BlockRegistry.STATIC_PATH.get()) { return SHAPE_DEFAULT.get(state.get(FACING)); }
-		if (this==BlockRegistry.FAKE_TORCH.get()||this==BlockRegistry.FAKE_SOUL_TORCH.get()) {
+		if (this== NWISBlocks.STATIC_PATH.get()) { return SHAPE_DEFAULT.get(state.get(FACING)); }
+		if (this== NWISBlocks.FAKE_TORCH.get()||this== NWISBlocks.FAKE_SOUL_TORCH.get()) {
 			return SHAPE_TORCH.get(state.get(FACING));
 		}
-		if (this==BlockRegistry.FAKE_CHAIN.get()) {
+		if (this== NWISBlocks.FAKE_CHAIN.get()) {
 			return SHAPE_CHAIN.get(state.get(FACING));
 		}
-		if (this==BlockRegistry.FAKE_LANTERN.get()||this==BlockRegistry.FAKE_SOUL_LANTERN.get()) {
+		if (this== NWISBlocks.FAKE_LANTERN.get()||this== NWISBlocks.FAKE_SOUL_LANTERN.get()) {
 			return SHAPE_LANTERN.get(state.get(FACING));
 		}
 		return super.getShape(state, worldIn, pos, context);

@@ -4,7 +4,7 @@ import java.util.Random;
 
 import com.gkoliver.nwis.NotWhatItSeems;
 import com.gkoliver.nwis.common.tile.VoidTileEntity;
-import com.gkoliver.nwis.core.register.BlockRegistry;
+import com.gkoliver.nwis.core.register.NWISBlocks;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.block.ContainerBlock;
@@ -44,13 +44,13 @@ public class VoidBlock extends ContainerBlock {
 		if (!player.isCreative()) {
 			itemstack.attemptDamageItem(1, new Random(), (ServerPlayerEntity)player);
 		}
-		if (this==BlockRegistry.VOID_BLOCK.get()) {
-			BlockState stato = BlockRegistry.RESTRAINED_VOID_BLOCK.get().getDefaultState();
+		if (this== NWISBlocks.VOID_BLOCK.get()) {
+			BlockState stato = NWISBlocks.RESTRAINED_VOID_BLOCK.get().getDefaultState();
 			worldIn.setBlockState(pos, stato);
 			return ActionResultType.SUCCESS;
 		}
-		else if (this==BlockRegistry.VOID_BLOCK_SEMISOLID.get()) {
-			BlockState stato = BlockRegistry.RESTRAINED_VOID_BLOCK_SEMI.get().getDefaultState();
+		else if (this== NWISBlocks.VOID_BLOCK_SEMISOLID.get()) {
+			BlockState stato = NWISBlocks.RESTRAINED_VOID_BLOCK_SEMI.get().getDefaultState();
 			worldIn.setBlockState(pos, stato);
 			return ActionResultType.SUCCESS;
 		}

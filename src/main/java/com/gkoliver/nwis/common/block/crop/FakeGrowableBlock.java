@@ -1,13 +1,10 @@
 package com.gkoliver.nwis.common.block.crop;
 
-import java.util.Random;
-
 import com.gkoliver.nwis.NotWhatItSeems;
-import com.gkoliver.nwis.core.register.BlockRegistry;
+import com.gkoliver.nwis.core.register.NWISBlocks;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.IGrowable;
 import net.minecraft.block.IWaterLoggable;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.ServerPlayerEntity;
@@ -28,7 +25,6 @@ import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.World;
-import net.minecraft.world.server.ServerWorld;
 
 public class FakeGrowableBlock extends Block implements IWaterLoggable {
 	int stages;
@@ -117,11 +113,11 @@ public class FakeGrowableBlock extends Block implements IWaterLoggable {
 					worldIn.setBlockState(pos, state.with(AGE, 0));
 				} else {
 					if (this.type == ECropTypes.MELON_STEM) {
-						BlockState stateIn = FakeAttachedBlock.getWithDirection(BlockRegistry.FAKE_MELON_STEM_ATTACHED.get().getDefaultState(), player.getHorizontalFacing());
+						BlockState stateIn = FakeAttachedBlock.getWithDirection(NWISBlocks.FAKE_MELON_STEM_ATTACHED.get().getDefaultState(), player.getHorizontalFacing());
 						worldIn.setBlockState(pos, stateIn);
 						
 					} else {
-						BlockState stateIn = FakeAttachedBlock.getWithDirection(BlockRegistry.FAKE_PUMPKIN_STEM_ATTACHED.get().getDefaultState(), player.getHorizontalFacing());
+						BlockState stateIn = FakeAttachedBlock.getWithDirection(NWISBlocks.FAKE_PUMPKIN_STEM_ATTACHED.get().getDefaultState(), player.getHorizontalFacing());
 						worldIn.setBlockState(pos, stateIn);
 					}
 					
