@@ -1,7 +1,7 @@
 package com.gkoliver.nwis.core.register;
 
 import com.gkoliver.nwis.NotWhatItSeems;
-import com.gkoliver.nwis.common.gui.ImposterContainer;
+import com.gkoliver.nwis.common.gui.CopierContainer;
 import com.gkoliver.nwis.common.tile.VoidTileEntity;
 import com.gkoliver.nwis.common.tile.RestrainedVoidTileEntity;
 import com.google.common.collect.Sets;
@@ -23,13 +23,13 @@ public class NWISTileEntities {
 	public static final DeferredRegister<ContainerType<?>> CONTAINERS = DeferredRegister.create(ForgeRegistries.CONTAINERS, NotWhatItSeems.MODID);
 	
 	
-	static IFactory<ImposterContainer> i = new ContainerType.IFactory<ImposterContainer>() {
+	static IFactory<CopierContainer> i = new ContainerType.IFactory<CopierContainer>() {
 
 		@Override
-		public ImposterContainer create(int id, PlayerInventory inv) {
-			return new ImposterContainer(id, inv, IWorldPosCallable.DUMMY);
+		public CopierContainer create(int id, PlayerInventory inv) {
+			return new CopierContainer(id, inv, IWorldPosCallable.DUMMY);
 		}
 	};
 	
-	public static final RegistryObject<ContainerType<ImposterContainer>> COPIER = CONTAINERS.register("co_copier", ()->new ContainerType<>(i));
+	public static final RegistryObject<ContainerType<CopierContainer>> COPIER = CONTAINERS.register("co_copier", ()->new ContainerType<>(i));
 }

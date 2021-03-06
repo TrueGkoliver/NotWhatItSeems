@@ -1,23 +1,17 @@
 package com.gkoliver.nwis.common.block.other;
 
-import com.gkoliver.nwis.common.gui.ImposterContainer;
+import com.gkoliver.nwis.common.gui.CopierContainer;
 import com.gkoliver.nwis.core.config.NWISConfig;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.ContainerBlock;
 import net.minecraft.block.HorizontalBlock;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.inventory.container.INamedContainerProvider;
 import net.minecraft.inventory.container.SimpleNamedContainerProvider;
-import net.minecraft.inventory.container.WorkbenchContainer;
 import net.minecraft.item.BlockItemUseContext;
-import net.minecraft.state.EnumProperty;
 import net.minecraft.state.StateContainer;
-import net.minecraft.state.properties.BlockStateProperties;
-import net.minecraft.stats.Stats;
-import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Hand;
 import net.minecraft.util.IWorldPosCallable;
@@ -25,15 +19,12 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TranslationTextComponent;
-import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.network.NetworkHooks;
 
-import javax.annotation.Nullable;
-
-public class ImposterStationBlock extends HorizontalBlock {
+public class CopierBlock extends HorizontalBlock {
 	private static final ITextComponent NAME = new TranslationTextComponent("container.copier");
-	public ImposterStationBlock(Properties builder) {
+	public CopierBlock(Properties builder) {
 		super(builder);
 	}
 
@@ -52,7 +43,7 @@ public class ImposterStationBlock extends HorizontalBlock {
 		if (worldIn.isRemote) {
 	         return ActionResultType.SUCCESS;
 	      } else {
-	    	 ImposterContainer.isDragonEgg = NWISConfig.CONFIG.DRAGON_EGG.get();
+	    	 CopierContainer.isDragonEgg = NWISConfig.CONFIG.DRAGON_EGG.get();
 	    	 NetworkHooks.openGui((ServerPlayerEntity)player, state.getContainer(worldIn, pos));
 	         return ActionResultType.SUCCESS;
 	      }
@@ -60,7 +51,7 @@ public class ImposterStationBlock extends HorizontalBlock {
 	@Override
 	public INamedContainerProvider getContainer(BlockState state, World worldIn, BlockPos pos) {
 	      return new SimpleNamedContainerProvider((p_220270_2_, p_220270_3_, p_220270_4_) -> {
-	         return new ImposterContainer(p_220270_2_, p_220270_3_, IWorldPosCallable.of(worldIn, pos));
+	         return new CopierContainer(p_220270_2_, p_220270_3_, IWorldPosCallable.of(worldIn, pos));
 	      }, NAME);
 	}
 

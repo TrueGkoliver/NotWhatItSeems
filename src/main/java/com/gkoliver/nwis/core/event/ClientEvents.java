@@ -5,7 +5,7 @@ import java.util.Iterator;
 import com.gkoliver.nwis.NotWhatItSeems;
 import com.gkoliver.nwis.client.render.RestrainedVoidTileEntityRenderer;
 import com.gkoliver.nwis.client.render.VoidBlockTileEntityRenderer;
-import com.gkoliver.nwis.common.gui.ImposterScreen;
+import com.gkoliver.nwis.common.gui.CopierScreen;
 import com.gkoliver.nwis.core.keybind.InverseKeybind;
 import com.gkoliver.nwis.core.register.NWISBlocks;
 import com.gkoliver.nwis.core.register.NWISTileEntities;
@@ -53,7 +53,7 @@ public class ClientEvents {
 		RenderTypeLookup.setRenderLayer(NWISBlocks.STATIC_POISE_CLUSTER.get(), RenderType.getTranslucent());
 		ClientRegistry.bindTileEntityRenderer(NWISTileEntities.VOID_BLOCK.get(), VoidBlockTileEntityRenderer::new);
 		ClientRegistry.bindTileEntityRenderer(NWISTileEntities.RESTAINED_VOID_BLOCK.get(), RestrainedVoidTileEntityRenderer::new);
-		ScreenManager.registerFactory(NWISTileEntities.COPIER.get(), ImposterScreen::new);
+		ScreenManager.registerFactory(NWISTileEntities.COPIER.get(), CopierScreen::new);
 		InverseKeybind.addKey();
 	}
 	@SubscribeEvent

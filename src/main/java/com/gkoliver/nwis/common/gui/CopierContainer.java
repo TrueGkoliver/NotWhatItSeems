@@ -25,7 +25,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.ForgeRegistries;
 
-public class ImposterContainer extends Container {
+public class CopierContainer extends Container {
 	public static ArrayList<ArrayList<String>> vanilla_corals = new ArrayList<ArrayList<String>>();
 	public static ArrayList<ArrayList<String>> ua_corals = new ArrayList<ArrayList<String>>();
 	public static final HashMap<Item, Item> ITEMS = new HashMap<Item, Item>() {
@@ -224,15 +224,15 @@ public class ImposterContainer extends Container {
 	private final IInventory inputInventory = new Inventory(2) {
 		public void markDirty() {
          	super.markDirty();
-         	ImposterContainer.this.onCraftMatrixChanged(this);
+         	CopierContainer.this.onCraftMatrixChanged(this);
 		}
 	};
 	private IWorldPosCallable callable;
-	public ImposterContainer(ContainerType<?> type, int id) {
+	public CopierContainer(ContainerType<?> type, int id) {
 		super(type, id);
 	}
 	
-	public ImposterContainer(int windowIdIn, PlayerInventory playerInv, final IWorldPosCallable worldPosCallableIn) {
+	public CopierContainer(int windowIdIn, PlayerInventory playerInv, final IWorldPosCallable worldPosCallableIn) {
 		super(NWISTileEntities.COPIER.get(), windowIdIn);
 		addBlocks();
 		this.callable = worldPosCallableIn;
