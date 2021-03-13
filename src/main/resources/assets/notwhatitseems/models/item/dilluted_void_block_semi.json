@@ -1,4 +1,4 @@
-{{
+{
     "parent": "item/generated",
     "textures": {
         "layer0": "notwhatitseems:item/diluted_void_block"
