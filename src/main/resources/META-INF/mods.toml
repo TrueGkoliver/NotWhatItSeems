@@ -5,7 +5,7 @@ issueTrackerURL="https://github.com/teamauroramods/NotWhatItSeems/issues"
 
 [[mods]]
     modId="notwhatitseems"
-    version="1.4.1"
+    version="${file.jarVersion}"
     displayName="Not What It Seems"
     displayURL="https://discord.gg/VzXSCFp"
     logoFile="logo.png"
